@@ -232,6 +232,10 @@ Animator:
   m_PrefabParentObject: {fileID: 9500000, guid: 412b92d4feeb9c548bfa98f62c4d1022,
     type: 2}
   m_PrefabInternal: {fileID: 2051620152}
+--- !u!4 &401534308 stripped
+Transform:
+  m_PrefabParentObject: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+  m_PrefabInternal: {fileID: 2051620152}
 --- !u!114 &401534309
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 0
   anim: {fileID: 401534307}
-  speed: 3
+  speed: 10
   isDead: 0
 --- !u!1 &630280308
 GameObject:
@@ -409,13 +413,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 716147778}
-  m_LocalRotation: {x: 0.42261827, y: 0, z: 0, w: 0.9063079}
-  m_LocalPosition: {x: 0, y: 13, z: -10}
+  m_LocalRotation: {x: 0.17364816, y: 0, z: 0, w: 0.9848078}
+  m_LocalPosition: {x: 0, y: 5, z: -6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 50, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!114 &716147784
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,9 +431,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 666ebf5e512842246bee7adc878ed18b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fov: 40
+  target: {fileID: 401534308}
+  fov: 30
   isFollowing: 1
-  cameraPosTranslation: {x: 0, y: 11, z: -5}
+  cameraPosTranslation: {x: 0, y: 0, z: 0}
 --- !u!1 &860143798
 GameObject:
   m_ObjectHideFlags: 0

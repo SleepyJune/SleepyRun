@@ -51,7 +51,7 @@ public class TouchInputManager : MonoBehaviour
         if (useMouse && Input.mousePresent)
         {
             if (Input.GetMouseButtonDown(0))
-            {
+            {                
                 var touchData = new Touch();
                 touchData.fingerId = -1;
                 touchData.position = Input.mousePosition;
@@ -59,20 +59,23 @@ public class TouchInputManager : MonoBehaviour
                 
                 lastMousePosition = Input.mousePosition;
 
-                TouchInput newInput;
-                if (inputs.TryGetValue(touchData.fingerId, out newInput))
+                if (!touchData.IsPointerOverUI())
                 {
-                    newInput.startPosition = touchData.position;
-                }
-                else
-                {
-                    newInput = new TouchInput(touchData);
-                    inputs.Add(newInput.id, newInput);
-                }
+                    TouchInput newInput;
+                    if (inputs.TryGetValue(touchData.fingerId, out newInput))
+                    {
+                        newInput.startPosition = touchData.position;
+                    }
+                    else
+                    {
+                        newInput = new TouchInput(touchData);
+                        inputs.Add(newInput.id, newInput);
+                    }
 
-                if (touchStart != null)
-                {
-                    touchStart(touchData);
+                    if (touchStart != null)
+                    {
+                        touchStart(touchData);
+                    }
                 }
             }
 
@@ -82,12 +85,10 @@ public class TouchInputManager : MonoBehaviour
                 touchData.fingerId = -1;
                 touchData.position = Input.mousePosition;
                 touchData.phase = TouchPhase.Moved;
-
-                UpdateTouchPosition(touchData.fingerId, touchData.position);
-
+                                
                 lastMousePosition = Input.mousePosition;
 
-                if (touchMove != null)
+                if (UpdateTouchPosition(touchData.fingerId, touchData.position) && touchMove != null)
                 {
                     touchMove(touchData);
                 }
@@ -99,12 +100,10 @@ public class TouchInputManager : MonoBehaviour
                 touchData.fingerId = -1;
                 touchData.position = Input.mousePosition;
                 touchData.phase = TouchPhase.Ended;
-
-                UpdateTouchPosition(touchData.fingerId, touchData.position);
-
+                                
                 lastMousePosition = Input.mousePosition;
 
-                if (touchEnd != null)
+                if (UpdateTouchPosition(touchData.fingerId, touchData.position) && touchEnd != null)
                 {
                     touchEnd(touchData);
                 }
@@ -119,38 +118,37 @@ public class TouchInputManager : MonoBehaviour
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    TouchInput newInput;
-                    if (inputs.TryGetValue(touch.fingerId, out newInput))
+                    if (!touch.IsPointerOverUI())
                     {
-                        newInput.startPosition = touch.position;
-                    }
-                    else
-                    {
-                        newInput = new TouchInput(touch);
-                        inputs.Add(newInput.id, newInput);
-                    }
+                        TouchInput newInput;
+                        if (inputs.TryGetValue(touch.fingerId, out newInput))
+                        {
+                            newInput.startPosition = touch.position;
+                        }
+                        else
+                        {
+                            newInput = new TouchInput(touch);
+                            inputs.Add(newInput.id, newInput);
+                        }
 
-                    if (touchStart != null)
-                    {
-                        touchStart(touch);
+                        if (touchStart != null)
+                        {
+                            touchStart(touch);
+                        }
                     }
                 }
 
                 if (touch.phase == TouchPhase.Moved)
                 {
-                    UpdateTouchPosition(touch.fingerId, touch.position);
-
-                    if (touchMove != null)
+                    if (UpdateTouchPosition(touch.fingerId, touch.position) && touchMove != null)
                     {
                         touchMove(touch);
                     }
                 }
 
                 if (touch.phase == TouchPhase.Canceled || touch.phase == TouchPhase.Ended)
-                {
-                    UpdateTouchPosition(touch.fingerId, touch.position);
-
-                    if (touchEnd != null)
+                {                    
+                    if (UpdateTouchPosition(touch.fingerId, touch.position) && touchEnd != null)
                     {
                         touchEnd(touch);
                     }
@@ -161,13 +159,17 @@ public class TouchInputManager : MonoBehaviour
         }
     }
 
-    void UpdateTouchPosition(int fingerId, Vector2 position)
+    bool UpdateTouchPosition(int fingerId, Vector2 position)
     {
         TouchInput newInput;
         if (inputs.TryGetValue(fingerId, out newInput))
         {
             newInput.previousPosition = newInput.position;
             newInput.position = position;
+
+            return true;
         }
+
+        return false;
     }
 }
