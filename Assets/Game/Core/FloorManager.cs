@@ -37,9 +37,9 @@ public class FloorManager : MonoBehaviour
 
         Vector3 spawnPos;
 
-        if (currentFloor)
+        if (lastFloor)
         {
-            spawnPos = currentFloor.transform.position + new Vector3(0, 0, currentFloor.length);
+            spawnPos = lastFloor.transform.position + new Vector3(0, 0, lastFloor.length);
         }
         else
         {
@@ -48,23 +48,15 @@ public class FloorManager : MonoBehaviour
         }
 
         lastFloor = Instantiate(randomFloor, spawnPos, Quaternion.identity);
-        currentFloor = lastFloor;
-
+        
         lastFloor.transform.SetParent(floorHolder);
 
-        floors.Enqueue(currentFloor);
+        floors.Enqueue(lastFloor);
     }
 
     void CheckFloors()
     {
-        if (currentFloor)
-        {
-            if (player.transform.position.z - currentFloor.transform.position.z > currentFloor.length / 2)
-            {
-                MakeFloor();
-            }
-        }
-        else
+        if (floors.Count <= 3)
         {
             MakeFloor();
         }

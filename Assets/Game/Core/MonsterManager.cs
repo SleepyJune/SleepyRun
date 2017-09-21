@@ -13,9 +13,9 @@ public class MonsterManager : MonoBehaviour
 
     Vector3[] lanes =
     {
-        new Vector3(2,0,0),
+        new Vector3(1.5f,0,0),
         new Vector3(0,0,0),
-        new Vector3(-2,0,0),
+        new Vector3(-1.5f,0,0),
     };
 
     Transform monsterHolder;

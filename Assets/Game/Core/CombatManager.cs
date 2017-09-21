@@ -94,8 +94,10 @@ public class CombatManager : MonoBehaviour {
 
             //Debug.Log(dist);
 
+
             if (dist <= 1)
             {
+                GameManager.instance.comboManager.IncreaseComboCount();                
                 monster.Death();
             }
         }

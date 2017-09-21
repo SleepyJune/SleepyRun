@@ -15,12 +15,14 @@ public class GameManager : MonoBehaviour
     public MonsterManager monsterManager;
     [NonSerialized]
     public TouchInputManager touchInputManager;
+    [NonSerialized]
+    public ComboManager comboManager;
 
     public Player player;
 
     private int entityId = 0;
     private bool gameOver = false;
-            
+    
     void Awake()
     {
         if (instance == null)
@@ -36,6 +38,12 @@ public class GameManager : MonoBehaviour
         floorManager = GetComponent<FloorManager>();
         monsterManager = GetComponent<MonsterManager>();
         touchInputManager = GetComponent<TouchInputManager>();
+        comboManager = GetComponent<ComboManager>();
+    }
+
+    void Update()
+    {
+        DelayAction.OnUpdate();
     }
 
     public int GenerateEntityId()
@@ -63,10 +71,5 @@ public class GameManager : MonoBehaviour
         }
 
         return Vector3.zero;
-    }
-
-    void Update()
-    {
-        
-    }
+    }    
 }
