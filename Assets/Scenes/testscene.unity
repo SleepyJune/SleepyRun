@@ -114,6 +114,32 @@ RectTransform:
   m_PrefabParentObject: {fileID: 224453548250621560, guid: 4fa47b4810aaad545a948a42789f833c,
     type: 2}
   m_PrefabInternal: {fileID: 991791128}
+--- !u!1 &67637673 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1859681770010952, guid: 4fa47b4810aaad545a948a42789f833c,
+    type: 2}
+  m_PrefabInternal: {fileID: 991791128}
+--- !u!114 &67637674 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 114622276484062188, guid: 4fa47b4810aaad545a948a42789f833c,
+    type: 2}
+  m_PrefabInternal: {fileID: 991791128}
+  m_Script: {fileID: -113659843, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
+--- !u!111 &67637675
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 67637673}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 689a5eddfc587e340b8b3cdb082344db, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 689a5eddfc587e340b8b3cdb082344db, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &140810735
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +444,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 20, y: 0, z: 0}
 --- !u!114 &716147784
 MonoBehaviour:
@@ -570,11 +596,32 @@ Prefab:
     - target: {fileID: 224141320823290948, guid: 4fa47b4810aaad545a948a42789f833c,
         type: 2}
       propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114622276484062188, guid: 4fa47b4810aaad545a948a42789f833c,
+        type: 2}
+      propertyPath: m_Value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245541592411906, guid: 4fa47b4810aaad545a948a42789f833c,
+        type: 2}
+      propertyPath: m_Color.r
+      value: 0.2647059
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245541592411906, guid: 4fa47b4810aaad545a948a42789f833c,
+        type: 2}
+      propertyPath: m_Color.g
+      value: 0.6957402
+      objectReference: {fileID: 0}
+    - target: {fileID: 114245541592411906, guid: 4fa47b4810aaad545a948a42789f833c,
+        type: 2}
+      propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1859681770010952, guid: 4fa47b4810aaad545a948a42789f833c, type: 2}
-      propertyPath: m_IsActive
-      value: 0
+    - target: {fileID: 114245541592411906, guid: 4fa47b4810aaad545a948a42789f833c,
+        type: 2}
+      propertyPath: m_Color.a
+      value: 0.591
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4fa47b4810aaad545a948a42789f833c, type: 2}
@@ -776,7 +823,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: dd4fd00fe7c8c2a43ba90d14bae6e53e, type: 2}
-  spawnFrequency: 2
+  spawnFrequency: 0.5
 --- !u!1 &1201905877
 GameObject:
   m_ObjectHideFlags: 0
@@ -956,6 +1003,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   comboTextHolder: {fileID: 1839007305}
   textPrefab: {fileID: 1981662992552980, guid: 28bb1fd3c22c5c94ebc697747b7908ba, type: 2}
+  energyBar: {fileID: 67637674}
+  energyBarAnim: {fileID: 67637675}
 --- !u!1 &1839007304
 GameObject:
   m_ObjectHideFlags: 0
@@ -1026,7 +1075,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}

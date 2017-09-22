@@ -12,6 +12,8 @@ public class CombatManager : MonoBehaviour {
 
     public LineRenderer linePrefab;
 
+    public GameObject particleOnHit;
+
     public float updateFrequency;
 
     void Start()
@@ -97,6 +99,8 @@ public class CombatManager : MonoBehaviour {
 
             if (dist <= 1)
             {
+                Instantiate(particleOnHit, monster.anim.transform);
+
                 GameManager.instance.comboManager.IncreaseComboCount();                
                 monster.Death();
             }

@@ -68,6 +68,9 @@ public class MonsterManager : MonoBehaviour
             if (player.transform.position.z - monster.transform.position.z > 5)
             {
                 removeList.Add(monster);
+
+                monster.RemoveFromStage();
+
                 Destroy(monster.gameObject);
             }
         }

@@ -2,6 +2,14 @@
 
 public class Monster : Unit
 {
+    public void RemoveFromStage()
+    {
+        if (!isDead)
+        {
+            GameManager.instance.comboManager.BreakCombo();
+        }
+    }
+
     public void Death()
     {
         if (!isDead)
