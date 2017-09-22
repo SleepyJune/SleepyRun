@@ -62,22 +62,31 @@ public class MonsterManager : MonoBehaviour
             }
         }
 
-        List<Monster> removeList = new List<Monster>();
-        foreach(var monster in monsters.Values)
+        List<int> removeList = new List<int>();
+        foreach(var pair in monsters)
         {
-            if (player.transform.position.z - monster.transform.position.z > 5)
+            var monster = monsters[pair.Key];
+
+            if (monster != null)
             {
-                removeList.Add(monster);
+                if (player.transform.position.z - monster.transform.position.z > 5)
+                {
+                    removeList.Add(monster.id);
 
-                monster.RemoveFromStage();
+                    monster.RemoveFromStage();
 
-                Destroy(monster.gameObject);
+                    Destroy(monster.gameObject);
+                }
+            }
+            else
+            {
+                removeList.Add(pair.Key);
             }
         }
 
-        foreach(var monster in removeList)
+        foreach(var key in removeList)
         {
-            monsters.Remove(monster.id);
+            monsters.Remove(key);
         }
 
     }

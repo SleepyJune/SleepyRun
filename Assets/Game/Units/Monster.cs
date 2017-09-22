@@ -1,7 +1,19 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 public class Monster : Unit
 {
+    MonsterShatter shatterScript;
+
+    [NonSerialized]
+    public new Rigidbody rigidbody;
+
+    void Awake()
+    {
+        shatterScript = GetComponent<MonsterShatter>();
+        rigidbody = GetComponent<Rigidbody>();
+    }
+
     public void RemoveFromStage()
     {
         if (!isDead)
@@ -10,7 +22,7 @@ public class Monster : Unit
         }
     }
 
-    public void Death()
+    public void Death(Vector3 force)
     {
         if (!isDead)
         {
@@ -18,6 +30,9 @@ public class Monster : Unit
 
             anim.SetTrigger("Die");
             anim.SetBool("isDead", true);
+
+            //DelayAction.Add(()=>shatterScript.MakeShattered(anim.transform),.5f);
+            shatterScript.MakeShattered(force);
 
             /*if (deathAnimation)
             {

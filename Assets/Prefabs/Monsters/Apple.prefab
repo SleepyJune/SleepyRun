@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 135124130039191500}
   - component: {fileID: 54105287551859038}
   - component: {fileID: 114154353901187418}
+  - component: {fileID: 114719720241921660}
   m_Layer: 14
   m_Name: Apple
   m_TagString: Monster
@@ -145,8 +146,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  id: 0
   anim: {fileID: 95220005828967904}
   speed: 1
+  isDead: 0
+--- !u!114 &114719720241921660
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1898119437938522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 1331744901967752, guid: bf44ce19c78e6c64cb7776ac0c79120d, type: 2}
 --- !u!135 &135124130039191500
 SphereCollider:
   m_ObjectHideFlags: 1

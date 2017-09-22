@@ -101,8 +101,12 @@ public class CombatManager : MonoBehaviour {
             {
                 Instantiate(particleOnHit, monster.anim.transform);
 
-                GameManager.instance.comboManager.IncreaseComboCount();                
-                monster.Death();
+                GameManager.instance.comboManager.IncreaseComboCount();
+
+                var dir = (v2 - v1);
+                dir.y = .15f;
+                           
+                monster.Death(dir * 50);
             }
         }
     }
