@@ -14,11 +14,15 @@ public class TimedObjectDestructor : MonoBehaviour {
 	// destroy the gameobject
 	void DestroyNow ()
 	{
-		if (detachChildren) { // detach the children before destroying if specified
-			transform.DetachChildren ();
-		}
+        if (gameObject)
+        {
+            if (detachChildren)
+            { // detach the children before destroying if specified
+                transform.DetachChildren();
+            }
 
-		// destroy the game Object
-		Destroy(gameObject);
+            // destroy the game Object
+            Destroy(gameObject);
+        }
 	}
 }

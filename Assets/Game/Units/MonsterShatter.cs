@@ -16,11 +16,25 @@ public class MonsterShatter : MonoBehaviour
         monster = GetComponent<Monster>();        
     }
 
-    public void MakeShattered(Vector3 force)
+    public void MakeShattered(HitInfo hitInfo)
     {
-        var shattered = Instantiate(target, transform.position, transform.rotation);
+        var dir = (hitInfo.hitEnd - hitInfo.hitStart);
+        dir.y = .15f;
+
+        var force = dir * 50;
+
+        var shattered = Instantiate(target, transform.position, transform.rotation);               
         
-        foreach(var rb in shattered.GetComponentsInChildren<Rigidbody>())
+        //var hitParticle = Instantiate(hitInfo.hitParticle, pieceTrans);
+
+        /*var hitParticle = Instantiate(
+            hitInfo.hitParticle,
+            transform.position + new Vector3(0, .5f, 0),
+            Quaternion.LookRotation(-dir));
+
+        hitParticle.transform.SetParent(pieceTrans);*/
+
+        foreach (var rb in shattered.GetComponentsInChildren<Rigidbody>())
         {
             rb.AddForce(force);
         }        

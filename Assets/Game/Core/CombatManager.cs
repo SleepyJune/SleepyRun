@@ -90,6 +90,7 @@ public class CombatManager : MonoBehaviour {
         foreach(var monster in GameManager.instance.monsterManager.monsters.Values)
         {
             var monsterPos = monster.transform.position;
+            monsterPos.y = 0;
 
             var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
             var dist = Vector3.Distance(proj, monsterPos);
@@ -99,14 +100,22 @@ public class CombatManager : MonoBehaviour {
 
             if (dist <= 1)
             {
-                Instantiate(particleOnHit, monster.anim.transform);
-
                 GameManager.instance.comboManager.IncreaseComboCount();
 
-                var dir = (v2 - v1);
-                dir.y = .15f;
-                           
-                monster.Death(dir * 50);
+                /*var dir = (v2 - v1).normalized;
+                var hitParticle = Instantiate(
+                        particleOnHit,
+                        monster.transform.position + new Vector3(0, .5f, 0),
+                        Quaternion.LookRotation(-dir));*/
+
+                HitInfo hitInfo = new HitInfo
+                {
+                    hitStart = v1,
+                    hitEnd = v2,
+                    hitParticle = particleOnHit
+                };
+
+                monster.Death(hitInfo);                
             }
         }
     }

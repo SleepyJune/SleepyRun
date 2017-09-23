@@ -22,7 +22,7 @@ public class Monster : Unit
         }
     }
 
-    public void Death(Vector3 force)
+    public void Death(HitInfo hitInfo)
     {
         if (!isDead)
         {
@@ -32,7 +32,7 @@ public class Monster : Unit
             anim.SetBool("isDead", true);
 
             //DelayAction.Add(()=>shatterScript.MakeShattered(anim.transform),.5f);
-            shatterScript.MakeShattered(force);
+            shatterScript.MakeShattered(hitInfo);
 
             /*if (deathAnimation)
             {

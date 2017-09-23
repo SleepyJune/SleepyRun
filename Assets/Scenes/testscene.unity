@@ -989,7 +989,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
     type: 2}
-  particleOnHit: {fileID: 1048157638747232, guid: b507208ae492e7f41bfc38428639caeb,
+  particleOnHit: {fileID: 1008382467872580, guid: a2ba7bb049ad6174c9093448541dc932,
     type: 2}
   updateFrequency: 0
 --- !u!114 &1465129605

@@ -38,7 +38,7 @@ GameObject:
   - component: {fileID: 4256448068428770}
   - component: {fileID: 95520001236523180}
   m_Layer: 0
-  m_Name: apple  15 shatter
+  m_Name: apple_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -52,6 +52,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4935145809842572}
+  - component: {fileID: 114129547273426302}
   m_Layer: 0
   m_Name: Apple Shatter
   m_TagString: Untagged
@@ -178,7 +179,7 @@ Transform:
   m_LocalScale: {x: 1.8770583, y: 1.905614, z: 1.0627289}
   m_Children: []
   m_Father: {fileID: 4294179142647582}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4256448068428770
 Transform:
@@ -207,9 +208,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4708069904524578}
+  - {fileID: 4404764614674872}
   - {fileID: 4075022028344804}
   - {fileID: 4801180274655040}
-  - {fileID: 4404764614674872}
   m_Father: {fileID: 4256448068428770}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -237,7 +238,7 @@ Transform:
   m_LocalScale: {x: 0.22794293, y: 0.10473171, z: 0.22794291}
   m_Children: []
   m_Father: {fileID: 4294179142647582}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4464709671165594
 Transform:
@@ -276,7 +277,7 @@ Transform:
   m_LocalScale: {x: 0.22794272, y: 0.104731694, z: 0.18099192}
   m_Children: []
   m_Father: {fileID: 4294179142647582}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4935145809842572
 Transform:
@@ -674,3 +675,16 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114129547273426302
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1331744901967752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f483252d248e1434c8f335972a42c7a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1008382467872580, guid: a2ba7bb049ad6174c9093448541dc932, type: 2}
+  parent: {fileID: 4294179142647582}
