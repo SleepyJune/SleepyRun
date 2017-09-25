@@ -98,7 +98,7 @@ public class CombatManager : MonoBehaviour {
             //Debug.Log(dist);
 
 
-            if (dist <= 1)
+            if (dist <= .5f)
             {
                 GameManager.instance.comboManager.IncreaseComboCount();
 
@@ -112,7 +112,7 @@ public class CombatManager : MonoBehaviour {
                 {
                     hitStart = v1,
                     hitEnd = v2,
-                    hitParticle = particleOnHit
+                    //hitParticle = particleOnHit
                 };
 
                 monster.Death(hitInfo);                

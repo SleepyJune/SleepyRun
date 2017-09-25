@@ -17,6 +17,9 @@ public class FloorManager : MonoBehaviour
 
     Transform floorHolder;
 
+    int numFloorsToPregenerate = 10;
+    int numFloorsTillDestruction = 5;
+
     void Start()
     {
         level = GameManager.instance.level;
@@ -56,13 +59,13 @@ public class FloorManager : MonoBehaviour
 
     void CheckFloors()
     {
-        if (floors.Count <= 3)
+        if (floors.Count <= numFloorsToPregenerate)
         {
             MakeFloor();
         }
 
         var oldestFloor = floors.Peek();
-        if (player.transform.position.z - oldestFloor.transform.position.z > oldestFloor.length * 2)
+        if (player.transform.position.z - oldestFloor.transform.position.z > oldestFloor.length * numFloorsTillDestruction)
         {
             floors.Dequeue();
             Destroy(oldestFloor.gameObject);

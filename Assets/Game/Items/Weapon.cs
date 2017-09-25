@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.UI;
 
-public class HitInfo
+public class Weapon : MonoBehaviour
 {
-    public Vector3 hitStart;
-    public Vector3 hitEnd;
+    public Sprite sprite;
 
-    public GameObject hitParticle;
+    public int damage;
+
 }
