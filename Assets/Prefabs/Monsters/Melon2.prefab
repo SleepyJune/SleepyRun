@@ -19,7 +19,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4998900165771608}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: EmojiBarPos
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4193857917740796}
   - component: {fileID: 137242253681894094}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: melon_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -50,7 +50,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4373151707394854}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4635602546422200}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Bone_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -81,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4796994730142890}
   - component: {fileID: 95786258314181342}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Melon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 4593705326214950}
   - component: {fileID: 135924687063181926}
   - component: {fileID: 54248946387784114}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Melon2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4193215274246546}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +128,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4748246960977692}
-  m_Layer: 14
+  m_Layer: 8
   m_Name: Armature_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -285,8 +285,8 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1824327634145746}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 0
+  m_IsTrigger: 1
+  m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.45
   m_Center: {x: 0.07895145, y: 0.4451696, z: 0.004838292}

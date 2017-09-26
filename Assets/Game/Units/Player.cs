@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Player : Unit
 {    
+    void Start()
+    {
+        health = maxHealth;
+    }
+    
     void Update()
     {
         var dir = new Vector3(0, 0, 1);

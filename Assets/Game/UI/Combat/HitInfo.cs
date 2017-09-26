@@ -10,5 +10,7 @@ public class HitInfo
     public Vector3 hitStart;
     public Vector3 hitEnd;
 
+    public Vector3 force;
+
     //public GameObject hitParticle;
 }

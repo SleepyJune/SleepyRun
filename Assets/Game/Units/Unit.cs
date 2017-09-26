@@ -1,14 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Unit : MonoBehaviour
+public abstract class Unit : Entity
 {
-    public int id;
-
     public Animator anim;
 
-    public float speed = 1;
+    public int maxHealth = 10;
 
-    public bool isDead = false;
+    [NonSerialized]
+    public int health;
 }

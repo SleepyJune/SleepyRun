@@ -11,6 +11,8 @@ public class MonsterManager : MonoBehaviour
 
     FloorManager floorManager;
 
+    int monsterSpawnDistance = 60;
+
     Vector3[] lanes =
     {
         new Vector3(1.5f,0,0),
@@ -40,7 +42,7 @@ public class MonsterManager : MonoBehaviour
         if (lastFloor)
         {
             Vector3 lane = lanes[Random.Range(0, 3)];
-            Vector3 spawnPos = player.transform.position + lane + new Vector3(0,0,20);
+            Vector3 spawnPos = player.transform.position + lane + new Vector3(0,0,monsterSpawnDistance);
 
             var newMonster = Instantiate(prefab, spawnPos, Quaternion.Euler(new Vector3(0,180,0)));
             newMonster.transform.SetParent(monsterHolder);

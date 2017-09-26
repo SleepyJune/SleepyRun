@@ -11,5 +11,6 @@ public class Weapon : MonoBehaviour
     public Sprite sprite;
 
     public int damage;
-
+    
+    public CombatUI combatUI; 
 }

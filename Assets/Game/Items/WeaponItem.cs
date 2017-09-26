@@ -22,7 +22,7 @@ public class WeaponItem : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
 
     public void OnDrop(PointerEventData eventData)
     {
-        
+        GameManager.instance.weaponManager.SwitchWeapons(weapon);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

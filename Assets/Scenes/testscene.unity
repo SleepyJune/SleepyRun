@@ -341,10 +341,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ceba3eafc2bb624596c46096f08a357, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: 0
-  anim: {fileID: 401534307}
   speed: 10
-  isDead: 0
+  anim: {fileID: 401534307}
+  maxHealth: 10
 --- !u!1 &716147778
 GameObject:
   m_ObjectHideFlags: 0
@@ -626,7 +625,7 @@ Prefab:
     - target: {fileID: 224141320823290948, guid: 4fa47b4810aaad545a948a42789f833c,
         type: 2}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 224141320823290948, guid: 4fa47b4810aaad545a948a42789f833c,
         type: 2}
@@ -1024,8 +1023,8 @@ GameObject:
   - component: {fileID: 1465129601}
   - component: {fileID: 1465129602}
   - component: {fileID: 1465129603}
-  - component: {fileID: 1465129604}
   - component: {fileID: 1465129605}
+  - component: {fileID: 1465129604}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1101,14 +1100,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1465129598}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c5dab12ef418b469d69dff0f2fc8d9, type: 3}
+  m_Script: {fileID: 11500000, guid: 3d53ded7604667049b704998fe08fc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
+  defaultWeapon: {fileID: 114392975385987250, guid: 6dc545297dcc3f14fa3b49d1e8a7d86a,
     type: 2}
-  particleOnHit: {fileID: 1008382467872580, guid: a2ba7bb049ad6174c9093448541dc932,
-    type: 2}
-  updateFrequency: 0
 --- !u!114 &1465129605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1241,8 +1237,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   weapons:
-  - {fileID: 114831788656855324, guid: 1b8012bd6731860459cc5393e41d5fb2, type: 2}
+  - {fileID: 114531458526286278, guid: 3212fb6e1e06bd5459278c6db307f2f7, type: 2}
   - {fileID: 114392975385987250, guid: 6dc545297dcc3f14fa3b49d1e8a7d86a, type: 2}
+  - {fileID: 114882492998022248, guid: 04993cef9a677044c84309c683bcd44d, type: 2}
   weaponItemTemplate: {fileID: 1965793961274756, guid: ded2a07850e6ff341990a7bad0507e3f,
     type: 2}
 --- !u!1 &1839007304
@@ -1323,6 +1320,10 @@ Prefab:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 100182, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 100096, guid: 412b92d4feeb9c548bfa98f62c4d1022, type: 2}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
