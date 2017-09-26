@@ -17,6 +17,11 @@ public class GameManager : MonoBehaviour
     public TouchInputManager touchInputManager;
     [NonSerialized]
     public ComboManager comboManager;
+    [NonSerialized]
+    public WeaponManager weaponManager;
+
+    public delegate void Callback();
+    public event Callback onUpdate;
 
     public Player player;
 
@@ -39,11 +44,17 @@ public class GameManager : MonoBehaviour
         monsterManager = GetComponent<MonsterManager>();
         touchInputManager = GetComponent<TouchInputManager>();
         comboManager = GetComponent<ComboManager>();
+        weaponManager = GetComponent<WeaponManager>();
     }
 
     void Update()
     {
         DelayAction.OnUpdate();
+
+        if (onUpdate != null)
+        {
+            onUpdate();
+        }
     }
 
     public int GenerateEntityId()

@@ -5,10 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public class HitInfo
+public class SpearWeapon : Weapon
 {
-    public Vector3 hitStart;
-    public Vector3 hitEnd;
 
-    public GameObject hitParticle;
 }

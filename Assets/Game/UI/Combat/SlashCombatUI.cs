@@ -5,18 +5,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CombatManager : MonoBehaviour {
-
+public class SlashCombatUI : CombatUI
+{
     Dictionary<int, TouchInput> inputs;
     Dictionary<int, LineRenderer> lines;
 
     public LineRenderer linePrefab;
 
-    public GameObject particleOnHit;
-
-    public float updateFrequency;
-
-    void Start()
+    public override void Initialize()
     {
         inputs = TouchInputManager.instance.inputs;
         lines = new Dictionary<int, LineRenderer>();
@@ -24,16 +20,16 @@ public class CombatManager : MonoBehaviour {
         GameManager.instance.touchInputManager.touchStart += OnTouchStart;
         GameManager.instance.touchInputManager.touchMove += OnTouchMove;
         GameManager.instance.touchInputManager.touchEnd += OnTouchEnd;
-    }    
+    }
 
     private void OnTouchStart(Touch touch)
     {
         if (!lines.ContainsKey(touch.fingerId))
         {
-            var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);                        
+            var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
 
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-            
+
             newLine.SetPosition(0, pos);
 
             //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
@@ -41,12 +37,12 @@ public class CombatManager : MonoBehaviour {
             lines.Add(touch.fingerId, newLine);
         }
     }
-        
+
     private void OnTouchMove(Touch touch)
     {
         if (lines.ContainsKey(touch.fingerId))
         {
-
+            var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
         }
     }
 
@@ -54,11 +50,11 @@ public class CombatManager : MonoBehaviour {
     {
         LineRenderer line;
         if (lines.TryGetValue(touch.fingerId, out line))
-        {            
+        {
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-            
-            line.positionCount = line.positionCount+1;
-            line.SetPosition(line.positionCount-1, pos);
+
+            line.positionCount = line.positionCount + 1;
+            line.SetPosition(line.positionCount - 1, pos);
 
             CheckEachSegment(line);
 
@@ -73,7 +69,7 @@ public class CombatManager : MonoBehaviour {
         for (int i = 0; i < line.positionCount; i++)
         {
             if (i == 0)
-            {                
+            {
                 continue;
             }
 
@@ -87,7 +83,7 @@ public class CombatManager : MonoBehaviour {
 
     void DestroyMonsters(Vector3 v1, Vector3 v2)
     {
-        foreach(var monster in GameManager.instance.monsterManager.monsters.Values)
+        foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
             var monsterPos = monster.transform.position;
             monsterPos.y = 0;
@@ -98,7 +94,7 @@ public class CombatManager : MonoBehaviour {
             //Debug.Log(dist);
 
 
-            if (dist <= 1)
+            if (dist <= .5f)
             {
                 GameManager.instance.comboManager.IncreaseComboCount();
 
@@ -108,19 +104,24 @@ public class CombatManager : MonoBehaviour {
                         monster.transform.position + new Vector3(0, .5f, 0),
                         Quaternion.LookRotation(-dir));*/
 
+                var dir = (v2 - v1);
+                dir.y = .15f;
+
+                var force = dir * 50;
+
                 HitInfo hitInfo = new HitInfo
                 {
                     hitStart = v1,
                     hitEnd = v2,
-                    hitParticle = particleOnHit
+                    force = force,
                 };
 
-                monster.Death(hitInfo);                
+                monster.Death(hitInfo);
             }
         }
     }
 
-    void OnDestroy()
+    public override void Destroy()
     {
         TouchInputManager.instance.touchStart -= OnTouchStart;
         TouchInputManager.instance.touchMove -= OnTouchMove;

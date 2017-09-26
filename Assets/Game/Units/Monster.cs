@@ -12,6 +12,13 @@ public class Monster : Unit
     {
         shatterScript = GetComponent<MonsterShatter>();
         rigidbody = GetComponent<Rigidbody>();
+
+        health = maxHealth;
+    }
+    
+    public void TakeDamage(int damage)
+    {
+        health = Math.Max(0, health - damage);
     }
 
     public void RemoveFromStage()
