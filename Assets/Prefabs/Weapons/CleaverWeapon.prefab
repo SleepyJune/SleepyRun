@@ -68,3 +68,5 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: c8cca35b64f43b84f9120ffe2a4bbb12, type: 3}
   damage: 100
   combatUI: {fileID: 114157090876454448}
+  minSlashRange: 1
+  maxSlashRange: 6

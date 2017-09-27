@@ -19,6 +19,24 @@ public class WeaponManager : MonoBehaviour
         }        
     }
 
+    public void UseUltimate()
+    {
+        if (currentWeapon.ultimateUI != null)
+        {
+            currentWeapon.combatUI.Destroy();
+            currentWeapon.ultimateUI.Initialize(currentWeapon);
+        }
+    }
+
+    public void EndUltimate()
+    {
+        if (currentWeapon.ultimateUI)
+        {
+            currentWeapon.ultimateUI.Destroy();
+            currentWeapon.combatUI.Initialize(currentWeapon);
+        }
+    }
+
     public void SwitchWeapons(Weapon newWeapon)
     {
         if (currentWeapon)
@@ -27,6 +45,6 @@ public class WeaponManager : MonoBehaviour
         }
 
         currentWeapon = newWeapon;
-        currentWeapon.combatUI.Initialize();
+        currentWeapon.combatUI.Initialize(newWeapon);
     }
 }

@@ -13,11 +13,18 @@ public class LinearSpell : Spell
 
     public int wallLayer;
 
+    public bool wallCollision = true;
+
     void Awake()
     {
         Initialize();
 
         wallLayer = LayerMask.NameToLayer("Walls");
+    }
+
+    void Start()
+    {
+        SetVelocity();
     }
 
     void Update()
@@ -30,6 +37,16 @@ public class LinearSpell : Spell
 
     public void SetVelocity()
     {
+        if(start == Vector3.zero)
+        {
+            start = transform.position;
+        }
+
+        if(end == Vector3.zero)
+        {
+            end = transform.position + transform.forward * maxDistance;
+        }
+
         var dir = (end - start).normalized;
         dir.y = 0;
 
@@ -49,7 +66,7 @@ public class LinearSpell : Spell
     {        
         if (isDead) return;
                 
-        if(collision.gameObject.layer == wallLayer)
+        if(wallCollision && collision.gameObject.layer == wallLayer)
         {
             Death();
             return;

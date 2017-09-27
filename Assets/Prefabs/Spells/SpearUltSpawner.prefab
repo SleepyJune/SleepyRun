@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1349056046799902}
+  m_IsPrefabParent: 1
+--- !u!1 &1349056046799902
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4401927170043412}
+  - component: {fileID: 114433462807564790}
+  m_Layer: 0
+  m_Name: SpearUltSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4401927170043412
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349056046799902}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 158.14777, y: 136.95412, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114433462807564790
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1349056046799902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef7fcd56f6c0ff04d984117f8d2a3058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 1
+  damage: 0
+  radius: 1
+  spells:
+  - {fileID: 114626091255426080, guid: 1b8012bd6731860459cc5393e41d5fb2, type: 2}
+  startPositions:
+  - {x: -2, y: 0, z: -5}
+  - {x: -1, y: 0, z: -2.5}
+  - {x: 0, y: 0, z: 0}
+  - {x: 1, y: 0, z: -2.5}
+  - {x: 2, y: 0, z: -5}
+  directions:
+  - {x: 0, y: 0, z: 0}

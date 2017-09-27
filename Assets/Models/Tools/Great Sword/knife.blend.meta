@@ -1,0 +1,231 @@
+fileFormatVersion: 2
+guid: 0710b22adcfb4d94ca27abbd3358155a
+timeCreated: 1506331196
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Cube
+    100002: Cube_000
+    100004: Cube_001
+    100006: Cube_002
+    100008: Cube_003
+    100010: Cube_004
+    100012: Cube_005
+    100014: Cube_006
+    100016: Cube_007
+    100018: Cube_008
+    100020: Cube_009
+    100022: Cube_010
+    100024: Cylinder
+    100026: Cylinder_001
+    100028: Cylinder_003
+    100030: Cylinder_004
+    100032: Cylinder_005
+    100034: Cylinder_006
+    100036: Cylinder_007
+    100038: Cylinder_008
+    100040: Great_Sword
+    100042: //RootNode
+    100044: knife
+    100046: Nodachi
+    100048: Nodachi_blade
+    100050: Nodachi_Grip
+    100052: Nodachi_Habaki
+    100054: Nodachi_Tsuba
+    100056: Sphere_001
+    100058: Sphere_002
+    400000: Cube
+    400002: Cube_000
+    400004: Cube_001
+    400006: Cube_002
+    400008: Cube_003
+    400010: Cube_004
+    400012: Cube_005
+    400014: Cube_006
+    400016: Cube_007
+    400018: Cube_008
+    400020: Cube_009
+    400022: Cube_010
+    400024: Cylinder
+    400026: Cylinder_001
+    400028: Cylinder_003
+    400030: Cylinder_004
+    400032: Cylinder_005
+    400034: Cylinder_006
+    400036: Cylinder_007
+    400038: Cylinder_008
+    400040: Great_Sword
+    400042: knife
+    400044: //RootNode
+    400046: Nodachi
+    400048: Nodachi_blade
+    400050: Nodachi_Grip
+    400052: Nodachi_Habaki
+    400054: Nodachi_Tsuba
+    400056: Sphere_001
+    400058: Sphere_002
+    2300000: Cube
+    2300002: Cube_000
+    2300004: Cube_001
+    2300006: Cube_002
+    2300008: Cube_003
+    2300010: Cube_004
+    2300012: Cube_005
+    2300014: Cube_006
+    2300016: Cube_007
+    2300018: Cube_008
+    2300020: Cube_009
+    2300022: Cube_010
+    2300024: Cylinder
+    2300026: Cylinder_001
+    2300028: Cylinder_003
+    2300030: Cylinder_004
+    2300032: Cylinder_005
+    2300034: Cylinder_006
+    2300036: Cylinder_007
+    2300038: Cylinder_008
+    2300040: Great_Sword
+    2300042: knife
+    2300044: Nodachi
+    2300046: Nodachi_blade
+    2300048: Nodachi_Grip
+    2300050: Nodachi_Habaki
+    2300052: Nodachi_Tsuba
+    2300054: Sphere_001
+    2300056: Sphere_002
+    3300000: Cube
+    3300002: Cube_000
+    3300004: Cube_001
+    3300006: Cube_002
+    3300008: Cube_003
+    3300010: Cube_004
+    3300012: Cube_005
+    3300014: Cube_006
+    3300016: Cube_007
+    3300018: Cube_008
+    3300020: Cube_009
+    3300022: Cube_010
+    3300024: Cylinder
+    3300026: Cylinder_001
+    3300028: Cylinder_003
+    3300030: Cylinder_004
+    3300032: Cylinder_005
+    3300034: Cylinder_006
+    3300036: Cylinder_007
+    3300038: Cylinder_008
+    3300040: Great_Sword
+    3300042: knife
+    3300044: Nodachi
+    3300046: Nodachi_blade
+    3300048: Nodachi_Grip
+    3300050: Nodachi_Habaki
+    3300052: Nodachi_Tsuba
+    3300054: Sphere_001
+    3300056: Sphere_002
+    4300000: Great_Sword
+    4300002: Cube_010
+    4300004: Cylinder_001
+    4300006: Cylinder
+    4300008: Cube_009
+    4300010: Cube_008
+    4300012: Cube_007
+    4300014: Cube
+    4300016: Nodachi
+    4300018: Nodachi_Grip
+    4300020: Nodachi_Tsuba
+    4300022: Nodachi_Habaki
+    4300024: Nodachi_blade
+    4300026: Cube_000
+    4300028: Cylinder_008
+    4300030: Cube_006
+    4300032: Cylinder_007
+    4300034: Cylinder_006
+    4300036: Sphere_002
+    4300038: Cylinder_005
+    4300040: Cube_001
+    4300042: Cylinder_004
+    4300044: Cylinder_003
+    4300046: Sphere_001
+    4300048: Cube_005
+    4300050: Cube_004
+    4300052: Cube_003
+    4300054: Cube_002
+    4300056: knife
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

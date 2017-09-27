@@ -15,7 +15,10 @@ public class ComboManager : MonoBehaviour
     public Slider energyBar;
     public Animation energyBarAnim;
 
-    int maxEnergy = 1000;
+    public Button ultButton;
+    Animator ultButtonAC;
+
+    int maxEnergy = 100;
     int energyPerCombo = 20;
     int currentEnergy;
     
@@ -25,6 +28,9 @@ public class ComboManager : MonoBehaviour
     float updateFrequency = .25f;
 
     Queue<ComboInfo> comboQueue;
+
+    [System.NonSerialized]
+    public bool charged = false;
 
     class ComboInfo
     {
@@ -44,6 +50,8 @@ public class ComboManager : MonoBehaviour
 
         energyBarAnim["EnergyBar"].speed = 0.0f;
         energyBarAnim.Play("EnergyBar");
+
+        ultButtonAC = ultButton.transform.GetComponent<Animator>();
     }
 
     void Update()
@@ -61,6 +69,18 @@ public class ComboManager : MonoBehaviour
         var energy = Mathf.Lerp(energyBar.value, currentEnergy, 2 * Time.deltaTime);
         energyBar.value = energy;
         energyBarAnim["EnergyBar"].time = energy/100;
+
+        if (!charged && currentEnergy == maxEnergy)
+        {
+            ultButtonAC.SetTrigger("Charged");
+            charged = true;
+        }
+
+        if(charged && currentEnergy != maxEnergy)
+        {
+            ultButtonAC.SetTrigger("Charging");
+            charged = false;
+        }
     }
 
     public void IncreaseComboCount()
@@ -81,6 +101,8 @@ public class ComboManager : MonoBehaviour
     {
         currentEnergy = 0;
         comboCount = 0;
+
+        ultButtonAC.SetTrigger("ComboBreak");
 
         comboQueue = new Queue<ComboInfo>();
     }
