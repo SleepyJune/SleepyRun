@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4657026156961642}
   - component: {fileID: 114392975385987250}
   - component: {fileID: 114157090876454448}
+  - component: {fileID: 114810084212162822}
   m_Layer: 0
   m_Name: CleaverWeapon
   m_TagString: Untagged
@@ -65,8 +66,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88de42b6a39aca4d80340c7511b6e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: c8cca35b64f43b84f9120ffe2a4bbb12, type: 3}
+  image: {fileID: 21300000, guid: c8cca35b64f43b84f9120ffe2a4bbb12, type: 3}
   damage: 100
   combatUI: {fileID: 114157090876454448}
+  ultimateUI: {fileID: 114810084212162822}
   minSlashRange: 1
   maxSlashRange: 6
+--- !u!114 &114810084212162822
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906068257091738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 445b536e2e2854344880a0b66fcc6f10, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 114260381768247630, guid: 336b8b802f7e6d347a046458bcbd8cb7, type: 2}

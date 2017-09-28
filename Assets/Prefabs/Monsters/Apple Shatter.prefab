@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4404764614674872}
   - component: {fileID: 33563382468459522}
   - component: {fileID: 23610838727112022}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: teeth_top_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4256448068428770}
   - component: {fileID: 95520001236523180}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: apple_15
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53,7 +53,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4935145809842572}
   - component: {fileID: 114129547273426302}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Apple Shatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 23014726762343980}
   - component: {fileID: 54250422267078300}
   - component: {fileID: 64890134556329070}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body_cell_002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -89,7 +89,7 @@ GameObject:
   - component: {fileID: 4075022028344804}
   - component: {fileID: 33260315407751222}
   - component: {fileID: 23996668773512448}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: stem_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   - component: {fileID: 4801180274655040}
   - component: {fileID: 33872554664091994}
   - component: {fileID: 23858112555240624}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: teeth_bot_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 4708069904524578}
   - component: {fileID: 33429563277925868}
   - component: {fileID: 23866065710771702}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: eyes_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ GameObject:
   - component: {fileID: 23273903584684962}
   - component: {fileID: 54789201030754748}
   - component: {fileID: 64905805951701422}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body_cell_001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 23153800405831378}
   - component: {fileID: 54972277356839318}
   - component: {fileID: 64506349304381718}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body_cell
   m_TagString: Untagged
   m_Icon: {fileID: 0}

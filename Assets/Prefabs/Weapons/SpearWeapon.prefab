@@ -68,7 +68,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88de42b6a39aca4d80340c7511b6e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 8d49c5185682e5a498b03f9800fdf01d, type: 3}
+  image: {fileID: 21300000, guid: 8d49c5185682e5a498b03f9800fdf01d, type: 3}
   damage: 10
   combatUI: {fileID: 114485600724667666}
   ultimateUI: {fileID: 114853879542525066}
@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716f810d085e0ba4ab34c17ad414f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 114433462807564790, guid: a3e56680a387f1d45afce5eea45b0e9d, type: 2}
+  spell: {fileID: 114409965893671840, guid: fa8d889e7c83682429ad541f8b5fe7f9, type: 2}
   amount: 1
   startPosition: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}

@@ -7,9 +7,13 @@ using UnityEngine;
 
 public class WeaponManager : MonoBehaviour
 {
+    public Weapon[] weapons;
+
     public Weapon defaultWeapon;
 
-    Weapon currentWeapon;
+    public Weapon currentWeapon;
+
+    bool usingUlt = false;
 
     void Start()
     {
@@ -25,6 +29,7 @@ public class WeaponManager : MonoBehaviour
         {
             currentWeapon.combatUI.Destroy();
             currentWeapon.ultimateUI.Initialize(currentWeapon);
+            usingUlt = true;
         }
     }
 
@@ -34,6 +39,7 @@ public class WeaponManager : MonoBehaviour
         {
             currentWeapon.ultimateUI.Destroy();
             currentWeapon.combatUI.Initialize(currentWeapon);
+            usingUlt = false;
         }
     }
 
@@ -42,8 +48,14 @@ public class WeaponManager : MonoBehaviour
         if (currentWeapon)
         {
             currentWeapon.combatUI.Destroy();
-        }
 
+            if (usingUlt)
+            {
+                currentWeapon.ultimateUI.Destroy();
+                usingUlt = false;
+            }
+        }      
+        
         currentWeapon = newWeapon;
         currentWeapon.combatUI.Initialize(newWeapon);
     }

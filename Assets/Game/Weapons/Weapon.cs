@@ -8,7 +8,7 @@ using UnityEngine.UI;
 
 public class Weapon : MonoBehaviour
 {
-    public Sprite sprite;
+    public Sprite image;
 
     public int damage;
     
@@ -16,5 +16,5 @@ public class Weapon : MonoBehaviour
     public UltimateCombatUI ultimateUI;
 
     public int minSlashRange = 1;
-    public int maxSlashRange = 10;
+    public int maxSlashRange = 10;    
 }

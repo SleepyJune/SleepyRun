@@ -24,7 +24,7 @@ public abstract class Spell : Entity
         {
             collider = GetComponentInChildren<Collider>();
         }
-
+                
         //var timeFlying = maxDistance/speed;        
     }
 

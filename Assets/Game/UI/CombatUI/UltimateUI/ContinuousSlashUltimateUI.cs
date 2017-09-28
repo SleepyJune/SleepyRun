@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ContinuousSlashCombatUI : CombatUI
+public class ContinuousSlashUltimateUI : UltimateCombatUI
 {
     Dictionary<int, TouchInput> inputs;
     Dictionary<int, LineRenderer> lines;
@@ -70,12 +70,7 @@ public class ContinuousSlashCombatUI : CombatUI
         LineRenderer line;
         if (lines.TryGetValue(touch.fingerId, out line))
         {
-            var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-
-            line.positionCount = line.positionCount + 1;
-            line.SetPosition(line.positionCount - 1, pos);
-
-            CheckEachSegment(line);
+            //CheckEachSegment(line);
 
             lines.Remove(touch.fingerId);
             Destroy(line.gameObject, .5f);

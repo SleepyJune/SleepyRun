@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4869299464704130}
   - component: {fileID: 114135462882663912}
   - component: {fileID: 114925803521445296}
+  - component: {fileID: 114162396112226540}
   m_Layer: 0
   m_Name: GreatSword
   m_TagString: Untagged
@@ -52,11 +53,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b88de42b6a39aca4d80340c7511b6e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 21300000, guid: 97ef5ce311870ae47978a567459e5e09, type: 3}
+  image: {fileID: 21300000, guid: 97ef5ce311870ae47978a567459e5e09, type: 3}
   damage: 100
-  combatUI: {fileID: 114157090876454448, guid: 6dc545297dcc3f14fa3b49d1e8a7d86a, type: 2}
+  combatUI: {fileID: 114925803521445296}
+  ultimateUI: {fileID: 114162396112226540}
   minSlashRange: 5
   maxSlashRange: 15
+--- !u!114 &114162396112226540
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1906299561885094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6f590419c6820d44b8b067f02f3b213, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spell: {fileID: 114173071043516224, guid: ec9662c9a0ea2404ebab3dec6d0c0079, type: 2}
+  startOffset: {x: 0, y: 2, z: 0}
 --- !u!114 &114925803521445296
 MonoBehaviour:
   m_ObjectHideFlags: 1
