@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+class WeaponButton : MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerUpHandler, IDragHandler, IEndDragHandler
 {    
     public GameObject weaponItemTemplate;
 
@@ -21,6 +21,8 @@ class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     Image weaponImage;
 
     Weapon[] weapons;
+
+    bool isDragged;
 
     void Start()
     {
@@ -46,8 +48,12 @@ class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         homePosition = transform.position;        
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
-    {        
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        isDragged = false;
+
+        //ExecuteEvents.Execute(gameObject, eventData, ExecuteEvents.beginDragHandler);
+
         weaponListCanvasGroup.alpha = 1;
         weaponListCanvasGroup.blocksRaycasts = true;
 
@@ -60,6 +66,8 @@ class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
     public void OnDrag(PointerEventData eventData)
     {
         //transform.position = new Vector2(transform.position.x, eventData.position.y);
+
+        isDragged = true;
     }
 
     public void OnEndDrag(PointerEventData eventData)
@@ -70,5 +78,23 @@ class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHan
         transform.position = homePosition;
 
         weaponImage.sprite = GameManager.instance.weaponManager.currentWeapon.image;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (!isDragged)
+        {
+            weaponListCanvasGroup.alpha = 0;
+            weaponListCanvasGroup.blocksRaycasts = false;
+        }
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        if (!isDragged)
+        {
+            weaponListCanvasGroup.alpha = 0;
+            weaponListCanvasGroup.blocksRaycasts = false;
+        }
     }
 }
