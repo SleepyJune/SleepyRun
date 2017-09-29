@@ -20,7 +20,7 @@ public class MonsterManager : MonoBehaviour
         new Vector3(-1.5f,0,0),
     };
 
-    Transform monsterHolder;
+    public Transform monsterHolder;
 
     void Start()
     {

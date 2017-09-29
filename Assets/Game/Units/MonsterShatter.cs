@@ -18,7 +18,8 @@ public class MonsterShatter : MonoBehaviour
 
     public void MakeShattered(HitInfo hitInfo)
     {        
-        var shattered = Instantiate(target, transform.position, transform.rotation);               
+        var shattered = Instantiate(target, transform.position, transform.rotation, 
+            GameManager.instance.monsterManager.monsterHolder);               
                 
         foreach (var rb in shattered.GetComponentsInChildren<Rigidbody>())
         {
