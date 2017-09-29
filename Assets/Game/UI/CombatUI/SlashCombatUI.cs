@@ -128,7 +128,7 @@ public class SlashCombatUI : CombatUI
         }
     }
 
-    public override void Destroy()
+    public override void End()
     {
         TouchInputManager.instance.touchStart -= OnTouchStart;
         TouchInputManager.instance.touchMove -= OnTouchMove;

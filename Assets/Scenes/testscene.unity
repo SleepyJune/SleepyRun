@@ -183,6 +183,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 244993616}
+  - component: {fileID: 244993617}
   m_Layer: 0
   m_Name: MelonSpawnInfo
   m_TagString: Untagged
@@ -203,6 +204,19 @@ Transform:
   m_Father: {fileID: 860143799}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &244993617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 244993615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cd942ae621f44b459f3d0cc50e5bae6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114351910669891932, guid: b9a2c3e168aaf924abbe9d7d5598d4ee, type: 2}
+  spawnFrequency: 1
 --- !u!1 &246236626
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,6 +246,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monsters:
   - {fileID: 1086450296}
+  - {fileID: 244993617}
   floors:
   - {fileID: 1218444281}
 --- !u!4 &246236628
@@ -856,7 +871,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: dd4fd00fe7c8c2a43ba90d14bae6e53e, type: 2}
-  spawnFrequency: 0.5
+  spawnFrequency: 1
 --- !u!1 &1201905877
 GameObject:
   m_ObjectHideFlags: 0

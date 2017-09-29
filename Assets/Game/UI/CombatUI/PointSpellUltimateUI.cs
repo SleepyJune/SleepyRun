@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PointSpellUltimateUI : UltimateCombatUI
+public class PointSpellUltimateUI : CombatUI
 {
     public Spell spell;
 
@@ -20,7 +20,7 @@ public class PointSpellUltimateUI : UltimateCombatUI
         var newSpell = Instantiate(spell.gameObject, pos, Quaternion.identity);
     }
 
-    public override void Destroy()
+    public override void End()
     {
         TouchInputManager.instance.touchStart -= OnTouchStart;
     }

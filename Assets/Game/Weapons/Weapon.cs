@@ -13,7 +13,7 @@ public class Weapon : MonoBehaviour
     public int damage;
     
     public CombatUI combatUI;
-    public UltimateCombatUI ultimateUI;
+    public CombatUI ultimateUI;
 
     public int minSlashRange = 1;
     public int maxSlashRange = 10;    

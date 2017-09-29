@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ContinuousSlashUltimateUI : UltimateCombatUI
+public class ContinuousSlashUltimateUI : CombatUI
 {
     Dictionary<int, TouchInput> inputs;
     Dictionary<int, LineRenderer> lines;
@@ -140,7 +140,7 @@ public class ContinuousSlashUltimateUI : UltimateCombatUI
         }
     }
 
-    public override void Destroy()
+    public override void End()
     {
         TouchInputManager.instance.touchStart -= OnTouchStart;
         TouchInputManager.instance.touchMove -= OnTouchMove;

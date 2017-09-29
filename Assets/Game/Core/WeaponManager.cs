@@ -25,34 +25,38 @@ public class WeaponManager : MonoBehaviour
 
     public void UseUltimate()
     {
-        if (currentWeapon.ultimateUI != null)
+        if (!usingUlt && currentWeapon.ultimateUI != null)
         {
-            currentWeapon.combatUI.Destroy();
-            currentWeapon.ultimateUI.Initialize(currentWeapon);
             usingUlt = true;
+
+            currentWeapon.combatUI.End();
+            currentWeapon.ultimateUI.Initialize(currentWeapon);
         }
     }
 
     public void EndUltimate()
     {
-        if (currentWeapon.ultimateUI)
+        if (usingUlt && currentWeapon.ultimateUI)
         {
-            currentWeapon.ultimateUI.Destroy();
-            currentWeapon.combatUI.Initialize(currentWeapon);
             usingUlt = false;
+
+            currentWeapon.ultimateUI.End();
+            currentWeapon.combatUI.Initialize(currentWeapon);
         }
     }
 
     public void SwitchWeapons(Weapon newWeapon)
     {
         if (currentWeapon)
-        {
-            currentWeapon.combatUI.Destroy();
-
+        {            
             if (usingUlt)
             {
-                currentWeapon.ultimateUI.Destroy();
+                currentWeapon.ultimateUI.End();
                 usingUlt = false;
+            }
+            else
+            {
+                currentWeapon.combatUI.End();
             }
         }      
         

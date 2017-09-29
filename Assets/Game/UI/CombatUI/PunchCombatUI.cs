@@ -63,7 +63,7 @@ public class PunchCombatUI : CombatUI
         }
     }
 
-    public override void Destroy()
+    public override void End()
     {
         TouchInputManager.instance.touchStart -= OnTouchStart;
     }

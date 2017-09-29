@@ -8,5 +8,5 @@ using UnityEngine;
 public abstract class CombatUI : MonoBehaviour
 {
     public abstract void Initialize(Weapon weapon);
-    public abstract void Destroy();
+    public abstract void End();
 }

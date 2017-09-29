@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public class AutoSpellUltimateUI : UltimateCombatUI
+public class AutoSpellUltimateUI : CombatUI
 {
     public Spell spell;
 
@@ -23,7 +23,7 @@ public class AutoSpellUltimateUI : UltimateCombatUI
         GameManager.instance.weaponManager.EndUltimate();
     }
 
-    public override void Destroy()
+    public override void End()
     {
 
     }

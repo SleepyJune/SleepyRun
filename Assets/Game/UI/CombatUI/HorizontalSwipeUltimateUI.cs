@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class HorizontalSwipeUltimateUI : UltimateCombatUI
+public class HorizontalSwipeUltimateUI : CombatUI
 {
     public Spell spell;
 
@@ -47,7 +47,7 @@ public class HorizontalSwipeUltimateUI : UltimateCombatUI
         }
     }
         
-    public override void Destroy()
+    public override void End()
     {
         TouchInputManager.instance.touchStart -= OnTouchStart;
         TouchInputManager.instance.touchEnd -= OnTouchEnd;
