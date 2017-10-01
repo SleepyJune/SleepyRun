@@ -17,7 +17,13 @@ public class MonsterShatter : MonoBehaviour
     }
 
     public void MakeShattered(HitInfo hitInfo)
-    {        
+    {
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         var shattered = Instantiate(target, transform.position, transform.rotation, 
             GameManager.instance.monsterManager.monsterHolder);               
                 

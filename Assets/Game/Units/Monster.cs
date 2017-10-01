@@ -35,10 +35,15 @@ public class Monster : Unit
         {
             isDead = true;
 
-            anim.SetTrigger("Die");
-            anim.SetBool("isDead", true);
+            if (anim)
+            {
+                anim.SetTrigger("Die");
+                anim.SetBool("isDead", true);
+            }
+
 
             //DelayAction.Add(()=>shatterScript.MakeShattered(anim.transform),.5f);
+                        
             shatterScript.MakeShattered(hitInfo);
 
             /*if (deathAnimation)

@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class UltButton : MonoBehaviour
+public class UltButton : MonoBehaviour, IPointerDownHandler
 {
     ComboManager comboManager;
     WeaponManager weaponManager;
@@ -16,11 +16,11 @@ public class UltButton : MonoBehaviour
         comboManager = GameManager.instance.comboManager;
         weaponManager = GameManager.instance.weaponManager;
     }
-
-    public void OnButtonClick()
+    
+    public void OnPointerDown(PointerEventData eventData)
     {
         if (true)//comboManager.charged)
-        {
+        {            
             weaponManager.UseUltimate();
         }
     }

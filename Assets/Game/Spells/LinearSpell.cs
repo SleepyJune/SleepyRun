@@ -12,6 +12,7 @@ public class LinearSpell : Spell
     public GameObject particleOnHit;
 
     public int wallLayer;
+    public int monsterLayer;
 
     public bool wallCollision = true;
 
@@ -20,6 +21,7 @@ public class LinearSpell : Spell
         Initialize();
 
         wallLayer = LayerMask.NameToLayer("Walls");
+        monsterLayer = LayerMask.NameToLayer("Monsters");
     }
 
     void Start()
@@ -72,30 +74,33 @@ public class LinearSpell : Spell
             return;
         }
 
-        var monster = collision.gameObject.GetComponent<Monster>();        
-        if (monster != null && !monster.isDead)
-        {            
-            monster.TakeDamage(damage);
-
-            var dir = (transform.position - start);
-            dir.y = .15f;
-
-            var force = dir * 100;
-
-            monster.Death(new HitInfo
+        if (collision.gameObject.layer == monsterLayer)
+        {
+            var monster = collision.gameObject.GetComponent<Monster>();
+            if (monster != null && !monster.isDead)
             {
-                hitStart = start,
-                hitEnd = transform.position,
-                force = force,
-            });
+                monster.TakeDamage(damage);
 
-            if (particleOnHit)
-            {
-                Instantiate(particleOnHit, monster.anim.transform);
+                var dir = (transform.position - start);
+                dir.y = .15f;
+
+                var force = dir * 100;
+
+                monster.Death(new HitInfo
+                {
+                    hitStart = start,
+                    hitEnd = transform.position,
+                    force = force,
+                });
+
+                if (particleOnHit)
+                {
+                    //Instantiate(particleOnHit, monster.anim.transform);
+                }
+
+                //isDead = true;
+                //Destroy(transform.gameObject);
             }
-
-            //isDead = true;
-            //Destroy(transform.gameObject);
         }
     }
 
