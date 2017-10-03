@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,7 +9,8 @@ using UnityEngine.UI;
 public class ContinuousSlashUltimateUI : CombatUI
 {
     Dictionary<int, TouchInput> inputs;
-    Dictionary<int, LineRenderer> lines;
+
+    List<Vector3> lines;
 
     public LineRenderer linePrefab;
 
@@ -16,34 +18,39 @@ public class ContinuousSlashUltimateUI : CombatUI
 
     GameObject modelObject;
 
+    int fingerID = -999;
+
+    LineRenderer testLine;
+
+    Rigidbody modelRigidBody;
+
     public override void Initialize(Weapon weapon)
     {
         inputs = TouchInputManager.instance.inputs;
-        lines = new Dictionary<int, LineRenderer>();
-
+                
         GameManager.instance.touchInputManager.touchStart += OnTouchStart;
         GameManager.instance.touchInputManager.touchMove += OnTouchMove;
-        GameManager.instance.onUpdate += OnUpdate;
+        //GameManager.instance.onFixedUpdate += OnUpdate;
         GameManager.instance.touchInputManager.touchEnd += OnTouchEnd;
     }
 
     private void OnTouchStart(Touch touch)
     {
-        if (!lines.ContainsKey(touch.fingerId))
+        if (fingerID == -999)
         {
-            var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
-
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
 
-            newLine.SetPosition(0, pos);
-
-            //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
-
-            lines.Add(touch.fingerId, newLine);
+            lines = new List<Vector3>();
+            lines.Add(pos);
 
             modelObject = Instantiate(model, pos, Quaternion.identity);
             modelObject.transform.SetParent(GameManager.instance.player.transform);
-            //modelObject.GetComponent<Collider>().trigg
+            modelRigidBody = modelObject.GetComponent<Rigidbody>();
+
+            fingerID = touch.fingerId;
+
+            testLine = Instantiate(linePrefab);
+            testLine.SetPosition(0, pos);
         }
     }
 
@@ -51,30 +58,52 @@ public class ContinuousSlashUltimateUI : CombatUI
     {
         if (modelObject)
         {
-            var pos = modelObject.transform.position + modelObject.transform.forward * 5;
-            DestroyMonsters(modelObject.transform.position, pos);
+            //var pos = modelObject.transform.position + modelObject.transform.forward * 5;
+            //DestroyMonsters(modelObject.transform.position, pos);
+
+            if(fingerID != -999)
+            {
+
+            var pos = GameManager.instance.GetTouchPosition(TouchInputManager.instance.inputs[fingerID].position, 1f);
+                //modelObject.transform.position = pos;
+
+                /*var diff = pos - modelObject.transform.position;
+                    Debug.Log(diff);
+                    modelRigidBody.velocity = diff / Time.deltaTime;*/
+
+                modelRigidBody.MovePosition(pos);
+            }
         }        
     }
 
     private void OnTouchMove(Touch touch)
     {
-        if (lines.ContainsKey(touch.fingerId))
+        if (touch.fingerId == fingerID)
         {
+            /*var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+            //modelObject.transform.position = pos;
+
+            var diff = pos - modelObject.transform.position;
+
+            modelRigidBody.velocity = diff / Time.deltaTime;*/
+
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-            modelObject.transform.position = pos;
+            modelRigidBody.MovePosition(pos);
         }
     }
 
     private void OnTouchEnd(Touch touch)
     {
-        LineRenderer line;
-        if (lines.TryGetValue(touch.fingerId, out line))
+        if (touch.fingerId == fingerID)
         {
-            //CheckEachSegment(line);
+            var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+            lines.Add(pos);
 
-            lines.Remove(touch.fingerId);
-            Destroy(line.gameObject, .5f);
+            testLine.positionCount = testLine.positionCount + 1;
+            testLine.SetPosition(testLine.positionCount - 1, pos);
+            Destroy(testLine.gameObject, .5f);
 
+            fingerID = -999;
             Destroy(modelObject);
         }
     }

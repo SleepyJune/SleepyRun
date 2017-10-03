@@ -74,6 +74,7 @@ MonoBehaviour:
   ultimateUI: {fileID: 114853879542525066}
   minSlashRange: 5
   maxSlashRange: 10
+  weaponRadius: 1
 --- !u!114 &114853879542525066
 MonoBehaviour:
   m_ObjectHideFlags: 1

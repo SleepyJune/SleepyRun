@@ -13,8 +13,8 @@ public class ColliderSpell : Spell
     {
         if (isDead) return;
 
-        var monster = collision.gameObject.GetComponent<Monster>();
-        if (monster != null && !monster.isDead)
+        var monster = collision.GetMonster();
+        if (monster != null)
         {
             monster.TakeDamage(damage);
 

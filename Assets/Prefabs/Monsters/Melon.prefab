@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4619982784633908}
   - component: {fileID: 137418523639703034}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -35,7 +35,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4029780623461198}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: body_0
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -69,7 +69,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4730932799223188}
   - component: {fileID: 137125023172487548}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: eyes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -85,7 +85,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4508492745476006}
   - component: {fileID: 137448345178173000}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: strips
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4739781347562716}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: animation_melon 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,7 +115,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4050626075167540}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Armature
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -13,6 +13,8 @@ public class SlashCombatUI : CombatUI
     public LineRenderer linePrefab;
 
     Weapon weapon;
+
+    //public GameObject testObject;
             
     public override void Initialize(Weapon weapon)
     {
@@ -31,10 +33,13 @@ public class SlashCombatUI : CombatUI
         if (!lines.ContainsKey(touch.fingerId))
         {
             var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
-            //var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+            
+            var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
 
-            newLine.SetPosition(0, touch.position); //record current mouse position
-                        
+            //newLine.SetPosition(0, touch.position); //record current mouse position
+            newLine.SetPosition(0, pos);
+
+
             //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
 
             lines.Add(touch.fingerId, newLine);
@@ -55,8 +60,8 @@ public class SlashCombatUI : CombatUI
         if (lines.TryGetValue(touch.fingerId, out line))
         {
             var start = line.GetPosition(0);
-            start = GameManager.instance.GetTouchPosition(start, 1f);
-            line.SetPosition(0, start);
+            /*start = GameManager.instance.GetTouchPosition(start, 1f);
+            line.SetPosition(0, start);*/
 
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
             
@@ -66,7 +71,8 @@ public class SlashCombatUI : CombatUI
                 * Math.Max(Math.Min(delta.magnitude, weapon.maxSlashRange), weapon.minSlashRange);
 
             line.positionCount = line.positionCount + 1;
-            line.SetPosition(line.positionCount - 1, end);
+            //line.SetPosition(line.positionCount - 1, end);
+            line.SetPosition(line.positionCount - 1, pos);
 
             ExecuteAttack(line);
 
@@ -100,10 +106,13 @@ public class SlashCombatUI : CombatUI
 
             var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
             var dist = Vector3.Distance(proj, monsterPos);
-            
-            if (dist <= .5f)
+                       
+            if (dist <= weapon.weaponRadius)
             {
                 GameManager.instance.comboManager.IncreaseComboCount();
+
+                //var test = Instantiate(testObject, proj + new Vector3(0, monster.transform.position.y, 0), Quaternion.identity);
+                //Destroy(test, 1);
 
                 /*var dir = (v2 - v1).normalized;
                 var hitParticle = Instantiate(

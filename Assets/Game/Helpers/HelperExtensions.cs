@@ -119,4 +119,18 @@ public static class HelperExtensions
             return EventSystem.current.IsPointerOverGameObject();
         }
     }
+
+    public static Monster GetMonster(this Collider collider)
+    {
+        if (collider.gameObject.layer == LayerConstants.monsterLayer)
+        {
+            var monster = collider.gameObject.GetComponent<Monster>();
+            if (monster != null && !monster.isDead)
+            {
+                return monster;
+            }
+        }
+
+        return null;
+    }    
 }

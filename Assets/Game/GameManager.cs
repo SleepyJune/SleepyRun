@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
     public delegate void Callback();
     public event Callback onUpdate;
+    public event Callback onFixedUpdate;
 
     public Player player;
 
@@ -54,6 +55,14 @@ public class GameManager : MonoBehaviour
         if (onUpdate != null)
         {
             onUpdate();
+        }
+    }
+
+    void FixedUpdate()
+    {        
+        if (onFixedUpdate != null)
+        {
+            onFixedUpdate();
         }
     }
 

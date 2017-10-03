@@ -87,3 +87,4 @@ MonoBehaviour:
   ultimateUI: {fileID: 114256740194598448}
   minSlashRange: 1
   maxSlashRange: 1
+  weaponRadius: 1.5

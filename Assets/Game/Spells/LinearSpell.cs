@@ -6,22 +6,16 @@ public class LinearSpell : Spell
     public Vector3 start;
     [System.NonSerialized]
     public Vector3 end;
-    
+
     public int maxDistance = 500;
 
     public GameObject particleOnHit;
-
-    public int wallLayer;
-    public int monsterLayer;
 
     public bool wallCollision = true;
 
     void Awake()
     {
         Initialize();
-
-        wallLayer = LayerMask.NameToLayer("Walls");
-        monsterLayer = LayerMask.NameToLayer("Monsters");
     }
 
     void Start()
@@ -39,12 +33,12 @@ public class LinearSpell : Spell
 
     public void SetVelocity()
     {
-        if(start == Vector3.zero)
+        if (start == Vector3.zero)
         {
             start = transform.position;
         }
 
-        if(end == Vector3.zero)
+        if (end == Vector3.zero)
         {
             end = transform.position + transform.forward * maxDistance;
         }
@@ -55,7 +49,7 @@ public class LinearSpell : Spell
         if (speed > 0)
         {
             rigidbody.AddForce(dir * speed);
-        }        
+        }
 
         if (dir != Vector3.zero)
         {
@@ -65,42 +59,39 @@ public class LinearSpell : Spell
     }
 
     void OnTriggerEnter(Collider collision)
-    {        
+    {
         if (isDead) return;
-                
-        if(wallCollision && collision.gameObject.layer == wallLayer)
+
+        if (wallCollision && collision.gameObject.layer == LayerConstants.wallLayer)
         {
             Death();
             return;
         }
 
-        if (collision.gameObject.layer == monsterLayer)
+        var monster = collision.GetMonster();
+        if (monster != null)
         {
-            var monster = collision.gameObject.GetComponent<Monster>();
-            if (monster != null && !monster.isDead)
+            monster.TakeDamage(damage);
+
+            var dir = (transform.position - start);
+            dir.y = .15f;
+
+            var force = dir * 100;
+
+            monster.Death(new HitInfo
             {
-                monster.TakeDamage(damage);
+                hitStart = start,
+                hitEnd = transform.position,
+                force = force,
+            });
 
-                var dir = (transform.position - start);
-                dir.y = .15f;
-
-                var force = dir * 100;
-
-                monster.Death(new HitInfo
-                {
-                    hitStart = start,
-                    hitEnd = transform.position,
-                    force = force,
-                });
-
-                if (particleOnHit)
-                {
-                    //Instantiate(particleOnHit, monster.anim.transform);
-                }
-
-                //isDead = true;
-                //Destroy(transform.gameObject);
+            if (particleOnHit)
+            {
+                //Instantiate(particleOnHit, monster.anim.transform);
             }
+
+            //isDead = true;
+            //Destroy(transform.gameObject);
         }
     }
 
