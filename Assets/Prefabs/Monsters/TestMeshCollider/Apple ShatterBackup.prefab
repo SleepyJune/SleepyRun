@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 4935145809842572}
   - component: {fileID: 114129547273426302}
   m_Layer: 0
-  m_Name: Apple Shatter
+  m_Name: Apple ShatterBackup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -30,19 +30,24 @@ public class SlashCombatUI : CombatUI
 
     private void OnTouchStart(Touch touch)
     {
-        if (!lines.ContainsKey(touch.fingerId))
+        if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
         {
-            var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
-            
-            var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+            if (!lines.ContainsKey(touch.fingerId))
+            {
+                var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
 
-            //newLine.SetPosition(0, touch.position); //record current mouse position
-            newLine.SetPosition(0, pos);
+                var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+
+                //newLine.SetPosition(0, touch.position); //record current mouse position
+                newLine.SetPosition(0, pos);
 
 
-            //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
+                //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
 
-            lines.Add(touch.fingerId, newLine);
+                lines.Add(touch.fingerId, newLine);
+
+                weapon.lastAttackTime = Time.time;
+            }
         }
     }
 
@@ -70,9 +75,14 @@ public class SlashCombatUI : CombatUI
             var end = start + delta.normalized 
                 * Math.Max(Math.Min(delta.magnitude, weapon.maxSlashRange), weapon.minSlashRange);
 
-            line.positionCount = line.positionCount + 1;
             //line.SetPosition(line.positionCount - 1, end);
+            line.positionCount = line.positionCount + 1;
+            line.SetPosition(line.positionCount - 1, start + delta.normalized * (delta.magnitude/2));
+
+            line.positionCount = line.positionCount + 1;
             line.SetPosition(line.positionCount - 1, pos);
+
+            line.colorGradient = weapon.GetSlashGradient(start, pos);
 
             ExecuteAttack(line);
 
