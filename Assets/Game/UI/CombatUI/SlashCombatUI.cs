@@ -53,9 +53,19 @@ public class SlashCombatUI : CombatUI
 
     private void OnTouchMove(Touch touch)
     {
-        if (lines.ContainsKey(touch.fingerId))
+        LineRenderer line;
+        if (lines.TryGetValue(touch.fingerId, out line))
         {
-            //var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+            var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+
+            var start = line.GetPosition(0);
+
+            var delta = (pos - start);
+
+            if(delta.magnitude > weapon.maxSlashRange)
+            {
+                OnTouchEnd(touch);
+            }
         }
     }
 
@@ -80,9 +90,9 @@ public class SlashCombatUI : CombatUI
             line.SetPosition(line.positionCount - 1, start + delta.normalized * (delta.magnitude/2));
 
             line.positionCount = line.positionCount + 1;
-            line.SetPosition(line.positionCount - 1, pos);
+            line.SetPosition(line.positionCount - 1, end);
 
-            line.colorGradient = weapon.GetSlashGradient(start, pos);
+            line.colorGradient = weapon.GetSlashGradient(start, end);
 
             ExecuteAttack(line);
 

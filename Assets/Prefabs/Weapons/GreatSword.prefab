@@ -62,8 +62,9 @@ MonoBehaviour:
   combatUI: {fileID: 114925803521445296}
   ultimateUI: {fileID: 114162396112226540}
   minSlashRange: 5
-  maxSlashRange: 15
+  maxSlashRange: 20
   weaponRadius: 1
+  attackFrequency: 1
 --- !u!114 &114162396112226540
 MonoBehaviour:
   m_ObjectHideFlags: 1
