@@ -15,7 +15,6 @@ public class ShatterPieceGenerator : Editor
 
     private void OnEnable()
     {
-        // Cache the SerializedProperties.
         heightProperty = serializedObject.FindProperty("height");
         radiusProperty = serializedObject.FindProperty("radius");
 

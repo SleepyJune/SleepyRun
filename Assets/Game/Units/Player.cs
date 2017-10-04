@@ -9,10 +9,35 @@ public class Player : Unit
         health = maxHealth;
     }
     
+    public void TakeDamage(int damage)
+    {
+        health -= damage;
+
+        Debug.Log("Take damage: " + damage);
+
+        if(health <= 0)
+        {
+            Death();
+        }
+    }
+
+    void Death()
+    {
+        health = 0;
+        isDead = true;
+                
+        anim.SetTrigger("Die");
+
+        GameManager.instance.GameOver();
+    }
+
     void Update()
     {
-        var dir = new Vector3(0, 0, 1);
-        transform.position += dir * speed * Time.deltaTime;
-        anim.SetFloat("Speed", speed);
+        if (!isDead)
+        {
+            var dir = new Vector3(0, 0, 1);
+            transform.position += dir * speed * Time.deltaTime;
+            anim.SetFloat("Speed", speed);
+        }
     }
 }

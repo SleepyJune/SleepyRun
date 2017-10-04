@@ -1,0 +1,46 @@
+﻿using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using UnityEngine;
+
+[CreateAssetMenu(menuName = "StageEvent/Random Monster Spawn")]
+class RandomIntervalSpawnMonsterEvent : StageEvent
+{
+    public Monster monster;
+    public float zPositionStart = 0;
+    public float zPositionEnd = 99999;
+
+    public int maxOnScreen = 999;
+
+    public float spawnFrequency = 1;
+
+    public override void ExecuteEvent()
+    {
+        var playerZPos = GameManager.instance.player.transform.position.z;
+        if (playerZPos >= zPositionStart && playerZPos <= zPositionEnd)
+        {
+            var random = Random.Range(0, spawnFrequency / Time.deltaTime);
+
+            if (random <= 1)
+            {
+                int monsterCount;
+                if (GameManager.instance.monsterManager.monsterCount.TryGetValue(monster.name, out monsterCount))
+                {
+                    if (monsterCount < maxOnScreen)
+                    {
+                        GameManager.instance.monsterManager.MakeMonster(monster);
+                    }
+                }
+                else
+                {
+                    GameManager.instance.monsterManager.MakeMonster(monster);
+                }
+            }
+        }
+        else
+        {
+            isExecuted = true;
+        }
+    }
+}

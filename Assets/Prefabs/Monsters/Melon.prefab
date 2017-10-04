@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 135840349860980368}
   - component: {fileID: 114351910669891932}
   - component: {fileID: 114242400681196872}
+  - component: {fileID: 114151547537653038}
   m_Layer: 8
   m_Name: Melon
   m_TagString: Untagged
@@ -219,6 +220,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114151547537653038
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144878042777974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc4444978303414ebad767032912256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1986020937323958, guid: 01706214247b4224d88fb97492fedd21, type: 2}
+  offset: {x: 0, y: 0.5, z: 0}
 --- !u!114 &114242400681196872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -245,6 +259,7 @@ MonoBehaviour:
   speed: 1
   anim: {fileID: 0}
   maxHealth: 10
+  damage: 100
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

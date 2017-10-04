@@ -28,7 +28,11 @@ public class GameManager : MonoBehaviour
 
     private int entityId = 0;
     private bool gameOver = false;
-    
+
+    public Transform canvas;
+
+    private GameObject gameOverText;
+
     void Awake()
     {
         if (instance == null)
@@ -46,6 +50,11 @@ public class GameManager : MonoBehaviour
         touchInputManager = GetComponent<TouchInputManager>();
         comboManager = GetComponent<ComboManager>();
         weaponManager = GetComponent<WeaponManager>();
+    }
+
+    void Start()
+    {
+        gameOverText = canvas.Find("GameOverText").gameObject;
     }
 
     void Update()
@@ -69,6 +78,16 @@ public class GameManager : MonoBehaviour
     public int GenerateEntityId()
     {
         return entityId++;
+    }
+
+    public void GameOver()
+    {
+        weaponManager.DisableWeapon();
+
+        gameOverText.SetActive(true);
+        gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
+
+        DelayAction.Add(() => SceneChanger.ChangeScene("FailedScreen"), 5);
     }
 
     public Vector3 GetTouchPosition(Vector2 position, float height = 999)

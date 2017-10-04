@@ -1,13 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 using System.Collections;
 
 
 public class SelfDestruct : MonoBehaviour {
-	public float selfdestruct_in = 4; // Setting this to 0 means no selfdestruct.
+    [FormerlySerializedAs("selfdestruct_in")]
+    public float delay = 4; // Setting this to 0 means no selfdestruct.
 
 	void Start () {
-		if ( selfdestruct_in != 0){ 
-			Destroy (gameObject, selfdestruct_in);
+		if ( delay != 0){ 
+			Destroy (gameObject, delay);
 		}
 	}
 }

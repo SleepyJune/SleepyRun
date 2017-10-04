@@ -5,7 +5,8 @@ using UnityEngine;
 public class MonsterManager : MonoBehaviour
 {
     public Dictionary<int, Monster> monsters = new Dictionary<int, Monster>();
-    
+    public Dictionary<string, int> monsterCount = new Dictionary<string, int>();
+
     Player player;
     LevelInfo level;
 
@@ -22,6 +23,8 @@ public class MonsterManager : MonoBehaviour
 
     public Transform monsterHolder;
 
+    float spawnRadius = 1f;
+
     void Start()
     {
         level = GameManager.instance.level;
@@ -36,25 +39,51 @@ public class MonsterManager : MonoBehaviour
         CheckMonsters();
     }
 
-    void MakeMonster(Monster prefab)
+    public void MakeMonster(Monster prefab)
     {
         var lastFloor = floorManager.lastFloor;
         if (lastFloor)
         {
             Vector3 lane = lanes[Random.Range(0, 3)];
             Vector3 spawnPos = player.transform.position + lane + new Vector3(0,0,monsterSpawnDistance);
+                        
+            int maxTries = 10;
+            bool foundPlacement = true;
+            for (int tries = 0; tries < maxTries; tries++) //prevent monsters spawning on top of each other
+            {
+                if (tries == maxTries-1)
+                {
+                    foundPlacement = false;
+                    break;
+                }
 
-            var newMonster = Instantiate(prefab, spawnPos, Quaternion.Euler(new Vector3(0,180,0)));
-            newMonster.transform.SetParent(monsterHolder);
-            newMonster.id = GameManager.instance.GenerateEntityId();
+                var colliders = Physics.OverlapSphere(spawnPos, spawnRadius, LayerConstants.monsterMask);
+                if (colliders.Length == 0)
+                {
+                    break;
+                }
+                else
+                {
+                    var randomDist = monsterSpawnDistance + Random.Range(-5, 5);
+                    lane = lanes[Random.Range(0, 3)];
+                    spawnPos = player.transform.position + lane + new Vector3(0, 0, monsterSpawnDistance);
+                }                
+            }
 
-            monsters.Add(newMonster.id, newMonster);
+            if (foundPlacement)
+            {
+                var newMonster = Instantiate(prefab, spawnPos, Quaternion.Euler(new Vector3(0, 180, 0)));
+                newMonster.transform.SetParent(monsterHolder);
+                newMonster.id = GameManager.instance.GenerateEntityId();
+
+                monsters.Add(newMonster.id, newMonster);
+            }
         }
     }
 
     void CheckMonsters()
     {
-        foreach (var monsterInfo in level.monsters)
+        /*foreach (var monsterInfo in level.monsters)
         {
             var random = Random.Range(0, monsterInfo.spawnFrequency / Time.deltaTime);
 
@@ -62,7 +91,7 @@ public class MonsterManager : MonoBehaviour
             {
                 MakeMonster(monsterInfo.monster);
             }
-        }
+        }*/
 
         List<int> removeList = new List<int>();
         foreach(var pair in monsters)
@@ -71,7 +100,7 @@ public class MonsterManager : MonoBehaviour
 
             if (monster != null)
             {
-                if (player.transform.position.z - monster.transform.position.z > 5)
+                if (player.transform.position.z - monster.transform.position.z > 0)
                 {
                     removeList.Add(monster.id);
 

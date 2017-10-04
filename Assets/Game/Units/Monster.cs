@@ -3,8 +3,10 @@ using UnityEngine;
 
 public class Monster : Unit
 {
-    MonsterShatter shatterScript;
+    public int damage = 1;
 
+    MonsterShatter shatterScript;
+    
     [NonSerialized]
     public new Rigidbody rigidbody;
 
@@ -26,6 +28,14 @@ public class Monster : Unit
         if (!isDead)
         {
             GameManager.instance.comboManager.BreakCombo();
+
+            GameManager.instance.player.TakeDamage(damage);
+
+            var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
+            if (monsterDeathParticle)
+            {
+                monsterDeathParticle.CreateParticle();
+            }
         }
     }
 
@@ -39,6 +49,12 @@ public class Monster : Unit
             {
                 anim.SetTrigger("Die");
                 anim.SetBool("isDead", true);
+            }
+
+            var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
+            if (monsterDeathParticle)
+            {
+                monsterDeathParticle.CreateParticle();
             }
 
 

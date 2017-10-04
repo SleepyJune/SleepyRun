@@ -25,12 +25,15 @@ public class WeaponManager : MonoBehaviour
 
     public void UseUltimate()
     {
-        if (!usingUlt && currentWeapon.ultimateUI != null)
+        if (!GameManager.instance.player.isDead)
         {
-            usingUlt = true;
+            if (!usingUlt && currentWeapon.ultimateUI != null)
+            {
+                usingUlt = true;
 
-            currentWeapon.combatUI.End();
-            currentWeapon.ultimateUI.Initialize(currentWeapon);
+                currentWeapon.combatUI.End();
+                currentWeapon.ultimateUI.Initialize(currentWeapon);
+            }
         }
     }
 
@@ -45,10 +48,10 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    public void SwitchWeapons(Weapon newWeapon)
+    public void DisableWeapon()
     {
         if (currentWeapon)
-        {            
+        {
             if (usingUlt)
             {
                 currentWeapon.ultimateUI.End();
@@ -58,9 +61,28 @@ public class WeaponManager : MonoBehaviour
             {
                 currentWeapon.combatUI.End();
             }
-        }      
-        
-        currentWeapon = newWeapon;
-        currentWeapon.combatUI.Initialize(newWeapon);
+        }
+    }
+
+    public void SwitchWeapons(Weapon newWeapon)
+    {
+        if (!GameManager.instance.player.isDead)
+        {
+            if (currentWeapon)
+            {
+                if (usingUlt)
+                {
+                    currentWeapon.ultimateUI.End();
+                    usingUlt = false;
+                }
+                else
+                {
+                    currentWeapon.combatUI.End();
+                }
+            }
+
+            currentWeapon = newWeapon;
+            currentWeapon.combatUI.Initialize(newWeapon);
+        }
     }
 }
