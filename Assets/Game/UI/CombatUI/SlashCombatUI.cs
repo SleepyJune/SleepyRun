@@ -28,8 +28,7 @@ public class SlashCombatUI : CombatUI
 
     private void OnTouchStart(Touch touch)
     {
-        //if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
-        if(true)
+        if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
         {
             if (!lines.ContainsKey(touch.fingerId))
             {
@@ -90,18 +89,17 @@ public class SlashCombatUI : CombatUI
 
             line.positionCount = line.positionCount + 1;
             line.SetPosition(line.positionCount - 1, end);
-            
-            var staminaPercent = GameManager.instance.staminaManager.DecreaseStamina(weapon.staminaCost);
-            line.colorGradient = weapon.GetSlashGradient(start, end, staminaPercent);
+                        
+            line.colorGradient = weapon.GetSlashGradient(start, end);
 
-            ExecuteAttack(line, staminaPercent);
+            ExecuteAttack(line);
 
             lines.Remove(touch.fingerId);
             Destroy(line.gameObject, .5f);
         }
     }
         
-    protected virtual void ExecuteAttack(LineRenderer line, float staminaPercent)
+    protected virtual void ExecuteAttack(LineRenderer line)
     {                
         Vector3 lastPos = line.GetPosition(0);
         for (int i = 0; i < line.positionCount; i++)
@@ -112,12 +110,12 @@ public class SlashCombatUI : CombatUI
             }
 
             var currentPos = line.GetPosition(i);
-            DestroyMonsters(lastPos, currentPos,staminaPercent);
+            DestroyMonsters(lastPos, currentPos);
             lastPos = currentPos;
         }
     }
 
-    void DestroyMonsters(Vector3 v1, Vector3 v2, float staminaPercent)
+    void DestroyMonsters(Vector3 v1, Vector3 v2)
     {
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
@@ -150,7 +148,7 @@ public class SlashCombatUI : CombatUI
                     hitStart = v1,
                     hitEnd = v2,
                     force = force,
-                    damage = (int)Mathf.Round(weapon.damage * staminaPercent)
+                    damage = weapon.damage
                 };
 
                 monster.TakeDamage(hitInfo);

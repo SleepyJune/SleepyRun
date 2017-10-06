@@ -41,7 +41,7 @@ public class Weapon : MonoBehaviour
     [NonSerialized]
     public float lastAttackTime;
 
-    public Gradient GetSlashGradient(Vector3 start, Vector3 end, float staminaPercent)
+    public Gradient GetSlashGradient(Vector3 start, Vector3 end)
     {
         var diff = (end - start);
         float length = diff.magnitude;
@@ -70,9 +70,7 @@ public class Weapon : MonoBehaviour
         {
             slashColor = Color.yellow;
         }
-
-        var alphaPercent = Math.Max(staminaPercent, .05f);
-
+                
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] {
@@ -80,8 +78,8 @@ public class Weapon : MonoBehaviour
                 new GradientColorKey(slashColor, 1.0f)
             },
             new GradientAlphaKey[] {
-                new GradientAlphaKey(alphaPercent, 0.0f),
-                new GradientAlphaKey(alphaPercent, 1.0f) }
+                new GradientAlphaKey(1.0f, 0.0f),
+                new GradientAlphaKey(1.0f, 1.0f) }
             );
 
         return gradient;

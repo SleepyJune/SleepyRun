@@ -9,7 +9,7 @@ public class ProjectileCombatUI : SlashCombatUI
 {
     public GameObject projectilePrefab;
 
-    protected override void ExecuteAttack(LineRenderer line, float staminaPercent)
+    protected override void ExecuteAttack(LineRenderer line)
     {
         CreateProjectile(line);
     }
