@@ -8,18 +8,12 @@ using UnityEngine.UI;
 public class PunchCombatUI : CombatUI
 {
     public GameObject onHitEffect;
-
-    int monstersMask;
-
-    Weapon weapon;
-
+    
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
 
         GameManager.instance.touchInputManager.touchStart += OnTouchStart;
-
-        monstersMask = LayerMask.GetMask("Monsters");
     }
 
     private void OnTouchStart(Touch touch)
@@ -36,7 +30,7 @@ public class PunchCombatUI : CombatUI
 
     void DestroyMonsters(Vector3 hitPos)
     {
-        var monsterObjects = Physics.OverlapSphere(hitPos, 2f, monstersMask);
+        var monsterObjects = Physics.OverlapSphere(hitPos, 2f, LayerConstants.monsterMask);
         foreach (var monsterObject in monsterObjects)
         {
             var monster = monsterObject.GetComponent<Monster>();
@@ -56,9 +50,10 @@ public class PunchCombatUI : CombatUI
                     hitStart = hitPos,
                     hitEnd = monsterPos,
                     force = force,
+                    damage = weapon.damage
                 };
 
-                monster.Death(hitInfo);
+                monster.TakeDamage(hitInfo);
             }
         }
     }

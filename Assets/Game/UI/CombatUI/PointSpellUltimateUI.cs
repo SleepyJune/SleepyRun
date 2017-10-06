@@ -11,6 +11,8 @@ public class PointSpellUltimateUI : CombatUI
 
     public override void Initialize(Weapon weapon)
     {
+        this.weapon = weapon;
+
         TouchInputManager.instance.touchStart += OnTouchStart;
     }
 

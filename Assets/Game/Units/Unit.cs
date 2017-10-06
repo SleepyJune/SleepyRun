@@ -11,4 +11,7 @@ public abstract class Unit : Entity
 
     [NonSerialized]
     public int health;
+
+    public int defense = 0;
+
 }

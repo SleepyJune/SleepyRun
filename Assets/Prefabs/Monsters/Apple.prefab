@@ -322,6 +322,8 @@ MonoBehaviour:
   speed: 1
   anim: {fileID: 0}
   maxHealth: 10
+  defense: 0
+  damage: 1
 --- !u!114 &114420069893495174
 MonoBehaviour:
   m_ObjectHideFlags: 1

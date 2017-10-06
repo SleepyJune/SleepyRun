@@ -12,5 +12,7 @@ public class HitInfo
 
     public Vector3 force;
 
+    public int damage;
+
     //public GameObject hitParticle;
 }

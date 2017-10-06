@@ -484,7 +484,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a5a92ec89de1aec4281ea738f0693ff1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selfdestruct_in: 1
+  delay: 1
 --- !u!114 &114260381768247630
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -497,7 +497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
-  damage: 5
+  damage: 20
   radius: 20
   particleOnHit: {fileID: 0}
 --- !u!182 &182353280632487804

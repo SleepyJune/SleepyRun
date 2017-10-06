@@ -486,7 +486,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 1
   anim: {fileID: 0}
-  maxHealth: 10
+  maxHealth: 5
+  defense: 2
   damage: 5
 --- !u!114 &114518440861811656
 MonoBehaviour:

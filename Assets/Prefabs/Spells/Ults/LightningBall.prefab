@@ -285,13 +285,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06cd2acc8d3aa7645b108ecb25533b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1000
+  speed: 20
   damage: 100
   radius: 1
   maxDistance: 100
   particleOnHit: {fileID: 1048157638747232, guid: b507208ae492e7f41bfc38428639caeb,
     type: 2}
-  wallLayer: 0
   wallCollision: 0
 --- !u!135 &135127367443471454
 SphereCollider:

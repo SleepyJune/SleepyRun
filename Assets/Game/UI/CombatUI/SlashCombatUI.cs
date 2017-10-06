@@ -11,18 +11,16 @@ public class SlashCombatUI : CombatUI
     Dictionary<int, LineRenderer> lines;
 
     public LineRenderer linePrefab;
-
-    Weapon weapon;
-
+    
     //public GameObject testObject;
             
     public override void Initialize(Weapon weapon)
     {
+        this.weapon = weapon;
+
         inputs = TouchInputManager.instance.inputs;
         lines = new Dictionary<int, LineRenderer>();
-
-        this.weapon = weapon;
-        
+                
         GameManager.instance.touchInputManager.touchStart += OnTouchStart;
         GameManager.instance.touchInputManager.touchMove += OnTouchMove;
         GameManager.instance.touchInputManager.touchEnd += OnTouchEnd;
@@ -30,7 +28,8 @@ public class SlashCombatUI : CombatUI
 
     private void OnTouchStart(Touch touch)
     {
-        if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
+        //if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
+        if(true)
         {
             if (!lines.ContainsKey(touch.fingerId))
             {
@@ -91,18 +90,19 @@ public class SlashCombatUI : CombatUI
 
             line.positionCount = line.positionCount + 1;
             line.SetPosition(line.positionCount - 1, end);
+            
+            var staminaPercent = GameManager.instance.staminaManager.DecreaseStamina(weapon.staminaCost);
+            line.colorGradient = weapon.GetSlashGradient(start, end, staminaPercent);
 
-            line.colorGradient = weapon.GetSlashGradient(start, end);
-
-            ExecuteAttack(line);
+            ExecuteAttack(line, staminaPercent);
 
             lines.Remove(touch.fingerId);
             Destroy(line.gameObject, .5f);
         }
     }
         
-    protected virtual void ExecuteAttack(LineRenderer line)
-    {
+    protected virtual void ExecuteAttack(LineRenderer line, float staminaPercent)
+    {                
         Vector3 lastPos = line.GetPosition(0);
         for (int i = 0; i < line.positionCount; i++)
         {
@@ -112,12 +112,12 @@ public class SlashCombatUI : CombatUI
             }
 
             var currentPos = line.GetPosition(i);
-            DestroyMonsters(lastPos, currentPos);
+            DestroyMonsters(lastPos, currentPos,staminaPercent);
             lastPos = currentPos;
         }
     }
 
-    void DestroyMonsters(Vector3 v1, Vector3 v2)
+    void DestroyMonsters(Vector3 v1, Vector3 v2, float staminaPercent)
     {
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
@@ -150,9 +150,10 @@ public class SlashCombatUI : CombatUI
                     hitStart = v1,
                     hitEnd = v2,
                     force = force,
+                    damage = (int)Mathf.Round(weapon.damage * staminaPercent)
                 };
 
-                monster.Death(hitInfo);
+                monster.TakeDamage(hitInfo);
             }
         }
     }

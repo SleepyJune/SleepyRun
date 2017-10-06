@@ -9,7 +9,7 @@ public class ProjectileCombatUI : SlashCombatUI
 {
     public GameObject projectilePrefab;
 
-    protected override void ExecuteAttack(LineRenderer line)
+    protected override void ExecuteAttack(LineRenderer line, float staminaPercent)
     {
         CreateProjectile(line);
     }
@@ -21,7 +21,7 @@ public class ProjectileCombatUI : SlashCombatUI
 
         projectile.start = line.GetPosition(0);
         projectile.end = line.GetPosition(1);
-        projectile.speed = (projectile.end - projectile.start).magnitude * 300;
+        //projectile.speed = (projectile.end - projectile.start).magnitude * 300;
 
         //projectile.SetVelocity();
     }    

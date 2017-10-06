@@ -16,6 +16,8 @@ public class AutoSpellUltimateUI : CombatUI
 
     public override void Initialize(Weapon weapon)
     {
+        this.weapon = weapon;
+
         var pos = GameManager.instance.player.transform.position + startPosition;
         
         var newSpell = Instantiate(spell.gameObject, pos, Quaternion.Euler(direction));

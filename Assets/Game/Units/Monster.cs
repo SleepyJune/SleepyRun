@@ -18,9 +18,14 @@ public class Monster : Unit
         health = maxHealth;
     }
     
-    public void TakeDamage(int damage)
+    public void TakeDamage(HitInfo hitInfo)
     {
-        health = Math.Max(0, health - damage);
+        health = Math.Max(0, health - hitInfo.damage);
+
+        if(health == 0)
+        {
+            Death(hitInfo);
+        }
     }
 
     public void RemoveFromStage()

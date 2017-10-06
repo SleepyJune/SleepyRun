@@ -16,18 +16,17 @@ public class ColliderSpell : Spell
         var monster = collision.GetMonster();
         if (monster != null)
         {
-            monster.TakeDamage(damage);
-
             var dir = (monster.transform.position - transform.position);
             dir.y = .15f;
 
             var force = dir * 100;
 
-            monster.Death(new HitInfo
+            monster.TakeDamage(new HitInfo
             {
                 hitStart = transform.position,
                 hitEnd = transform.position,
                 force = force,
+                damage = damage
             });
 
             if (particleOnHit)

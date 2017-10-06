@@ -23,15 +23,20 @@ public class ContinuousSlashUltimateUI : CombatUI
     LineRenderer testLine;
 
     Rigidbody modelRigidBody;
-
+    
     public override void Initialize(Weapon weapon)
     {
+        this.weapon = weapon;
+
         inputs = TouchInputManager.instance.inputs;
                 
+        fingerID = -999;
+
         GameManager.instance.touchInputManager.touchStart += OnTouchStart;
         GameManager.instance.touchInputManager.touchMove += OnTouchMove;
         //GameManager.instance.onFixedUpdate += OnUpdate;
         GameManager.instance.touchInputManager.touchEnd += OnTouchEnd;
+
     }
 
     private void OnTouchStart(Touch touch)
@@ -63,15 +68,19 @@ public class ContinuousSlashUltimateUI : CombatUI
 
             if(fingerID != -999)
             {
-
-            var pos = GameManager.instance.GetTouchPosition(TouchInputManager.instance.inputs[fingerID].position, 1f);
-                //modelObject.transform.position = pos;
+                var pos = GameManager.instance.GetTouchPosition(TouchInputManager.instance.inputs[fingerID].position, 1f);
+                modelObject.transform.position = pos;
 
                 /*var diff = pos - modelObject.transform.position;
                     Debug.Log(diff);
                     modelRigidBody.velocity = diff / Time.deltaTime;*/
 
-                modelRigidBody.MovePosition(pos);
+                var diff = pos - modelObject.transform.position;
+                
+
+
+                //modelRigidBody.velocity = diff / Time.deltaTime;
+                //modelRigidBody.MovePosition(modelObject.transform.position + diff.normalized * 50 * Time.deltaTime);
             }
         }        
     }
@@ -80,15 +89,17 @@ public class ContinuousSlashUltimateUI : CombatUI
     {
         if (touch.fingerId == fingerID)
         {
-            /*var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-            //modelObject.transform.position = pos;
-
-            var diff = pos - modelObject.transform.position;
-
-            modelRigidBody.velocity = diff / Time.deltaTime;*/
-
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-            modelRigidBody.MovePosition(pos);
+
+            //var diff = pos - modelObject.transform.position;
+
+            //modelRigidBody.velocity = diff / Time.deltaTime;
+            //modelRigidBody.MovePosition(modelObject.transform.position + diff.normalized * 50);
+
+            DestroyMonsters(modelObject.transform.position, pos);
+
+            modelObject.transform.position = pos;
+
         }
     }
 
@@ -154,16 +165,17 @@ public class ContinuousSlashUltimateUI : CombatUI
                     var dir = (v2 - v1);
                     dir.y = .15f;
 
-                    var force = dir * 50;
+                    var force = dir.normalized * 500;
 
                     HitInfo hitInfo = new HitInfo
                     {
                         hitStart = v1,
                         hitEnd = v2,
                         force = force,
+                        damage = weapon.damage
                     };
 
-                    monster.Death(hitInfo);
+                    monster.TakeDamage(hitInfo);
                 }
             }
         }

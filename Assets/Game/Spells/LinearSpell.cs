@@ -48,7 +48,7 @@ public class LinearSpell : Spell
 
         if (speed > 0)
         {
-            rigidbody.AddForce(dir * speed);
+            rigidbody.AddForce(dir * speed, ForceMode.Impulse);
         }
 
         if (dir != Vector3.zero)
@@ -71,18 +71,17 @@ public class LinearSpell : Spell
         var monster = collision.GetMonster();
         if (monster != null)
         {
-            monster.TakeDamage(damage);
-
             var dir = (transform.position - start);
             dir.y = .15f;
 
             var force = dir * 100;
 
-            monster.Death(new HitInfo
+            monster.TakeDamage(new HitInfo
             {
                 hitStart = start,
                 hitEnd = transform.position,
                 force = force,
+                damage = damage
             });
 
             if (particleOnHit)

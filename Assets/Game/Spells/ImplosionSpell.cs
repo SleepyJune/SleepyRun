@@ -36,9 +36,10 @@ public class ImplosionSpell : Spell
                     hitStart = hitPos,
                     hitEnd = monsterPos,
                     force = force,
+                    damage = damage
                 };
 
-                monster.Death(hitInfo);
+                monster.TakeDamage(hitInfo);
             }
         }
     }

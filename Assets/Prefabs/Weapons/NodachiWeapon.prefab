@@ -85,10 +85,11 @@ MonoBehaviour:
   thrustModifier: 0
   chopModifier: 0
   slashModifier: 1
-  damage: 100
+  damage: 10
   combatUI: {fileID: 114094553609451580}
   ultimateUI: {fileID: 114637845716118612}
   minSlashRange: 5
   maxSlashRange: 15
   weaponRadius: 0.5
   attackFrequency: 1.5
+  staminaCost: 15

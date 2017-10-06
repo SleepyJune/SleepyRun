@@ -19,7 +19,7 @@ public class ComboManager : MonoBehaviour
     Animator ultButtonAC;
 
     int maxEnergy = 100;
-    int energyPerCombo = 20;
+    int energyPerCombo = 10;
     int currentEnergy;
     
     GameObject lastText;
@@ -31,6 +31,8 @@ public class ComboManager : MonoBehaviour
 
     [System.NonSerialized]
     public bool charged = false;
+
+    float lastComboTime = 0;
 
     class ComboInfo
     {
@@ -56,6 +58,11 @@ public class ComboManager : MonoBehaviour
 
     void Update()
     {
+        if(Time.time - lastComboTime > 2) //lose combo in 3 seconds
+        {
+            BreakCombo();
+        }
+
         if (comboQueue.Count > 0)
         {
             var comboInfo = comboQueue.Peek();
@@ -94,12 +101,15 @@ public class ComboManager : MonoBehaviour
         var newCombo = new ComboInfo(comboCount, Time.time + countDiff * updateFrequency);
         comboQueue.Enqueue(newCombo);
 
-        currentEnergy = Mathf.Min(100, 100*(energyPerCombo * comboCount) / maxEnergy);        
+        currentEnergy += (int)Mathf.Round(energyPerCombo + comboCount * .2f);
+        currentEnergy = Mathf.Min(maxEnergy, currentEnergy);
+
+        lastComboTime = Time.time;
     }
 
     public void BreakCombo()
     {
-        currentEnergy = 0;
+        //currentEnergy = 0;
         comboCount = 0;
 
         ultButtonAC.SetTrigger("ComboBreak");
