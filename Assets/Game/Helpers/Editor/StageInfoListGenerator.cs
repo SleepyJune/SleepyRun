@@ -24,8 +24,8 @@ public class StageInfoListGenerator : Editor
         if (GUILayout.Button("Generate"))
         {
             Generate();
+            EditorUtility.SetDirty(target);
         }
-
         EditorGUILayout.PropertyField(databaseProperty, true);        
 
         serializedObject.ApplyModifiedProperties();

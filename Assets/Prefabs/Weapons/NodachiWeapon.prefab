@@ -81,15 +81,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 488f91a27b146ab409a521e0cef4a720, type: 3}
-  weaponType: 0
-  thrustModifier: 0
-  chopModifier: 0
-  slashModifier: 1
+  weaponType: 1
+  thrustModifier: 2
+  chopModifier: 1
+  slashModifier: 1.5
   damage: 10
   combatUI: {fileID: 114094553609451580}
   ultimateUI: {fileID: 114637845716118612}
   minSlashRange: 5
   maxSlashRange: 15
-  weaponRadius: 0.5
+  weaponRadius: 7.5
   attackFrequency: 1.5
-  staminaCost: 15
+  particle: {fileID: 0}

@@ -19,8 +19,6 @@ public class GameManager : MonoBehaviour
     public ComboManager comboManager;
     [NonSerialized]
     public WeaponManager weaponManager;
-    [NonSerialized]
-    public StaminaManager staminaManager;
 
     public delegate void Callback();
     public event Callback onUpdate;
@@ -52,7 +50,6 @@ public class GameManager : MonoBehaviour
         touchInputManager = GetComponent<TouchInputManager>();
         comboManager = GetComponent<ComboManager>();
         weaponManager = GetComponent<WeaponManager>();
-        staminaManager = GetComponent<StaminaManager>();
     }
 
     void Start()

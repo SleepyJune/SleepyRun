@@ -36,41 +36,41 @@ public class Weapon : MonoBehaviour
 
     public float attackFrequency = 1f;
 
-    public int staminaCost = 20;
+    public GameObject particle;
+
+    //public int staminaCost = 20;
 
     [NonSerialized]
     public float lastAttackTime;
 
-    public Gradient GetSlashGradient(Vector3 start, Vector3 end)
+    public int GetDamage(Vector3 start, Vector3 end)
     {
         var diff = (end - start);
         float length = diff.magnitude;
 
-        var thrustDamage = Math.Max(0, diff.z) * (1 + thrustModifier);
-        var chopDamage = Math.Max(0, -diff.z) * (1 + chopModifier);
-        var slashDamage = Math.Abs(diff.x) * (1 + slashModifier);
-
-
-        var estimateMaxDamage = maxSlashRange * (1 + Math.Max(Math.Max(thrustModifier, chopModifier), slashModifier));
+        var thrustDamage = (Math.Max(0, diff.z) / length) * thrustModifier;
+        var chopDamage = (Math.Max(0, -diff.z) / length) * chopModifier;
+        var slashDamage = (Math.Abs(diff.x) / length) * slashModifier;
 
         //var rangeDamageReduction
+        
+        return (int)Mathf.Round((thrustDamage + chopDamage + slashDamage) * damage);
+    }
 
-        var damage = thrustDamage + chopDamage + slashDamage;
-
-        var damagePercent = damage / estimateMaxDamage;
-
-        Debug.Log(damagePercent);
+    public Gradient GetSlashGradient(float calculatedDamage)
+    {        
+        var damagePercent = calculatedDamage / damage;
 
         Color slashColor = Color.white;
-        if (damagePercent > 1) //75 percentile
+        if (damagePercent >= 2) //75 percentile
         {
             slashColor = Color.red;
         }
-        else if (damagePercent > .5)
+        else if (damagePercent >= 1.5)
         {
             slashColor = Color.yellow;
         }
-                
+
         Gradient gradient = new Gradient();
         gradient.SetKeys(
             new GradientColorKey[] {

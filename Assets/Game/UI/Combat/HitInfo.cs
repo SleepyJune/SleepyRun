@@ -14,5 +14,5 @@ public class HitInfo
 
     public int damage;
 
-    //public GameObject hitParticle;
+    public GameObject hitParticle;
 }

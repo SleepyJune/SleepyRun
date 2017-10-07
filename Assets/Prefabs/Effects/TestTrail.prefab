@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4906500146541888}
   - component: {fileID: 96836617149359780}
+  - component: {fileID: 114724783035551260}
   m_Layer: 0
   m_Name: TestTrail
   m_TagString: Untagged
@@ -50,7 +51,7 @@ TrailRenderer:
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
-  m_MotionVectors: 1
+  m_MotionVectors: 2
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_Materials:
@@ -131,3 +132,14 @@ TrailRenderer:
     generateLightingData: 0
   m_MinVertexDistance: 0.3
   m_Autodestruct: 0
+--- !u!114 &114724783035551260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1008382467872580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6761641c80a1685429967af6ae786b33, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

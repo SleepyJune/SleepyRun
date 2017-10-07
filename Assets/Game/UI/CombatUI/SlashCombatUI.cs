@@ -90,8 +90,6 @@ public class SlashCombatUI : CombatUI
             line.positionCount = line.positionCount + 1;
             line.SetPosition(line.positionCount - 1, end);
                         
-            line.colorGradient = weapon.GetSlashGradient(start, end);
-
             ExecuteAttack(line);
 
             lines.Remove(touch.fingerId);
@@ -100,22 +98,19 @@ public class SlashCombatUI : CombatUI
     }
         
     protected virtual void ExecuteAttack(LineRenderer line)
-    {                
-        Vector3 lastPos = line.GetPosition(0);
-        for (int i = 0; i < line.positionCount; i++)
-        {
-            if (i == 0)
-            {
-                continue;
-            }
+    {
+        var start = line.GetPosition(0);
+        var end = line.GetPosition(line.positionCount - 1);
 
-            var currentPos = line.GetPosition(i);
-            DestroyMonsters(lastPos, currentPos);
-            lastPos = currentPos;
-        }
+        var damage = weapon.GetDamage(start, end);
+        line.colorGradient = weapon.GetSlashGradient(damage);
+
+        Debug.Log("Total Damage: " + damage);
+
+        DestroyMonsters(start, end, damage);
     }
 
-    void DestroyMonsters(Vector3 v1, Vector3 v2)
+    void DestroyMonsters(Vector3 v1, Vector3 v2, int damage)
     {
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
@@ -124,8 +119,16 @@ public class SlashCombatUI : CombatUI
 
             var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
             var dist = Vector3.Distance(proj, monsterPos);
-                       
-            if (dist <= weapon.weaponRadius)
+
+            var diff = (v2 - v1);
+            float length = diff.magnitude;
+            
+            var verticalRadius = (Math.Abs(diff.z) / length) * 1;
+            var horizontalRadius = (Math.Abs(diff.x) / length) * weapon.weaponRadius;
+
+            Debug.Log((verticalRadius + horizontalRadius) * .5f);
+
+            if (dist <= (verticalRadius + horizontalRadius) * .5f)
             {
                 GameManager.instance.comboManager.IncreaseComboCount();
 
@@ -148,7 +151,8 @@ public class SlashCombatUI : CombatUI
                     hitStart = v1,
                     hitEnd = v2,
                     force = force,
-                    damage = weapon.damage
+                    damage = damage,
+                    hitParticle = weapon.particle
                 };
 
                 monster.TakeDamage(hitInfo);

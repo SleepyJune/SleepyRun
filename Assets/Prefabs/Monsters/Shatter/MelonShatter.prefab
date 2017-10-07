@@ -100,7 +100,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4279445911390382}
   m_Layer: 0
-  m_Name: MelonShatterCompound
+  m_Name: MelonShatter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

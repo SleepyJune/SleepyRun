@@ -70,9 +70,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 8d49c5185682e5a498b03f9800fdf01d, type: 3}
   weaponType: 0
-  thrustModifier: 0
-  chopModifier: 0
-  slashModifier: 0
+  thrustModifier: 1
+  chopModifier: 1
+  slashModifier: 1
   damage: 10
   combatUI: {fileID: 114485600724667666}
   ultimateUI: {fileID: 114853879542525066}
@@ -80,7 +80,7 @@ MonoBehaviour:
   maxSlashRange: 10
   weaponRadius: 1
   attackFrequency: 1
-  staminaCost: 20
+  particle: {fileID: 0}
 --- !u!114 &114853879542525066
 MonoBehaviour:
   m_ObjectHideFlags: 1

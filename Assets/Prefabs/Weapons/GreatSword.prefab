@@ -54,18 +54,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 97ef5ce311870ae47978a567459e5e09, type: 3}
-  weaponType: 0
-  thrustModifier: 0
-  chopModifier: 2
-  slashModifier: 1
+  weaponType: 1
+  thrustModifier: 1
+  chopModifier: 1
+  slashModifier: 2
   damage: 15
   combatUI: {fileID: 114925803521445296}
   ultimateUI: {fileID: 114162396112226540}
   minSlashRange: 5
   maxSlashRange: 20
-  weaponRadius: 1
+  weaponRadius: 10
   attackFrequency: 1
-  staminaCost: 30
+  particle: {fileID: 0}
 --- !u!114 &114162396112226540
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -14,3 +14,4 @@ MonoBehaviour:
   databaseArray:
   - {fileID: 11400000, guid: c2d55b9e0f63b6e4d9c6fcbc681b8161, type: 2}
   - {fileID: 11400000, guid: 9805d04c0d0990e4ca88b16923a451ef, type: 2}
+  - {fileID: 11400000, guid: 3dde25c9d97af5f47abf37bb944e0b0a, type: 2}

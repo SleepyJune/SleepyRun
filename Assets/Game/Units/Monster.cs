@@ -22,6 +22,11 @@ public class Monster : Unit
     {
         health = Math.Max(0, health - hitInfo.damage);
 
+        if (hitInfo.hitParticle)
+        {
+            Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);
+        }
+
         if(health == 0)
         {
             Death(hitInfo);
