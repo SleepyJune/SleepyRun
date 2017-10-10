@@ -6,7 +6,7 @@ public class LinearSpell : Spell
     public Vector3 start;
     [System.NonSerialized]
     public Vector3 end;
-
+    
     public int maxDistance = 500;
 
     public GameObject particleOnHit;
@@ -41,6 +41,15 @@ public class LinearSpell : Spell
         if (end == Vector3.zero)
         {
             end = transform.position + transform.forward * maxDistance;
+        }
+
+        if(source && source.gameObject.layer == LayerConstants.monsterLayer)
+        {
+            gameObject.layer = LayerConstants.monsterSpellLayer;
+        }
+        else
+        {
+            gameObject.layer = LayerConstants.playerSpellLayer;
         }
 
         var dir = (end - start).normalized;

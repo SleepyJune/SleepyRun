@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dc66efbe2d5bf54083235ad2d79f887, type: 3}
+  m_Name: ConditionDatabase
+  m_EditorClassIdentifier: 
+  allConditions:
+  - {fileID: 11400000, guid: 9ef64d12fc458ad43854f0ed48dbb0fd, type: 2}
+  allConditionOptions:
+  - RandomFrequency
+  allActions:
+  - {fileID: 11400000, guid: 8aa588742027f7445b6725f95505254c, type: 2}
+  allActionOptions:
+  - CastSpell
