@@ -14,4 +14,5 @@ MonoBehaviour:
   stageId: 4
   stageName: Level 4
   stageEvents:
-  - {fileID: 11400000, guid: 24f2d6af217b0d24dbb902917eeaa90c, type: 2}
+  - {fileID: 11400000, guid: 6ea1be0fd2e60f945bc913921e060b90, type: 2}
+  - {fileID: 11400000, guid: 4286b0a81481e4540a2673267f045951, type: 2}

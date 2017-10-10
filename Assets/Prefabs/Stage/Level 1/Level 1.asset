@@ -15,3 +15,4 @@ MonoBehaviour:
   stageName: Level 1
   stageEvents:
   - {fileID: 11400000, guid: 71613a6a1cb84114888b6193e3e03b7f, type: 2}
+  - {fileID: 11400000, guid: 3486079aa5726984395f923edb74583a, type: 2}

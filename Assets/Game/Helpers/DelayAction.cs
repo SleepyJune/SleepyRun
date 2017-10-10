@@ -8,8 +8,8 @@ using UnityEngine;
 public static class DelayAction
 {
     public delegate void Callback();
-    public static List<Action> actions = new List<Action>();
-
+    static List<Action> actions = new List<Action>();
+    
     static DelayAction()
     {
 
@@ -24,10 +24,20 @@ public static class DelayAction
                 if (actions[i].callback != null)
                 {
                     actions[i].callback();
+
+                    if (actions.Count == 0)
+                    {
+                        break;
+                    }
                 }
                 actions.RemoveAt(i);
             }
         }
+    }
+
+    public static void Reset()
+    {
+        actions = new List<Action>();
     }
 
     public static void Add(Callback func, float time)

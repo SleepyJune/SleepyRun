@@ -9,8 +9,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ce7c1fff3063324eab274fbfe5d998e, type: 3}
-  m_Name: Level 4 SpawnAppleBoss
+  m_Name: Level 5 SpawnMelonBoss
   m_EditorClassIdentifier: 
-  monster: {fileID: 114824182958197154, guid: 50be09a32d6fa2746b66ad11cfc075bf, type: 2}
+  monster: {fileID: 114620116418318432, guid: 30f924b922b8f1d4cb0b5f08e03013fc, type: 2}
   zSpawnPosition: 30
   spawnCount: 1

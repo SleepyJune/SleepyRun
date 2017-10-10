@@ -7,6 +7,7 @@ using UnityEngine;
 
 public static class LayerConstants
 {
+    public static int playerLayer = LayerMask.NameToLayer("Player");
     public static int monsterLayer = LayerMask.NameToLayer("Monsters");
     public static int wallLayer = LayerMask.NameToLayer("Walls");
 

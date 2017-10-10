@@ -344,7 +344,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7b3bf3c8762aa4ca709896164baea4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  frequency: 2
+  frequency: 0.5
 --- !u!114 &114132135307340594
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -535,6 +535,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spell: {fileID: 0}
+--- !u!114 &114516721185208626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 83c01ade9d793fa4bb2cc40ac9b8c0c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spawnMonster: {fileID: 114351910669891932, guid: b9a2c3e168aaf924abbe9d7d5598d4ee,
+    type: 2}
 --- !u!114 &114564479573403762
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -596,7 +609,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ffff23fc52983e48a212f26a5dff051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  description: SpawnApple
+  description: SpawnMelon
   conditions:
   - {fileID: 114126072058734030}
   actionCollection: {fileID: 114976332921957362}
@@ -695,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actions:
-  - {fileID: 114222582335041306}
+  - {fileID: 114516721185208626}
 --- !u!135 &135124130039191500
 SphereCollider:
   m_ObjectHideFlags: 1

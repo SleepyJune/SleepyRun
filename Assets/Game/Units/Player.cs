@@ -11,13 +11,16 @@ public class Player : Unit
     
     public void TakeDamage(int damage)
     {
-        health -= damage;
-
-        Debug.Log("Take damage: " + damage);
-
-        if(health <= 0)
+        if (!GameManager.instance.isGameOver)
         {
-            Death();
+            health -= damage;
+
+            Debug.Log("Take damage: " + damage);
+
+            if (health <= 0)
+            {
+                Death();
+            }
         }
     }
 

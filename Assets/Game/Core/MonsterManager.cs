@@ -6,14 +6,13 @@ public class MonsterManager : MonoBehaviour
 {
     public Dictionary<int, Monster> monsters = new Dictionary<int, Monster>();
     public Dictionary<string, int> monsterCount = new Dictionary<string, int>();
+    public Dictionary<string, int> monsterKillCount = new Dictionary<string, int>();
 
     Player player;
     LevelInfo level;
 
     FloorManager floorManager;
-
-    int monsterSpawnDistance = 60;
-
+    
     Vector3[] lanes =
     {
         new Vector3(1.5f,0,0),
@@ -39,7 +38,7 @@ public class MonsterManager : MonoBehaviour
         CheckMonsters();
     }
 
-    public void MakeMonster(Monster prefab)
+    public Monster MakeMonster(Monster prefab, int monsterSpawnDistance = 60)
     {
         var lastFloor = floorManager.lastFloor;
         if (lastFloor)
@@ -64,6 +63,15 @@ public class MonsterManager : MonoBehaviour
                 }
                 else
                 {
+                    if(colliders.Length == 1)
+                    {
+                        var boss = colliders[0].GetComponent<BossMonster>();
+                        if (boss)
+                        {
+                            break;
+                        }
+                    }
+
                     var randomDist = monsterSpawnDistance + Random.Range(-5, 5);
                     lane = lanes[Random.Range(0, 3)];
                     spawnPos = player.transform.position + lane + new Vector3(0, 0, monsterSpawnDistance);
@@ -77,7 +85,39 @@ public class MonsterManager : MonoBehaviour
                 newMonster.id = GameManager.instance.GenerateEntityId();
 
                 monsters.Add(newMonster.id, newMonster);
+
+                return newMonster;
             }
+        }
+
+        return null;
+    }
+
+    public void AddKillCount(Monster monster)
+    {
+        int killCount;
+        if(monsterKillCount.TryGetValue(monster.name, out killCount))
+        {
+            monsterKillCount[monster.name] = killCount + 1;
+        }
+        else
+        {
+            monsterKillCount.Add(monster.name, 1);
+
+            Debug.Log(monster.name);
+        }
+    }
+
+    public int GetKillCount(Monster monster)
+    {
+        int killCount;
+        if (monsterKillCount.TryGetValue(monster.name, out killCount))
+        {
+            return killCount;
+        }
+        else
+        {
+            return 0;
         }
     }
 

@@ -12,8 +12,8 @@ public class MonsterCastSpell : MonsterAction
 
     public override bool Execute()
     {
-        Instantiate(spell, monster.transform.position, monster.transform.rotation);
-        spell.source = monster;
+        var newSpell = Instantiate(spell, monster.transform.position, monster.transform.rotation);
+        newSpell.GetComponent<Spell>().source = monster;
 
         return true;
     }

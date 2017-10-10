@@ -20,6 +20,8 @@ public class Monster : Unit
         rigidbody = GetComponent<Rigidbody>();
 
         health = maxHealth;
+
+        name = name.Replace("(Clone)", "");
     }
 
     void Update()
@@ -74,6 +76,8 @@ public class Monster : Unit
         if (!isDead)
         {
             isDead = true;
+
+            GameManager.instance.monsterManager.AddKillCount(this);            
 
             if (anim)
             {

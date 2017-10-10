@@ -16,3 +16,4 @@ MonoBehaviour:
   stageEvents:
   - {fileID: 11400000, guid: 71613a6a1cb84114888b6193e3e03b7f, type: 2}
   - {fileID: 11400000, guid: 1354a4e26149e9641a865d2c12e849e6, type: 2}
+  - {fileID: 11400000, guid: 4d7bc0d689ce93344a5e88e0ea531194, type: 2}

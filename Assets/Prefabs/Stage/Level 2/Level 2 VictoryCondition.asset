@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ce7c1fff3063324eab274fbfe5d998e, type: 3}
-  m_Name: Level 4 SpawnAppleBoss
+  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
+  m_Name: Level 2 VictoryCondition
   m_EditorClassIdentifier: 
-  monster: {fileID: 114824182958197154, guid: 50be09a32d6fa2746b66ad11cfc075bf, type: 2}
-  zSpawnPosition: 30
-  spawnCount: 1
+  monster: {fileID: 114351910669891932, guid: b9a2c3e168aaf924abbe9d7d5598d4ee, type: 2}
+  killCount: 5
+  victory: 1

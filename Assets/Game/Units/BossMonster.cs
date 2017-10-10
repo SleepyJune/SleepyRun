@@ -26,6 +26,8 @@ public class BossMonster : Monster
         {
             isDead = true;
 
+            GameManager.instance.monsterManager.AddKillCount(this);
+
             if (anim)
             {
                 anim.SetTrigger("Die");

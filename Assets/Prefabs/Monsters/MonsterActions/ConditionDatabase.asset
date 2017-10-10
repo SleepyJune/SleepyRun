@@ -17,5 +17,7 @@ MonoBehaviour:
   - RandomFrequency
   allActions:
   - {fileID: 11400000, guid: 8aa588742027f7445b6725f95505254c, type: 2}
+  - {fileID: 11400000, guid: 3ed9813fed1099646947f75fa7c87047, type: 2}
   allActionOptions:
   - CastSpell
+  - SpawnMonster
