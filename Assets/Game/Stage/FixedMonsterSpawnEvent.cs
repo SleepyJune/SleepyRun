@@ -17,7 +17,10 @@ class FixedMonsterSpawnEvent : StageEvent
         var playerZPos = GameManager.instance.player.transform.position.z;
         if (playerZPos >= zSpawnPosition)
         {
-            GameManager.instance.monsterManager.MakeMonster(monster);
+            for(int i = 0; i < spawnCount; i++)
+            {
+                GameManager.instance.monsterManager.MakeMonster(monster);
+            }
             isExecuted = true;            
         }
     }

@@ -16,3 +16,17 @@ MonoBehaviour:
   stageEvents:
   - {fileID: 11400000, guid: 71613a6a1cb84114888b6193e3e03b7f, type: 2}
   - {fileID: 11400000, guid: 3486079aa5726984395f923edb74583a, type: 2}
+--- !u!114 &114622477184549700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ce7c1fff3063324eab274fbfe5d998e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 0}
+  zSpawnPosition: 100
+  spawnCount: 1

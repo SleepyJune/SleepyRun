@@ -4,10 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 
-[CustomEditor(typeof(MonsterActionManager))]
-public class MonsterActionManagerEditor : EditorWithSubEditors<MonsterConditionCollectionEditor, MonsterConditionCollection>
+[CustomEditor(typeof(MonsterActionInfo))]
+public class MonsterActionInfoEditor : EditorWithSubEditors<MonsterConditionCollectionEditor, MonsterConditionCollection>
 {
-    MonsterActionManager actionManager;
+    MonsterActionInfo actionManager;
 
     SerializedProperty collectionsProperty;
 
@@ -19,7 +19,7 @@ public class MonsterActionManagerEditor : EditorWithSubEditors<MonsterConditionC
             return;
         }
 
-        actionManager = (MonsterActionManager)target;
+        actionManager = (MonsterActionInfo)target;
 
         collectionsProperty = serializedObject.FindProperty("conditionCollections");
 
@@ -54,6 +54,8 @@ public class MonsterActionManagerEditor : EditorWithSubEditors<MonsterConditionC
         if (GUILayout.Button("Add Move Set", GUILayout.Width(150f)))
         {
             MonsterConditionCollection newCollection = MonsterConditionCollectionEditor.CreateConditionCollection();
+            newCollection.name = "Condition Collection";
+            newCollection.actionCollection.name = "Action Collection";
 
             AssetDatabase.AddObjectToAsset(newCollection, target);
             AssetDatabase.AddObjectToAsset(newCollection.actionCollection, target);
@@ -71,6 +73,20 @@ public class MonsterActionManagerEditor : EditorWithSubEditors<MonsterConditionC
 
     public void RemoveFromCollection(int index)
     {
+        var subasset = actionManager.conditionCollections[index];
         collectionsProperty.RemoveFromObjectArrayAt(index);
+
+        foreach(var condition in subasset.conditions)
+        {
+            DestroyImmediate(condition, true);
+        }
+
+        foreach(var action in subasset.actionCollection.actions)
+        {
+            DestroyImmediate(action, true);
+        }
+
+        DestroyImmediate(subasset.actionCollection, true);
+        DestroyImmediate(subasset, true);
     }
 }

@@ -3,7 +3,10 @@ using UnityEngine;
 
 public class MonsterActionManager : MonoBehaviour
 {
-    public MonsterConditionCollection[] conditionCollections = new MonsterConditionCollection[0];
+    public MonsterActionInfo actionInfo;
+
+    [System.NonSerialized]
+    public MonsterConditionCollection[] conditionCollections;
 
     float updateFrequency = .25f;
     float lastUpdateTime = 0;
@@ -13,6 +16,8 @@ public class MonsterActionManager : MonoBehaviour
     void Start()
     {
         monster = GetComponent<Monster>();
+
+        conditionCollections = actionInfo.conditionCollections;
 
         foreach (var conditionCollection in conditionCollections)
         {

@@ -11,6 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce7c1fff3063324eab274fbfe5d998e, type: 3}
   m_Name: Level 4 SpawnAppleBoss
   m_EditorClassIdentifier: 
-  monster: {fileID: 114824182958197154, guid: 50be09a32d6fa2746b66ad11cfc075bf, type: 2}
+  monster: {fileID: 114939512059716094, guid: f7fbfe9276accc84798f807b4cfc7d30, type: 2}
   zSpawnPosition: 30
   spawnCount: 1

@@ -34,7 +34,7 @@ public class MonsterConditionDatabaseGenerator : Editor
 
         if (GUILayout.Button("Generate"))
         {
-            Generate<MonsterCondition>("/Prefabs/Monsters/MonsterActions", ref conditionDatabase.allConditions, target);
+            EditorHelperFunctions.Generate("/Prefabs/Monsters/MonsterActions", ref conditionDatabase.allConditions, target);
 
             List<string> options = new List<string>();
             foreach(var condition in conditionDatabase.allConditions)
@@ -43,7 +43,7 @@ public class MonsterConditionDatabaseGenerator : Editor
             }
             conditionDatabase.allConditionOptions = options.ToArray();
 
-            Generate<MonsterAction>("/Prefabs/Monsters/MonsterActions", ref conditionDatabase.allActions, target);
+            EditorHelperFunctions.Generate("/Prefabs/Monsters/MonsterActions", ref conditionDatabase.allActions, target);
 
             options = new List<string>();
             foreach (var condition in conditionDatabase.allActions)
@@ -57,31 +57,11 @@ public class MonsterConditionDatabaseGenerator : Editor
         }
 
         var selected = EditorGUILayout.Popup("AllConditions", 0, conditionDatabase.allConditionOptions);
-        EditorGUILayout.PropertyField(allConditionsProperty, true);
+        //EditorGUILayout.PropertyField(allConditionsProperty, true);
 
         EditorGUILayout.Popup("AllActions", 0, conditionDatabase.allActionOptions);
-        EditorGUILayout.PropertyField(allActionsProperty, true);
+        //EditorGUILayout.PropertyField(allActionsProperty, true);
 
         serializedObject.ApplyModifiedProperties();
-    }
-
-    void Generate<T>(string path, ref T[] collection, Object target)
-    {
-        List<T> newList = new List<T>();
-        
-        var files = Directory.GetFiles(Application.dataPath + path, "*.asset", SearchOption.AllDirectories);
-        foreach (var file in files)
-        {
-            string assetPath = "Assets" + file.Replace(Application.dataPath, "").Replace('\\', '/');
-                        
-            T asset = (T)(object)AssetDatabase.LoadAssetAtPath(assetPath, typeof(T));
-            if (asset != null)
-            {                
-                newList.Add(asset);
-            }
-        }
-
-        collection = newList.ToArray();
-        EditorUtility.SetDirty(target);
-    }
+    }        
 }

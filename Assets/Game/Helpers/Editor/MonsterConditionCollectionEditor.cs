@@ -4,11 +4,11 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(MonsterConditionCollection))]
-public class MonsterConditionCollectionEditor : Editor//EditorWithSubEditors<MonsterConditionEditor, MonsterCondition>
+public class MonsterConditionCollectionEditor : Editor
 {
     MonsterConditionCollection conditionCollection;
     
-    public MonsterActionManagerEditor parent;
+    public MonsterActionInfoEditor parent;
     public int subEditorIndex;
 
     SerializedProperty descriptionProperty;
@@ -183,6 +183,7 @@ public class MonsterConditionCollectionEditor : Editor//EditorWithSubEditors<Mon
         var type = conditionDatabase.allConditions[selectedIndex].GetType();
 
         var newCondition = CreateInstance(type) as MonsterCondition;
+        newCondition.name = type.ToString();
 
         AssetDatabase.AddObjectToAsset(newCondition, target);
         conditionsProperty.AddToObjectArray(newCondition);
@@ -192,7 +193,9 @@ public class MonsterConditionCollectionEditor : Editor//EditorWithSubEditors<Mon
 
     void RemoveCondition(int index)
     {
+        var subasset = conditionCollection.conditions[index];
         conditionsProperty.RemoveFromObjectArrayAt(index);
+        DestroyImmediate(subasset, true);
         conditionEditors.RemoveAt(index);
     }
 
@@ -201,6 +204,7 @@ public class MonsterConditionCollectionEditor : Editor//EditorWithSubEditors<Mon
         var type = conditionDatabase.allActions[selectedIndex].GetType();
 
         var newAction = CreateInstance(type) as MonsterAction;
+        newAction.name = type.ToString();
 
         AssetDatabase.AddObjectToAsset(newAction, target);
         actionsProperty.AddToObjectArray(newAction);
@@ -210,7 +214,9 @@ public class MonsterConditionCollectionEditor : Editor//EditorWithSubEditors<Mon
 
     void RemoveAction(int index)
     {
+        var subasset = conditionCollection.actionCollection.actions[index];
         actionsProperty.RemoveFromObjectArrayAt(index);
+        DestroyImmediate(subasset, true);
         actionEditors.RemoveAt(index);
     }
 
