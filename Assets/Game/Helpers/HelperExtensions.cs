@@ -132,5 +132,19 @@ public static class HelperExtensions
         }
 
         return null;
-    }    
+    }
+
+    public static Player GetPlayer(this Collider collider)
+    {
+        if (collider.gameObject.layer == LayerConstants.playerLayer)
+        {
+            var player = collider.gameObject.GetComponent<Player>();
+            if (player != null && !player.isDead)
+            {
+                return player;
+            }
+        }
+
+        return null;
+    }
 }

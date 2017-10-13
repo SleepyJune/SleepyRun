@@ -24,7 +24,16 @@ public abstract class Spell : Entity
         {
             collider = GetComponentInChildren<Collider>();
         }
-                
+        
+        if (source && source.gameObject.layer == LayerConstants.monsterLayer)
+        {
+            gameObject.layer = LayerConstants.monsterSpellLayer;
+        }
+        else
+        {
+            gameObject.layer = LayerConstants.playerSpellLayer;
+        }
+
         //var timeFlying = maxDistance/speed;        
     }
 

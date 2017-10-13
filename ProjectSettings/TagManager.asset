@@ -17,23 +17,23 @@ TagManager:
   - 
   - 
   - Monsters
+  - Player
   - Walls
-  - Projectiles
+  - 
+  - PlayerSpell
+  - MonsterSpell
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
   - 
   - 
   - 
   - 
   - Background
-  - 
-  - Player
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
   - 
   - 
   - 

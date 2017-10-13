@@ -19,6 +19,16 @@ public class StageEventManager : MonoBehaviour
         {
             currentStageInfo = defaultStageInfo;
         }
+
+        ResetStage();
+    }
+
+    void ResetStage()
+    {
+        foreach (var stageEvent in currentStageInfo.stageEvents)
+        {
+            stageEvent.isExecuted = false;
+        }
     }
 
     void Update()

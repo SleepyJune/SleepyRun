@@ -23,8 +23,7 @@ public class StageInfoListGenerator : Editor
 
         if (GUILayout.Button("Generate"))
         {
-            Generate();
-            EditorUtility.SetDirty(target);
+            Generate();            
         }
         EditorGUILayout.PropertyField(databaseProperty, true);        
 
@@ -52,5 +51,6 @@ public class StageInfoListGenerator : Editor
         }
 
         database.databaseArray = stageList.ToArray();
+        EditorUtility.SetDirty(target);
     }
 }

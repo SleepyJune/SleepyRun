@@ -6,20 +6,16 @@ public class LinearSpell : Spell
     public Vector3 start;
     [System.NonSerialized]
     public Vector3 end;
-
+    
     public int maxDistance = 500;
 
     public GameObject particleOnHit;
 
     public bool wallCollision = true;
 
-    void Awake()
-    {
-        Initialize();
-    }
-
     void Start()
     {
+        Initialize();
         SetVelocity();
     }
 
@@ -42,7 +38,7 @@ public class LinearSpell : Spell
         {
             end = transform.position + transform.forward * maxDistance;
         }
-
+        
         var dir = (end - start).normalized;
         dir.y = 0;
 
@@ -68,29 +64,40 @@ public class LinearSpell : Spell
             return;
         }
 
-        var monster = collision.GetMonster();
-        if (monster != null)
+        if (gameObject.layer == LayerConstants.playerSpellLayer)
         {
-            var dir = (transform.position - start);
-            dir.y = .15f;
-
-            var force = dir * 100;
-
-            monster.TakeDamage(new HitInfo
+            var monster = collision.GetMonster();
+            if (monster != null)
             {
-                hitStart = start,
-                hitEnd = transform.position,
-                force = force,
-                damage = damage
-            });
+                var dir = (transform.position - start);
+                dir.y = .15f;
 
-            if (particleOnHit)
-            {
-                //Instantiate(particleOnHit, monster.anim.transform);
+                var force = dir * 100;
+
+                monster.TakeDamage(new HitInfo
+                {
+                    hitStart = start,
+                    hitEnd = transform.position,
+                    force = force,
+                    damage = damage
+                });
+
+                if (particleOnHit)
+                {
+                    //Instantiate(particleOnHit, monster.anim.transform);
+                }
+
+                //isDead = true;
+                //Destroy(transform.gameObject);
             }
-
-            //isDead = true;
-            //Destroy(transform.gameObject);
+        }
+        else
+        {
+            var player = collision.GetPlayer();
+            if (player != null)
+            {
+                player.TakeDamage(damage);
+            }
         }
     }
 

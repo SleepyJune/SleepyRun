@@ -10,26 +10,48 @@ public class Monster : Unit
     [NonSerialized]
     public new Rigidbody rigidbody;
 
+    public delegate void Callback();
+    public event Callback OnTakeDamage;
+    public event Callback OnMonsterUpdate;
+
     void Awake()
     {
         shatterScript = GetComponent<MonsterShatter>();
         rigidbody = GetComponent<Rigidbody>();
 
         health = maxHealth;
+
+        name = name.Replace("(Clone)", "");
     }
-    
+
+    void Update()
+    {
+        if (OnMonsterUpdate != null)
+        {
+            OnMonsterUpdate();
+        }
+    }
+
     public void TakeDamage(HitInfo hitInfo)
     {
-        health = Math.Max(0, health - hitInfo.damage);
-
-        if (hitInfo.hitParticle)
+        if (!isDead)
         {
-            Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);
-        }
+            health = Math.Max(0, health - hitInfo.damage);
 
-        if(health == 0)
-        {
-            Death(hitInfo);
+            if (hitInfo.hitParticle)
+            {
+                Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);
+            }
+
+            if (OnTakeDamage != null)
+            {
+                OnTakeDamage();
+            }
+
+            if (health == 0)
+            {
+                Death(hitInfo);
+            }
         }
     }
 
@@ -49,11 +71,13 @@ public class Monster : Unit
         }
     }
 
-    public void Death(HitInfo hitInfo)
+    public virtual void Death(HitInfo hitInfo)
     {
         if (!isDead)
         {
             isDead = true;
+
+            GameManager.instance.monsterManager.AddKillCount(this);            
 
             if (anim)
             {

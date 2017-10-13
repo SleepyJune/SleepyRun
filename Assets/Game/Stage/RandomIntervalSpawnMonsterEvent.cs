@@ -40,7 +40,10 @@ class RandomIntervalSpawnMonsterEvent : StageEvent
         }
         else
         {
-            isExecuted = true;
+            if(playerZPos > zPositionEnd)
+            {
+                isExecuted = true;
+            }
         }
     }
 }
