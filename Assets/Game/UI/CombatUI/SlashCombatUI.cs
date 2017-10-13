@@ -126,12 +126,10 @@ public class SlashCombatUI : CombatUI
             var verticalRadius = (Math.Abs(diff.z) / length) * 1;
             var horizontalRadius = (Math.Abs(diff.x) / length) * weapon.weaponRadius;
 
-            Debug.Log((verticalRadius + horizontalRadius) * .5f);
+            //Debug.Log((verticalRadius + horizontalRadius) * .5f);
 
             if (dist <= (verticalRadius + horizontalRadius) * .5f)
             {
-                GameManager.instance.comboManager.IncreaseComboCount();
-
                 //var test = Instantiate(testObject, proj + new Vector3(0, monster.transform.position.y, 0), Quaternion.identity);
                 //Destroy(test, 1);
 

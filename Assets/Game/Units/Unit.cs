@@ -8,7 +8,7 @@ public abstract class Unit : Entity
     public Animator anim;
 
     public int maxHealth = 10;
-
+        
     [NonSerialized]
     public int health;
 

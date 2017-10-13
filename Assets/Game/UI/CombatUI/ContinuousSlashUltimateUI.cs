@@ -154,8 +154,6 @@ public class ContinuousSlashUltimateUI : CombatUI
 
                 if (dist <= .5f)
                 {
-                    GameManager.instance.comboManager.IncreaseComboCount();
-
                     /*var dir = (v2 - v1).normalized;
                     var hitParticle = Instantiate(
                             particleOnHit,

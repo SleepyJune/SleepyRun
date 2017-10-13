@@ -17,7 +17,9 @@ public class BossMonster : Monster
         player = GameManager.instance.player;
         transform.position = player.transform.position + startPosition;
 
-        transform.SetParent(player.transform);
+        //transform.SetParent(player.transform);
+
+        GameManager.instance.SetBossFight(true);
     }
         
     public override void Death(HitInfo hitInfo)

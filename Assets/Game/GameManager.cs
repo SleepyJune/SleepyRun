@@ -34,6 +34,8 @@ public class GameManager : MonoBehaviour
     private GameObject gameOverText;
     private GameObject victoryText;
 
+    public bool isBossFight = false;
+
     void Awake()
     {
         if (instance == null)
@@ -75,6 +77,12 @@ public class GameManager : MonoBehaviour
         {
             onFixedUpdate();
         }
+    }
+
+    public void SetBossFight(bool isBossFight)
+    {
+        this.isBossFight = isBossFight;
+        player.isBossFight = isBossFight;
     }
 
     public int GenerateEntityId()

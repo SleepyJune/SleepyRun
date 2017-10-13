@@ -26,6 +26,20 @@ public class Monster : Unit
 
     void Update()
     {
+        if (!isDead)
+        {
+            if (speed != 0)
+            {
+                var dir = new Vector3(0, 0, 1);
+                transform.position -= dir * speed * Time.deltaTime;
+
+                if (anim)
+                {
+                    anim.SetFloat("speed", speed);
+                }
+            }
+        }
+
         if (OnMonsterUpdate != null)
         {
             OnMonsterUpdate();
@@ -37,6 +51,8 @@ public class Monster : Unit
         if (!isDead)
         {
             health = Math.Max(0, health - hitInfo.damage);
+
+            GameManager.instance.comboManager.IncreaseComboCount();
 
             if (hitInfo.hitParticle)
             {

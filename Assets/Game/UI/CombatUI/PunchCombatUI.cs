@@ -37,9 +37,7 @@ public class PunchCombatUI : CombatUI
             if (monster)
             {
                 var monsterPos = monster.transform.position;
-
-                GameManager.instance.comboManager.IncreaseComboCount();
-
+                
                 var dir = (monsterPos - hitPos).normalized;
                 dir.y = .15f;
 
