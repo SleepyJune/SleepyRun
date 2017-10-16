@@ -236,7 +236,7 @@ namespace XftWeapon {
             }
 
             // we assume the vertices are always changed.
-            MyMesh.vertices = Vertices;
+            MyMesh.vertices = Vertices;            
             if (UVChanged)
             {
                 MyMesh.uv = UVs;
@@ -244,7 +244,7 @@ namespace XftWeapon {
 
             if (ColorChanged)
             {
-                MyMesh.colors = Colors;
+                MyMesh.colors = Colors;                
             }
 
             if (IndiceChanged)
@@ -268,8 +268,7 @@ namespace XftWeapon {
             UVChanged = false;
             UV2Changed = false;
             VertChanged = false;
-
-
+            
             if (_owner.UseWith2D) {
 
             }

@@ -16,19 +16,16 @@ public class HorizontalSwipeUltimateUI : CombatUI
 
     public override void Initialize(Weapon weapon)
     {
-        this.weapon = weapon;
-
-        TouchInputManager.instance.touchStart += OnTouchStart;
-        TouchInputManager.instance.touchEnd += OnTouchEnd;        
+        this.weapon = weapon;     
     }
 
-    private void OnTouchStart(Touch touch)
+    public override void OnTouchStart(Touch touch)
     {
         startPosition = touch.position;
         touchID = touch.fingerId;
     }
 
-    private void OnTouchEnd(Touch touch)
+    public override void OnTouchEnd(Touch touch)
     {
         if (touch.fingerId == touchID)
         {

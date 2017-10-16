@@ -112,7 +112,7 @@ public class MapMakerEditor : Editor {
         serializedObject.Update();
 
         EditorGUILayout.PropertyField(serializedObject.FindProperty("stageDatabase"), true);
-        
+
         //prefabs box
         EditorGUILayout.BeginVertical("box");
         EditorGUILayout.Space();

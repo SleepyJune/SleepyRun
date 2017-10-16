@@ -12,15 +12,52 @@ public class WeaponManager : MonoBehaviour
     public Weapon defaultWeapon;
 
     public Weapon currentWeapon;
+    public CombatUI currentCombatUI;
 
     bool usingUlt = false;
-
+    
     void Start()
     {
-        if(currentWeapon == null)
+        GameManager.instance.touchInputManager.touchStart += OnTouchStartHandler;
+        GameManager.instance.touchInputManager.touchMove += OnTouchMoveHandler;
+        GameManager.instance.touchInputManager.touchEnd += OnTouchEndHandler;
+
+        if (currentWeapon == null)
         {
             SwitchWeapons(defaultWeapon);
         }        
+    }
+
+    void OnTouchStartHandler(Touch touch)
+    {
+        if (currentCombatUI != null)
+        {
+            currentCombatUI.OnTouchStart(touch);
+        }
+    }
+
+    void OnTouchMoveHandler(Touch touch)
+    {
+        if (currentCombatUI != null)
+        {
+            currentCombatUI.OnTouchMove(touch);
+        }
+    }
+
+    void OnTouchEndHandler(Touch touch)
+    {
+        if (currentCombatUI != null)
+        {
+            currentCombatUI.OnTouchEnd(touch);
+        }
+    }
+
+    void Update()
+    {
+        if (currentCombatUI != null)
+        {
+            currentCombatUI.OnUpdate();
+        }
     }
 
     public void UseUltimate()
@@ -32,7 +69,10 @@ public class WeaponManager : MonoBehaviour
                 usingUlt = true;
 
                 currentWeapon.combatUI.End();
-                currentWeapon.ultimateUI.Initialize(currentWeapon);
+
+                currentCombatUI = currentWeapon.ultimateUI;
+                currentCombatUI.Initialize(currentWeapon);
+
             }
         }
     }
@@ -44,23 +84,21 @@ public class WeaponManager : MonoBehaviour
             usingUlt = false;
 
             currentWeapon.ultimateUI.End();
-            currentWeapon.combatUI.Initialize(currentWeapon);
+
+            currentCombatUI = currentWeapon.combatUI;
+            currentCombatUI.Initialize(currentWeapon);
+
         }
     }
 
     public void DisableWeapon()
     {
-        if (currentWeapon)
+        if (currentCombatUI != null)
         {
-            if (usingUlt)
-            {
-                currentWeapon.ultimateUI.End();
-                usingUlt = false;
-            }
-            else
-            {
-                currentWeapon.combatUI.End();
-            }
+            currentCombatUI.End();
+            currentCombatUI = null;
+
+            usingUlt = false;
         }
     }
 
@@ -68,21 +106,16 @@ public class WeaponManager : MonoBehaviour
     {
         if (!GameManager.instance.player.isDead)
         {
-            if (currentWeapon)
+            if (currentCombatUI != null)
             {
-                if (usingUlt)
-                {
-                    currentWeapon.ultimateUI.End();
-                    usingUlt = false;
-                }
-                else
-                {
-                    currentWeapon.combatUI.End();
-                }
+                currentCombatUI.End();
+                usingUlt = false;
             }
 
             currentWeapon = newWeapon;
-            currentWeapon.combatUI.Initialize(newWeapon);
+
+            currentCombatUI = currentWeapon.combatUI;
+            currentCombatUI.Initialize(currentWeapon);
         }
     }
 }

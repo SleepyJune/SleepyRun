@@ -12,11 +12,9 @@ public class PointSpellUltimateUI : CombatUI
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
-
-        TouchInputManager.instance.touchStart += OnTouchStart;
     }
 
-    private void OnTouchStart(Touch touch)
+    public override void OnTouchStart(Touch touch)
     {
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
         var newSpell = Instantiate(spell.gameObject, pos, Quaternion.identity);
@@ -24,6 +22,6 @@ public class PointSpellUltimateUI : CombatUI
 
     public override void End()
     {
-        TouchInputManager.instance.touchStart -= OnTouchStart;
+
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public enum MapType {Vertical, Horizontal}
+public enum MapType { Vertical, Horizontal }
 public class MapMaker : MonoBehaviour
 {
     public List<GameObject> BackgroundPrefabs;
@@ -12,7 +12,7 @@ public class MapMaker : MonoBehaviour
 
     private List<LevelButton> levelButtons;
     private int currentLevel;
-    private int topPassedLevel=-1;
+    private int topPassedLevel = -1;
 
     public StageInfoDatabase stageDatabase;
 
@@ -24,7 +24,7 @@ public class MapMaker : MonoBehaviour
 
     public bool HasEmptyPrefabs()
     {
-        if (BackgroundPrefabs == null || BackgroundPrefabs.Count ==0) return true;
+        if (BackgroundPrefabs == null || BackgroundPrefabs.Count == 0) return true;
         foreach (var bp in BackgroundPrefabs)
         {
             if (bp == null) return true;
@@ -35,38 +35,59 @@ public class MapMaker : MonoBehaviour
     void Start()
     {
         levelButtons = new List<LevelButton>();
-        biomes.ForEach((b)=> { levelButtons.AddRange(b.levelButtons); });
+        biomes.ForEach((b) => { levelButtons.AddRange(b.levelButtons); });
 
-        topPassedLevel = stageDatabase.databaseArray.Length-2;
+        string topLevelString = "TopLevelPassed";
+        if (PlayerPrefs.HasKey(topLevelString))
+        {
+            topPassedLevel = PlayerPrefs.GetInt(topLevelString);
+        }
+        else
+        {
+            topPassedLevel = stageDatabase.databaseArray.Length - 2;
+        }
+
+        string lastLevelString = "LastLevelPlayed";
+        if (PlayerPrefs.HasKey(lastLevelString))
+        {
+            currentLevel = PlayerPrefs.GetInt(lastLevelString);
+        }
+        else
+        {
+            currentLevel = topPassedLevel;
+        }
 
         for (int i = 0; i < levelButtons.Count; i++)
         {
             int scene = i;
-            levelButtons[i].button.onClick.AddListener(() =>
+
+
+            /*levelButtons[i].button.onClick.AddListener(() =>
             {
-                //set your own callbacks for buttons - for example
-                Debug.Log("Press level button: " + scene);
-                /*
-                SceneLoader.Instance.LoadScene(scene, () =>
-                {
+            //set your own callbacks for buttons - for example
+            Debug.Log("Press level button: " + scene);
+                        
+            });*/
 
-                });
-                */
-
-                if(scene < stageDatabase.databaseArray.Length)
-                {                    
-                    LoadLevel(stageDatabase.databaseArray[scene]);
-                }
-            });
-            levelButtons[i].numberText.text = (scene+1).ToString();
-            SetButtonActive(scene, (currentLevel == scene || scene == topPassedLevel + 1), (topPassedLevel >= scene));
+            levelButtons[i].numberText.text = (scene + 1).ToString();
+            StageInfo stageInfo = null;
+            if (scene < stageDatabase.databaseArray.Length)
+            {
+                stageInfo = stageDatabase.databaseArray[scene];
+            }
+            SetButtonActive(scene, (currentLevel == scene || scene == topPassedLevel + 1), (topPassedLevel >= scene), stageInfo);
         }
+        
+        Invoke("ScrollToElement", .5f); //need to wait a bit to get the height
     }
 
-    void LoadLevel(StageInfo stageInfo)
+    void ScrollToElement()
     {
-        SceneChanger.currentStageInfo = stageInfo;
-        SceneChanger.ChangeScene("GameScene");
+        GameObject button = GameObject.Find("LevelButton " + (currentLevel + 1));
+        if (button)
+        {
+            transform.parent.GetComponent<ScrollRectCenterOnElement>().CenterOnItem(button.GetComponent<RectTransform>());
+        }
     }
 
     public void AddBiome(GameObject prefab)
@@ -101,7 +122,7 @@ public class MapMaker : MonoBehaviour
     /// </summary>
     public void CleanExcessBiomes()
     {
-       // if (biomes == null || biomes.Count == 0) return;
+        // if (biomes == null || biomes.Count == 0) return;
         Biome[] b = GetComponentsInChildren<Biome>();
         bool dflag = false;
         for (int i = 0; i < b.Length; i++)
@@ -161,9 +182,9 @@ public class MapMaker : MonoBehaviour
     {
         if (biomes == null || biomes.Count == 0) return;
         int length = biomes.Count;
-        for (int i = length-1; i >= 0; i--)
+        for (int i = length - 1; i >= 0; i--)
         {
-            if (i < biomes.Count )
+            if (i < biomes.Count)
             {
                 Biome b = biomes[i];
                 if (b)
@@ -189,7 +210,7 @@ public class MapMaker : MonoBehaviour
         if (BackgroundPrefabs == null || lengthp == 0) return;
 
         //save  biomes prefabs
-        GameObject[] bPrefs= new GameObject[length];
+        GameObject[] bPrefs = new GameObject[length];
         for (int i = 0; i < length; i++)
         {
             for (int pi = 0; pi < length; pi++)
@@ -218,7 +239,7 @@ public class MapMaker : MonoBehaviour
     /// </summary>
     public void ReArrangeBiomes()
     {
-     //   Debug.Log("rearrange");
+        //   Debug.Log("rearrange");
         if (biomes == null || biomes.Count == 0) return;
 
         int length = biomes.Count;
@@ -271,7 +292,7 @@ public class MapMaker : MonoBehaviour
     /// <param name="sceneNumber"></param>
     /// <param name="active"></param>
     /// <param name="isPassed"></param>
-    private void SetButtonActive(int sceneNumber, bool active, bool isPassed)
+    private void SetButtonActive(int sceneNumber, bool active, bool isPassed, StageInfo stageInfo)
     {
         string saveKey = sceneNumber.ToString() + "_stars_";
 
@@ -281,14 +302,14 @@ public class MapMaker : MonoBehaviour
         }
         int activeStarsCount = PlayerPrefs.GetInt(saveKey);
 
-        levelButtons[sceneNumber].SetActive(active, activeStarsCount, isPassed);
+        levelButtons[sceneNumber].SetActive(sceneNumber, active, activeStarsCount, isPassed, stageInfo);
     }
 
     public void SetControlActivity(bool activity)
     {
         for (int i = 0; i < levelButtons.Count; i++)
         {
-            levelButtons[i].button. interactable = activity;
+            levelButtons[i].button.interactable = activity;
         }
     }
 }

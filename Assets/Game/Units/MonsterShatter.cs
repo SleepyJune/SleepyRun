@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class MonsterShatter : MonoBehaviour
 {
-    public GameObject target;
+    [FormerlySerializedAs("target")]
+    public GameObject shatterPrefab;
 
     Monster monster;
 
@@ -18,13 +20,13 @@ public class MonsterShatter : MonoBehaviour
 
     public void MakeShattered(HitInfo hitInfo)
     {
-        if (target == null)
+        if (shatterPrefab == null)
         {
             Destroy(gameObject);
             return;
         }
 
-        var shattered = Instantiate(target, transform.position, transform.rotation, 
+        var shattered = Instantiate(shatterPrefab, transform.position, transform.rotation, 
             GameManager.instance.monsterManager.monsterHolder);               
                 
         foreach (var rb in shattered.GetComponentsInChildren<Rigidbody>())

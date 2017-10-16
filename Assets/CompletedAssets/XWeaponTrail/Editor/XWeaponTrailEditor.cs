@@ -51,6 +51,8 @@ public class XWeaponTrailEditor : Editor
         EditorGUILayout.PropertyField(serializedObject.FindProperty("MaxFrame"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Granularity"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("Fps"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("FadeTime"));
+        EditorGUILayout.PropertyField(serializedObject.FindProperty("MyCurve"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("MyColor"));
         EditorGUILayout.PropertyField(serializedObject.FindProperty("MyMaterial"));
 

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 public static class SceneChanger
 {
     public static StageInfo currentStageInfo;
+    public static string sceneToLoad = "GameScene";
 
     public static void ChangeScene(string str)
     {

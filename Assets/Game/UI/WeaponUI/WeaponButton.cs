@@ -75,7 +75,7 @@ class WeaponButton : MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IP
         weaponListCanvasGroup.alpha = 0;
         weaponListCanvasGroup.blocksRaycasts = false;
 
-        transform.position = homePosition;
+        //transform.position = homePosition;
 
         weaponImage.sprite = GameManager.instance.weaponManager.currentWeapon.image;
     }

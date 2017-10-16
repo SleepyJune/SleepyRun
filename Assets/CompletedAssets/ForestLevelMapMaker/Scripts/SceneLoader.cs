@@ -20,26 +20,27 @@ public class SceneLoader : MonoBehaviour {
         {
             Instance = this;
         }
+
+        LoadScene(SceneChanger.sceneToLoad);
     }
 
     public void LoadScene(int scene)
-    {
-        StartCoroutine(AsyncLoad(scene));
+    {       
+        StartCoroutine(AsyncLoad(SceneManager.GetSceneByBuildIndex(scene).name));
     }
 
     public void LoadScene(int scene, Action LoadingCallBack)
     {
         this.LoadingCallBack = LoadingCallBack;
-        StartCoroutine(AsyncLoad(scene));
+        StartCoroutine(AsyncLoad(SceneManager.GetSceneByBuildIndex(scene).name));
     }
 
     public void LoadScene(string sceneName)
     {
-        int scene = SceneManager.GetSceneByName(sceneName).buildIndex;
-        StartCoroutine(AsyncLoad(scene));
+        StartCoroutine(AsyncLoad(sceneName));
     }
 
-    IEnumerator AsyncLoad(int scene)
+    IEnumerator AsyncLoad(string sceneName)
     {
         if (LoadGroup)
         {
@@ -47,7 +48,7 @@ public class SceneLoader : MonoBehaviour {
         }
         yield return new WaitForSeconds(0.2f);
 
-        AsyncOperation ao = SceneManager.LoadSceneAsync(scene);
+        AsyncOperation ao = SceneManager.LoadSceneAsync(sceneName);
         ao.allowSceneActivation = false;
 
         while (!ao.isDone)

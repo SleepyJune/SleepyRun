@@ -68,6 +68,10 @@ public class Monster : Unit
             {
                 Death(hitInfo);
             }
+            else
+            {
+                GameManager.instance.damageTextManager.CreateDamageText(this, hitInfo.damage);
+            }
         }
     }
 

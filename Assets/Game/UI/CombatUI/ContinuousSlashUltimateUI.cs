@@ -31,15 +31,9 @@ public class ContinuousSlashUltimateUI : CombatUI
         inputs = TouchInputManager.instance.inputs;
                 
         fingerID = -999;
-
-        GameManager.instance.touchInputManager.touchStart += OnTouchStart;
-        GameManager.instance.touchInputManager.touchMove += OnTouchMove;
-        //GameManager.instance.onFixedUpdate += OnUpdate;
-        GameManager.instance.touchInputManager.touchEnd += OnTouchEnd;
-
     }
 
-    private void OnTouchStart(Touch touch)
+    public override void OnTouchStart(Touch touch)
     {
         if (fingerID == -999)
         {
@@ -59,7 +53,7 @@ public class ContinuousSlashUltimateUI : CombatUI
         }
     }
 
-    private void OnUpdate()
+    public override void OnUpdate()
     {
         if (modelObject)
         {
@@ -85,7 +79,7 @@ public class ContinuousSlashUltimateUI : CombatUI
         }        
     }
 
-    private void OnTouchMove(Touch touch)
+    public override void OnTouchMove(Touch touch)
     {
         if (touch.fingerId == fingerID)
         {
@@ -103,7 +97,7 @@ public class ContinuousSlashUltimateUI : CombatUI
         }
     }
 
-    private void OnTouchEnd(Touch touch)
+    public override void OnTouchEnd(Touch touch)
     {
         if (touch.fingerId == fingerID)
         {
@@ -181,8 +175,6 @@ public class ContinuousSlashUltimateUI : CombatUI
 
     public override void End()
     {
-        TouchInputManager.instance.touchStart -= OnTouchStart;
-        TouchInputManager.instance.touchMove -= OnTouchMove;
-        TouchInputManager.instance.touchEnd -= OnTouchEnd;
+
     }
 }
