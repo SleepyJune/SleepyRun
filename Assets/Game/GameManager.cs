@@ -19,6 +19,8 @@ public class GameManager : MonoBehaviour
     public ComboManager comboManager;
     [NonSerialized]
     public WeaponManager weaponManager;
+    [NonSerialized]
+    public DamageTextController damageTextManager;
 
     public delegate void Callback();
     public event Callback onUpdate;
@@ -33,6 +35,8 @@ public class GameManager : MonoBehaviour
 
     private GameObject gameOverText;
     private GameObject victoryText;
+
+    public bool isBossFight = false;
 
     void Awake()
     {
@@ -50,7 +54,8 @@ public class GameManager : MonoBehaviour
         monsterManager = GetComponent<MonsterManager>();
         touchInputManager = GetComponent<TouchInputManager>();
         comboManager = GetComponent<ComboManager>();
-        weaponManager = GetComponent<WeaponManager>();        
+        weaponManager = GetComponent<WeaponManager>();
+        damageTextManager = GetComponent<DamageTextController>();
     }
 
     void Start()
@@ -77,6 +82,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void SetBossFight(bool isBossFight)
+    {
+        this.isBossFight = isBossFight;
+        player.isBossFight = isBossFight;
+    }
+
     public int GenerateEntityId()
     {
         return entityId++;
@@ -93,14 +104,14 @@ public class GameManager : MonoBehaviour
             gameOverText.SetActive(true);
             gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
 
-            DelayAction.Add(() => SceneChanger.ChangeScene("FailedScreen"), 5);
+            DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
         }
         else
         {
             victoryText.SetActive(true);
             victoryText.GetComponent<Animation>().Play("GameOverAnimation");
 
-            DelayAction.Add(() => SceneChanger.ChangeScene("SuccessScreen"), 5);
+            DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
         }
     }
 

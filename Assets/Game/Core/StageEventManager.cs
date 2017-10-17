@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class StageEventManager : MonoBehaviour
 {
-    public StageInfo defaultStageInfo;
+    public StageInfoDatabase stageInfoDatabase;
 
     StageInfo currentStageInfo;
 
@@ -17,7 +17,15 @@ public class StageEventManager : MonoBehaviour
 
         if (currentStageInfo == null)
         {
-            currentStageInfo = defaultStageInfo;
+            string lastLevelString = "LastLevelPlayed";
+            if (PlayerPrefs.HasKey(lastLevelString))
+            {
+                currentStageInfo = stageInfoDatabase.databaseArray[PlayerPrefs.GetInt(lastLevelString)-1];
+            }
+            else
+            {
+                currentStageInfo = stageInfoDatabase.databaseArray[0];
+            }
         }
 
         ResetStage();

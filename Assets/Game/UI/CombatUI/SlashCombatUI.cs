@@ -20,13 +20,9 @@ public class SlashCombatUI : CombatUI
 
         inputs = TouchInputManager.instance.inputs;
         lines = new Dictionary<int, LineRenderer>();
-                
-        GameManager.instance.touchInputManager.touchStart += OnTouchStart;
-        GameManager.instance.touchInputManager.touchMove += OnTouchMove;
-        GameManager.instance.touchInputManager.touchEnd += OnTouchEnd;
     }
 
-    private void OnTouchStart(Touch touch)
+    public override void OnTouchStart(Touch touch)
     {
         if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
         {
@@ -49,7 +45,7 @@ public class SlashCombatUI : CombatUI
         }
     }
 
-    private void OnTouchMove(Touch touch)
+    public override void OnTouchMove(Touch touch)
     {
         LineRenderer line;
         if (lines.TryGetValue(touch.fingerId, out line))
@@ -59,15 +55,21 @@ public class SlashCombatUI : CombatUI
             var start = line.GetPosition(0);
 
             var delta = (pos - start);
+            
+            /*if(line.positionCount == 1 && delta.magnitude > 1)
+            {
+                line.positionCount = line.positionCount + 1;
+                line.SetPosition(line.positionCount - 1, pos);
+            } */           
 
-            if(delta.magnitude > weapon.maxSlashRange)
+            if (delta.magnitude > weapon.maxSlashRange)
             {
                 OnTouchEnd(touch);
             }
         }
     }
 
-    private void OnTouchEnd(Touch touch)
+    public override void OnTouchEnd(Touch touch)
     {
         LineRenderer line;
         if (lines.TryGetValue(touch.fingerId, out line))
@@ -126,12 +128,10 @@ public class SlashCombatUI : CombatUI
             var verticalRadius = (Math.Abs(diff.z) / length) * 1;
             var horizontalRadius = (Math.Abs(diff.x) / length) * weapon.weaponRadius;
 
-            Debug.Log((verticalRadius + horizontalRadius) * .5f);
+            //Debug.Log((verticalRadius + horizontalRadius) * .5f);
 
             if (dist <= (verticalRadius + horizontalRadius) * .5f)
             {
-                GameManager.instance.comboManager.IncreaseComboCount();
-
                 //var test = Instantiate(testObject, proj + new Vector3(0, monster.transform.position.y, 0), Quaternion.identity);
                 //Destroy(test, 1);
 
@@ -162,8 +162,6 @@ public class SlashCombatUI : CombatUI
 
     public override void End()
     {
-        TouchInputManager.instance.touchStart -= OnTouchStart;
-        TouchInputManager.instance.touchMove -= OnTouchMove;
-        TouchInputManager.instance.touchEnd -= OnTouchEnd;
+
     }
 }

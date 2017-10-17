@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c01ade9d793fa4bb2cc40ac9b8c0c9, type: 3}
   m_Name: MonsterSpawnMonster
   m_EditorClassIdentifier: 
-  spawnMonster: {fileID: 114351910669891932, guid: b9a2c3e168aaf924abbe9d7d5598d4ee,
+  spawnMonster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0,
     type: 2}
 --- !u!114 &114992889741457224
 MonoBehaviour:

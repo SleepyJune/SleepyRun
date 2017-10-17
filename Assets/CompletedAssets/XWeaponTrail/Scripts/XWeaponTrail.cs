@@ -14,8 +14,7 @@ namespace XftWeapon {
                     return (PointStart + PointEnd) / 2f;
                 }
             }
-
-
+                        
             public Element(Vector3 start, Vector3 end) {
                 PointStart = start;
                 PointEnd = end;
@@ -75,6 +74,8 @@ namespace XftWeapon {
         public int MaxFrame = 14;
         public int Granularity = 60;
         public float Fps = 60f;
+        public float FadeTime = 1f;
+        public AnimationCurve MyCurve = new AnimationCurve(new Keyframe(1, 1), new Keyframe(0, 0));
         public Color MyColor = Color.white;
         public Material MyMaterial;
         #endregion
@@ -147,10 +148,10 @@ namespace XftWeapon {
             mActivated = true;
             gameObject.SetActive(true);
             mVertexPool.SetMeshObjectActive(true);
-
-            mFadeT = 1f;
+                        
+            mFadeT = FadeTime;
             mIsFading = false;
-            mFadeTime = 1f;
+            mFadeTime = FadeTime;
             mFadeElapsedime = 0f;
             mElapsedTime = 0f;
 
@@ -293,6 +294,8 @@ namespace XftWeapon {
 
 
                 float fadeT = uvSegment * mFadeT;
+
+                //float width = MyCurve.Evaluate(uvSegment) * mTrailWidth;
 
                 Vector2 uvCoord = Vector2.zero;
 

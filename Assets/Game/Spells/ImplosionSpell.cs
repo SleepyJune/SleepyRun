@@ -21,8 +21,6 @@ public class ImplosionSpell : Spell
             {
                 var monsterPos = monster.transform.position;
 
-                GameManager.instance.comboManager.IncreaseComboCount();
-
                 var dir = (monsterPos - hitPos).normalized;
                 //var dir = Vector3.Cross(hitPos, monsterPos).normalized;
                 //dir = transform.rotation * dir;

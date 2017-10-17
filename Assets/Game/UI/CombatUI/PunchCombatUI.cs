@@ -11,12 +11,10 @@ public class PunchCombatUI : CombatUI
     
     public override void Initialize(Weapon weapon)
     {
-        this.weapon = weapon;
-
-        GameManager.instance.touchInputManager.touchStart += OnTouchStart;
+        this.weapon = weapon;        
     }
 
-    private void OnTouchStart(Touch touch)
+    public override void OnTouchStart(Touch touch)
     {
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
 
@@ -37,9 +35,7 @@ public class PunchCombatUI : CombatUI
             if (monster)
             {
                 var monsterPos = monster.transform.position;
-
-                GameManager.instance.comboManager.IncreaseComboCount();
-
+                
                 var dir = (monsterPos - hitPos).normalized;
                 dir.y = .15f;
 
@@ -60,6 +56,6 @@ public class PunchCombatUI : CombatUI
 
     public override void End()
     {
-        TouchInputManager.instance.touchStart -= OnTouchStart;
+
     }
 }
