@@ -86,7 +86,7 @@ MonoBehaviour:
   thrustModifier: 1
   chopModifier: 1
   slashModifier: 1
-  damage: 10
+  damage: 25
   combatUI: {fileID: 114232753181062638}
   ultimateUI: {fileID: 114256740194598448}
   minSlashRange: 1
@@ -94,3 +94,4 @@ MonoBehaviour:
   weaponRadius: 5
   attackFrequency: 1
   particle: {fileID: 0}
+  isDualWeapon: 0

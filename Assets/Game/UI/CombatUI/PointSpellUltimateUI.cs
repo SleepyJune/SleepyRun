@@ -19,9 +19,4 @@ public class PointSpellUltimateUI : CombatUI
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
         var newSpell = Instantiate(spell.gameObject, pos, Quaternion.identity);
     }
-
-    public override void End()
-    {
-
-    }
 }

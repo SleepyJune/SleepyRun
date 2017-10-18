@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4259868000853642}
   - component: {fileID: 120307039884828882}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Line
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,20 +84,20 @@ LineRenderer:
         time: 0
         value: 0
         inSlope: 0
-        outSlope: 0
-        tangentMode: 0
+        outSlope: 2.0209646
+        tangentMode: 69
       - serializedVersion: 2
-        time: 0.50198376
-        value: 0.76470566
+        time: 0.49481323
+        value: 1
         inSlope: 0
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 1
       - serializedVersion: 2
         time: 1
         value: 0
-        inSlope: 0
+        inSlope: -1.9794658
         outSlope: 0
-        tangentMode: 0
+        tangentMode: 69
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 0
@@ -119,7 +119,7 @@ LineRenderer:
       ctime5: 0
       ctime6: 0
       ctime7: 0
-      atime0: 193
+      atime0: 0
       atime1: 65535
       atime2: 65535
       atime3: 0
@@ -131,7 +131,7 @@ LineRenderer:
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
     numCornerVertices: 3
-    numCapVertices: 3
+    numCapVertices: 0
     alignment: 0
     textureMode: 0
     generateLightingData: 0

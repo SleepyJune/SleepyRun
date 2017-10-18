@@ -41,14 +41,6 @@ public class HorizontalSwipeUltimateUI : CombatUI
                     playerTransform.position + startOffset, 
                     Quaternion.Euler(direction),
                     playerTransform);
-
-
         }
-    }
-        
-    public override void End()
-    {
-        TouchInputManager.instance.touchStart -= OnTouchStart;
-        TouchInputManager.instance.touchEnd -= OnTouchEnd;
     }
 }

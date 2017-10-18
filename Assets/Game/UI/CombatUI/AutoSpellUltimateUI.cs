@@ -24,9 +24,4 @@ public class AutoSpellUltimateUI : CombatUI
         
         GameManager.instance.weaponManager.EndUltimate();
     }
-
-    public override void End()
-    {
-
-    }
 }

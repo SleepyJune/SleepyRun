@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossMonster : Monster
 {
@@ -12,6 +13,9 @@ public class BossMonster : Monster
     [NonSerialized]
     public Player player;
 
+    CanvasGroup hpBarCanvasGroup;
+    Slider bossHPBar;
+        
     void Start()
     {
         player = GameManager.instance.player;
@@ -19,9 +23,29 @@ public class BossMonster : Monster
 
         //transform.SetParent(player.transform);
 
+        var hpBarRect = GameManager.instance.canvas.Find("Hud/BossHPBar/Slider");
+        hpBarCanvasGroup = hpBarRect.GetComponent<CanvasGroup>();
+        hpBarCanvasGroup.alpha = 1;
+
+        bossHPBar = hpBarRect.GetComponent<Slider>();
+        bossHPBar.value = 100;
+
         GameManager.instance.SetBossFight(true);
     }
-        
+
+    public override void TakeDamage(HitInfo hitInfo)
+    {        
+        base.TakeDamage(hitInfo);
+
+        if (!isDead)
+        {
+            var healthPercent = 100 * health / maxHealth;
+
+            bossHPBar.value = healthPercent;
+        }
+    }
+
+
     public override void Death(HitInfo hitInfo)
     {
         if (!isDead)
@@ -35,6 +59,8 @@ public class BossMonster : Monster
                 anim.SetTrigger("Die");
                 anim.SetBool("isDead", true);
             }
+
+            hpBarCanvasGroup.alpha = 0;
 
             Destroy(gameObject);
         }

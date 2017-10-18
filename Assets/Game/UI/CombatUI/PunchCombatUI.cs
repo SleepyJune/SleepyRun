@@ -53,9 +53,4 @@ public class PunchCombatUI : CombatUI
             }
         }
     }
-
-    public override void End()
-    {
-
-    }
 }
