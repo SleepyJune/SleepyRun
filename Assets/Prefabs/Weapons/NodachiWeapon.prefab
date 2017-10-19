@@ -90,7 +90,7 @@ MonoBehaviour:
   ultimateUI: {fileID: 114637845716118612}
   minSlashRange: 5
   maxSlashRange: 10
-  weaponRadius: 5
+  weaponRadius: 2.5
   attackFrequency: 1.5
   particle: {fileID: 0}
   isDualWeapon: 0

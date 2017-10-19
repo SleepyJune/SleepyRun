@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Name: ConditionDatabase
   m_EditorClassIdentifier: 
   allConditions:
+  - {fileID: 11400000, guid: a8e94364d21678b42b09cabce65c5147, type: 2}
   - {fileID: 11400000, guid: 9ef64d12fc458ad43854f0ed48dbb0fd, type: 2}
   allConditionOptions:
+  - FixedFrequency
   - RandomFrequency
   allActions:
   - {fileID: 11400000, guid: 8aa588742027f7445b6725f95505254c, type: 2}
+  - {fileID: 11400000, guid: 973cf6d27291d1848a2d729b0fad426a, type: 2}
   - {fileID: 11400000, guid: 3ed9813fed1099646947f75fa7c87047, type: 2}
   allActionOptions:
   - CastSpell
+  - SelfBuff
   - SpawnMonster

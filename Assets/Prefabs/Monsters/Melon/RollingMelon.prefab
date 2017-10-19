@@ -54,6 +54,7 @@ GameObject:
   - component: {fileID: 114351910669891932}
   - component: {fileID: 114242400681196872}
   - component: {fileID: 114151547537653038}
+  - component: {fileID: 114249947175610706}
   m_Layer: 8
   m_Name: RollingMelon
   m_TagString: Untagged
@@ -291,7 +292,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1249131384139570, guid: c945360906e65bd46aa7580a92efb4be, type: 2}
+  shatterPrefab: {fileID: 1249131384139570, guid: c945360906e65bd46aa7580a92efb4be,
+    type: 2}
+--- !u!114 &114249947175610706
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1144878042777974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionInfo: {fileID: 11400000, guid: a3512dd87924da14d9f469cf206557f3, type: 2}
 --- !u!114 &114351910669891932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabID: 0
   speed: 7
   anim: {fileID: 95174302885744688}
   maxHealth: 10

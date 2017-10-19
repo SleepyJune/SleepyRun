@@ -41,6 +41,8 @@ public class Player : Unit
     {
         if (!isDead)
         {
+            base.CheckBuffs();
+
             if (!isBossFight)
             {
                 var dir = new Vector3(0, 0, 1);
@@ -50,7 +52,7 @@ public class Player : Unit
             else
             {
                 anim.SetFloat("Speed", 0);
-            }
+            }            
         }
     }
 }

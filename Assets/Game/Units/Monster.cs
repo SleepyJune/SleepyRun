@@ -30,6 +30,8 @@ public class Monster : Unit
     {
         if (!isDead)
         {
+            base.CheckBuffs();
+
             if (speed != 0)
             {
                 var dir = new Vector3(0, 0, 1);

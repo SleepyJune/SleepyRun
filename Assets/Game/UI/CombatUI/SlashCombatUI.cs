@@ -211,7 +211,7 @@ public class SlashCombatUI : CombatUI
 
                 //Debug.Log((verticalRadius + horizontalRadius) * .5f);
 
-                var monsterRadius = monster.transform.localScale.x * .5f;
+                var monsterRadius = monster.transform.localScale.x * .5f * .5f;
                 
                 if (dist <= (verticalRadius + horizontalRadius) * .5f + monsterRadius)
                 {
