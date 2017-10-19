@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: fbc90b987bb1db04196a9529395a6e97
-timeCreated: 1506673891
+guid: 5bb11ed93dca49c4aa6131b791b93ee9
+timeCreated: 1508389834
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
@@ -39,7 +39,7 @@ ModelImporter:
     13700006: teeth_bot
     13700008: teeth_top
   materials:
-    importMaterials: 0
+    importMaterials: 1
     materialName: 0
     materialSearch: 1
   animations:
@@ -65,15 +65,15 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 0.25
+    globalScale: 1
     meshCompression: 0
     addColliders: 0
-    importVisibility: 0
+    importVisibility: 1
     importBlendShapes: 1
-    importCameras: 0
-    importLights: 0
+    importCameras: 1
+    importLights: 1
     swapUVChannels: 0
-    generateSecondaryUV: 1
+    generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
     keepQuads: 0
@@ -82,7 +82,7 @@ ModelImporter:
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
-    useFileScale: 0
+    useFileScale: 1
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0

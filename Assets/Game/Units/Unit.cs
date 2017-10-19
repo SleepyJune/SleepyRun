@@ -7,14 +7,13 @@ public abstract class Unit : Entity
 {
     public Animator anim;
 
-    public int maxHealth = 10;
-
     public Dictionary<int, Buff> buffs = new Dictionary<int, Buff>();
-        
+
+    public int maxHealth = 10;
+    public int defense = 0;
+    
     [NonSerialized]
     public int health;
-
-    public int defense = 0;
 
     public float GetRelativeSizeRatio()
     {
