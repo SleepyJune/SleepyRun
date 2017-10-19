@@ -116,8 +116,9 @@ GameObject:
   - component: {fileID: 135124130039191500}
   - component: {fileID: 114154353901187418}
   - component: {fileID: 114420069893495174}
+  - component: {fileID: 114390024380693558}
   m_Layer: 8
-  m_Name: MovingApple
+  m_Name: AppleBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -318,7 +319,7 @@ Animator:
   m_GameObject: {fileID: 1168463312717316}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: 0c6f6f9a2da00e94a8f73aaa946ab2a6, type: 3}
-  m_Controller: {fileID: 9100000, guid: 20f8d151541733042aff569457c5bdf3, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -338,11 +339,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabID: 0
-  speed: 5
-  anim: {fileID: 95819187710336606}
+  speed: 0
+  anim: {fileID: 0}
   maxHealth: 10
   defense: 0
   damage: 1
+--- !u!114 &114390024380693558
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1898119437938522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionInfo: {fileID: 11400000, guid: 78f620bcb3588f546a8b6802d0892a21, type: 2}
 --- !u!114 &114420069893495174
 MonoBehaviour:
   m_ObjectHideFlags: 1

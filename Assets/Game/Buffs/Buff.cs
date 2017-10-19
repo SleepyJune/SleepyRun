@@ -12,7 +12,7 @@ public abstract class Buff
 
     public int buffID;
     public string buffName;
-    public float duration;
+    public float duration = 5;
 
     [NonSerialized]
     public Unit unit;

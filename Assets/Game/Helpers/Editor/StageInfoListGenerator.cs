@@ -7,6 +7,8 @@ using UnityEngine;
 
 using UnityEditor;
 
+using System.Linq;
+
 [CustomEditor(typeof(StageInfoDatabase))]
 public class StageInfoListGenerator : Editor
 {
@@ -49,8 +51,8 @@ public class StageInfoListGenerator : Editor
                 stageList.Add(stageInfo);                
             }
         }
-
-        database.databaseArray = stageList.ToArray();
+        
+        database.databaseArray = stageList.OrderBy(info => info.stageId).ToArray();
         EditorUtility.SetDirty(target);
     }
 }
