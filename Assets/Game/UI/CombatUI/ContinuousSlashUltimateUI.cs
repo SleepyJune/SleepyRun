@@ -57,24 +57,12 @@ public class ContinuousSlashUltimateUI : CombatUI
     {
         if (modelObject)
         {
-            //var pos = modelObject.transform.position + modelObject.transform.forward * 5;
-            //DestroyMonsters(modelObject.transform.position, pos);
-
             if(fingerID != -999)
             {
                 var pos = GameManager.instance.GetTouchPosition(TouchInputManager.instance.inputs[fingerID].position, 1f);
                 modelObject.transform.position = pos;
 
-                /*var diff = pos - modelObject.transform.position;
-                    Debug.Log(diff);
-                    modelRigidBody.velocity = diff / Time.deltaTime;*/
-
                 var diff = pos - modelObject.transform.position;
-                
-
-
-                //modelRigidBody.velocity = diff / Time.deltaTime;
-                //modelRigidBody.MovePosition(modelObject.transform.position + diff.normalized * 50 * Time.deltaTime);
             }
         }        
     }
@@ -84,12 +72,7 @@ public class ContinuousSlashUltimateUI : CombatUI
         if (touch.fingerId == fingerID)
         {
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-
-            //var diff = pos - modelObject.transform.position;
-
-            //modelRigidBody.velocity = diff / Time.deltaTime;
-            //modelRigidBody.MovePosition(modelObject.transform.position + diff.normalized * 50);
-
+            
             DestroyMonsters(modelObject.transform.position, pos);
 
             modelObject.transform.position = pos;
@@ -142,18 +125,9 @@ public class ContinuousSlashUltimateUI : CombatUI
 
                 var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
                 var dist = Vector3.Distance(proj, monsterPos);
-
-                //Debug.Log(dist);
-
-
+                
                 if (dist <= .5f)
                 {
-                    /*var dir = (v2 - v1).normalized;
-                    var hitParticle = Instantiate(
-                            particleOnHit,
-                            monster.transform.position + new Vector3(0, .5f, 0),
-                            Quaternion.LookRotation(-dir));*/
-
                     var dir = (v2 - v1);
                     dir.y = .15f;
 
@@ -171,10 +145,5 @@ public class ContinuousSlashUltimateUI : CombatUI
                 }
             }
         }
-    }
-
-    public override void End()
-    {
-
     }
 }

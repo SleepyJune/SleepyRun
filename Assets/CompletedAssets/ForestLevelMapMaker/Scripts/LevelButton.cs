@@ -1,7 +1,9 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
+using System;
 
-public class LevelButton : MonoBehaviour {
+public class LevelButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
 
     public GameObject LeftStar;
     public GameObject MiddleStar;
@@ -11,6 +13,8 @@ public class LevelButton : MonoBehaviour {
     public Text numberText;
     public int level;
     public StageInfo stageInfo;
+
+    ScrollRect scrollRect;
 
     /// <summary>
     /// Set button interactable if button "active" or appropriate level is passed. Show stars or Lock image
@@ -31,6 +35,10 @@ public class LevelButton : MonoBehaviour {
         button.interactable = active || isPassed;        
 
         Lock.gameObject.SetActive(!isPassed && !active);
+
+        scrollRect = transform.parent.parent.parent.GetComponent<ScrollRect>();
+
+        transform.Find("Button").gameObject.AddComponent<LevelButtonHandler>();
     }
 
     public void LoadLevel()
@@ -44,5 +52,20 @@ public class LevelButton : MonoBehaviour {
             SceneChanger.sceneToLoad = "GameScene";
             SceneChanger.ChangeScene("LoadingScene");
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        scrollRect.enabled = false;
+    }
+
+    public void OnPointerUp(PointerEventData eventData)
+    {
+        scrollRect.enabled = true;
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        scrollRect.enabled = true;
     }
 }

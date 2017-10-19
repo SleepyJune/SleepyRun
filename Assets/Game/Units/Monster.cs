@@ -16,6 +16,8 @@ public class Monster : Unit
 
     void Awake()
     {
+        id = GameManager.instance.GenerateEntityId();
+        
         shatterScript = GetComponent<MonsterShatter>();
         rigidbody = GetComponent<Rigidbody>();
 
@@ -46,7 +48,7 @@ public class Monster : Unit
         }
     }
 
-    public void TakeDamage(HitInfo hitInfo)
+    public virtual void TakeDamage(HitInfo hitInfo)
     {
         if (!isDead)
         {

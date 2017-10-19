@@ -38,6 +38,8 @@ public class Weapon : MonoBehaviour
 
     public GameObject particle;
 
+    public bool isDualWeapon = false;
+
     //public int staminaCost = 20;
 
     [NonSerialized]

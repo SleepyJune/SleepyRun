@@ -10,8 +10,30 @@ public abstract class Entity : MonoBehaviour
     [NonSerialized]
     public int id;
 
+    public int prefabID;
+
     public float speed = 0; //for spells
 
     [NonSerialized]
     public bool isDead = false;
+    
+    public override bool Equals(object obj)
+    {
+        if (obj is Entity)
+        {
+            return Equals(this);
+        }
+
+        return false;
+    }
+
+    public bool Equals(Entity obj)
+    {
+        return obj.id == id;
+    }
+
+    public override int GetHashCode()
+    {
+        return id;
+    }
 }

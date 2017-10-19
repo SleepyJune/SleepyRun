@@ -13,7 +13,7 @@ public abstract class CombatUI : MonoBehaviour
     public virtual void OnTouchMove(Touch touch) { }
     public virtual void OnTouchEnd(Touch touch) { }
     public virtual void OnUpdate() { }
+    public virtual void End() { }
 
     public abstract void Initialize(Weapon weapon);
-    public abstract void End();
 }

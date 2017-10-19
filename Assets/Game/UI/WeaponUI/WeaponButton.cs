@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-class WeaponButton : MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IPointerUpHandler, IDragHandler, IEndDragHandler
+public class WeaponButton : MonoBehaviour
 {    
     public GameObject weaponItemTemplate;
 
@@ -41,60 +41,41 @@ class WeaponButton : MonoBehaviour, IPointerDownHandler, IPointerExitHandler, IP
 
             var newMenuItem = newWeapon.GetComponent<WeaponItem>();
             newMenuItem.weapon = weapon;
+            newMenuItem.weaponButton = this;
 
             weaponItems.Add(newMenuItem);
         }
 
-        homePosition = transform.position;        
+        homePosition = transform.position;
+
+        GameManager.instance.touchInputManager.touchStart += HideWeaponItems;      
     }
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void HideWeaponItems(Touch touch)
     {
-        isDragged = false;
+        weaponListCanvasGroup.alpha = 0;
+        weaponListCanvasGroup.blocksRaycasts = false;
+    }
 
-        //ExecuteEvents.Execute(gameObject, eventData, ExecuteEvents.beginDragHandler);
-
-        weaponListCanvasGroup.alpha = 1;
-        weaponListCanvasGroup.blocksRaycasts = true;
-
-        foreach(var weapon in weaponItems)
+    public void OnWeaponButtonClick()
+    {
+        if(weaponListCanvasGroup.alpha == 0)
         {
-            weapon.background.color = new Color(1,1,1,.1f);
+            weaponListCanvasGroup.alpha = 1;
+            weaponListCanvasGroup.blocksRaycasts = true;
         }
+        else
+        {
+            weaponListCanvasGroup.alpha = 0;
+            weaponListCanvasGroup.blocksRaycasts = false;
+        }        
     }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        //transform.position = new Vector2(transform.position.x, eventData.position.y);
-
-        isDragged = true;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
+    public void OnWeaponSelect()
     {
         weaponListCanvasGroup.alpha = 0;
         weaponListCanvasGroup.blocksRaycasts = false;
 
-        //transform.position = homePosition;
-
         weaponImage.sprite = GameManager.instance.weaponManager.currentWeapon.image;
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        if (!isDragged)
-        {
-            weaponListCanvasGroup.alpha = 0;
-            weaponListCanvasGroup.blocksRaycasts = false;
-        }
-    }
-
-    public void OnPointerUp(PointerEventData eventData)
-    {
-        if (!isDragged)
-        {
-            weaponListCanvasGroup.alpha = 0;
-            weaponListCanvasGroup.blocksRaycasts = false;
-        }
     }
 }

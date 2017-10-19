@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class WeaponItem : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPointerExitHandler
+public class WeaponItem : MonoBehaviour
 {
     [NonSerialized]
     public Weapon weapon;
@@ -15,23 +15,17 @@ public class WeaponItem : MonoBehaviour, IDropHandler, IPointerEnterHandler, IPo
     [NonSerialized]
     public Image background;
 
+    [NonSerialized]
+    public WeaponButton weaponButton;
+
     void Awake()
     {
         background = GetComponent<Image>();
     }
 
-    public void OnDrop(PointerEventData eventData)
+    public void WeaponSelect()
     {
         GameManager.instance.weaponManager.SwitchWeapons(weapon);
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        background.color = new Color(1, 1, 1, .5f);
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        background.color = new Color(1, 1, 1, .1f);
+        weaponButton.OnWeaponSelect();
     }
 }

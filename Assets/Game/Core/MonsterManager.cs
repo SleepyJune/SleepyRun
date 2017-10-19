@@ -80,17 +80,21 @@ public class MonsterManager : MonoBehaviour
 
             if (foundPlacement)
             {
-                var newMonster = Instantiate(prefab, spawnPos, Quaternion.Euler(new Vector3(0, 180, 0)));
-                newMonster.transform.SetParent(monsterHolder);
-                newMonster.id = GameManager.instance.GenerateEntityId();
-
-                monsters.Add(newMonster.id, newMonster);
-
-                return newMonster;
+                return CreateNewMonster(prefab, spawnPos, Quaternion.Euler(new Vector3(0, 180, 0)));                
             }
         }
 
         return null;
+    }
+
+    public Monster CreateNewMonster(Monster prefab, Vector3 spawnPos, Quaternion rotation)
+    {
+        var newMonster = Instantiate(prefab, spawnPos, rotation);
+        newMonster.transform.SetParent(monsterHolder);
+
+        monsters.Add(newMonster.id, newMonster);
+
+        return newMonster;
     }
 
     public void AddKillCount(Monster monster)
@@ -103,8 +107,6 @@ public class MonsterManager : MonoBehaviour
         else
         {
             monsterKillCount.Add(monster.name, 1);
-
-            Debug.Log(monster.name);
         }
     }
 

@@ -107,7 +107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4104958970427870
 Transform:
   m_ObjectHideFlags: 1
@@ -363,6 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23d3591f7a871a54496f85dde60b07fe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabID: 0
   speed: 1
   damage: 100
   radius: 1
@@ -386,5 +387,24 @@ MonoBehaviour:
   MaxFrame: 30
   Granularity: 30
   Fps: 30
+  FadeTime: 1
+  MyCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
   MyColor: {r: 0.034482956, g: 0, b: 1, a: 1}
   MyMaterial: {fileID: 2100000, guid: 75f756109f216ad409ff1a5ea7dd7b2c, type: 2}

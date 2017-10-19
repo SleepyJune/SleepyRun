@@ -7,100 +7,179 @@ using UnityEngine.UI;
 
 public class SlashCombatUI : CombatUI
 {
-    Dictionary<int, TouchInput> inputs;
-    Dictionary<int, LineRenderer> lines;
+    Dictionary<int, SlashInfo> slashes;
 
     public LineRenderer linePrefab;
-    
+    float currentLineLength = 0;
     //public GameObject testObject;
             
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
-
-        inputs = TouchInputManager.instance.inputs;
-        lines = new Dictionary<int, LineRenderer>();
+        slashes = new Dictionary<int, SlashInfo>();
     }
 
     public override void OnTouchStart(Touch touch)
     {
-        if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
-        {
-            if (!lines.ContainsKey(touch.fingerId))
+        if(true)//if (Time.time - weapon.lastAttackTime > 1/weapon.attackFrequency)
+        {           
+            if (!slashes.ContainsKey(touch.fingerId))
             {
-                var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
+                if (weapon.isDualWeapon || slashes.Count == 0) //limit multiple slashes
+                {
+                    var newLine = Instantiate(linePrefab, Vector3.zero, Quaternion.identity);
 
-                var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
+                    var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
 
-                //newLine.SetPosition(0, touch.position); //record current mouse position
-                newLine.SetPosition(0, pos);
+                    //newLine.SetPosition(0, touch.position); //record current mouse position
+                    newLine.SetPosition(0, pos);
+                    currentLineLength = 0;
 
+                    //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
 
-                //newLine.transform.eulerAngles = new Vector3(60, 0, 0);
+                    var slash = new SlashInfo(newLine, touch.fingerId);
 
-                lines.Add(touch.fingerId, newLine);
+                    slashes.Add(touch.fingerId, slash);
 
-                weapon.lastAttackTime = Time.time;
+                    weapon.lastAttackTime = Time.time;
+
+                    DelayAction.Add(()=>CheckSlashEndTime(slash), .5f);
+                }
             }
+        }
+    }
+
+    void CheckSlashEndTime(SlashInfo slash)
+    {
+        if (!slash.hasEnded)
+        {
+            EndSlash(slash);
+        }
+    }
+
+    float GetLineLength(LineRenderer line)
+    {
+        Vector3[] positions = new Vector3[line.positionCount];
+
+        line.GetPositions(positions);
+
+        float length = 0;
+
+        for (int i = 0; i < positions.Length; i++)
+        {
+            if (i > 0)
+            {
+                length += (positions[i] - positions[i - 1]).magnitude;
+            }
+        }
+
+        return length;
+    }
+
+    Vector3 GetNewPosition(LineRenderer line, Vector3 pos)
+    {
+        var previous = line.GetPosition(line.positionCount - 1);
+        var delta = (pos - previous);
+
+        var newLength = delta.magnitude + currentLineLength;
+
+        if(newLength > weapon.maxSlashRange)
+        {
+            var lengthLeft = weapon.maxSlashRange - currentLineLength;
+            currentLineLength = weapon.maxSlashRange;
+            return previous + delta.normalized * lengthLeft;
+        }
+        else
+        {
+            currentLineLength = newLength;
+            return pos;
         }
     }
 
     public override void OnTouchMove(Touch touch)
     {
-        LineRenderer line;
-        if (lines.TryGetValue(touch.fingerId, out line))
+        SlashInfo slash;
+        if (slashes.TryGetValue(touch.fingerId, out slash))
         {
+            LineRenderer line = slash.line;
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
 
-            var start = line.GetPosition(0);
+            var previous = line.GetPosition(line.positionCount - 1);
 
-            var delta = (pos - start);
+            var newPos = GetNewPosition(line, pos);               
+            var delta = (newPos - previous);
             
-            /*if(line.positionCount == 1 && delta.magnitude > 1)
+            if(line.positionCount > 0 )//&& delta.magnitude > 1)
             {
-                line.positionCount = line.positionCount + 1;
-                line.SetPosition(line.positionCount - 1, pos);
-            } */           
+                                
+                //line.Simplify(.1f);
 
-            if (delta.magnitude > weapon.maxSlashRange)
-            {
-                OnTouchEnd(touch);
+                //ExecuteAttack(line);
+
+                if (newPos != pos)
+                {
+                    OnTouchEnd(touch);
+                }
+                else
+                {
+                    if (line.positionCount == 1)
+                    {
+                        var middle = previous + delta.normalized * (delta.magnitude / 2);
+
+                        line.positionCount = line.positionCount + 1;
+                        line.SetPosition(line.positionCount - 1, middle);
+                    }
+
+                    line.positionCount = line.positionCount + 1;
+                    line.SetPosition(line.positionCount - 1, newPos);
+                    
+                    DestroyMonsters(slash, previous, newPos);
+                }                
             }
         }
     }
 
     public override void OnTouchEnd(Touch touch)
     {
-        LineRenderer line;
-        if (lines.TryGetValue(touch.fingerId, out line))
+        SlashInfo slash;
+        if (slashes.TryGetValue(touch.fingerId, out slash))
         {
+            LineRenderer line = slash.line;
+
             var start = line.GetPosition(0);
             /*start = GameManager.instance.GetTouchPosition(start, 1f);
             line.SetPosition(0, start);*/
 
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
-            
-            var delta = (pos-start);
 
-            var end = start + delta.normalized 
+            var delta = (pos - start);
+
+            var end = start + delta.normalized
                 * Math.Max(Math.Min(delta.magnitude, weapon.maxSlashRange), weapon.minSlashRange);
 
-            //line.SetPosition(line.positionCount - 1, end);
+            var newPos = GetNewPosition(line, pos);
             line.positionCount = line.positionCount + 1;
-            line.SetPosition(line.positionCount - 1, start + delta.normalized * (delta.magnitude/2));
+            line.SetPosition(line.positionCount - 1, newPos);
 
-            line.positionCount = line.positionCount + 1;
-            line.SetPosition(line.positionCount - 1, end);
-                        
-            ExecuteAttack(line);
+            var previous = line.GetPosition(line.positionCount - 2);
+            DestroyMonsters(slash, previous, pos);
 
-            lines.Remove(touch.fingerId);
-            Destroy(line.gameObject, .5f);
+            EndSlash(slash);
         }
     }
-        
-    protected virtual void ExecuteAttack(LineRenderer line)
+
+    public void EndSlash(SlashInfo slash)
     {
+        slash.hasEnded = true;
+
+        slashes.Remove(slash.fingerID);
+        Destroy(slash.line.gameObject, .5f);
+    }
+
+    protected virtual void ExecuteAttack(SlashInfo slash)
+    {
+        LineRenderer line = slash.line;
+
         var start = line.GetPosition(0);
         var end = line.GetPosition(line.positionCount - 1);
 
@@ -109,59 +188,54 @@ public class SlashCombatUI : CombatUI
 
         Debug.Log("Total Damage: " + damage);
 
-        DestroyMonsters(start, end, damage);
+        DestroyMonsters(slash, start, end);
     }
 
-    void DestroyMonsters(Vector3 v1, Vector3 v2, int damage)
+    void DestroyMonsters(SlashInfo slash, Vector3 v1, Vector3 v2)
     {
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
-            var monsterPos = monster.transform.position;
-            monsterPos.y = 0;
+            if (!slash.damagedMonsters.Contains(monster))
+            {                
+                var monsterPos = monster.transform.position;
+                monsterPos.y = 0;
 
-            var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
-            var dist = Vector3.Distance(proj, monsterPos);
+                var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
+                var dist = Vector3.Distance(proj, monsterPos);
 
-            var diff = (v2 - v1);
-            float length = diff.magnitude;
-            
-            var verticalRadius = (Math.Abs(diff.z) / length) * 1;
-            var horizontalRadius = (Math.Abs(diff.x) / length) * weapon.weaponRadius;
+                var diff = (v2 - v1);
+                float length = diff.magnitude;
 
-            //Debug.Log((verticalRadius + horizontalRadius) * .5f);
+                var verticalRadius = (Math.Abs(diff.z) / length) * 1;
+                var horizontalRadius = (Math.Abs(diff.x) / length) * weapon.weaponRadius;
 
-            if (dist <= (verticalRadius + horizontalRadius) * .5f)
-            {
-                //var test = Instantiate(testObject, proj + new Vector3(0, monster.transform.position.y, 0), Quaternion.identity);
-                //Destroy(test, 1);
+                //Debug.Log((verticalRadius + horizontalRadius) * .5f);
 
-                /*var dir = (v2 - v1).normalized;
-                var hitParticle = Instantiate(
-                        particleOnHit,
-                        monster.transform.position + new Vector3(0, .5f, 0),
-                        Quaternion.LookRotation(-dir));*/
-
-                var dir = (v2 - v1);
-                dir.y = .15f;
-
-                var force = dir * 50;
-
-                HitInfo hitInfo = new HitInfo
+                var monsterRadius = monster.transform.localScale.x * .5f;
+                
+                if (dist <= (verticalRadius + horizontalRadius) * .5f + monsterRadius)
                 {
-                    hitStart = v1,
-                    hitEnd = v2,
-                    force = force,
-                    damage = damage,
-                    hitParticle = weapon.particle
-                };
+                    //previous vector with tolerance, add to force
+                                        
 
-                monster.TakeDamage(hitInfo);
+                    var dir = (v2 - v1);
+                    dir.y = .15f;
+
+                    var force = dir * 50;
+
+                    HitInfo hitInfo = new HitInfo
+                    {
+                        hitStart = v1,
+                        hitEnd = v2,
+                        force = force,
+                        damage = weapon.damage,
+                        hitParticle = weapon.particle
+                    };
+
+                    monster.TakeDamage(hitInfo);
+                    slash.damagedMonsters.Add(monster);
+                }
             }
         }
-    }
-
-    public override void End()
-    {
-
     }
 }

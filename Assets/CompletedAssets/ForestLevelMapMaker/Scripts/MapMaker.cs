@@ -78,7 +78,7 @@ public class MapMaker : MonoBehaviour
             SetButtonActive(scene, (currentLevel == scene || scene == topPassedLevel + 1), (topPassedLevel >= scene), stageInfo);
         }
         
-        Invoke("ScrollToElement", .5f); //need to wait a bit to get the height
+        Invoke("ScrollToElement", .25f); //need to wait a bit to get the height
     }
 
     void ScrollToElement()
