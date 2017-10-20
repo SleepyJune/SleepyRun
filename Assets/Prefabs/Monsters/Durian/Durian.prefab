@@ -484,10 +484,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabID: 0
   speed: 0
   anim: {fileID: 0}
-  maxHealth: 20
-  defense: 2
+  maxHealth: 3
+  defense: 25
   damage: 30
 --- !u!114 &114518440861811656
 MonoBehaviour:
@@ -500,7 +501,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1107349023778174, guid: e435c94e75b39ec459d1d9c731aa0d1c, type: 2}
+  shatterPrefab: {fileID: 1107349023778174, guid: e435c94e75b39ec459d1d9c731aa0d1c,
+    type: 2}
 --- !u!135 &135561116997277430
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -22,6 +22,15 @@ public abstract class Unit : Entity
         return (15.5f * 55) / (distance * Camera.main.fieldOfView);
     }
 
+    public int CalculateDamage(float damage)
+    {
+        var finalDamage = damage;
+
+        finalDamage = Mathf.Max(1, finalDamage - defense);
+
+        return (int)Mathf.Round(finalDamage);
+    }
+
     public void ApplyBuff(Buff buff)
     {
         if (!isDead)

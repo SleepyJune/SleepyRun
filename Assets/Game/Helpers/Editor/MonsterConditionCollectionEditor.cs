@@ -122,6 +122,9 @@ public class MonsterConditionCollectionEditor : Editor
             EditorGUILayout.Separator();
         }
 
+        EditorGUILayout.Space();
+        EditorGUILayout.Space();
+
         CreateClickable(startRect, -1, true);
     }
         

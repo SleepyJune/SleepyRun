@@ -54,7 +54,9 @@ public class Monster : Unit
     {
         if (!isDead)
         {
-            health = Math.Max(0, health - hitInfo.damage);
+            var finalDamage = CalculateDamage(hitInfo.damage);
+
+            health = Mathf.Max(0, health - finalDamage);
 
             GameManager.instance.comboManager.IncreaseComboCount();
 
@@ -74,7 +76,7 @@ public class Monster : Unit
             }
             else
             {
-                GameManager.instance.damageTextManager.CreateDamageText(this, hitInfo.damage);
+                GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage);
             }
         }
     }
@@ -117,8 +119,11 @@ public class Monster : Unit
 
 
             //DelayAction.Add(()=>shatterScript.MakeShattered(anim.transform),.5f);
-                        
-            shatterScript.MakeShattered(hitInfo);
+
+            if (shatterScript)
+            {
+                shatterScript.MakeShattered(hitInfo);
+            }
 
             /*if (deathAnimation)
             {
