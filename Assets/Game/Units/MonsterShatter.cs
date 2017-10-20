@@ -27,7 +27,9 @@ public class MonsterShatter : MonoBehaviour
         }
 
         var shattered = Instantiate(shatterPrefab, transform.position, transform.rotation, 
-            GameManager.instance.monsterManager.monsterHolder);               
+            GameManager.instance.monsterManager.monsterHolder);
+
+        shattered.transform.localScale = transform.localScale;
                 
         foreach (var rb in shattered.GetComponentsInChildren<Rigidbody>())
         {

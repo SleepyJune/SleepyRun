@@ -7,14 +7,13 @@ public abstract class Unit : Entity
 {
     public Animator anim;
 
-    public int maxHealth = 10;
-
     public Dictionary<int, Buff> buffs = new Dictionary<int, Buff>();
-        
+
+    public int maxHealth = 10;
+    public int defense = 0;
+    
     [NonSerialized]
     public int health;
-
-    public int defense = 0;
 
     public float GetRelativeSizeRatio()
     {
@@ -25,14 +24,17 @@ public abstract class Unit : Entity
 
     public void ApplyBuff(Buff buff)
     {
-        if (buffs.ContainsKey(buff.buffID))
+        if (!isDead)
         {
-            buffs[buff.buffID].endTime = Time.time + buff.duration;
-        }
-        else
-        {
-            buffs.Add(buff.buffID, buff);
-            buff.ActivateBuff(this);
+            if (buffs.ContainsKey(buff.buffID))
+            {
+                buffs[buff.buffID].endTime = Time.time + buff.duration;
+            }
+            else
+            {
+                buffs.Add(buff.buffID, buff);
+                buff.ActivateBuff(this);
+            }
         }
     }
 
