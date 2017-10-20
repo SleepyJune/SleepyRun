@@ -13,18 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conditionCollections:
   - {fileID: 114668178108364842}
---- !u!114 &114094551057434226
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c7b3bf3c8762aa4ca709896164baea4, type: 3}
-  m_Name: MonsterRandomCondition
-  m_EditorClassIdentifier: 
-  frequency: 5
 --- !u!114 &114119788072884438
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -37,6 +25,20 @@ MonoBehaviour:
   m_Name: MonsterSelfBuff
   m_EditorClassIdentifier: 
   buff: {fileID: 11400000, guid: 5218c918c66ec5a45ad10d143f8d4914, type: 2}
+--- !u!114 &114373100072351884
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bf771a5a5c3bcb45a2c0609a09d3ef7, type: 3}
+  m_Name: MonsterOneTimeCondition
+  m_EditorClassIdentifier: 
+  delay: 0
+  isRandom: 0
+  frequency: 5
 --- !u!114 &114459851771627634
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -63,5 +65,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   description: Increase Health
   conditions:
-  - {fileID: 114094551057434226}
+  - {fileID: 114373100072351884}
   actionCollection: {fileID: 114459851771627634}
