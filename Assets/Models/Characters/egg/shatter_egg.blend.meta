@@ -1,46 +1,44 @@
 fileFormatVersion: 2
-guid: 7fdd638043f9866428ffbcd9b7e52a37
-timeCreated: 1508477623
+guid: 5fa8f67956a27b341ad63982695ce1a9
+timeCreated: 1508477621
 licenseType: Free
 ModelImporter:
   serializedVersion: 21
   fileIDToRecycleName:
-    100000: Armature
-    100002: Body_Back
-    100004: Body_Front
-    100006: ear
-    100008: Ears
-    100010: egg_body_back
-    100012: egg_body_front
-    100014: egg_leg_back
-    100016: egg_leg_front
-    100018: Eyes
-    100020: left_eye
-    100022: Leg_Back
-    100024: Leg_Front
-    100026: nose
-    100028: //RootNode
-    100030: right_eye
-    100032: yolk_bot
-    100034: yolk_top
-    400000: Armature
-    400002: Body_Back
-    400004: Body_Front
-    400006: ear
-    400008: Ears
-    400010: egg_body_back
-    400012: egg_body_front
-    400014: egg_leg_back
-    400016: egg_leg_front
-    400018: Eyes
-    400020: left_eye
-    400022: Leg_Back
-    400024: Leg_Front
-    400026: nose
-    400028: //RootNode
-    400030: right_eye
-    400032: yolk_bot
-    400034: yolk_top
+    100000: ear
+    100002: egg_body_back
+    100004: egg_body_front
+    100006: egg_leg_back
+    100008: egg_leg_front
+    100010: left_eye
+    100012: nose
+    100014: right_eye
+    100016: //RootNode
+    400000: ear
+    400002: egg_body_back
+    400004: egg_body_front
+    400006: egg_leg_back
+    400008: egg_leg_front
+    400010: left_eye
+    400012: nose
+    400014: right_eye
+    400016: //RootNode
+    2300000: ear
+    2300002: egg_body_back
+    2300004: egg_body_front
+    2300006: egg_leg_back
+    2300008: egg_leg_front
+    2300010: left_eye
+    2300012: nose
+    2300014: right_eye
+    3300000: ear
+    3300002: egg_body_back
+    3300004: egg_body_front
+    3300006: egg_leg_back
+    3300008: egg_leg_front
+    3300010: left_eye
+    3300012: nose
+    3300014: right_eye
     4300000: egg_leg_front
     4300002: egg_body_back
     4300004: egg_body_front
@@ -50,20 +48,7 @@ ModelImporter:
     4300012: right_eye
     4300014: left_eye
     7400000: Default Take
-    7400002: death
-    7400004: idle
-    7400006: running
-    7400008: attack
-    7400010: startup
     9500000: //RootNode
-    13700000: ear
-    13700002: egg_body_back
-    13700004: egg_body_front
-    13700006: egg_leg_back
-    13700008: egg_leg_front
-    13700010: left_eye
-    13700012: nose
-    13700014: right_eye
   materials:
     importMaterials: 1
     materialName: 0
