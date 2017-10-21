@@ -3,6 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Lane
+{
+    left,
+    mid,
+    right
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
@@ -37,7 +44,7 @@ public class GameManager : MonoBehaviour
     private GameObject victoryText;
 
     public bool isBossFight = false;
-
+                
     void Awake()
     {
         if (instance == null)

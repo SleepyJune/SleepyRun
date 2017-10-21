@@ -18,6 +18,8 @@ public class Weapon : MonoBehaviour
 {
     public Sprite image;
 
+    public Sprite facePortrait;
+
     public WeaponType weaponType;
 
     public float thrustModifier;

@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 33665853708227850}
   - component: {fileID: 23162089966418522}
   - component: {fileID: 65908066414357802}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: rock ground (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 33210757674516288}
   - component: {fileID: 23329908593402576}
   - component: {fileID: 65997550590809272}
-  m_Layer: 9
+  m_Layer: 10
   m_Name: rock ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}

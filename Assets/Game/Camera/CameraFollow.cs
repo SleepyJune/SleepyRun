@@ -19,6 +19,11 @@ public class CameraFollow : MonoBehaviour
         transform.SetParent(target, false);
     }
 
+    void Update()
+    {
+        //transform.position = new Vector3(0, transform.position.y, transform.position.z);
+    }
+
     /*void FixedUpdate()
     {
         if(target == null)

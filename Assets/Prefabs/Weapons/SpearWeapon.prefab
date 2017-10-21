@@ -53,8 +53,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54faef1bf1ca40749a3f92249be190ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
-    type: 2}
   projectilePrefab: {fileID: 1109993803614858, guid: 1b8012bd6731860459cc5393e41d5fb2,
     type: 2}
 --- !u!114 &114531458526286278
@@ -69,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 8d49c5185682e5a498b03f9800fdf01d, type: 3}
+  facePortrait: {fileID: 21300000, guid: 45f2012c6a399a844bba1d96d78e92ef, type: 3}
   weaponType: 0
   thrustModifier: 1
   chopModifier: 1
@@ -81,6 +80,7 @@ MonoBehaviour:
   weaponRadius: 1
   attackFrequency: 1
   particle: {fileID: 0}
+  isDualWeapon: 0
 --- !u!114 &114853879542525066
 MonoBehaviour:
   m_ObjectHideFlags: 1

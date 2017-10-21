@@ -81,7 +81,7 @@ public class Monster : Unit
         }
     }
 
-    public void RemoveFromStage()
+    public void CollideWithPlayer()
     {
         if (!isDead)
         {
@@ -94,6 +94,30 @@ public class Monster : Unit
             {
                 monsterDeathParticle.CreateParticle();
             }
+
+            if (anim)
+            {
+
+            }
+
+            isDead = true;
+            Destroy(gameObject);
+        }
+    }
+
+    public void RemoveFromStage()
+    {
+        if (!isDead)
+        {
+            /*GameManager.instance.comboManager.BreakCombo();
+
+            GameManager.instance.player.TakeDamage(damage);
+
+            var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
+            if (monsterDeathParticle)
+            {
+                monsterDeathParticle.CreateParticle();
+            }*/
         }
     }
 

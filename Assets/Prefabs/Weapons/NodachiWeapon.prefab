@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   image: {fileID: 21300000, guid: 488f91a27b146ab409a521e0cef4a720, type: 3}
+  facePortrait: {fileID: 21300000, guid: 3d6aca36bb0830b4893c06dd24de933d, type: 3}
   weaponType: 1
   thrustModifier: 2
   chopModifier: 1

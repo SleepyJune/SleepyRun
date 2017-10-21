@@ -44,7 +44,7 @@ public class MonsterManager : MonoBehaviour
         if (lastFloor)
         {
             Vector3 lane = lanes[Random.Range(0, 3)];
-            Vector3 spawnPos = player.transform.position + lane + new Vector3(0,0,monsterSpawnDistance);
+            Vector3 spawnPos = lane + new Vector3(0,.5f, player.transform.position.z + monsterSpawnDistance);
                         
             int maxTries = 10;
             bool foundPlacement = true;
@@ -74,7 +74,7 @@ public class MonsterManager : MonoBehaviour
 
                     var randomDist = monsterSpawnDistance + Random.Range(-5, 5);
                     lane = lanes[Random.Range(0, 3)];
-                    spawnPos = player.transform.position + lane + new Vector3(0, 0, monsterSpawnDistance);
+                    spawnPos = lane + new Vector3(0, .5f, player.transform.position.z + randomDist);
                 }                
             }
 
