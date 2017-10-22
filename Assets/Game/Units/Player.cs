@@ -27,23 +27,32 @@ public class Player : Unit
         {
             health -= damage;
 
-            Debug.Log("Take damage: " + damage);
+            //Debug.Log("Take damage: " + damage);
 
             if (health <= 0)
             {
                 Death();
             }
+            else
+            {
+                anim.SetTrigger("isHurt");
+            }
         }
     }
 
-    void Death()
+    public void Death()
     {
         health = 0;
         isDead = true;
                 
-        //anim.SetTrigger("Die");
+        anim.SetTrigger("die");
 
         GameManager.instance.GameOver();
+    }
+
+    public void Victory()
+    {
+        anim.SetTrigger("victory");
     }
 
     void OnTriggerEnter(Collider collision)

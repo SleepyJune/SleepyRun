@@ -19,7 +19,7 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     Vector2 homePosition;
 
-    Image weaponImage;
+    //Image weaponImage;
 
     Weapon[] weapons;    
 
@@ -32,16 +32,22 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Lane destinationLane = Lane.mid;
 
     Transform playerPortraitTransform;
+
+    Animator anim;
     
     void Start()
     {
         playerPortraitTransform = transform.parent;
 
+        anim = playerPortraitTransform.GetComponent<Animator>();
+
         weapons = GameManager.instance.weaponManager.weapons;
 
         //weaponList = transform.parent.Find("WeaponList");
-        weaponImage = transform.Find("WeaponImage").GetComponent<Image>();
-        weaponImage.sprite = GameManager.instance.weaponManager.defaultWeapon.facePortrait;
+        //weaponImage = transform.Find("WeaponImage").GetComponent<Image>();
+        //weaponImage.sprite = GameManager.instance.weaponManager.defaultWeapon.facePortrait;
+
+        anim.runtimeAnimatorController = GameManager.instance.weaponManager.defaultWeapon.facePortraitAC;
 
         weaponListCanvasGroup = weaponList.GetComponent<CanvasGroup>();
 
@@ -87,7 +93,9 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         weaponListCanvasGroup.alpha = 0;
         weaponListCanvasGroup.blocksRaycasts = false;
 
-        weaponImage.sprite = GameManager.instance.weaponManager.currentWeapon.facePortrait;
+        //weaponImage.sprite = GameManager.instance.weaponManager.currentWeapon.facePortrait;
+
+        anim.runtimeAnimatorController = GameManager.instance.weaponManager.currentWeapon.facePortraitAC;
     }
     
     public void OnBeginDrag(PointerEventData eventData)

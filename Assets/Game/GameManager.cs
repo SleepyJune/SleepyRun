@@ -102,23 +102,28 @@ public class GameManager : MonoBehaviour
 
     public void GameOver(bool levelComplete = false)
     {
-        weaponManager.DisableWeapon();
-
-        isGameOver = true;
-
-        if (!levelComplete)
+        if (!isGameOver)
         {
-            gameOverText.SetActive(true);
-            gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
+            weaponManager.DisableWeapon();
 
-            DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
-        }
-        else
-        {
-            victoryText.SetActive(true);
-            victoryText.GetComponent<Animation>().Play("GameOverAnimation");
+            isGameOver = true;
 
-            DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
+            if (!levelComplete)
+            {
+                gameOverText.SetActive(true);
+                gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
+
+                DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
+            }
+            else
+            {
+                player.Victory();
+
+                victoryText.SetActive(true);
+                victoryText.GetComponent<Animation>().Play("GameOverAnimation");
+
+                DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
+            }
         }
     }
 

@@ -20,6 +20,8 @@ public class Weapon : MonoBehaviour
 
     public Sprite facePortrait;
 
+    public RuntimeAnimatorController facePortraitAC;
+
     public WeaponType weaponType;
 
     public float thrustModifier;
