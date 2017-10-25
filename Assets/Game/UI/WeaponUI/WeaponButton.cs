@@ -63,9 +63,9 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         foreach (var weapon in weapons)
         {            
             var newWeapon = Instantiate(weaponItemTemplate, weaponList);
-            newWeapon.transform.Find("Image").GetComponent<Image>().sprite = weapon.image;
+            newWeapon.transform.Find("Mask/Image").GetComponent<Image>().sprite = weapon.image;
 
-            var newMenuItem = newWeapon.GetComponent<WeaponItem>();
+            var newMenuItem = newWeapon.transform.Find("Mask").GetComponent<WeaponItem>();
             newMenuItem.weapon = weapon;
             newMenuItem.weaponButton = this;
 
