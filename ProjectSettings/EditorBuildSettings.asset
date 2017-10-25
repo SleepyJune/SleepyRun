@@ -9,6 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroScreen.unity
     guid: ef1771f05f40fe64aad9c6ddecc2736e
   - enabled: 1
+    path: Assets/Scenes/IntroScreen2.unity
+    guid: 3ba8c21d7371fdd4da3aef8e748e38e5
+  - enabled: 1
+    path: Assets/Scenes/HeroScreen.unity
+    guid: f12051cb0c7339c498896753acb321a0
+  - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 4a65b7f201d70034c86094946699e5a1
   - enabled: 1

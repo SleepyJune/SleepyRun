@@ -6,6 +6,8 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
+using Gradient = UnityEngine.Gradient;
+
 public enum WeaponType
 {
     Dagger,

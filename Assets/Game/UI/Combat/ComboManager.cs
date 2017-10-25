@@ -12,11 +12,7 @@ public class ComboManager : MonoBehaviour
 
     public GameObject textPrefab;
 
-    public Slider energyBar;
-    public Animation energyBarAnim;
-
-    public Button ultButton;
-    Animator ultButtonAC;
+    //public Slider energyBar;
 
     int maxEnergy = 100;
     int energyPerCombo = 10;
@@ -34,6 +30,8 @@ public class ComboManager : MonoBehaviour
 
     float lastComboTime = 0;
 
+    public UIUnitFrame_Bar manaBarScript;
+
     class ComboInfo
     {
         public int count;
@@ -49,11 +47,11 @@ public class ComboManager : MonoBehaviour
     void Awake()
     {
         comboQueue = new Queue<ComboInfo>();
+    }
 
-        energyBarAnim["EnergyBar"].speed = 0.0f;
-        energyBarAnim.Play("EnergyBar");
-
-        ultButtonAC = ultButton.transform.GetComponent<Animator>();
+    void Start()
+    {
+        manaBarScript.SetMaxValue(maxEnergy);
     }
 
     void Update()
@@ -73,19 +71,20 @@ public class ComboManager : MonoBehaviour
             }
         }
 
-        var energy = Mathf.Lerp(energyBar.value, currentEnergy, 2 * Time.deltaTime);
-        energyBar.value = energy;
-        energyBarAnim["EnergyBar"].time = energy/100;
+        //var energy = Mathf.Lerp(energyBar.value, currentEnergy, 2 * Time.deltaTime);
+        //energyBar.value = energy;
+
+        manaBarScript.SetValue(currentEnergy);
 
         if (!charged && currentEnergy == maxEnergy)
         {
-            ultButtonAC.SetTrigger("Charged");
+            //ultButtonAC.SetTrigger("Charged");
             charged = true;
         }
 
         if(charged && currentEnergy != maxEnergy)
         {
-            ultButtonAC.SetTrigger("Charging");
+            //ultButtonAC.SetTrigger("Charging");
             charged = false;
         }
     }
@@ -111,9 +110,7 @@ public class ComboManager : MonoBehaviour
     {
         //currentEnergy = 0;
         comboCount = 0;
-
-        ultButtonAC.SetTrigger("ComboBreak");
-
+        
         comboQueue = new Queue<ComboInfo>();
     }
 

@@ -13,6 +13,8 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public Transform weaponList;
 
+    public Image portraitImage;
+
     List<WeaponItem> weaponItems = new List<WeaponItem>();
 
     CanvasGroup weaponListCanvasGroup;
@@ -34,10 +36,16 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Transform playerPortraitTransform;
 
     Animator anim;
-    
+
+    ComboManager comboManager;
+    WeaponManager weaponManager;
+
     void Start()
     {
         playerPortraitTransform = transform.parent;
+
+        comboManager = GameManager.instance.comboManager;
+        weaponManager = GameManager.instance.weaponManager;
 
         anim = playerPortraitTransform.GetComponent<Animator>();
 
@@ -48,6 +56,7 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         //weaponImage.sprite = GameManager.instance.weaponManager.defaultWeapon.facePortrait;
 
         anim.runtimeAnimatorController = GameManager.instance.weaponManager.defaultWeapon.facePortraitAC;
+        portraitImage.sprite = GameManager.instance.weaponManager.defaultWeapon.facePortrait;
 
         weaponListCanvasGroup = weaponList.GetComponent<CanvasGroup>();
 
@@ -96,6 +105,7 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         //weaponImage.sprite = GameManager.instance.weaponManager.currentWeapon.facePortrait;
 
         anim.runtimeAnimatorController = GameManager.instance.weaponManager.currentWeapon.facePortraitAC;
+        portraitImage.sprite = GameManager.instance.weaponManager.currentWeapon.facePortrait;
     }
     
     public void OnBeginDrag(PointerEventData eventData)
@@ -145,7 +155,19 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         }
         else
         {
-            OnWeaponButtonClick();
+            if (delta.y <= 0)
+            {
+
+                OnWeaponButtonClick();
+            }
+            else
+            {
+                if (true)//comboManager.charged)
+                {
+                    weaponManager.UseUltimate();
+                }
+            }
+            
         }
     }
 

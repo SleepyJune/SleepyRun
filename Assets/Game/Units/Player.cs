@@ -2,12 +2,18 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+using UnityEngine.UI;
+
 public class Player : Unit
 {
     [System.NonSerialized]
     public bool isBossFight = false;
 
     public Lane destinationLane = Lane.mid;
+
+    //public Slider healthBar;
+
+    public UIUnitFrame_Bar healthBarScript;
 
     Dictionary<Lane, Vector3> laneVectors = new Dictionary<Lane, Vector3>()
     {
@@ -19,6 +25,8 @@ public class Player : Unit
     void Start()
     {
         health = maxHealth;
+
+        healthBarScript.SetMaxValue(maxHealth);
     }
     
     public void TakeDamage(int damage)
@@ -34,7 +42,7 @@ public class Player : Unit
                 Death();
             }
             else
-            {
+            {                
                 anim.SetTrigger("isHurt");
             }
         }
@@ -69,8 +77,20 @@ public class Player : Unit
         }
     }
 
+    void UpdateHealthBar()
+    {
+        /*var percentHealth = 100 * health / maxHealth;
+
+        var lerpHealth = Mathf.Lerp(healthBar.value, percentHealth, 2 * Time.deltaTime);
+        healthBar.value = lerpHealth;*/
+
+        healthBarScript.SetValue(health);
+    }
+
     void Update()
     {
+        UpdateHealthBar();
+
         if (!isDead)
         {
             base.CheckBuffs();
@@ -87,7 +107,7 @@ public class Player : Unit
             }
 
             //Debug.Log(destinationLane);
-
+                        
             var destinationVector = laneVectors[destinationLane];
             var xDiff = destinationVector.x - transform.position.x;
 
