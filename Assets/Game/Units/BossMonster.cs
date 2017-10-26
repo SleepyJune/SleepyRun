@@ -15,6 +15,8 @@ public class BossMonster : Monster
 
     CanvasGroup hpBarCanvasGroup;
     Slider bossHPBar;
+
+    Text bossHPText;
         
     void Start()
     {
@@ -23,9 +25,13 @@ public class BossMonster : Monster
 
         //transform.SetParent(player.transform);
 
-        var hpBarRect = GameManager.instance.canvas.Find("Hud/BossHPBar/Slider");
-        hpBarCanvasGroup = hpBarRect.GetComponent<CanvasGroup>();
+        var hpBarRect = GameManager.instance.canvas.Find("Hud/BossHPBar/HealthBar");
+        hpBarCanvasGroup = hpBarRect.parent.GetComponent<CanvasGroup>();
         hpBarCanvasGroup.alpha = 1;
+
+        bossHPText = hpBarRect.Find("Text").GetComponent<Text>();
+
+        hpBarRect.parent.Find("Name").GetComponent<Text>().text = this.name;
 
         bossHPBar = hpBarRect.GetComponent<Slider>();
         bossHPBar.value = 100;
@@ -39,9 +45,10 @@ public class BossMonster : Monster
 
         if (!isDead)
         {
-            var healthPercent = 100 * health / maxHealth;
+            var healthPercent = 100.0f * health / maxHealth;
 
             bossHPBar.value = healthPercent;
+            bossHPText.text = Math.Round(healthPercent) + "%";
         }
     }
 

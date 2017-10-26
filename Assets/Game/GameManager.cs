@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
     public WeaponManager weaponManager;
     [NonSerialized]
     public DamageTextController damageTextManager;
+    [NonSerialized]
+    public SpawnPickupManager spawnPickupManager;
 
     public delegate void Callback();
     public event Callback onUpdate;
@@ -63,6 +65,7 @@ public class GameManager : MonoBehaviour
         comboManager = GetComponent<ComboManager>();
         weaponManager = GetComponent<WeaponManager>();
         damageTextManager = GetComponent<DamageTextController>();
+        spawnPickupManager = GetComponent<SpawnPickupManager>();
     }
 
     void Start()

@@ -34,8 +34,8 @@ public class Monster : Unit
 
             if (speed != 0)
             {
-                var dir = new Vector3(0, 0, 1);
-                transform.position -= dir * speed * Time.deltaTime;
+                //var dir = new Vector3(0, 0, 1);
+                transform.position -= Vector3.forward * speed * Time.deltaTime;
 
                 if (anim)
                 {
@@ -127,7 +127,9 @@ public class Monster : Unit
         {
             isDead = true;
 
-            GameManager.instance.monsterManager.AddKillCount(this);            
+            GameManager.instance.monsterManager.AddKillCount(this);
+
+            GameManager.instance.spawnPickupManager.SpawnPickup(this);
 
             if (anim)
             {

@@ -48,6 +48,19 @@ public class Player : Unit
         }
     }
 
+    public void GainHealth(int gain)
+    {
+        if (!GameManager.instance.isGameOver && !isDead)
+        {
+            health += gain;
+
+            if(health > maxHealth)
+            {
+                health = maxHealth;
+            }
+        }
+    }
+
     public void Death()
     {
         health = 0;
@@ -73,6 +86,15 @@ public class Player : Unit
             if (monster && !monster.isDead)
             {
                 monster.CollideWithPlayer();
+            }
+        }
+
+        if (collision.gameObject.layer == LayerConstants.pickupLayer)
+        {
+            var pickup = collision.GetComponent<PickupCube>();
+            if (pickup && !pickup.isDead)
+            {
+                pickup.Activate(this);
             }
         }
     }

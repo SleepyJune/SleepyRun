@@ -11,6 +11,8 @@ public static class LayerConstants
     public static int monsterLayer = LayerMask.NameToLayer("Monsters");
     public static int wallLayer = LayerMask.NameToLayer("Walls");
 
+    public static int pickupLayer = LayerMask.NameToLayer("Pickups");
+
     public static int monsterSpellLayer = LayerMask.NameToLayer("MonsterSpell");
     public static int playerSpellLayer = LayerMask.NameToLayer("PlayerSpell");
 
