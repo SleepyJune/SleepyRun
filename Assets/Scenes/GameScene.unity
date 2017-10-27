@@ -1518,6 +1518,7 @@ GameObject:
   - component: {fileID: 387561825}
   - component: {fileID: 387561829}
   - component: {fileID: 387561828}
+  - component: {fileID: 387561830}
   m_Layer: 5
   m_Name: Mask
   m_TagString: Untagged
@@ -1645,6 +1646,23 @@ MonoBehaviour:
     type: 2}
   weaponList: {fileID: 1440216347}
   portraitImage: {fileID: 234938895}
+--- !u!95 &387561830
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 387561823}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 22100000, guid: cf0b461d6de1d6e4e954fd0ab2937010, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &401767581
 GameObject:
   m_ObjectHideFlags: 0
@@ -2761,7 +2779,7 @@ Animator:
   m_GameObject: {fileID: 672464190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: cf0b461d6de1d6e4e954fd0ab2937010, type: 2}
+  m_Controller: {fileID: 9100000, guid: 290d2510edc5e1541990db4f22d760da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -4540,7 +4558,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 588243778}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 206453592}
+        m_MethodName: RestartLevel
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!1 &1269218462
@@ -5205,6 +5234,7 @@ GameObject:
   - component: {fileID: 1444113428}
   - component: {fileID: 1444113427}
   - component: {fileID: 1444113426}
+  - component: {fileID: 1444113429}
   m_Layer: 5
   m_Name: Aggro
   m_TagString: Untagged
@@ -5253,7 +5283,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 0.5019608}
+  m_Color: {r: 1, g: 0, b: 0, a: 0.5058824}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -5274,6 +5304,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444113424}
+--- !u!111 &1444113429
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1444113424}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations:
+  - {fileID: 0}
+  - {fileID: 7400000, guid: 70f017d949ca03c4a93b7fca7dc2c440, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &1445705741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5425,6 +5471,8 @@ MonoBehaviour:
   isGameOver: 0
   canvas: {fileID: 1045301372}
   isBossFight: 0
+  gameStartTime: 0
+  gamePoints: 0
 --- !u!4 &1465129600
 Transform:
   m_ObjectHideFlags: 0

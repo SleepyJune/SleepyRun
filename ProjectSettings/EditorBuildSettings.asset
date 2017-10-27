@@ -14,24 +14,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/QuestScreen.unity
     guid: 9ce0082ec89bc0048b37dea1ed31fb61
-  - enabled: 0
-    path: 
-    guid: f12051cb0c7339c498896753acb321a0
   - enabled: 1
     path: Assets/Scenes/LoadingScene.unity
     guid: 4a65b7f201d70034c86094946699e5a1
   - enabled: 1
     path: Assets/Scenes/LevelLoader.unity
     guid: 12981410b7e54a44c8a5126ce95221cd
-  - enabled: 0
-    path: Assets/Scenes/LevelLoaderBackup.unity
-    guid: ef65bfaffc56b1b498869b1627bc6741
   - enabled: 1
     path: Assets/Scenes/FailedScreen.unity
     guid: b668d44ddbbfc2648a78f6b53ce726b8
   - enabled: 1
-    path: Assets/Scenes/SuccessScreen.unity
-    guid: bfcb257645a099a469c7ff9d3f14d6fe
+    path: Assets/Scenes/LevelComplete.unity
+    guid: 31500f84e4782ef4da39661107d7d166
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: bef74dd23f17a094c807ad43abfa4ec4

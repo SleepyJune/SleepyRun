@@ -15,7 +15,7 @@ class GameOverOnKillCountEvent : StageEvent
 
     public override void ExecuteEvent()
     {
-        if (GameManager.instance.monsterManager.GetKillCount(monster) >= killCount)
+        if (GameManager.instance.monsterManager.GetMonsterKillCount(monster) >= killCount)
         {
             GameManager.instance.GameOver(victory);
             isExecuted = true;

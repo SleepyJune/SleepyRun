@@ -29,4 +29,9 @@ public class GameSceneSettings : MonoBehaviour
     {
         SceneChanger.ChangeScene("IntroScreen2");
     }
+
+    public void RestartLevel()
+    {
+        SceneChanger.ChangeScene("GameScene");
+    }
 }

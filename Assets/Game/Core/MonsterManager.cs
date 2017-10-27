@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System.Linq;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -110,7 +111,7 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
-    public int GetKillCount(Monster monster)
+    public int GetMonsterKillCount(Monster monster)
     {
         int killCount;
         if (monsterKillCount.TryGetValue(monster.name, out killCount))
@@ -123,6 +124,11 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    public int GetKillCount()
+    {
+        return monsterKillCount.Values.Sum(count => count);
+    }
+    
     void CheckMonsters()
     {
         /*foreach (var monsterInfo in level.monsters)

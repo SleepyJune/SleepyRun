@@ -11,6 +11,8 @@ public static class SceneChanger
     public static StageInfo currentStageInfo;
     public static string sceneToLoad = "GameScene";
 
+    public static LevelStats levelStats = null;
+
     public static void ChangeScene(string str)
     {
         DelayAction.Reset(); //Destroy all pending actions when changing scene

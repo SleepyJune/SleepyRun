@@ -46,6 +46,10 @@ public class GameManager : MonoBehaviour
     private GameObject victoryText;
 
     public bool isBossFight = false;
+
+    public float gameStartTime;
+
+    public int gamePoints = 0;
                 
     void Awake()
     {
@@ -66,6 +70,8 @@ public class GameManager : MonoBehaviour
         weaponManager = GetComponent<WeaponManager>();
         damageTextManager = GetComponent<DamageTextController>();
         spawnPickupManager = GetComponent<SpawnPickupManager>();
+
+        gameStartTime = Time.time;
     }
 
     void Start()
@@ -125,7 +131,16 @@ public class GameManager : MonoBehaviour
                 victoryText.SetActive(true);
                 victoryText.GetComponent<Animation>().Play("GameOverAnimation");
 
-                DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
+                LevelStats stats = new LevelStats
+                {
+                    time = Time.time - gameStartTime,
+                    monstersKilled = monsterManager.GetKillCount(),
+                    points = gamePoints
+                };
+
+                SceneChanger.levelStats = stats;
+
+                DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete"), 5);
             }
         }
     }
