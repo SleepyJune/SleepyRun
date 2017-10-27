@@ -162,12 +162,21 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             }
             else
             {
+                /*
                 if (true)//comboManager.charged)
                 {
                     weaponManager.UseUltimate();
-                }
+                }*/
             }
             
+        }
+    }
+
+    public void OnUltimateButtonPressed()
+    {
+        if (true)//comboManager.charged)
+        {
+            weaponManager.UseUltimate();
         }
     }
 

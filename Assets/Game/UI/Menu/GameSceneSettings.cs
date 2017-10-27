@@ -24,4 +24,9 @@ public class GameSceneSettings : MonoBehaviour
             canvasGroup.blocksRaycasts = false;
         }
     }
+
+    public void ExitLevel()
+    {
+        SceneChanger.ChangeScene("IntroScreen2");
+    }
 }

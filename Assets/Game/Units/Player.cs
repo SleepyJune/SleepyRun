@@ -15,6 +15,8 @@ public class Player : Unit
 
     public UIUnitFrame_Bar healthBarScript;
 
+    public WeaponButton playerPortrait;
+
     Dictionary<Lane, Vector3> laneVectors = new Dictionary<Lane, Vector3>()
     {
         { Lane.right, new Vector3(1.5f,0,0) },
