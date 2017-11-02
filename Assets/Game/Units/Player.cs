@@ -28,6 +28,7 @@ public class Player : Unit
     {
         health = maxHealth;
 
+        healthBarScript.SetValue(health);
         healthBarScript.SetMaxValue(maxHealth);
     }
     

@@ -50,7 +50,11 @@ public class GameManager : MonoBehaviour
     public float gameStartTime;
 
     public int gamePoints = 0;
-                
+
+    public bool isGamePaused = false;
+
+    public float screenDPI;
+
     void Awake()
     {
         if (instance == null)
@@ -72,6 +76,8 @@ public class GameManager : MonoBehaviour
         spawnPickupManager = GetComponent<SpawnPickupManager>();
 
         gameStartTime = Time.time;
+
+        screenDPI = Screen.dpi;      
     }
 
     void Start()
@@ -166,4 +172,16 @@ public class GameManager : MonoBehaviour
 
         return Vector3.zero;
     }    
+
+    public void PauseGame()
+    {
+        isGamePaused = true;
+        Time.timeScale = 0f;
+    }
+
+    public void ResumeGame()
+    {
+        isGamePaused = false;
+        Time.timeScale = 1f;
+    }
 }

@@ -158,7 +158,7 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             if (delta.y <= 0)
             {
 
-                OnWeaponButtonClick();
+                
             }
             else
             {

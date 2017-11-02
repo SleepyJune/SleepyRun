@@ -48,6 +48,11 @@ public class TouchInputManager : MonoBehaviour
 
     void Update()
     {
+        if (GameManager.instance.isGamePaused || GameManager.instance.isGameOver)
+        {
+            return;
+        }
+
         if (useMouse && Input.mousePresent)
         {
             if (Input.GetMouseButtonDown(0))

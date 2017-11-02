@@ -15,6 +15,7 @@ public static class SceneChanger
 
     public static void ChangeScene(string str)
     {
+        Time.timeScale = 1f;
         DelayAction.Reset(); //Destroy all pending actions when changing scene
         SceneManager.LoadScene(str);       
     }

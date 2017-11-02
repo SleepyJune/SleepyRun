@@ -81,6 +81,9 @@ public class SlashCombatUI : CombatUI
         var previous = line.GetPosition(line.positionCount - 1);
         var delta = (pos - previous);
 
+        delta.y = 0;
+        delta.z = delta.z / 2;
+
         var newLength = delta.magnitude + currentLineLength;
 
         if(newLength > weapon.maxSlashRange)
