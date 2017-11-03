@@ -46,6 +46,25 @@ public class TouchInputManager : MonoBehaviour
         inputs = new Dictionary<int, TouchInput>();
     }
 
+    bool CheckClickableObjects(Touch touchData)
+    {
+        Ray ray = Camera.main.ScreenPointToRay(touchData.position);
+
+        RaycastHit hit;
+        if (Physics.Raycast(ray, out hit, 100, LayerConstants.clickableMask))
+        {
+            var clickable = hit.transform.GetComponent<ClickableObject>();
+            if (clickable != null)
+            {
+                clickable.Activate();
+            }
+
+            return true;
+        }
+
+        return false;
+    }
+
     void Update()
     {
         if (GameManager.instance.isGamePaused || GameManager.instance.isGameOver)
@@ -64,7 +83,7 @@ public class TouchInputManager : MonoBehaviour
                 
                 lastMousePosition = Input.mousePosition;
 
-                if (!touchData.IsPointerOverUI())
+                if (!touchData.IsPointerOverUI() && !CheckClickableObjects(touchData))
                 {
                     TouchInput newInput;
                     if (inputs.TryGetValue(touchData.fingerId, out newInput))
@@ -123,7 +142,7 @@ public class TouchInputManager : MonoBehaviour
             {
                 if (touch.phase == TouchPhase.Began)
                 {
-                    if (!touch.IsPointerOverUI())
+                    if (!touch.IsPointerOverUI() && !CheckClickableObjects(touch))
                     {
                         TouchInput newInput;
                         if (inputs.TryGetValue(touch.fingerId, out newInput))

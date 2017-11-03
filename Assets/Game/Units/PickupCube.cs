@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public class PickupCube : Entity
+public class PickupCube : Entity, ClickableObject
 {
     Player player;
 
@@ -30,8 +30,10 @@ public class PickupCube : Entity
         }
     }
 
-    public void Activate(Player player)
+    public void Activate()
     {
+        GameManager.instance.damageTextManager.CreateDamageText(this, "+10", DamageTextType.Recovery);
+
         player.GainHealth(10);
         Destroy(gameObject);
     }

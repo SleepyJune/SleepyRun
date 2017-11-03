@@ -76,7 +76,7 @@ public class Monster : Unit
             }
             else
             {
-                GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage);
+                GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage.ToString(), DamageTextType.Physical);
             }
         }
     }

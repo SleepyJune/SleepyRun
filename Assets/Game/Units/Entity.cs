@@ -16,7 +16,14 @@ public abstract class Entity : MonoBehaviour
 
     [NonSerialized]
     public bool isDead = false;
-    
+
+    public float GetRelativeSizeRatio()
+    {
+        var distance = Vector3.Distance(transform.position, Camera.main.transform.position);
+
+        return (15.5f * 55) / (distance * Camera.main.fieldOfView);
+    }
+
     public override bool Equals(object obj)
     {
         if (obj is Entity)

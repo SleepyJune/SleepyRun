@@ -92,14 +92,14 @@ public class Player : Unit
             }
         }
 
-        if (collision.gameObject.layer == LayerConstants.pickupLayer)
+        /*if (collision.gameObject.layer == LayerConstants.pickupLayer)
         {
             var pickup = collision.GetComponent<PickupCube>();
             if (pickup && !pickup.isDead)
             {
                 pickup.Activate(this);
             }
-        }
+        }*/
     }
 
     void UpdateHealthBar()
