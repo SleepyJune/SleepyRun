@@ -15,13 +15,6 @@ public abstract class Unit : Entity
     [NonSerialized]
     public int health;
 
-    public float GetRelativeSizeRatio()
-    {
-        var distance = Vector3.Distance(transform.position, Camera.main.transform.position);
-
-        return (15.5f * 55) / (distance * Camera.main.fieldOfView);
-    }
-
     public int CalculateDamage(float damage)
     {
         var finalDamage = damage;

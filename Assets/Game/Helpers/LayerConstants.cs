@@ -19,6 +19,8 @@ public static class LayerConstants
     public static int monsterMask = LayerMask.GetMask("Monsters");
     public static int playerMask = LayerMask.GetMask("Player");
 
+    public static int clickableMask = LayerMask.GetMask("Pickups");
+
     //public static int playerAndMonsterMask = LayerMask.GetMask("Player", "Monsters");
 
 }

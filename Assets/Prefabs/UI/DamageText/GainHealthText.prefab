@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 224898655304089902}
   - component: {fileID: 222906169310670174}
   - component: {fileID: 114387338947787994}
-  - component: {fileID: 95613136014791922}
+  - component: {fileID: 95830439933757652}
   m_Layer: 5
   m_Name: DamageText
   m_TagString: Untagged
@@ -38,13 +38,13 @@ GameObject:
   m_Component:
   - component: {fileID: 224389237768762792}
   m_Layer: 0
-  m_Name: DamageText
+  m_Name: GainHealthText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!95 &95613136014791922
+--- !u!95 &95830439933757652
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 1
@@ -73,7 +73,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0.375, b: 0.375, a: 1}
+  m_Color: {r: 0.37254903, g: 1, b: 0.5058824, a: 1}
   m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
@@ -93,7 +93,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: -9999
+  m_Text: +9999
 --- !u!222 &222906169310670174
 CanvasRenderer:
   m_ObjectHideFlags: 1

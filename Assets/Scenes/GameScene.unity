@@ -5782,6 +5782,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damageTextPrefab: {fileID: 1881620368985098, guid: 13e899ecc157c914d841a6676e7a8e1e,
     type: 2}
+  gainHealthTextPrefab: {fileID: 1881620368985098, guid: bb1dba9b4f37fd9469a47bf76df51ab7,
+    type: 2}
 --- !u!114 &1465129609
 MonoBehaviour:
   m_ObjectHideFlags: 0
