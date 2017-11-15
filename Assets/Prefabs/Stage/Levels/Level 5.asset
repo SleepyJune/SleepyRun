@@ -13,9 +13,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageId: 5
   stageName: Level 5
+  stageWaves:
+  - {fileID: 114052867716413182}
+--- !u!114 &114052867716413182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2db11f28959c714f976e59cef30951e, type: 3}
+  m_Name: Wave 1
+  m_EditorClassIdentifier: 
   stageEvents:
-  - {fileID: 114244827278273678}
   - {fileID: 114238676346147122}
+  - {fileID: 114244827278273678}
 --- !u!114 &114238676346147122
 MonoBehaviour:
   m_ObjectHideFlags: 0

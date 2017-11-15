@@ -120,7 +120,7 @@ public class Player : Unit
         {
             base.CheckBuffs();
 
-            if (!isBossFight)
+            if (GameManager.instance.isMovingToNextWave)
             {
                 var dir = new Vector3(0, 0, 1);
                 transform.position += dir * speed * Time.deltaTime;

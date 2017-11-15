@@ -9,7 +9,10 @@ public class StageEventManager : MonoBehaviour
 {
     public StageInfoDatabase stageInfoDatabase;
 
-    StageInfo currentStageInfo;
+    public StageInfo currentStageInfo;
+    public StageWave currentStageWave;
+
+    public int currentWaveCount = 0;
 
     void Start()
     {
@@ -20,7 +23,7 @@ public class StageEventManager : MonoBehaviour
             string lastLevelString = "LastLevelPlayed";
             if (PlayerPrefs.HasKey(lastLevelString))
             {
-                currentStageInfo = stageInfoDatabase.databaseArray[PlayerPrefs.GetInt(lastLevelString)-1];
+                currentStageInfo = stageInfoDatabase.databaseArray[PlayerPrefs.GetInt(lastLevelString) - 1];
             }
             else
             {
@@ -28,22 +31,42 @@ public class StageEventManager : MonoBehaviour
             }
         }
 
-        ResetStage();
+        if (currentStageInfo != null)
+        {
+            currentStageWave = currentStageInfo.stageWaves[0];
+            ResetStage();
+        }
     }
 
     void ResetStage()
     {
-        foreach (var stageEvent in currentStageInfo.stageEvents)
+        foreach (var stageEvent in currentStageWave.stageEvents)
         {
             stageEvent.isExecuted = false;
         }
     }
 
+    public bool AdvanceToNextWave()
+    {
+        if (currentWaveCount+1 < currentStageInfo.stageWaves.Length)
+        {
+            currentWaveCount++;
+            currentStageWave = currentStageInfo.stageWaves[currentWaveCount];
+            ResetStage();
+
+            return false;
+        }
+        else
+        {
+            return true; //Game Over on Level Completion
+        }        
+    }
+
     void Update()
     {
-        if (currentStageInfo)
+        if (!GameManager.instance.isGamePaused && currentStageInfo && currentStageWave)
         {
-            foreach (var stageEvent in currentStageInfo.stageEvents)
+            foreach (var stageEvent in currentStageWave.stageEvents)
             {
                 if (!stageEvent.isExecuted)
                 {

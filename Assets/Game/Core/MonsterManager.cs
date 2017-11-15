@@ -8,6 +8,7 @@ public class MonsterManager : MonoBehaviour
     public Dictionary<int, Monster> monsters = new Dictionary<int, Monster>();
     public Dictionary<string, int> monsterCount = new Dictionary<string, int>();
     public Dictionary<string, int> monsterKillCount = new Dictionary<string, int>();
+    public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
 
     Player player;
     LevelInfo level;
@@ -36,7 +37,7 @@ public class MonsterManager : MonoBehaviour
 
     void Update()
     {
-        CheckMonsters();
+        RemoveMonsters();
     }
 
     public Monster MakeMonster(Monster prefab, int monsterSpawnDistance = 60)
@@ -109,6 +110,20 @@ public class MonsterManager : MonoBehaviour
         {
             monsterKillCount.Add(monster.name, 1);
         }
+
+        if (totalMonsterKillCount.TryGetValue(monster.name, out killCount))
+        {
+            totalMonsterKillCount[monster.name] = killCount + 1;
+        }
+        else
+        {
+            totalMonsterKillCount.Add(monster.name, 1);
+        }        
+    }
+
+    public void ResetMonsterKillCount()
+    {
+        monsterKillCount = new Dictionary<string, int>();
     }
 
     public int GetMonsterKillCount(Monster monster)
@@ -129,7 +144,7 @@ public class MonsterManager : MonoBehaviour
         return monsterKillCount.Values.Sum(count => count);
     }
     
-    void CheckMonsters()
+    public void RemoveMonsters(bool forceRemove = false)
     {
         /*foreach (var monsterInfo in level.monsters)
         {
@@ -148,7 +163,7 @@ public class MonsterManager : MonoBehaviour
 
             if (monster != null)
             {
-                if (player.transform.position.z - monster.transform.position.z > 0)
+                if (player.transform.position.z - monster.transform.position.z > 0 || forceRemove)
                 {
                     removeList.Add(monster.id);
 

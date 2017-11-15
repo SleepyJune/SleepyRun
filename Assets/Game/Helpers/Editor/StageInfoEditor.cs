@@ -4,38 +4,47 @@ using UnityEngine;
 using UnityEditor;
 
 [CustomEditor(typeof(StageInfo))]
-public class StageInfoEditor : Editor
+public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
 {
     StageInfo stageInfo;
 
     SerializedProperty stageIdProperty;
     SerializedProperty stageNameProperty;
 
-    SerializedProperty stageEventsProperty;
-
-    StageEventDatabase stageEventDatabase;
-
-    List<Editor> stageEventEditors = new List<Editor>();
+    SerializedProperty stageWavesProperty;
+    
     List<bool> showFoldouts = new List<bool>();
 
     float lineHeight = EditorGUIUtility.singleLineHeight;
 
     void OnEnable()
     {
+        if (target == null)
+        {
+            DestroyImmediate(this);
+            return;
+        }
+
         stageInfo = (StageInfo)target;
 
         stageIdProperty = serializedObject.FindProperty("stageId");
         stageNameProperty = serializedObject.FindProperty("stageName");
-        stageEventsProperty = serializedObject.FindProperty("stageEvents");
-        
-        var assetPath = "Assets/Prefabs/Stage/Event Database/StageEvent Database.asset";
-        stageEventDatabase = AssetDatabase.LoadAssetAtPath(assetPath, typeof(StageEventDatabase)) as StageEventDatabase;
 
-        foreach (var stageEvent in stageInfo.stageEvents)
+        stageWavesProperty = serializedObject.FindProperty("stageWaves");
+
+        CheckAndCreateSubEditors(stageInfo.stageWaves);
+
+        foreach (var stageWave in stageInfo.stageWaves)
         {
-            stageEventEditors.Add(CreateEditor(stageEvent));
+            //stageWaveEditors.Add(CreateEditor(stageWave));
             showFoldouts.Add(true);
         }
+    }
+
+    protected override void SubEditorSetup(StageWaveEditor editor, int index)
+    {
+        editor.parent = this;
+        editor.subEditorIndex = index;
     }
 
     private void OnDisable()
@@ -54,6 +63,8 @@ public class StageInfoEditor : Editor
 
     private void ExpandedGUI()
     {
+        CheckAndCreateSubEditors(stageInfo.stageWaves);
+
         EditorGUILayout.Space();
         var startRect = GUILayoutUtility.GetLastRect();
 
@@ -65,29 +76,42 @@ public class StageInfoEditor : Editor
 
         EditorGUILayout.Space();
 
-        EditorGUILayout.LabelField("Events", guiLabelStyle);
-
-        for (int i = 0; i < stageInfo.stageEvents.Length; i++)
+        EditorGUILayout.LabelField("Waves", guiLabelStyle);
+                
+        for (int i = 0; i < subEditors.Length; i++)
         {
-            var stageEvent = stageInfo.stageEvents[i];
+            var stageWave = stageInfo.stageWaves[i];
 
-            showFoldouts[i] = EditorGUILayout.Foldout(showFoldouts[i], stageEvent.GetType().ToString());
+            subEditors[i].showFoldout = EditorGUILayout.Foldout(subEditors[i].showFoldout, "Wave " + (i+1));
 
-            if (showFoldouts[i])
+            var lastRect = GUILayoutUtility.GetLastRect();
+
+            if (subEditors[i].showFoldout)
             {
-                var editor = stageEventEditors[i];
-                var lastRect = GUILayoutUtility.GetLastRect();
+                EditorGUI.indentLevel++;
 
-                editor.OnInspectorGUI();
-                CreateClickable(lastRect, i, true);
+                subEditors[i].OnInspectorGUI();
+                EditorGUILayout.Space();
+
+                EditorGUI.indentLevel--;
             }
 
             EditorGUILayout.Separator();
+
+            
+            CreateClickable(lastRect, i, true);
         }
 
         EditorGUILayout.Space();
                 
         CreateClickable(startRect, -1, true);
+
+        if (GUILayout.Button("Add New Wave", GUILayout.Width(150f)))
+        {
+            AddWave();
+        }
+
+        EditorGUILayout.Space();
 
         EditorGUILayout.BeginHorizontal();
 
@@ -108,6 +132,11 @@ public class StageInfoEditor : Editor
         }
 
         EditorGUILayout.EndHorizontal();
+
+        /*if (GUILayout.Button("Convert Stage"))
+        {
+            ConvertStage();
+        }*/
     }
 
     void CreateClickable(Rect lastRect, int index, bool isCondition)
@@ -122,17 +151,11 @@ public class StageInfoEditor : Editor
         {
             GenericMenu menu = new GenericMenu();
 
-            for (int i = 0; i < stageEventDatabase.allEventOptions.Length; i++)
-            {
-                var optionIndex = i;
-                var option = stageEventDatabase.allEventOptions[i];
-                string name = "Add Event/" + option;
-                menu.AddItem(new GUIContent(name), false, () => AddEvent(optionIndex));
-            }
+            menu.AddItem(new GUIContent("Add New Wave"), false, () => AddWave());
 
             if (index >= 0)
             {
-                menu.AddItem(new GUIContent("Remove Event"), false, () => RemoveEvent(index));
+                menu.AddItem(new GUIContent("Remove Wave"), false, () => RemoveWave(index));
             }
 
             menu.ShowAsContext();
@@ -140,26 +163,53 @@ public class StageInfoEditor : Editor
         }
     }
 
-    void AddEvent(int selectedIndex)
-    {
-        var type = stageEventDatabase.allEvents[selectedIndex].GetType();
-
-        var newEvent = CreateInstance(type) as StageEvent;
-        newEvent.name = type.ToString();
+    StageWave AddWave()
+    {        
+        var newEvent = CreateInstance(typeof(StageWave)) as StageWave;
+        newEvent.name = "Wave " + (stageInfo.stageWaves.Length + 1);
 
         AssetDatabase.AddObjectToAsset(newEvent, target);
-        stageEventsProperty.AddToObjectArray(newEvent);
-
-        stageEventEditors.Add(CreateEditor(newEvent));
+        stageWavesProperty.AddToObjectArray(newEvent);
+        
         showFoldouts.Add(true);
+
+        return newEvent;
     }
 
-    void RemoveEvent(int index)
-    {
-        var subasset = stageInfo.stageEvents[index];
-        stageEventsProperty.RemoveFromObjectArrayAt(index);
+    void RemoveWave(int index)
+    {        
+        var subasset = stageInfo.stageWaves[index];
+        stageWavesProperty.RemoveFromObjectArrayAt(index);
+
+        foreach (var events in subasset.stageEvents)
+        {
+            DestroyImmediate(events, true);
+        }
+
         DestroyImmediate(subasset, true);
-        stageEventEditors.RemoveAt(index);
         showFoldouts.RemoveAt(index);
+    }
+
+    void ConvertStage()
+    {
+        if(stageInfo.stageWaves.Length == 0)
+        {
+            var newWave = AddWave();
+
+            var assetPath = AssetDatabase.GetAssetPath(target);
+            var assets = AssetDatabase.LoadAllAssetsAtPath(assetPath);
+
+            foreach(var asset in assets)
+            {
+                if (AssetDatabase.IsSubAsset(asset) && asset is StageEvent)
+                {
+                    SerializedObject propertyObj = new SerializedObject(newWave);
+
+                    var stageEventsProperty = propertyObj.FindProperty("stageEvents");
+                    stageEventsProperty.AddToObjectArray(asset);
+                }
+            }
+            
+        }
     }
 }

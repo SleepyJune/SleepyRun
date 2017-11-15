@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum Lane
 {
@@ -30,6 +31,8 @@ public class GameManager : MonoBehaviour
     public DamageTextController damageTextManager;
     [NonSerialized]
     public SpawnPickupManager spawnPickupManager;
+    [NonSerialized]
+    public StageEventManager stageEventManager;
 
     public delegate void Callback();
     public event Callback onUpdate;
@@ -44,6 +47,7 @@ public class GameManager : MonoBehaviour
 
     private GameObject gameOverText;
     private GameObject victoryText;
+    private GameObject waveText;
 
     public bool isBossFight = false;
 
@@ -52,6 +56,7 @@ public class GameManager : MonoBehaviour
     public int gamePoints = 0;
 
     public bool isGamePaused = false;
+    public bool isMovingToNextWave = false;
 
     public float screenDPI;
 
@@ -74,6 +79,7 @@ public class GameManager : MonoBehaviour
         weaponManager = GetComponent<WeaponManager>();
         damageTextManager = GetComponent<DamageTextController>();
         spawnPickupManager = GetComponent<SpawnPickupManager>();
+        stageEventManager = GetComponent<StageEventManager>();
 
         gameStartTime = Time.time;
 
@@ -84,6 +90,9 @@ public class GameManager : MonoBehaviour
     {
         gameOverText = canvas.Find("GameOverText").gameObject;
         victoryText = canvas.Find("VictoryText").gameObject;
+        waveText = canvas.Find("WaveText").gameObject;
+
+        MoveToNextArea();
     }
 
     void Update()
@@ -113,6 +122,50 @@ public class GameManager : MonoBehaviour
     public int GenerateEntityId()
     {
         return entityId++;
+    }
+
+    public void AdvanceToNextWave(bool waveComplete = true)
+    {
+        if (waveComplete)
+        {
+            if (stageEventManager.AdvanceToNextWave())
+            {
+                GameOver(true);
+            }
+            else
+            {
+                MoveToNextArea();
+            }
+        }
+        else
+        {
+            GameOver();
+        }
+    }
+
+    public void MoveToNextArea()
+    {
+        isGamePaused = true;
+        isMovingToNextWave = true;
+
+        waveText.SetActive(true);
+        waveText.transform.Find("Text").GetComponent<Text>().text = "Wave " + (stageEventManager.currentWaveCount+1);
+        waveText.GetComponent<Animation>().Play("GameOverAnimation");
+
+        //moving...
+
+        monsterManager.ResetMonsterKillCount();
+        monsterManager.RemoveMonsters(true);
+
+        DelayAction.Add(EndMoveToNextArea, 5);
+    }
+
+    public void EndMoveToNextArea()
+    {
+        isGamePaused = false;
+        isMovingToNextWave = false;
+
+        waveText.SetActive(false);
     }
 
     public void GameOver(bool levelComplete = false)

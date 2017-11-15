@@ -17,7 +17,7 @@ class GameOverOnKillCountEvent : StageEvent
     {
         if (GameManager.instance.monsterManager.GetMonsterKillCount(monster) >= killCount)
         {
-            GameManager.instance.GameOver(victory);
+            GameManager.instance.AdvanceToNextWave(victory);
             isExecuted = true;
         }
     }
