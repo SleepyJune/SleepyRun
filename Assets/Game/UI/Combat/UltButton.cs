@@ -20,7 +20,7 @@ public class UltButton : MonoBehaviour, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         if (true)//comboManager.charged)
-        {            
+        {
             weaponManager.UseUltimate();
         }
     }

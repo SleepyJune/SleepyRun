@@ -112,7 +112,7 @@ public class GameManager : MonoBehaviour
             onFixedUpdate();
         }
     }
-
+        
     public void SetBossFight(bool isBossFight)
     {
         this.isBossFight = isBossFight;

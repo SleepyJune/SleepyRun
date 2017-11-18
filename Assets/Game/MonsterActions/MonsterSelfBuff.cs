@@ -12,7 +12,7 @@ public class MonsterSelfBuff : MonsterAction
 
     public override bool Execute()
     {
-        var newBuff = buff.InitializeBuff();
+        var newBuff = buff.Initialize();
         monster.ApplyBuff(newBuff);
         return true;
     }

@@ -5,9 +5,10 @@ using System.Text;
 
 using UnityEngine;
 
+public delegate void Callback();
+
 public static class DelayAction
-{
-    public delegate void Callback();
+{    
     static List<Action> actions = new List<Action>();
     static List<Action> nextFrameActions = new List<Action>();
 

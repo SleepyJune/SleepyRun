@@ -60,9 +60,30 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
+    public void SwitchCombatUI(CombatUI newCombatUI)
+    {
+        if (newCombatUI == null)
+        {
+            if (currentCombatUI != null)
+            {
+                currentCombatUI.End();
+
+                currentCombatUI = currentWeapon.combatUI;
+                currentCombatUI.Initialize(currentWeapon);
+            }
+        }
+        else
+        {
+            currentWeapon.combatUI.End();
+
+            currentCombatUI = newCombatUI;
+            currentCombatUI.Initialize(currentWeapon);
+        }
+    }
+
     public void UseUltimate()
     {
-        if (!GameManager.instance.player.isDead)
+        if (GameManager.instance.player.canUseSkills)
         {
             if (!usingUlt && currentWeapon.ultimateUI != null)
             {

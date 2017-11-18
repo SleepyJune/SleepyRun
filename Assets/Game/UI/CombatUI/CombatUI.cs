@@ -15,5 +15,7 @@ public abstract class CombatUI : MonoBehaviour
     public virtual void OnUpdate() { }
     public virtual void End() { }
 
+    public Callback callBack;
+
     public abstract void Initialize(Weapon weapon);
 }

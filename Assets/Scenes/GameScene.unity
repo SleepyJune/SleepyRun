@@ -181,6 +181,45 @@ Prefab:
       propertyPath: speed
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: skills.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 89cdae8c913bbab42970be3b2d909e0d,
+        type: 2}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: skills.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 89cdae8c913bbab42970be3b2d909e0d,
+        type: 2}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: skills.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 89cdae8c913bbab42970be3b2d909e0d,
+        type: 2}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: skillSet.Array.data[0]
+      value: 
+      objectReference: {fileID: 114294036408638032, guid: f5c0ed56c0fd04d4ab02cd90d224fe5c,
+        type: 2}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: skillSet.Array.data[1]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: skillSet.Array.data[2]
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: spellSlots.Array.data[0]
+      value: 
+      objectReference: {fileID: 1586362529}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d187a13763e6a348ad3c4dc12dcbc98, type: 2}
   m_IsPrefabParent: 0
@@ -997,7 +1036,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3257,6 +3296,48 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 726304119}
+--- !u!1001 &789858694
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4687112103837768, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: db702ffbb2477974588443cca8809c8a, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &840077101
 Prefab:
   m_ObjectHideFlags: 0
@@ -5903,6 +5984,7 @@ GameObject:
   - component: {fileID: 1514492945}
   - component: {fileID: 1514492947}
   - component: {fileID: 1514492946}
+  - component: {fileID: 1514492948}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -5949,7 +6031,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: bd27a4940b63e594eb8fedcdb182ef90, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5964,6 +6046,58 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1514492944}
+--- !u!114 &1514492948
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1514492944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1392445389, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Navigation:
+    m_Mode: 3
+    m_SelectOnUp: {fileID: 0}
+    m_SelectOnDown: {fileID: 0}
+    m_SelectOnLeft: {fileID: 0}
+    m_SelectOnRight: {fileID: 0}
+  m_Transition: 1
+  m_Colors:
+    m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
+    m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
+    m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
+    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
+  m_SpriteState:
+    m_HighlightedSprite: {fileID: 0}
+    m_PressedSprite: {fileID: 0}
+    m_DisabledSprite: {fileID: 0}
+  m_AnimationTriggers:
+    m_NormalTrigger: Normal
+    m_HighlightedTrigger: Highlighted
+    m_PressedTrigger: Pressed
+    m_DisabledTrigger: Disabled
+  m_Interactable: 1
+  m_TargetGraphic: {fileID: 1514492946}
+  m_OnClick:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1586362529}
+        m_MethodName: OnSpellSlotPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1515366787
 GameObject:
   m_ObjectHideFlags: 0
@@ -6212,10 +6346,8 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 1586362528}
-  - component: {fileID: 1586362533}
   - component: {fileID: 1586362532}
   - component: {fileID: 1586362531}
-  - component: {fileID: 1586362530}
   - component: {fileID: 1586362529}
   m_Layer: 5
   m_Name: Spell Slot 3
@@ -6253,31 +6385,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1586362527}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffc2cdd6e3425b0449655905c020bc2f, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e9ef03a9d386e940bcfb2d1357bc71a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slot: {fileID: 1586362533}
-  spellDatabase: {fileID: 11400000, guid: cacdc738fd7665e478986589bfbb5266, type: 2}
-  assignSpell: 3
---- !u!114 &1586362530
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1586362527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a10c8b0272ac0b444b2896a780d18820, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Offset: {x: 0, y: 0}
-  m_Borders:
-    m_Left: 22
-    m_Right: 22
-    m_Top: 22
-    m_Bottom: 22
-  m_ScaleX: 1
-  m_ScaleY: 1
+  slotImage: {fileID: 1514492946}
+  iconObject: {fileID: 1514492944}
 --- !u!114 &1586362531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6313,60 +6425,6 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1586362527}
---- !u!114 &1586362533
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11490832, guid: fdfd259e5aa965248b52b1ab08e8d78f,
-    type: 2}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1586362527}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3586bc509b21ba342a225296e6d60f14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  iconGraphic: {fileID: 1514492946}
-  m_DragAndDropEnabled: 0
-  m_IsStatic: 0
-  m_AllowThrowAway: 1
-  m_DragKeyModifier: 0
-  m_TooltipEnabled: 0
-  m_TooltipDelay: 1
-  hoverTransition: 0
-  hoverTargetGraphic: {fileID: 0}
-  hoverNormalColor: {r: 1, g: 1, b: 1, a: 1}
-  hoverHighlightColor: {r: 1, g: 1, b: 1, a: 1}
-  hoverTransitionDuration: 0.15
-  hoverOverrideSprite: {fileID: 0}
-  hoverNormalTrigger: Normal
-  hoverHighlightTrigger: Highlighted
-  pressTransition: 1
-  pressTargetGraphic: {fileID: 1514492946}
-  pressNormalColor: {r: 1, g: 1, b: 1, a: 1}
-  pressPressColor: {r: 0.6117, g: 0.6117, b: 0.6117, a: 1}
-  pressTransitionDuration: 0.15
-  pressOverrideSprite: {fileID: 0}
-  pressNormalTrigger: Normal
-  pressPressTrigger: Pressed
-  m_PressTransitionInstaOut: 0
-  m_PressForceHoverNormal: 0
-  m_SlotGroup: 1
-  m_ID: 3
-  onAssign:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.UISpellSlot+OnAssignEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onUnassign:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.UISpellSlot+OnUnassignEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
-  onClick:
-    m_PersistentCalls:
-      m_Calls: []
-    m_TypeName: UnityEngine.UI.UISpellSlot+OnClickEvent, Assembly-CSharp, Version=0.0.0.0,
-      Culture=neutral, PublicKeyToken=null
 --- !u!1 &1591268515
 GameObject:
   m_ObjectHideFlags: 0
