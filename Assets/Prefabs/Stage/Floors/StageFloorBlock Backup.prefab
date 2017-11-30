@@ -75,7 +75,7 @@ GameObject:
   - component: {fileID: 4552526136635326}
   - component: {fileID: 114486591030449342}
   m_Layer: 0
-  m_Name: StageFloorBlock
+  m_Name: StageFloorBlock Backup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

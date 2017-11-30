@@ -199,7 +199,7 @@ public class GameManager : MonoBehaviour
 
                 SceneChanger.levelStats = stats;
 
-                DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete"), 5);
+                DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete2"), 5);
             }
         }
     }
