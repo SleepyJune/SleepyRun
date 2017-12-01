@@ -9,7 +9,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 885dea3f2f4ba1442970a6853a6aad76, type: 3}
-  m_Name: Level 13
+  m_Name: Level 14
   m_EditorClassIdentifier: 
   stageId: 13
   stageName: Level 13
@@ -26,11 +26,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
   m_Name: RandomIntervalSpawnMonsterEvent
   m_EditorClassIdentifier: 
-  monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
+  monster: {fileID: 114333213690931734, guid: 1c6155c310bb832498849991fc5c0ab8, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
   maxOnScreen: 999
-  spawnFrequency: 3
+  spawnFrequency: 2
 --- !u!114 &114244827278273678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -42,9 +42,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
   m_Name: GameOverOnKillCountEvent
   m_EditorClassIdentifier: 
-  monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
-  killCount: 30
+  monster: {fileID: 114333213690931734, guid: 1c6155c310bb832498849991fc5c0ab8, type: 2}
+  killCount: 10
   victory: 1
+--- !u!114 &114494534943716432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  maxOnScreen: 999
+  spawnFrequency: 1
 --- !u!114 &114763991860202714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -59,3 +75,4 @@ MonoBehaviour:
   stageEvents:
   - {fileID: 114244827278273678}
   - {fileID: 114027031710727680}
+  - {fileID: 114494534943716432}

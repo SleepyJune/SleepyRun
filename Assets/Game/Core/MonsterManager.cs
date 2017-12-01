@@ -39,7 +39,7 @@ public class MonsterManager : MonoBehaviour
     {
         RemoveMonsters();
     }
-
+    
     public Monster MakeMonster(Monster prefab, int monsterSpawnDistance = 60)
     {
         var lastFloor = floorManager.lastFloor;

@@ -13,6 +13,9 @@ public abstract class MonsterCondition : ScriptableObject
     [NonSerialized]
     public bool isSatisfied;
 
+    [NonSerialized]
+    public MonsterConditionCollection conditionCollection;
+
     //public string description;
 
     public void BaseInitialize()

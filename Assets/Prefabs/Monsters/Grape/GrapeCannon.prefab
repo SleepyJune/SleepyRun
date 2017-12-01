@@ -51,6 +51,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4051819527274776}
   - component: {fileID: 135187490924617148}
+  - component: {fileID: 114333213690931734}
+  - component: {fileID: 114729313123097880}
+  - component: {fileID: 114215606622316640}
   m_Layer: 0
   m_Name: GrapeCannon
   m_TagString: Untagged
@@ -259,6 +262,48 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1475293549192208}
   m_Mesh: {fileID: 4300020, guid: ac56705b87382aa48bd42a6e8194c855, type: 3}
+--- !u!114 &114215606622316640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167324001968830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionInfo: {fileID: 11400000, guid: 5459dbe97d00e424699425bd197f6498, type: 2}
+--- !u!114 &114333213690931734
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167324001968830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabID: 0
+  speed: 0
+  anim: {fileID: 0}
+  maxHealth: 10
+  defense: 0
+  damage: 1
+--- !u!114 &114729313123097880
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1167324001968830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shatterPrefab: {fileID: 1895281047071958, guid: 87c41194e6b149e458ad70af6820f4ff,
+    type: 2}
 --- !u!135 &135187490924617148
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -266,7 +311,7 @@ SphereCollider:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1167324001968830}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5

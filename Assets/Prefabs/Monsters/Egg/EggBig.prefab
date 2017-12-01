@@ -68,8 +68,9 @@ GameObject:
   - component: {fileID: 135374386111168378}
   - component: {fileID: 114056038263308662}
   - component: {fileID: 114025257429805262}
+  - component: {fileID: 114971854058396322}
   m_Layer: 8
-  m_Name: Egg
+  m_Name: EggBig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -616,11 +617,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabID: 0
-  speed: 0
+  speed: 5
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
   damage: 100
+--- !u!114 &114971854058396322
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1179561853077334}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionInfo: {fileID: 11400000, guid: 6ae37b772bdda77469bcb5af0c95ff7a, type: 2}
 --- !u!135 &135374386111168378
 SphereCollider:
   m_ObjectHideFlags: 1

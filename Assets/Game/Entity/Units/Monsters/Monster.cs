@@ -13,6 +13,7 @@ public class Monster : Unit
     public delegate void Callback();
     public event Callback OnTakeDamage;
     public event Callback OnMonsterUpdate;
+    public event Callback OnDeath;
 
     void Awake()
     {
@@ -149,6 +150,14 @@ public class Monster : Unit
     {
         if (!isDead)
         {
+                Debug.Log("Death");
+
+            if (OnDeath != null)
+            {
+                Debug.Log("Death2");
+                OnDeath();
+            }
+
             isDead = true;
 
             GameManager.instance.monsterManager.AddKillCount(this);

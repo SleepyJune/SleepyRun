@@ -17,6 +17,8 @@ public class MonsterConditionCollection : ScriptableObject
         foreach(var condition in conditions)
         {
             condition.monster = monster;
+            condition.conditionCollection = this;
+
             condition.Initialize();
         }
     }

@@ -13,10 +13,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allConditions:
   - {fileID: 11400000, guid: a8e94364d21678b42b09cabce65c5147, type: 2}
+  - {fileID: 11400000, guid: 88fd1217585f0cb44b81883fe69f5f23, type: 2}
   - {fileID: 11400000, guid: 101f349c023fdb94e9628c16cf9bd602, type: 2}
   - {fileID: 11400000, guid: 9ef64d12fc458ad43854f0ed48dbb0fd, type: 2}
   allConditionOptions:
   - FixedFrequency
+  - OnDeathCondition
   - OneTimeCondition
   - RandomFrequency
   allActions:
