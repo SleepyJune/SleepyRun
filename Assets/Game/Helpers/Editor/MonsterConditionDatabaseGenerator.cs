@@ -30,25 +30,32 @@ public class MonsterConditionDatabaseGenerator : Editor
 
     public override void OnInspectorGUI()
     {
+        //is prefab
+        if (AssetDatabase.Contains(target))
+        {
+            EditorGUILayout.LabelField("Cannot edit prefab");
+            return;
+        }
+
         serializedObject.Update();
 
         if (GUILayout.Button("Generate"))
         {
-            EditorHelperFunctions.Generate("/Prefabs/Monsters/MonsterActions", ref conditionDatabase.allConditions, target);
+            EditorHelperFunctions.Generate(ref conditionDatabase.allConditions, target);
 
             List<string> options = new List<string>();
             foreach(var condition in conditionDatabase.allConditions)
             {
-                options.Add(condition.name);
+                options.Add(condition.GetType().ToString().Replace("Monster",""));
             }
             conditionDatabase.allConditionOptions = options.ToArray();
 
-            EditorHelperFunctions.Generate("/Prefabs/Monsters/MonsterActions", ref conditionDatabase.allActions, target);
+            EditorHelperFunctions.Generate(ref conditionDatabase.allActions, target);
 
             options = new List<string>();
             foreach (var condition in conditionDatabase.allActions)
             {
-                options.Add(condition.name);
+                options.Add(condition.GetType().ToString().Replace("Monster", ""));
             }
             conditionDatabase.allActionOptions = options.ToArray();
 

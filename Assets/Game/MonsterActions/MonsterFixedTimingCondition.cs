@@ -4,7 +4,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/Fixed Frequency")]
 public class MonsterFixedTimingCondition : MonsterCondition
 {
     public float frequency = 1;

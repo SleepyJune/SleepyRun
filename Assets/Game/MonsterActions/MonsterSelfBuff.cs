@@ -5,7 +5,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/Self Buff")]
 public class MonsterSelfBuff : MonsterAction
 {
     public BuffObject buff;

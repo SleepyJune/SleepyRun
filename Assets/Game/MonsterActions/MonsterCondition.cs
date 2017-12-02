@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public abstract class MonsterCondition : ScriptableObject
+public abstract class MonsterCondition : MonoBehaviour
 {
     [NonSerialized]
     public Monster monster;

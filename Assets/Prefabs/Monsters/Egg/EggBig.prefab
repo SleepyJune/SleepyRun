@@ -621,7 +621,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
-  damage: 100
+  damage: 25
 --- !u!114 &114971854058396322
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,7 +633,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionInfo: {fileID: 11400000, guid: 6ae37b772bdda77469bcb5af0c95ff7a, type: 2}
+  actionInfo: {fileID: 114670791708798688, guid: 28d2ed9942d3731409e8a3e777e0905f,
+    type: 2}
 --- !u!135 &135374386111168378
 SphereCollider:
   m_ObjectHideFlags: 1

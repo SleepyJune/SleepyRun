@@ -5,7 +5,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/Cast Spell")]
 public class MonsterCastSpell : MonsterAction
 {
     public Spell spell;

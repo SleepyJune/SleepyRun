@@ -4,7 +4,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/OnDeath Condition")]
 public class MonsterOnDeathCondition : MonsterCondition
 {
     public int conditionRepeats = 0;

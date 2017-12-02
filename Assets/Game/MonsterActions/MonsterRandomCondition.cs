@@ -4,7 +4,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/Random Frequency")]
 public class MonsterRandomCondition : MonsterCondition
 {
     public float frequency = 1;

@@ -620,7 +620,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
-  damage: 100
+  damage: 5
 --- !u!135 &135374386111168378
 SphereCollider:
   m_ObjectHideFlags: 1

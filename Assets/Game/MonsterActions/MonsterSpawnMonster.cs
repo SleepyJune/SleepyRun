@@ -4,7 +4,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/Spawn Monster")]
 public class MonsterSpawnMonster : MonsterAction
 {
     public Monster spawnMonster;

@@ -603,7 +603,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionInfo: {fileID: 11400000, guid: fbc2ae61f8a34e944929ec8c2520e0f2, type: 2}
+  actionInfo: {fileID: 114670791708798688, guid: c451a185a8a0f8a418c3a7a980a9ba82,
+    type: 2}
 --- !u!114 &114025257429805262
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -633,7 +634,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
-  damage: 100
+  damage: 10
 --- !u!135 &135374386111168378
 SphereCollider:
   m_ObjectHideFlags: 1

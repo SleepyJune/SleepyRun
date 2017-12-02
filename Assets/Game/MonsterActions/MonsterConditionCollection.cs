@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(menuName = "MonsterActions/MonsterConditionCollection")]
-public class MonsterConditionCollection : ScriptableObject
+public class MonsterConditionCollection : MonoBehaviour
 {
     public string description;
 

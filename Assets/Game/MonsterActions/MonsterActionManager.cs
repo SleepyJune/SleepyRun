@@ -17,7 +17,8 @@ public class MonsterActionManager : MonoBehaviour
     {
         monster = GetComponent<Monster>();
 
-        actionInfo = Object.Instantiate(actionInfo) as MonsterActionInfo;
+        actionInfo = Instantiate(actionInfo);
+        actionInfo.transform.parent = monster.transform;
 
         conditionCollections = actionInfo.conditionCollections;
 
