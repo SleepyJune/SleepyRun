@@ -13,7 +13,7 @@ public abstract class Entity : MonoBehaviour
     public int prefabID;
 
     public float speed = 0; //for spells
-
+        
     [NonSerialized]
     public bool isDead = false;
 

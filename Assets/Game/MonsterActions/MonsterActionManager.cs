@@ -17,6 +17,9 @@ public class MonsterActionManager : MonoBehaviour
     {
         monster = GetComponent<Monster>();
 
+        actionInfo = Instantiate(actionInfo);
+        actionInfo.transform.parent = monster.transform;
+
         conditionCollections = actionInfo.conditionCollections;
 
         foreach (var conditionCollection in conditionCollections)
@@ -34,7 +37,10 @@ public class MonsterActionManager : MonoBehaviour
             lastUpdateTime = Time.time;
         }*/
 
-        CheckCollections();
+        if (monster && !monster.isDead)
+        {
+            CheckCollections();
+        }
     }
 
     void CheckCollections()

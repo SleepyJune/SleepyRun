@@ -1,8 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(menuName = "MonsterActions/MonsterConditionCollection")]
-public class MonsterConditionCollection : ScriptableObject
+public class MonsterConditionCollection : MonoBehaviour
 {
     public string description;
 
@@ -17,6 +16,8 @@ public class MonsterConditionCollection : ScriptableObject
         foreach(var condition in conditions)
         {
             condition.monster = monster;
+            condition.conditionCollection = this;
+
             condition.Initialize();
         }
     }

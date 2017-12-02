@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: ToumaAC
+  m_Controller: {fileID: 9100000, guid: 290d2510edc5e1541990db4f22d760da, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 5ac92cb490d59434a8c2b3ea988b3c51, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 535a18d1a6cc364409d925420619383a, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 2fdcb3c3c23e6f146a23903e66c67c3e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 45e382819eb5ca54ab5f682da0cbf7f1, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 94f5727de2042a74d85baf79c75f683e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: dd9e0e04dfb6d914dadfdebc9e62f623, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: d1f6ab96f358890428fb86af15a04eb3, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 043b4097c31453540a08321feb4c8962, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4e0324a704bb8e04a833b774b9a64e2c, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b6f5c0c22b277bf46b89e0a16b2deff7, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 67b786e05f21b7a43aa779c1fe342d09, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 1cb179a22ba36b348b77b744154f9f21, type: 2}

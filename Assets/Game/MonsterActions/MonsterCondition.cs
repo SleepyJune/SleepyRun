@@ -5,13 +5,16 @@ using System.Text;
 
 using UnityEngine;
 
-public abstract class MonsterCondition : ScriptableObject
+public abstract class MonsterCondition : MonoBehaviour
 {
     [NonSerialized]
     public Monster monster;
 
     [NonSerialized]
     public bool isSatisfied;
+
+    [NonSerialized]
+    public MonsterConditionCollection conditionCollection;
 
     //public string description;
 

@@ -4,7 +4,6 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/OneTime Condition")]
 public class MonsterOneTimeCondition : MonsterCondition
 {
     public float delay = 0;

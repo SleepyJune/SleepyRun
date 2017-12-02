@@ -11,6 +11,8 @@ public class MonsterActionInfoEditor : EditorWithSubEditors<MonsterConditionColl
 
     SerializedProperty collectionsProperty;
 
+    bool isPrefab = false;
+
     void OnEnable()
     {
         if (target == null)
@@ -24,6 +26,8 @@ public class MonsterActionInfoEditor : EditorWithSubEditors<MonsterConditionColl
         collectionsProperty = serializedObject.FindProperty("conditionCollections");
 
         CheckAndCreateSubEditors(actionManager.conditionCollections);
+
+        isPrefab = AssetDatabase.Contains(target);
     }
 
     private void OnDisable()
@@ -39,6 +43,13 @@ public class MonsterActionInfoEditor : EditorWithSubEditors<MonsterConditionColl
 
     public override void OnInspectorGUI()
     {
+        //is prefab
+        if (AssetDatabase.Contains(target))
+        {
+            //EditorGUILayout.LabelField("Cannot edit prefab");
+            //return;
+        }
+
         serializedObject.Update();
 
         CheckAndCreateSubEditors(actionManager.conditionCollections);
@@ -51,14 +62,17 @@ public class MonsterActionInfoEditor : EditorWithSubEditors<MonsterConditionColl
 
         //EditorGUILayout.PropertyField(collectionsProperty);
 
-        if (GUILayout.Button("Add Move Set", GUILayout.Width(150f)))
+        if (!isPrefab && GUILayout.Button("Add Move Set", GUILayout.Width(150f)))
         {
             MonsterConditionCollection newCollection = MonsterConditionCollectionEditor.CreateConditionCollection();
             newCollection.name = "Condition Collection";
             newCollection.actionCollection.name = "Action Collection";
 
-            AssetDatabase.AddObjectToAsset(newCollection, target);
-            AssetDatabase.AddObjectToAsset(newCollection.actionCollection, target);
+            newCollection.transform.parent = actionManager.transform;
+            newCollection.actionCollection.transform.parent = actionManager.transform;
+
+            //AssetDatabase.AddObjectToAsset(newCollection, target);
+            //AssetDatabase.AddObjectToAsset(newCollection.actionCollection, target);
             collectionsProperty.AddToObjectArray(newCollection);
 
             //Debug.Log(collectionsProperty.GetArrayElementAtIndex(collectionsProperty.arraySize - 1).objectReferenceValue);

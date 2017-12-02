@@ -230,7 +230,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionInfo: {fileID: 11400000, guid: 370f5a3c57166f8409a8f2b57fa2c297, type: 2}
+  actionInfo: {fileID: 114413878650034344, guid: 2f1aaa240d90a4045a047e0657e43075,
+    type: 2}
 --- !u!114 &114620116418318432
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -242,6 +243,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce45e48a7f529a84e932732529148cb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabID: 0
   speed: 0
   anim: {fileID: 0}
   maxHealth: 500

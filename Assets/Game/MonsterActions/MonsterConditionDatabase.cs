@@ -5,8 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "MonsterActions/Condition Database")]
-public class MonsterConditionDatabase : ScriptableObject
+public class MonsterConditionDatabase : MonoBehaviour
 {
     public MonsterCondition[] allConditions = new MonsterCondition[0];
     

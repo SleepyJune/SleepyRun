@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public class MonsterActionCollection : ScriptableObject
+public class MonsterActionCollection : MonoBehaviour
 {
     public MonsterAction[] actions = new MonsterAction[0];
 

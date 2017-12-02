@@ -28,7 +28,7 @@ public class StageEventDatabaseGenerator : Editor
 
         if (GUILayout.Button("Generate"))
         {
-            EditorHelperFunctions.Generate("/Prefabs/Stage/Event Database", ref eventDatabase.allEvents, target);
+            EditorHelperFunctions.GenerateFromAsset("/Prefabs/Stage/Event Database", ref eventDatabase.allEvents, target);
 
             List<string> options = new List<string>();
             foreach (var stageEvent in eventDatabase.allEvents)

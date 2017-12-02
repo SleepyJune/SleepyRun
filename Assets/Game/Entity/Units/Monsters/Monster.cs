@@ -13,6 +13,10 @@ public class Monster : Unit
     public delegate void Callback();
     public event Callback OnTakeDamage;
     public event Callback OnMonsterUpdate;
+    public event Callback OnDeath;
+
+    [NonSerialized]
+    public float timeSpawned;
 
     void Awake()
     {
@@ -24,6 +28,8 @@ public class Monster : Unit
         health = maxHealth;
 
         name = name.Replace("(Clone)", "");
+
+        timeSpawned = Time.time;
     }
 
     void Update()
@@ -52,6 +58,12 @@ public class Monster : Unit
 
     public virtual void TakeDamage(HitInfo hitInfo)
     {
+        if (Time.time - timeSpawned < .25f)
+        {
+            //invincible for 1 seconds at spawn
+            return;
+        }
+
         if (!isDead)
         {
             var finalDamage = CalculateDamage(hitInfo.damage);
@@ -149,6 +161,11 @@ public class Monster : Unit
     {
         if (!isDead)
         {
+            if (OnDeath != null)
+            {
+                OnDeath();
+            }
+
             isDead = true;
 
             GameManager.instance.monsterManager.AddKillCount(this);

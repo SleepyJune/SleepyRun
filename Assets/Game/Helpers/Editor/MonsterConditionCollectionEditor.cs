@@ -23,6 +23,8 @@ public class MonsterConditionCollectionEditor : Editor
 
     float lineHeight = EditorGUIUtility.singleLineHeight;
 
+    bool isPrefab = false;
+
     void OnEnable()
     {
         conditionCollection = (MonsterConditionCollection)target;
@@ -35,8 +37,10 @@ public class MonsterConditionCollectionEditor : Editor
 
         actionsProperty = propertyObj.FindProperty("actions");
         
-        var assetPath = "Assets/Prefabs/Monsters/MonsterActions/ConditionDatabase.asset";
-        conditionDatabase = AssetDatabase.LoadAssetAtPath(assetPath, typeof(MonsterConditionDatabase)) as MonsterConditionDatabase;
+        var assetPath = "Assets/Prefabs/Monsters/MonsterActions/ConditionDatabase.prefab";
+
+        var databaseObject = AssetDatabase.LoadAssetAtPath(assetPath, (typeof(GameObject))) as GameObject;
+        conditionDatabase = databaseObject.GetComponent<MonsterConditionDatabase>();
 
         foreach (var condition in conditionCollection.conditions)
         {
@@ -50,6 +54,8 @@ public class MonsterConditionCollectionEditor : Editor
 
         //conditionsProperty = serializedObject.FindProperty("conditions");
         //actionCollectionProperty = serializedObject.FindProperty("actionCollection");
+
+        isPrefab = AssetDatabase.Contains(target);
     }
 
     private void OnDisable()
@@ -130,6 +136,11 @@ public class MonsterConditionCollectionEditor : Editor
         
     void CreateClickable(Rect lastRect, int index, bool isCondition)
     {
+        if (isPrefab)
+        {
+            return;
+        }
+
         Rect currentRect = GUILayoutUtility.GetLastRect();
 
         Rect clickArea = lastRect;
@@ -185,10 +196,12 @@ public class MonsterConditionCollectionEditor : Editor
     {
         var type = conditionDatabase.allConditions[selectedIndex].GetType();
 
-        var newCondition = CreateInstance(type) as MonsterCondition;
+        var newObject = new GameObject();
+        var newCondition = newObject.AddComponent(type) as MonsterCondition;
         newCondition.name = type.ToString();
+        newCondition.transform.parent = conditionCollection.transform;      
 
-        AssetDatabase.AddObjectToAsset(newCondition, target);
+        //AssetDatabase.AddObjectToAsset(newCondition, target);
         conditionsProperty.AddToObjectArray(newCondition);
 
         conditionEditors.Add(CreateEditor(newCondition));
@@ -198,7 +211,7 @@ public class MonsterConditionCollectionEditor : Editor
     {
         var subasset = conditionCollection.conditions[index];
         conditionsProperty.RemoveFromObjectArrayAt(index);
-        DestroyImmediate(subasset, true);
+        DestroyImmediate(subasset.gameObject, true);
         conditionEditors.RemoveAt(index);
     }
 
@@ -206,10 +219,12 @@ public class MonsterConditionCollectionEditor : Editor
     {
         var type = conditionDatabase.allActions[selectedIndex].GetType();
 
-        var newAction = CreateInstance(type) as MonsterAction;
+        var newObject = new GameObject();
+        var newAction = newObject.AddComponent(type) as MonsterAction;
         newAction.name = type.ToString();
+        newAction.transform.parent = conditionCollection.transform;
 
-        AssetDatabase.AddObjectToAsset(newAction, target);
+        //AssetDatabase.AddObjectToAsset(newAction, target);
         actionsProperty.AddToObjectArray(newAction);
 
         actionEditors.Add(CreateEditor(newAction));
@@ -219,17 +234,18 @@ public class MonsterConditionCollectionEditor : Editor
     {
         var subasset = conditionCollection.actionCollection.actions[index];
         actionsProperty.RemoveFromObjectArrayAt(index);
-        DestroyImmediate(subasset, true);
+        DestroyImmediate(subasset.gameObject, true);
         actionEditors.RemoveAt(index);
     }
 
     public static MonsterConditionCollection CreateConditionCollection()
     {
-        MonsterConditionCollection newConditionCollection = CreateInstance<MonsterConditionCollection>();
-
+        var newGameObject = new GameObject();
+        var newConditionCollection = newGameObject.AddComponent<MonsterConditionCollection>();
         newConditionCollection.description = "New Move Set";
 
-        newConditionCollection.actionCollection = CreateInstance<MonsterActionCollection>();
+        var newActionCollection = newGameObject.AddComponent<MonsterActionCollection>();
+        newConditionCollection.actionCollection = newActionCollection;
 
         return newConditionCollection;
     }
