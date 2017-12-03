@@ -9,14 +9,16 @@ public class CannonSpell : Spell
 
     public float angle = 45f;
 
+    public float drag = 0;
+
     public bool targetCharacter = true;
 
     public int maxDistance = 500;
 
     public GameObject particleOnHit;
 
-    public bool wallCollision = true;
-
+    public float initialCollisionTime = 0;
+        
     void Start()
     {
         Initialize();
@@ -57,7 +59,7 @@ public class CannonSpell : Spell
 
         var distance = (end - start).magnitude;
 
-        var launchSpeed = ProjectileMath.LaunchSpeed(distance, 0, -Physics.gravity.y, angle);
+        var launchSpeed = (1 + drag) * ProjectileMath.LaunchSpeed(distance, 0, -Physics.gravity.y, angle);
                 
         if (launchSpeed > 0)
         {
@@ -73,9 +75,12 @@ public class CannonSpell : Spell
 
     void OnTriggerEnter(Collider collision)
     {
-        if (isDead) return;
+        if (isDead || Time.time - startTime <= initialCollisionTime) return;
 
-        if (wallCollision && collision.gameObject.layer == LayerConstants.wallLayer)
+        if (!(collisionMask == (collisionMask | (1 << collision.gameObject.layer)))) return; //if layer not in collisionMask
+
+        if (collision.gameObject.layer == LayerConstants.wallLayer
+            || collision.gameObject.layer == LayerConstants.groundLayer)
         {
             Death();
             return;
@@ -121,6 +126,12 @@ public class CannonSpell : Spell
     public override void Death()
     {
         isDead = true;
+
+        if (particleOnHit)
+        {
+            Instantiate(particleOnHit, transform.position, Quaternion.identity);
+        }
+
         Destroy(transform.gameObject);
     }
 }

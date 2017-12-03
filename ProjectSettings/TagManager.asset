@@ -19,7 +19,7 @@ TagManager:
   - Monsters
   - Player
   - Walls
-  - 
+  - Ground
   - PlayerSpell
   - MonsterSpell
   - 
