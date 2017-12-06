@@ -30,7 +30,7 @@ MonoBehaviour:
   zPositionStart: 0
   zPositionEnd: 99999
   maxOnScreen: 999
-  spawnFrequency: 2
+  spawnFrequency: 5
 --- !u!114 &114244827278273678
 MonoBehaviour:
   m_ObjectHideFlags: 0

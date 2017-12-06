@@ -58,7 +58,7 @@ GameObject:
   - component: {fileID: 33680826198783818}
   - component: {fileID: 65909870152280186}
   - component: {fileID: 23038874616248366}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: brick ground
   m_TagString: Floor
   m_Icon: {fileID: 0}

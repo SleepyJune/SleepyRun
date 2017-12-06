@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 114529419843845256}
   - component: {fileID: 114189782722238848}
   m_Layer: 0
-  m_Name: MelonExplosion
+  m_Name: GrapeExplosion
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,11 +97,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabID: 0
   speed: 1
-  damage: 100
-  radius: 3.5
+  damage: 10
+  radius: 0.5
   collisionMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 768
 --- !u!198 &198087363972599996
 ParticleSystem:
   m_ObjectHideFlags: 1

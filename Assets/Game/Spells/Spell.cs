@@ -14,7 +14,12 @@ public abstract class Spell : Entity
     public int damage;
 
     public float radius = 1;
-        
+
+    public LayerMask collisionMask;
+
+    [System.NonSerialized]
+    public float startTime;
+
     protected virtual void Initialize()
     {
         collider = GetComponent<Collider>();
@@ -33,6 +38,8 @@ public abstract class Spell : Entity
         {
             gameObject.layer = LayerConstants.playerSpellLayer;
         }
+
+        startTime = Time.time;
 
         //var timeFlying = maxDistance/speed;        
     }
