@@ -185,25 +185,22 @@ Prefab:
         type: 2}
       propertyPath: skills.Array.data[0]
       value: 
-      objectReference: {fileID: 11400000, guid: 89cdae8c913bbab42970be3b2d909e0d,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
       propertyPath: skills.Array.data[1]
       value: 
-      objectReference: {fileID: 11400000, guid: 89cdae8c913bbab42970be3b2d909e0d,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
       propertyPath: skills.Array.data[2]
       value: 
-      objectReference: {fileID: 11400000, guid: 89cdae8c913bbab42970be3b2d909e0d,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
       propertyPath: skillSet.Array.data[0]
       value: 
-      objectReference: {fileID: 114294036408638032, guid: f5c0ed56c0fd04d4ab02cd90d224fe5c,
+      objectReference: {fileID: 114274388517896658, guid: f5c0ed56c0fd04d4ab02cd90d224fe5c,
         type: 2}
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
@@ -6416,6 +6413,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slotImage: {fileID: 1514492946}
+  skill: {fileID: 114274388517896658, guid: f5c0ed56c0fd04d4ab02cd90d224fe5c, type: 2}
   iconObject: {fileID: 1514492944}
 --- !u!114 &1586362531
 MonoBehaviour:
@@ -7285,48 +7283,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!1001 &1768020202
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4637440546428008, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 4f49102853628e94abe4b1d3ae965cc7, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &1781454868
 GameObject:
   m_ObjectHideFlags: 0

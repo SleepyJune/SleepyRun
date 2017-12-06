@@ -54,7 +54,7 @@ GameObject:
   - component: {fileID: 114333213690931734}
   - component: {fileID: 114729313123097880}
   - component: {fileID: 114215606622316640}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: GrapeCannon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

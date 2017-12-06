@@ -22,7 +22,7 @@ public class SpellSlotUI : MonoBehaviour
     {
         this.skill = skill;
 
-        slotImage.sprite = skill.defaultSkillObject.icon;
+        slotImage.sprite = skill.icon;
         iconObject.SetActive(true);
     }
 

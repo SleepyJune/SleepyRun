@@ -7,16 +7,16 @@ using UnityEngine;
 
 public class CastTrapSkill : Skill
 {
-    private CastTrapSkillInfo skillObject;
+    public Trap itemPrefab;
 
-    public CastTrapSkill(SkillInfo skillObj) : base(skillObj)
+    public override void Initialize()
     {
-        skillObject = skillObject as CastTrapSkillInfo;
+        
     }
 
     public override void Cast(Unit unit, Vector3 startPos, Vector3 endPos)
     {
-        GameObject.Instantiate(skillObject.itemPrefab, endPos, Quaternion.identity);
+        GameObject.Instantiate(itemPrefab, endPos, Quaternion.identity);
         EndCast();
     }    
 }

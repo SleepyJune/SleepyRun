@@ -17,7 +17,7 @@ public class Player : Unit
 
     public WeaponButton playerPortrait;
 
-    public SkillInfo[] skillSet = new SkillInfo[3];
+    public Skill[] skillSet = new Skill[3];
 
     public Skill[] skills = new Skill[3];
 
@@ -41,7 +41,7 @@ public class Player : Unit
         {
             if (skillSet[i] != null)
             {
-                skills[i] = skillSet[i].Initialize();
+                skills[i] = Instantiate(skillSet[i]);
                 spellSlots[i].SetSkill(skills[i]);
             }
         }

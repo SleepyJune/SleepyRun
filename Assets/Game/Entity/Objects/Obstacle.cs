@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public class Obstacles : Traps
+public class Obstacle : Trap
 {
     void OnTriggerEnter(Collider collision)
     {

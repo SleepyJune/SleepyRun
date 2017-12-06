@@ -93,7 +93,7 @@ public class Monster : Unit
         }
     }
 
-    public void CollideWithObstacle(Obstacles obstacle)
+    public void CollideWithObstacle(Obstacle obstacle)
     {
         if (!isDead)
         {

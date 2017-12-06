@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class PointObjectUI : CombatUI
 {
-    public Traps trap;
+    public Trap trap;
 
     public override void Initialize(Weapon weapon)
     {

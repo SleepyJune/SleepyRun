@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public enum SkillCastType
 {
@@ -13,26 +14,27 @@ public enum SkillCastType
     Unit
 }
 
-public abstract class Skill
+public abstract class Skill : MonoBehaviour
 {
     public SkillCastType castType;
 
+    public int id;
+    public string spellName;
+    public string description;
+    public float castTime;
+    public float cooldown;
+    public float mana;
+    public Sprite icon;
+
+    public CombatUI comabtUI;
+    
+    [NonSerialized]
     public float lastCastTime = 0;
 
-    public float cooldown;
-
-    public SkillInfo defaultSkillObject;
-
+    [NonSerialized]
     public bool isActive = false;
-        
-    public Skill(SkillInfo skillObj)
-    {
-        defaultSkillObject = skillObj;
-        castType = skillObj.castType;
-        cooldown = skillObj.cooldown;
 
-        defaultSkillObject.comabtUI.callBack = EndCast;
-    }
+    public abstract void Initialize();
 
     public bool canUseSkill
     {
@@ -40,8 +42,8 @@ public abstract class Skill
         {
             return
                 !isActive
-                && Time.time >= lastCastTime + cooldown                
-                && GameManager.instance.player.canUseSkills;                
+                && Time.time >= lastCastTime + cooldown
+                && GameManager.instance.player.canUseSkills;
         }
     }
 
@@ -49,8 +51,8 @@ public abstract class Skill
     {
         if (canUseSkill)
         {
-            GameManager.instance.weaponManager.SwitchCombatUI(defaultSkillObject.comabtUI);
-        }        
+            GameManager.instance.weaponManager.SwitchCombatUI(comabtUI);
+        }
     }
 
     public abstract void Cast(Unit unit, Vector3 startPos, Vector3 endPos);
