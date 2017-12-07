@@ -17,6 +17,11 @@ public abstract class Spell : Entity
 
     public LayerMask collisionMask;
 
+    public GameObject particleOnHit;
+    public BuffObject buffOnHit;
+
+    public int knockBackForce = 0;
+
     [System.NonSerialized]
     public float startTime;
 
@@ -42,6 +47,24 @@ public abstract class Spell : Entity
         startTime = Time.time;
 
         //var timeFlying = maxDistance/speed;        
+    }
+
+    public HitInfo InitializeHitInfo(Unit target, Vector3 hitStart, Vector3 hitEnd, Vector3 force)
+    {
+        HitInfo newHitInfo = new HitInfo
+        {
+            source = source,
+            target = target,
+            hitStart = hitStart,
+            hitEnd = hitEnd,
+            force = force,
+            damage = damage,
+            knockBackForce = knockBackForce,
+            hitParticle = particleOnHit,
+            buffOnHit = buffOnHit,
+        };
+
+        return newHitInfo;
     }
 
     public abstract void Death(); //spell destruction and clean up

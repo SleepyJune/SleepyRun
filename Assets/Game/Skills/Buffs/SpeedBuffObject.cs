@@ -11,8 +11,8 @@ public class SpeedBuffObject : BuffObject
     public float speedIncrease = 1;
     public GameObject effectTrailerPrefab;
 
-    public override Buff Initialize()
+    public override Buff Initialize(Unit source)
     {
-        return new SpeedBuff(this, duration);
+        return new SpeedBuff(source, this, duration);
     }
 }

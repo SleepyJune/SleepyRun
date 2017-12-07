@@ -15,8 +15,6 @@ public class CannonSpell : Spell
 
     public int maxDistance = 500;
 
-    public GameObject particleOnHit;
-
     public float initialCollisionTime = 0;
         
     void Start()
@@ -96,18 +94,7 @@ public class CannonSpell : Spell
 
                 var force = dir * 100;
 
-                monster.TakeDamage(new HitInfo
-                {
-                    hitStart = start,
-                    hitEnd = transform.position,
-                    force = force,
-                    damage = damage
-                });
-
-                if (particleOnHit)
-                {
-                    //Instantiate(particleOnHit, monster.anim.transform);
-                }
+                monster.TakeDamage(InitializeHitInfo(monster, start, transform.position, force));
 
                 //isDead = true;
                 //Destroy(transform.gameObject);

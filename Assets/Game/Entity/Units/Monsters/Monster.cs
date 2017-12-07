@@ -77,18 +77,34 @@ public class Monster : Unit
                 Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);
             }
 
-            if (OnTakeDamage != null)
+            if (hitInfo.buffOnHit)
+            {
+
+            }
+
+            if (finalDamage > 0 && OnTakeDamage != null)
             {
                 OnTakeDamage();
             }
-
+                        
             if (health == 0)
             {
                 Death(hitInfo);
             }
-            else
+            else//if monster not dead from the damage
             {
-                GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage.ToString(), DamageTextType.Physical);
+                if (hitInfo.knockBackForce != 0)
+                {
+                    var knockBackForce = new Vector3(0, 0, hitInfo.knockBackForce);
+                    //rigidbody.AddForce(knockBackForce);
+
+                    transform.position += knockBackForce;
+                }
+
+                if (finalDamage > 0)
+                {
+                    GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage.ToString(), DamageTextType.Physical);
+                }
             }
         }
     }

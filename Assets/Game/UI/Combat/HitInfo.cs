@@ -7,6 +7,9 @@ using UnityEngine;
 
 public class HitInfo
 {
+    public Unit source;
+    public Unit target;
+
     public Vector3 hitStart;
     public Vector3 hitEnd;
 
@@ -15,4 +18,8 @@ public class HitInfo
     public int damage;
 
     public GameObject hitParticle;
+
+    public BuffObject buffOnHit;
+
+    public int knockBackForce;
 }

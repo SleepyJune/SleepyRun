@@ -19,7 +19,7 @@ public class PointObjectUI : CombatUI
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
         pos = GetLanePostion(pos);
 
-        var newSpell = Instantiate(trap.gameObject, pos, Quaternion.identity);
+        var newSpell = Instantiate(trap, pos, Quaternion.identity);
 
         if(callBack != null)
         {

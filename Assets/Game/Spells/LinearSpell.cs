@@ -8,11 +8,9 @@ public class LinearSpell : Spell
     public Vector3 end;
     
     public int maxDistance = 500;
-
-    public GameObject particleOnHit;
-
+        
     public bool wallCollision = true;
-
+        
     void Start()
     {
         Initialize();
@@ -74,18 +72,7 @@ public class LinearSpell : Spell
 
                 var force = dir * 100;
 
-                monster.TakeDamage(new HitInfo
-                {
-                    hitStart = start,
-                    hitEnd = transform.position,
-                    force = force,
-                    damage = damage
-                });
-
-                if (particleOnHit)
-                {
-                    //Instantiate(particleOnHit, monster.anim.transform);
-                }
+                monster.TakeDamage(InitializeHitInfo(monster, start, transform.position, force));
 
                 //isDead = true;
                 //Destroy(transform.gameObject);

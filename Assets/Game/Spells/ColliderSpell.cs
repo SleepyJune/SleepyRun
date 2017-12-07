@@ -2,8 +2,6 @@
 
 public class ColliderSpell : Spell
 {
-    public GameObject particleOnHit;
-
     void Awake()
     {
         Initialize();
@@ -21,18 +19,7 @@ public class ColliderSpell : Spell
 
             var force = dir * 100;
 
-            monster.TakeDamage(new HitInfo
-            {
-                hitStart = transform.position,
-                hitEnd = transform.position,
-                force = force,
-                damage = damage
-            });
-
-            if (particleOnHit)
-            {
-                Instantiate(particleOnHit, monster.anim.transform);
-            }
+            monster.TakeDamage(InitializeHitInfo(monster, transform.position, transform.position, force));
 
             //isDead = true;
             //Destroy(transform.gameObject);

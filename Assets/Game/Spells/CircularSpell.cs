@@ -2,8 +2,6 @@
 
 public class CircularSpell : Spell
 {
-    //public GameObject particleOnHit;
-
     void Start()
     {
         DamageMonsters(transform.position);
@@ -28,16 +26,8 @@ public class CircularSpell : Spell
                     dir.y = .15f;
 
                     var force = dir * 1000;
-
-                    HitInfo hitInfo = new HitInfo
-                    {
-                        hitStart = hitPos,
-                        hitEnd = monsterPos,
-                        force = force,
-                        damage = damage
-                    };
-
-                    monster.TakeDamage(hitInfo);
+                    
+                    monster.TakeDamage(InitializeHitInfo(monster, hitPos, monsterPos, force));
                 }
             }
             else if (monsterObject.gameObject.layer == LayerConstants.playerLayer)

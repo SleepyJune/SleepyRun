@@ -10,8 +10,8 @@ public class HealthMultiplyBuffObject : BuffObject
 {
     public float healthIncrease = 2;
 
-    public override Buff Initialize()
+    public override Buff Initialize(Unit source)
     {
-        return new HealthMultiplyBuff(this, duration);
+        return new HealthMultiplyBuff(source, this, duration);
     }
 }

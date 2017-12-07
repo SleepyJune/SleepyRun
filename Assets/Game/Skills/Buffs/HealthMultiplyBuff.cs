@@ -9,7 +9,7 @@ public class HealthMultiplyBuff : Buff
 {
     private HealthMultiplyBuffObject buffObj;        
 
-    public HealthMultiplyBuff(BuffObject buffObj, float duration) : base(buffObj, duration)
+    public HealthMultiplyBuff(Unit source, BuffObject buffObj, float duration) : base(source, buffObj, duration)
     {
         this.buffObj = buffObj as HealthMultiplyBuffObject;
     }

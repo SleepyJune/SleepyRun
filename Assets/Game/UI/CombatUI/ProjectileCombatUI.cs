@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class ProjectileCombatUI : CombatUI
 {
-    public GameObject projectilePrefab;
+    public LinearSpell projectilePrefab;
 
     int fingerID = -999;
 
@@ -41,7 +41,10 @@ public class ProjectileCombatUI : CombatUI
             var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
             end = pos;
 
-            CreateProjectile(start, end);
+            if(Vector3.Distance(start, end) >= .5f)
+            {
+                CreateProjectile(start, end);
+            }
 
             fingerID = -999;
         }
@@ -49,8 +52,7 @@ public class ProjectileCombatUI : CombatUI
 
     void CreateProjectile(Vector3 start, Vector3 end)
     {
-        var projectileObject = Instantiate(projectilePrefab.gameObject, start, Quaternion.identity);
-        var projectile = projectileObject.GetComponent<LinearSpell>();
+        var projectile = Instantiate(projectilePrefab, start, Quaternion.identity);
 
         projectile.start = start;
         projectile.end = end;

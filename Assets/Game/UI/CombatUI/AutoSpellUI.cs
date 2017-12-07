@@ -20,8 +20,9 @@ public class AutoSpellUI : CombatUI
 
         var pos = GameManager.instance.player.transform.position + startPosition;
         
-        var newSpell = Instantiate(spell.gameObject, pos, Quaternion.Euler(direction));
-        
+        var newSpell = Instantiate(spell, pos, Quaternion.Euler(direction));
+        newSpell.source = GameManager.instance.player;
+
         GameManager.instance.weaponManager.EndUltimate();
     }
 }

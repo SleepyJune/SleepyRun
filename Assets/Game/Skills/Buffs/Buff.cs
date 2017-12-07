@@ -14,11 +14,15 @@ public abstract class Buff
     public string buffName;
     public float duration = 5;
 
+    public Unit source;
+
     [NonSerialized]
     public Unit unit;
 
-    public Buff(BuffObject buffObj, float duration)
+    public Buff(Unit source, BuffObject buffObj, float duration)
     {
+        this.source = source;
+
         buffID = buffObj.buffID;
         buffName = buffObj.buffName;
         duration = buffObj.duration;

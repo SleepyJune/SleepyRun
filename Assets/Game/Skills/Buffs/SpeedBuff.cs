@@ -11,7 +11,7 @@ public class SpeedBuff : Buff
 
     private GameObject effectTrailer;
 
-    public SpeedBuff(BuffObject buffObj, float duration) : base(buffObj, duration)
+    public SpeedBuff(Unit source, BuffObject buffObj, float duration) : base(source, buffObj, duration)
     {
         this.buffObj = buffObj as SpeedBuffObject;
     }

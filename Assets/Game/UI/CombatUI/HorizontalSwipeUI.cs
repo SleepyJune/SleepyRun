@@ -37,10 +37,12 @@ public class HorizontalSwipeUI : CombatUI
             //var direction = new Vector3(0, 0, 0);
             var newSpell = 
                 Instantiate(
-                    spell.gameObject,
+                    spell,
                     playerTransform.position + startOffset, 
                     Quaternion.Euler(direction),
                     playerTransform);
+
+            newSpell.source = GameManager.instance.player;
         }
     }
 }

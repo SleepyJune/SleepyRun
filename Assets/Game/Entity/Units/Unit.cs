@@ -19,9 +19,26 @@ public abstract class Unit : Entity
     {
         var finalDamage = damage;
 
+        if(finalDamage == 0)
+        {
+            return 0;
+        }
+
         finalDamage = Mathf.Max(1, finalDamage - defense);
 
         return (int)Mathf.Round(finalDamage);
+    }
+
+    public void SelfBuff(BuffObject buff)
+    {
+        InitializeBuff(this, buff);
+    }
+
+    public void InitializeBuff(Unit source, BuffObject buff)
+    {
+        var newBuff = buff.Initialize(source);
+
+        ApplyBuff(newBuff);
     }
 
     public void ApplyBuff(Buff buff)
