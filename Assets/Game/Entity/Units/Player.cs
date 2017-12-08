@@ -10,14 +10,10 @@ public class Player : Unit
     public bool isBossFight = false;
 
     public Lane destinationLane = Lane.mid;
-
-    //public Slider healthBar;
-
+    
     public UIUnitFrame_Bar healthBarScript;
 
     public WeaponButton playerPortrait;
-
-    //public Skill[] skillSet = new Skill[3];
 
     [System.NonSerialized]
     public Skill[] skills = new Skill[3];

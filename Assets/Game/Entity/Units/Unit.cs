@@ -15,6 +15,7 @@ public abstract class Unit : Entity
     [NonSerialized]
     public int health;
 
+    public bool isRooted = false;
 
     private float lastBuffUpdateTime;
 
@@ -92,6 +93,7 @@ public abstract class Unit : Entity
 
             if (buff.hasEnded)
             {
+                buff.EndBuff();
                 buffsToRemove.Add(pair.Key);
             }
             else //buff hasn't ended

@@ -8,13 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c541c715b736bde47bfebca1302bcc77, type: 3}
-  m_Name: MelonSpeedBuff
+  m_Script: {fileID: 11500000, guid: 7a79456a76b72f949b9bf76d8c6e0a1a, type: 3}
+  m_Name: RootDebuff
   m_EditorClassIdentifier: 
-  buffID: 1
-  buffName: MelonSpeedBuff
+  buffID: 0
+  buffName: RootDebuff
   duration: 5
   continuousBuff: 0
-  speedIncrease: 5
-  effectTrailerPrefab: {fileID: 1498995601303440, guid: 49793548136d988419b01a721e68dfaa,
-    type: 2}
