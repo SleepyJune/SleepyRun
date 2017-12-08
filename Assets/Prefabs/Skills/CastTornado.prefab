@@ -19,10 +19,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4148368724905470}
-  - component: {fileID: 114274388517896658}
-  - component: {fileID: 114950960796584926}
+  - component: {fileID: 114400079632591812}
+  - component: {fileID: 114507258747107002}
   m_Layer: 16
-  m_Name: CastObstacle
+  m_Name: CastTornado
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41,7 +41,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114274388517896658
+--- !u!114 &114400079632591812
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -49,21 +49,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 1690593564712828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5d74dd574c0aa34e89f0ebacbcfaf22, type: 3}
+  m_Script: {fileID: 11500000, guid: 985984d838dba154ab896dbf13f94249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   castType: 2
   id: 0
-  spellName: Obstacle
+  spellName: Tornado
   description: 
   castTime: 0
   cooldown: 0
   mana: 0
-  icon: {fileID: 21300002, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
-  comabtUI: {fileID: 114950960796584926}
-  itemPrefab: {fileID: 114839348944217898, guid: db702ffbb2477974588443cca8809c8a,
+  icon: {fileID: 21300008, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
+  comabtUI: {fileID: 114507258747107002}
+  spellPrefab: {fileID: 114409965893671840, guid: fa8d889e7c83682429ad541f8b5fe7f9,
     type: 2}
---- !u!114 &114950960796584926
+--- !u!114 &114507258747107002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -71,7 +71,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1690593564712828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 558600b6d47c11a4c9cf8278b5405d7f, type: 3}
+  m_Script: {fileID: 11500000, guid: 716f810d085e0ba4ab34c17ad414f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  skill: {fileID: 114274388517896658}
+  skill: {fileID: 114400079632591812}
+  amount: 1
+  startPosition: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}

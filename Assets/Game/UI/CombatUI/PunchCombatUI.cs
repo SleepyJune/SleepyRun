@@ -8,11 +8,6 @@ using UnityEngine.UI;
 public class PunchCombatUI : CombatUI
 {
     public GameObject onHitEffect;
-    
-    public override void Initialize(Weapon weapon)
-    {
-        this.weapon = weapon;        
-    }
 
     public override void OnTouchStart(Touch touch)
     {

@@ -36,8 +36,8 @@ public class Monster : Unit
     {
         if (!isDead)
         {
-            base.CheckBuffs();
-
+            base.UnitUpdate();
+                        
             if (speed != 0)
             {
                 //var dir = new Vector3(0, 0, 1);
@@ -79,7 +79,7 @@ public class Monster : Unit
 
             if (hitInfo.buffOnHit)
             {
-
+                InitializeBuff(hitInfo.source, hitInfo.buffOnHit);
             }
 
             if (finalDamage > 0 && OnTakeDamage != null)

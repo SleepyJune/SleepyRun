@@ -16,6 +16,7 @@ public class SlashCombatUI : CombatUI
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
+
         slashes = new Dictionary<int, SlashInfo>();
     }
 

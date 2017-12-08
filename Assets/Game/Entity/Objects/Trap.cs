@@ -5,5 +5,6 @@ using System.Text;
 
 public class Trap : Entity
 {
-
+    [NonSerialized]
+    public Unit source;
 }

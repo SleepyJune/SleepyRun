@@ -15,6 +15,9 @@ public abstract class Unit : Entity
     [NonSerialized]
     public int health;
 
+
+    private float lastBuffUpdateTime;
+
     public int CalculateDamage(float damage)
     {
         var finalDamage = damage;
@@ -38,7 +41,7 @@ public abstract class Unit : Entity
     {
         var newBuff = buff.Initialize(source);
 
-        ApplyBuff(newBuff);
+        ApplyBuff(newBuff);        
     }
 
     public void ApplyBuff(Buff buff)
@@ -57,6 +60,15 @@ public abstract class Unit : Entity
         }
     }
 
+    public void UnitUpdate()
+    {
+        if(Time.time - lastBuffUpdateTime >= .25f)//check buff every 1/4 seconds
+        {
+            lastBuffUpdateTime = Time.time;
+            CheckBuffs();
+        }
+    }
+
     public void CheckBuffs()
     {
         List<int> buffsToRemove = new List<int>();
@@ -69,8 +81,15 @@ public abstract class Unit : Entity
             {
                 buffsToRemove.Add(pair.Key);
             }
+            else //buff hasn't ended
+            {
+                if (buff.continuousBuff)
+                {
+                    buff.ActivateBuff(this);
+                }
+            }
         }
 
-        buffsToRemove.ForEach(key => buffs.Remove(key));
+        buffsToRemove.ForEach(key => buffs.Remove(key));        
     }
 }

@@ -21,7 +21,6 @@ GameObject:
   - component: {fileID: 4735843595410438}
   - component: {fileID: 114531458526286278}
   - component: {fileID: 114485600724667666}
-  - component: {fileID: 114853879542525066}
   m_Layer: 0
   m_Name: SpearWeapon
   m_TagString: Untagged
@@ -53,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54faef1bf1ca40749a3f92249be190ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 0}
   projectilePrefab: {fileID: 114626091255426080, guid: 1b8012bd6731860459cc5393e41d5fb2,
     type: 2}
 --- !u!114 &114531458526286278
@@ -75,25 +75,11 @@ MonoBehaviour:
   slashModifier: 1
   damage: 10
   combatUI: {fileID: 114485600724667666}
-  ultimateUI: {fileID: 114853879542525066}
+  ultimateUI: {fileID: 114507258747107002, guid: e9013c401886ce444934fffd0686039e,
+    type: 2}
   minSlashRange: 5
   maxSlashRange: 10
   weaponRadius: 1
   attackFrequency: 1
   particle: {fileID: 0}
   isDualWeapon: 0
---- !u!114 &114853879542525066
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1920512741763612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 716f810d085e0ba4ab34c17ad414f319, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spell: {fileID: 114409965893671840, guid: fa8d889e7c83682429ad541f8b5fe7f9, type: 2}
-  amount: 1
-  startPosition: {x: 0, y: 0, z: 0}
-  direction: {x: 0, y: 0, z: 0}

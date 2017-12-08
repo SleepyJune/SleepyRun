@@ -14,11 +14,6 @@ public class ProjectileCombatUI : CombatUI
     Vector3 start;
     Vector3 end;
 
-    public override void Initialize(Weapon weapon)
-    {
-        this.weapon = weapon;
-    }
-
     public override void OnTouchStart(Touch touch)
     {
         if (fingerID == -999)

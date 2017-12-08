@@ -27,6 +27,9 @@ public abstract class Skill : MonoBehaviour
     public Sprite icon;
 
     public CombatUI comabtUI;
+
+    [NonSerialized]
+    public Unit owner;
     
     [NonSerialized]
     public float lastCastTime = 0;
@@ -34,7 +37,10 @@ public abstract class Skill : MonoBehaviour
     [NonSerialized]
     public bool isActive = false;
 
-    public abstract void Initialize();
+    public virtual void Initialize(Unit owner)
+    {
+        this.owner = owner;
+    }
 
     public bool canUseSkill
     {
@@ -55,7 +61,7 @@ public abstract class Skill : MonoBehaviour
         }
     }
 
-    public abstract void Cast(Unit unit, Vector3 startPos, Vector3 endPos);
+    public abstract void Cast(Vector3 startPos, Vector3 endPos, Unit target = null);
 
     public void EndCast()
     {

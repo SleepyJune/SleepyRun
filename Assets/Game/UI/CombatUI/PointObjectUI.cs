@@ -7,24 +7,14 @@ using UnityEngine.UI;
 
 public class PointObjectUI : CombatUI
 {
-    public Trap trap;
-
-    public override void Initialize(Weapon weapon)
-    {
-        this.weapon = weapon;
-    }
-
     public override void OnTouchStart(Touch touch)
     {
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
         pos = GetLanePostion(pos);
 
-        var newSpell = Instantiate(trap, pos, Quaternion.identity);
+        skill.Cast(pos, pos);
 
-        if(callBack != null)
-        {
-            callBack();
-        }
+        //var newSpell = Instantiate(trap, pos, Quaternion.identity);        
     }
 
     public Vector3 GetLanePostion(Vector3 pos)

@@ -14,11 +14,6 @@ public class HorizontalSwipeUI : CombatUI
     Vector2 startPosition;
     int touchID;
 
-    public override void Initialize(Weapon weapon)
-    {
-        this.weapon = weapon;     
-    }
-
     public override void OnTouchStart(Touch touch)
     {
         startPosition = touch.position;

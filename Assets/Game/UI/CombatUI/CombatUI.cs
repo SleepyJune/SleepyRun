@@ -14,8 +14,14 @@ public abstract class CombatUI : MonoBehaviour
     public virtual void OnTouchEnd(Touch touch) { }
     public virtual void OnUpdate() { }
     public virtual void End() { }
+    
+    public Skill skill;
 
-    public Callback callBack;
+    //public delegate void ExecuteAttack(Vector3 start, Vector3 end, Unit target = null);
+    //public ExecuteAttack executeAttack;
 
-    public abstract void Initialize(Weapon weapon);
+    public virtual void Initialize(Weapon weapon)
+    {
+        this.weapon = weapon;
+    }
 }

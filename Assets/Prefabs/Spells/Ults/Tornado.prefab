@@ -199,8 +199,7 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 0
-  particleOnHit: {fileID: 1048157638747232, guid: b507208ae492e7f41bfc38428639caeb,
-    type: 2}
+  particleOnHit: {fileID: 0}
   buffOnHit: {fileID: 0}
   knockBackForce: 1
   maxDistance: 100

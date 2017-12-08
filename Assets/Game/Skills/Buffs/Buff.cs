@@ -14,10 +14,10 @@ public abstract class Buff
     public string buffName;
     public float duration = 5;
 
-    public Unit source;
-
-    [NonSerialized]
+    public Unit source;    
     public Unit unit;
+
+    public bool continuousBuff;
 
     public Buff(Unit source, BuffObject buffObj, float duration)
     {
@@ -26,9 +26,11 @@ public abstract class Buff
         buffID = buffObj.buffID;
         buffName = buffObj.buffName;
         duration = buffObj.duration;
-
+        continuousBuff = buffObj.continuousBuff;
+        
         startTime = Time.time;
         endTime = Time.time + duration;
+
     }
 
     public bool hasEnded

@@ -42,6 +42,8 @@ public class Player : Unit
             if (skillSet[i] != null)
             {
                 skills[i] = Instantiate(skillSet[i]);
+                skills[i].Initialize(this);
+
                 spellSlots[i].SetSkill(skills[i]);
             }
         }

@@ -5,15 +5,15 @@ using System.Text;
 
 using UnityEngine;
 
-public class CastTrapSkill : Skill
+public class CastSpellSkill : Skill
 {
-    public Trap itemPrefab;
+    public Spell spellPrefab;
 
     public override void Cast(Vector3 startPos, Vector3 endPos, Unit target = null)
     {
-        var newTrap = GameObject.Instantiate(itemPrefab, endPos, Quaternion.identity);
-        newTrap.source = owner;
+        var newSpell = GameObject.Instantiate(spellPrefab, endPos, Quaternion.identity);
+        newSpell.source = owner;
 
         EndCast();
-    }    
+    }
 }
