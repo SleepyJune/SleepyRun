@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public DamageTextController damageTextManager;
     [NonSerialized]
-    public SpawnPickupManager spawnPickupManager;
+    public PickupCubeManager spawnPickupManager;
     [NonSerialized]
     public StageEventManager stageEventManager;
 
@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour
         comboManager = GetComponent<ComboManager>();
         weaponManager = GetComponent<WeaponManager>();
         damageTextManager = GetComponent<DamageTextController>();
-        spawnPickupManager = GetComponent<SpawnPickupManager>();
+        spawnPickupManager = GetComponent<PickupCubeManager>();
         stageEventManager = GetComponent<StageEventManager>();
 
         gameStartTime = Time.time;

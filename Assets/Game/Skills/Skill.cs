@@ -37,6 +37,9 @@ public abstract class Skill : MonoBehaviour
     [NonSerialized]
     public bool isActive = false;
 
+    [NonSerialized]
+    public SpellSlotUI spellslot;
+
     public virtual void Initialize(Unit owner)
     {
         this.owner = owner;
@@ -67,5 +70,7 @@ public abstract class Skill : MonoBehaviour
     {
         GameManager.instance.weaponManager.SwitchCombatUI(null);
         isActive = false;
+
+        spellslot.RemoveSkill();
     }
 }

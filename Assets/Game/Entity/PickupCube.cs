@@ -32,9 +32,10 @@ public class PickupCube : Entity, ClickableObject
 
     public void Activate()
     {
-        GameManager.instance.damageTextManager.CreateDamageText(this, "+10", DamageTextType.Recovery);
+        //GameManager.instance.damageTextManager.CreateDamageText(this, "+10", DamageTextType.Recovery);
 
-        player.GainHealth(10);
+        GameManager.instance.spawnPickupManager.ActivatePickupCube();
+
         Destroy(gameObject);
     }
 }

@@ -21,9 +21,21 @@ public class SpellSlotUI : MonoBehaviour
     public void SetSkill(Skill skill)
     {
         this.skill = skill;
+        skill.spellslot = this;
 
         slotImage.sprite = skill.icon;
         iconObject.SetActive(true);
+    }
+
+    public void RemoveSkill()
+    {
+        if(skill != null)
+        {
+            Destroy(skill);
+
+            slotImage.sprite = null;
+            iconObject.SetActive(false);
+        }
     }
 
     public void OnSpellSlotPressed()

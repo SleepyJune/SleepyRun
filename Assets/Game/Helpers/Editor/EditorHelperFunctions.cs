@@ -9,11 +9,11 @@ using UnityEditor;
 
 public static class EditorHelperFunctions
 {
-    public static void GenerateFromAsset<T>(string path, ref T[] collection, Object target)
+    public static void GenerateFromAsset<T>(string path, ref T[] collection, Object target, string assetType = "*.asset")
     {
         List<T> newList = new List<T>();
 
-        var files = Directory.GetFiles(Application.dataPath + path, "*.asset", SearchOption.AllDirectories);
+        var files = Directory.GetFiles(Application.dataPath + path, assetType, SearchOption.AllDirectories);
         foreach (var file in files)
         {
             string assetPath = "Assets" + file.Replace(Application.dataPath, "").Replace('\\', '/');

@@ -17,8 +17,9 @@ public class Player : Unit
 
     public WeaponButton playerPortrait;
 
-    public Skill[] skillSet = new Skill[3];
+    //public Skill[] skillSet = new Skill[3];
 
+    [System.NonSerialized]
     public Skill[] skills = new Skill[3];
 
     public SpellSlotUI[] spellSlots = new SpellSlotUI[3];
@@ -37,7 +38,7 @@ public class Player : Unit
         healthBarScript.SetValue(health);
         healthBarScript.SetMaxValue(maxHealth);
 
-        for(int i = 0; i < skillSet.Length; i++)
+        /*for(int i = 0; i < skillSet.Length; i++)
         {
             if (skillSet[i] != null)
             {
@@ -45,6 +46,20 @@ public class Player : Unit
                 skills[i].Initialize(this);
 
                 spellSlots[i].SetSkill(skills[i]);
+            }
+        }*/
+    }
+
+    public void SetNewSkill(Skill skill)
+    {
+        for(int i = 0; i < spellSlots.Length; i++)
+        {
+            var spellSlot = spellSlots[i];
+            
+            if(spellSlot.skill == null)
+            {
+                spellSlot.SetSkill(skill);
+                return;
             }
         }
     }
@@ -68,7 +83,7 @@ public class Player : Unit
         }
     }
 
-    public void GainHealth(int gain)
+    public override void GainHealth(int gain)
     {
         if (!GameManager.instance.isGameOver && !isDead)
         {

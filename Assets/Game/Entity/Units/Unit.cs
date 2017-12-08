@@ -32,6 +32,19 @@ public abstract class Unit : Entity
         return (int)Mathf.Round(finalDamage);
     }
 
+    public virtual void GainHealth(int gain)
+    {
+        if (!isDead)
+        {
+            health += gain;
+
+            if (health > maxHealth)
+            {
+                health = maxHealth;
+            }
+        }
+    }
+
     public void SelfBuff(BuffObject buff)
     {
         InitializeBuff(this, buff);
