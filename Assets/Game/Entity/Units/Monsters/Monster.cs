@@ -29,9 +29,11 @@ public class Monster : Unit
 
         name = name.Replace("(Clone)", "");
 
+        baseMovespeed = speed;
+
         timeSpawned = Time.time;
     }
-
+        
     void Update()
     {
         if (!isDead)
@@ -93,7 +95,7 @@ public class Monster : Unit
             }
             else//if monster not dead from the damage
             {
-                if (hitInfo.knockBackForce != 0)
+                if (hitInfo.knockBackForce != 0 && !isImmovable)
                 {
                     var knockBackForce = new Vector3(0, 0, hitInfo.knockBackForce);
                     //rigidbody.AddForce(knockBackForce);

@@ -7,7 +7,7 @@ public abstract class Unit : Entity
 {
     public Animator anim;
 
-    public Dictionary<int, Buff> buffs = new Dictionary<int, Buff>();
+    public Dictionary<string, Buff> buffs = new Dictionary<string, Buff>();
 
     public int maxHealth = 10;
     public int defense = 0;
@@ -15,10 +15,29 @@ public abstract class Unit : Entity
     [NonSerialized]
     public int health;
 
+    [NonSerialized]
     public bool isRooted = false;
 
-    private float lastBuffUpdateTime;
+    [NonSerialized]
+    public float flatMovespeedBonus = 0;
+    [NonSerialized]
+    public float highestSlowPercent = 0;
 
+    [NonSerialized]
+    public SlowDebuff highestSlowPercentBuff = null;
+
+    [NonSerialized]
+    public float baseMovespeed = 0;
+
+    public bool isImmovable = false;
+
+    private float lastBuffUpdateTime;
+    
+    public void CalculateSpeed()
+    {
+        speed = (baseMovespeed + flatMovespeedBonus) * (1 - highestSlowPercent);
+    }
+        
     public int CalculateDamage(float damage)
     {
         var finalDamage = damage;
@@ -62,13 +81,13 @@ public abstract class Unit : Entity
     {
         if (!isDead)
         {
-            if (buffs.ContainsKey(buff.buffID))
+            if (buffs.ContainsKey(buff.buffName))
             {
-                buffs[buff.buffID].endTime = Time.time + buff.duration;
+                buffs[buff.buffName].endTime = Time.time + buff.duration; //refreshing the duration
             }
             else
             {
-                buffs.Add(buff.buffID, buff);
+                buffs.Add(buff.buffName, buff);
                 buff.ActivateBuff(this);
             }
         }
@@ -85,7 +104,7 @@ public abstract class Unit : Entity
 
     public void CheckBuffs()
     {
-        List<int> buffsToRemove = new List<int>();
+        List<string> buffsToRemove = new List<string>();
 
         foreach(var pair in buffs)
         {

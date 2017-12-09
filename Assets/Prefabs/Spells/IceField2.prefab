@@ -139,8 +139,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 0
   particleOnHit: {fileID: 0}
-  buffOnHit: {fileID: 11400000, guid: c6cb5e333f526094e89b4eb115d20371, type: 2}
+  buffOnHit: {fileID: 11400000, guid: de189d07d57dbe14d9eed83d5071baec, type: 2}
   knockBackForce: 0
+  isDOT: 0
+  updateTime: 0.25
 --- !u!114 &114784822826728212
 MonoBehaviour:
   m_ObjectHideFlags: 1

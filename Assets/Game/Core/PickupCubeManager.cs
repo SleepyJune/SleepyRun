@@ -15,9 +15,13 @@ public class PickupCubeManager : MonoBehaviour
     [NonSerialized]
     public Transform pickupHolder;
 
+    [NonSerialized]
+    public Transform newSkillsHolder;
+
     void Start()
     {
         pickupHolder = (new GameObject("Pickup Holder")).transform;
+        newSkillsHolder = (new GameObject("Skills Holder")).transform;
     }
 
     public void SpawnPickup(Monster monster)
@@ -50,10 +54,10 @@ public class PickupCubeManager : MonoBehaviour
 
         while(skill == null)
         {
-            skill = skillDatabase.allSkills[Random.Range(0, numSkills - 1)];
+            skill = skillDatabase.allSkills[Random.Range(0, numSkills)];
         }        
 
-        Skill newSkill = Instantiate(skill); //create a new skill from prefab
+        Skill newSkill = Instantiate(skill, newSkillsHolder); //create a new skill from prefab
         newSkill.Initialize(owner);
 
         return newSkill;

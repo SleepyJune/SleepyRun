@@ -31,7 +31,7 @@ public class SpellSlotUI : MonoBehaviour
     {
         if(skill != null)
         {
-            Destroy(skill);
+            Destroy(skill.gameObject);
 
             slotImage.sprite = null;
             iconObject.SetActive(false);

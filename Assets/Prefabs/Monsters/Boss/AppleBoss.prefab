@@ -337,6 +337,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 250
   defense: 0
+  isImmovable: 1
   damage: 1
   startPosition: {x: 0, y: -0.5, z: 20}
 --- !u!135 &135124130039191500

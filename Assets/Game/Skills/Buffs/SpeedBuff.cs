@@ -18,8 +18,10 @@ public class SpeedBuff : Buff
 
     public override void ActivateBuff(Unit unit)
     {
-        this.unit = unit;        
-        unit.speed += buffObj.speedIncrease;
+        this.unit = unit;
+
+        unit.flatMovespeedBonus += buffObj.speedIncrease;
+        unit.CalculateSpeed();
 
         if (buffObj.effectTrailerPrefab)
         {
@@ -29,7 +31,8 @@ public class SpeedBuff : Buff
 
     public override void EndBuff()
     {
-        unit.speed -= buffObj.speedIncrease;
+        unit.flatMovespeedBonus -= buffObj.speedIncrease;
+        unit.CalculateSpeed();
 
         if (effectTrailer)
         {
