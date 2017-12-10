@@ -1,0 +1,46 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+
+using UnityEngine;
+using UnityEngine.UI;
+
+public class ScoreManager : MonoBehaviour
+{
+    [NonSerialized]
+    public int score = 0;
+
+    public Text scoreText;
+
+    [NonSerialized]
+    public ComboManager comboManager;
+
+    void Start()
+    {
+        comboManager = GetComponent<ComboManager>();
+    }
+
+    public void UpdateScoreText()
+    {
+        scoreText.text = score.ToString();
+    }
+
+    public void AddScoreOnHit()
+    {
+        score += comboManager.comboCount;
+        UpdateScoreText();
+    }
+
+    public void AddScoreOnMonsterKill(Monster monster)
+    {
+        score += monster.maxHealth;
+        UpdateScoreText();
+    }
+
+    public void AddScore(int amount)
+    {
+        score += amount;
+        UpdateScoreText();
+    }
+}

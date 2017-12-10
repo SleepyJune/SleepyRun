@@ -201,7 +201,7 @@ MonoBehaviour:
     m_Bits: 0
   particleOnHit: {fileID: 0}
   buffOnHit: {fileID: 0}
-  knockBackForce: 1
+  knockBackForce: 3
   maxDistance: 100
   wallCollision: 0
 --- !u!136 &136402574245587496

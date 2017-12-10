@@ -44,6 +44,8 @@ public class PickupCubeManager : MonoBehaviour
         var skill = GenerateRandomSkill(player);
 
         player.SetNewSkill(skill);
+
+        GameManager.instance.scoreManager.AddScore(20);
     }
 
     public Skill GenerateRandomSkill(Unit owner)

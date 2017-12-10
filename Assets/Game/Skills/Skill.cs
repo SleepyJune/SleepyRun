@@ -60,6 +60,7 @@ public abstract class Skill : MonoBehaviour
     {
         if (canUseSkill)
         {
+            GameManager.instance.scoreManager.AddScore(50);
             GameManager.instance.weaponManager.SwitchCombatUI(comabtUI);
         }
     }

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class StageEventManager : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class StageEventManager : MonoBehaviour
 
     public StageInfo currentStageInfo;
     public StageWave currentStageWave;
+
+    public Text waveNumberText;
 
     public int currentWaveCount = 0;
 
@@ -54,6 +57,8 @@ public class StageEventManager : MonoBehaviour
             currentStageWave = currentStageInfo.stageWaves[currentWaveCount];
             ResetStage();
 
+            waveNumberText.text = (currentWaveCount+1).ToString();
+            
             return false;
         }
         else

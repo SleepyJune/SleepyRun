@@ -30,7 +30,7 @@ public class ComboManager : MonoBehaviour
 
     float lastComboTime = 0;
 
-    public UIUnitFrame_Bar manaBarScript;
+    //public UIUnitFrame_Bar manaBarScript;
 
     class ComboInfo
     {
@@ -51,7 +51,7 @@ public class ComboManager : MonoBehaviour
 
     void Start()
     {
-        manaBarScript.SetMaxValue(maxEnergy);
+        //manaBarScript.SetMaxValue(maxEnergy);
     }
 
     void Update()
@@ -74,7 +74,7 @@ public class ComboManager : MonoBehaviour
         //var energy = Mathf.Lerp(energyBar.value, currentEnergy, 2 * Time.deltaTime);
         //energyBar.value = energy;
 
-        manaBarScript.SetValue(currentEnergy);
+        //manaBarScript.SetValue(currentEnergy);
 
         if (!charged && currentEnergy == maxEnergy)
         {

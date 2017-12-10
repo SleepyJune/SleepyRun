@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public PickupCubeManager spawnPickupManager;
     [NonSerialized]
     public StageEventManager stageEventManager;
+    [NonSerialized]
+    public ScoreManager scoreManager;
 
     public delegate void Callback();
     public event Callback onUpdate;
@@ -80,6 +82,7 @@ public class GameManager : MonoBehaviour
         damageTextManager = GetComponent<DamageTextController>();
         spawnPickupManager = GetComponent<PickupCubeManager>();
         stageEventManager = GetComponent<StageEventManager>();
+        scoreManager = GetComponent<ScoreManager>();
 
         gameStartTime = Time.time;
 

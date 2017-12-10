@@ -62,7 +62,7 @@ public class Monster : Unit
     {
         if (Time.time - timeSpawned < .25f)
         {
-            //invincible for 1 seconds at spawn
+            //invincible for .25 seconds at spawn
             return;
         }
 
@@ -73,6 +73,7 @@ public class Monster : Unit
             health = Mathf.Max(0, health - finalDamage);
 
             GameManager.instance.comboManager.IncreaseComboCount();
+            GameManager.instance.scoreManager.AddScoreOnHit();
 
             if (hitInfo.hitParticle)
             {
@@ -187,6 +188,7 @@ public class Monster : Unit
             isDead = true;
 
             GameManager.instance.monsterManager.AddKillCount(this);
+            GameManager.instance.scoreManager.AddScoreOnMonsterKill(this);
 
             GameManager.instance.spawnPickupManager.SpawnPickup(this);
 
