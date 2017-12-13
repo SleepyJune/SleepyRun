@@ -54,9 +54,7 @@ public class GameManager : MonoBehaviour
     public bool isBossFight = false;
 
     public float gameStartTime;
-
-    public int gamePoints = 0;
-
+    
     public bool isGamePaused = false;
     public bool isMovingToNextWave = false;
 
@@ -197,7 +195,7 @@ public class GameManager : MonoBehaviour
                 {
                     time = Time.time - gameStartTime,
                     monstersKilled = monsterManager.GetKillCount(),
-                    points = gamePoints
+                    points = scoreManager.score
                 };
 
                 SceneChanger.levelStats = stats;

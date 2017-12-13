@@ -36,7 +36,8 @@ public class FieldSpell : Spell
     void OnTriggerExit(Collider collider)
     {
         if (isDOT)
-        {
+        {         
+
             var unit = collider.gameObject.GetComponent<Unit>();
             if (unit != null)
             {

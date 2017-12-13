@@ -8,11 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 271e54019540b9649a7fec0483b0b82b, type: 3}
-  m_Name: SelfHeal
+  m_Script: {fileID: 11500000, guid: 2a052b8a4f414ce4d9173fc5615f6889, type: 3}
+  m_Name: InvincibilityBuff
   m_EditorClassIdentifier: 
   buffID: 0
-  buffName: SelfHeal
-  duration: 0
+  buffName: Invincibility
+  duration: 2
   continuousBuff: 0
-  healing: 10

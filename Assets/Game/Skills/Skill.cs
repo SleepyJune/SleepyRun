@@ -59,13 +59,19 @@ public abstract class Skill : MonoBehaviour
     public void UseSkill()
     {
         if (canUseSkill)
-        {
-            GameManager.instance.scoreManager.AddScore(50);
+        {            
             GameManager.instance.weaponManager.SwitchCombatUI(comabtUI);
         }
     }
 
-    public abstract void Cast(Vector3 startPos, Vector3 endPos, Unit target = null);
+    protected abstract void Cast(Vector3 startPos, Vector3 endPos, Unit target = null);
+
+    public void CastSpell(Vector3 startPos, Vector3 endPos, Unit target = null)
+    {
+        GameManager.instance.scoreManager.AddScore(50);
+
+        Cast(startPos, endPos, target);
+    }
 
     public void EndCast()
     {

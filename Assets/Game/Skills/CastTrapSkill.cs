@@ -9,7 +9,7 @@ public class CastTrapSkill : Skill
 {
     public Trap itemPrefab;
 
-    public override void Cast(Vector3 startPos, Vector3 endPos, Unit target = null)
+    protected override void Cast(Vector3 startPos, Vector3 endPos, Unit target = null)
     {
         var newTrap = GameObject.Instantiate(itemPrefab, endPos, Quaternion.identity);
         newTrap.source = owner;

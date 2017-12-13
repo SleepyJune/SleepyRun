@@ -18,7 +18,7 @@ public class AutoSpellUI : CombatUI
 
         var pos = GameManager.instance.player.transform.position + startPosition;
 
-        skill.Cast(pos, pos);
+        skill.CastSpell(pos, pos);
 
         GameManager.instance.weaponManager.EndUltimate();
     }

@@ -66,14 +66,14 @@ public class Monster : Unit
             return;
         }
 
-        if (!isDead)
+        if (!isDead && !isInvincible)
         {
             var finalDamage = CalculateDamage(hitInfo.damage);
 
             health = Mathf.Max(0, health - finalDamage);
 
             GameManager.instance.comboManager.IncreaseComboCount();
-            GameManager.instance.scoreManager.AddScoreOnHit();
+            GameManager.instance.scoreManager.AddScoreOnHit(hitInfo);
 
             if (hitInfo.hitParticle)
             {

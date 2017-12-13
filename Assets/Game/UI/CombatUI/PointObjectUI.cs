@@ -12,7 +12,7 @@ public class PointObjectUI : CombatUI
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
         pos = GetLanePostion(pos);
 
-        skill.Cast(pos, pos);
+        skill.CastSpell(pos, pos);
 
         //var newSpell = Instantiate(trap, pos, Quaternion.identity);        
     }

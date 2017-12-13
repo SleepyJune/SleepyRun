@@ -11,6 +11,6 @@ public class PointSpellUI : CombatUI
     {
         var pos = GameManager.instance.GetTouchPosition(touch.position, 1f);
 
-        skill.Cast(pos, pos);
+        skill.CastSpell(pos, pos);
     }
 }

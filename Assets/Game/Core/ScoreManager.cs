@@ -26,9 +26,9 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = score.ToString();
     }
 
-    public void AddScoreOnHit()
+    public void AddScoreOnHit(HitInfo hitInfo)
     {
-        score += comboManager.comboCount;
+        score += (int)Mathf.Max(1,Mathf.Round(comboManager.comboCount * hitInfo.damage / 100f));
         UpdateScoreText();
     }
 

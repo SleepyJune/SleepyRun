@@ -13,7 +13,7 @@ public class SelfBuffUI : CombatUI
 
         var pos = GameManager.instance.player.transform.position;
 
-        skill.Cast(pos, pos);
+        skill.CastSpell(pos, pos);
 
         //GameManager.instance.weaponManager.EndUltimate();
     }

@@ -9,7 +9,7 @@ public class CastSpellSkill : Skill
 {
     public Spell spellPrefab;
 
-    public override void Cast(Vector3 startPos, Vector3 endPos, Unit target = null)
+    protected override void Cast(Vector3 startPos, Vector3 endPos, Unit target = null)
     {
         var newSpell = GameObject.Instantiate(spellPrefab, endPos, Quaternion.identity);
         newSpell.source = owner;

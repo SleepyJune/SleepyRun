@@ -174,7 +174,7 @@ Prefab:
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
       propertyPath: maxHealth
-      value: 50
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
@@ -2696,7 +2696,7 @@ Animator:
   m_GameObject: {fileID: 672464190}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 22100000, guid: b324b60ca030dd4468f31739ab8e83a5, type: 2}
+  m_Controller: {fileID: 22100000, guid: c758316a55b30aa4e9de17218d7a072a, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -5095,7 +5095,6 @@ GameObject:
   - component: {fileID: 1444113428}
   - component: {fileID: 1444113427}
   - component: {fileID: 1444113426}
-  - component: {fileID: 1444113429}
   m_Layer: 5
   m_Name: Aggro
   m_TagString: Untagged
@@ -5131,7 +5130,7 @@ CanvasGroup:
   m_Alpha: 0
   m_Interactable: 0
   m_BlocksRaycasts: 0
-  m_IgnoreParentGroups: 0
+  m_IgnoreParentGroups: 1
 --- !u!114 &1444113427
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5165,22 +5164,6 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1444113424}
---- !u!111 &1444113429
-Animation:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1444113424}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations:
-  - {fileID: 0}
-  - {fileID: 7400000, guid: 70f017d949ca03c4a93b7fca7dc2c440, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!1 &1445705741
 GameObject:
   m_ObjectHideFlags: 0
@@ -5299,7 +5282,6 @@ MonoBehaviour:
   canvas: {fileID: 1045301372}
   isBossFight: 0
   gameStartTime: 0
-  gamePoints: 0
   isGamePaused: 0
   isMovingToNextWave: 0
   screenDPI: 0

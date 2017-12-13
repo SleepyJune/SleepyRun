@@ -64,17 +64,20 @@ public class Player : Unit
     {
         if (!GameManager.instance.isGameOver)
         {
-            health -= damage;
-
-            //Debug.Log("Take damage: " + damage);
-
-            if (health <= 0)
+            if (!isDead && !isInvincible)
             {
-                Death();
-            }
-            else
-            {                
-                anim.SetTrigger("isHurt");
+                health -= damage;
+
+                //Debug.Log("Take damage: " + damage);
+
+                if (health <= 0)
+                {
+                    Death();
+                }
+                else
+                {
+                    anim.SetTrigger("isHurt");
+                }
             }
         }
     }
@@ -120,6 +123,13 @@ public class Player : Unit
         }
     }
 
+    public void SetInvincibility(bool isPlayerInvincible)
+    {
+        isInvincible = isPlayerInvincible;
+
+        anim.SetBool("isInvincible", isInvincible);
+    }
+        
     void OnTriggerEnter(Collider collision)
     {
         if (isDead) return;
@@ -159,7 +169,7 @@ public class Player : Unit
 
         if (!isDead)
         {
-            base.CheckBuffs();
+            base.UnitUpdate();
 
             if (GameManager.instance.isMovingToNextWave)
             {

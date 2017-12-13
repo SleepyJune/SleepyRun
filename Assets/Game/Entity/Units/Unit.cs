@@ -31,6 +31,8 @@ public abstract class Unit : Entity
 
     public bool isImmovable = false;
 
+    public bool isInvincible = false;
+
     private float lastBuffUpdateTime;
     
     public void CalculateSpeed()
@@ -89,6 +91,11 @@ public abstract class Unit : Entity
             {
                 buffs.Add(buff.buffName, buff);
                 buff.ActivateBuff(this);
+
+                if(buff.duration == 0)
+                {
+                    buff.EndBuff();
+                }
             }
         }
     }
