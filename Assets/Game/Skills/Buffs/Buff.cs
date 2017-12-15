@@ -9,8 +9,7 @@ public abstract class Buff
 {
     public float startTime;
     public float endTime;
-
-    public int buffID;
+    
     public string buffName;
     public float duration = 5;
 
@@ -22,15 +21,13 @@ public abstract class Buff
     public Buff(Unit source, BuffObject buffObj, float duration)
     {
         this.source = source;
-
-        buffID = buffObj.buffID;
+        
         buffName = buffObj.buffName;
         duration = buffObj.duration;
         continuousBuff = buffObj.continuousBuff;
         
         startTime = Time.time;
         endTime = Time.time + duration;
-
     }
 
     public bool hasEnded

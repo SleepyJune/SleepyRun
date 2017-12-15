@@ -120,6 +120,17 @@ public static class HelperExtensions
         }
     }
 
+    public static Unit GetUnit(this Collider collider)
+    {
+        var unit = collider.gameObject.GetComponent<Unit>();
+        if (unit != null && unit.canTakeDamage)
+        {
+            return unit;
+        }
+
+        return null;
+    }
+
     public static Monster GetMonster(this Collider collider)
     {
         if (collider.gameObject.layer == LayerConstants.monsterLayer)

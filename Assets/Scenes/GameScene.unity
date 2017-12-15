@@ -2794,7 +2794,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_TargetTransform: {fileID: 936004976}
   m_MaxValue: 2500
-  m_CurValue: 510
+  m_CurValue: 1000
   m_MinWidth: 41
   m_MaxWidth: 506
   m_CurValueText: {fileID: 2045252925}
@@ -3089,7 +3089,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 26, y: -26}
-  m_SizeDelta: {x: 136, y: 52}
+  m_SizeDelta: {x: 227, y: 52}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &936004977
 MonoBehaviour:
@@ -7444,7 +7444,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 510
+  m_Text: 1000
 --- !u!222 &2045252926
 CanvasRenderer:
   m_ObjectHideFlags: 0

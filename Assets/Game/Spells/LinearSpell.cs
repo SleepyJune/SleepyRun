@@ -62,29 +62,15 @@ public class LinearSpell : Spell
             return;
         }
 
-        if (gameObject.layer == LayerConstants.playerSpellLayer)
+        var unit = collision.GetUnit();
+        if (unit != null)
         {
-            var monster = collision.GetMonster();
-            if (monster != null)
-            {
-                var dir = (transform.position - start);
-                dir.y = .15f;
+            var dir = (transform.position - start);
+            dir.y = .15f;
 
-                var force = dir * 100;
+            var force = dir * 100;
 
-                monster.TakeDamage(InitializeHitInfo(monster, start, transform.position, force));
-
-                //isDead = true;
-                //Destroy(transform.gameObject);
-            }
-        }
-        else
-        {
-            var player = collision.GetPlayer();
-            if (player != null)
-            {
-                player.TakeDamage(damage);
-            }
+            unit.TakeDamage(InitializeHitInfo(unit, start, transform.position, force));
         }
     }
 

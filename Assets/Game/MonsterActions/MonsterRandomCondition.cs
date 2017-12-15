@@ -10,7 +10,7 @@ public class MonsterRandomCondition : MonsterCondition
 
     public override void Initialize()
     {
-        monster.OnMonsterUpdate += CheckCondition;
+        monster.OnUnitUpdate += CheckCondition;
     }
 
     public override void CheckCondition()
@@ -20,6 +20,6 @@ public class MonsterRandomCondition : MonsterCondition
 
     public override void Destroy()
     {
-        monster.OnMonsterUpdate -= CheckCondition;
+        monster.OnUnitUpdate -= CheckCondition;
     }
 }

@@ -11,7 +11,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 617bf59d5ea74f9478b65469c380a601, type: 3}
   m_Name: AppleIncreaseHealth Buff
   m_EditorClassIdentifier: 
-  buffID: 0
   buffName: AppleIncreaseHealth
   duration: 0
   continuousBuff: 0

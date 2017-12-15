@@ -11,6 +11,7 @@ public abstract class Unit : Entity
 
     public int maxHealth = 10;
     public int defense = 0;
+    public int shield = 0;
     
     [NonSerialized]
     public int health;
@@ -34,10 +35,120 @@ public abstract class Unit : Entity
     public bool isInvincible = false;
 
     private float lastBuffUpdateTime;
-    
+
+    public int damage = 1;
+
+    [NonSerialized]
+    public int baseDamage = 1;
+    [NonSerialized]
+    public int bonusDamage = 0;
+    [NonSerialized]
+    public float damageMultiplier = 0;
+
+    public delegate void TakeDamageHandler(HitInfo hitInfo, int finalDamage);
+    public event TakeDamageHandler OnTakeDamage;
+
+    public delegate void OnDeathHandler(HitInfo hitInfo);
+    public event OnDeathHandler OnDeath;
+
+    public delegate void Callback();
+    public event Callback OnUnitUpdate;
+
+    public abstract void TakeDamage(HitInfo hitInfo);
+
+    protected virtual void OnTakeDamageEvent(HitInfo hitInfo, int finalDamage)
+    {
+        var evenHandler = OnTakeDamage;
+        if(evenHandler != null)
+        {
+            evenHandler(hitInfo, finalDamage);
+        }
+    }
+
+    protected virtual void OnUnitUpdateEvent()
+    {
+        var evenHandler = OnUnitUpdate;
+        if (evenHandler != null)
+        {
+            evenHandler();
+        }
+    }
+
+    protected virtual void OnDeathEvent(HitInfo hitInfo)
+    {
+        var evenHandler = OnDeath;
+        if (evenHandler != null)
+        {
+            evenHandler(hitInfo);
+        }
+    }
+
+    public bool canTakeDamage
+    {
+        get
+        {
+            return !isDead && !isInvincible && !GameManager.instance.isGameOver;
+        }
+    }
+
+    public virtual int UnitTakeDamage(HitInfo hitInfo)
+    {
+        var finalDamage = CalculateDamage(hitInfo.damage);
+
+        if (finalDamage > 0)
+        {
+            foreach (var buff in buffs.Values)
+            {
+                if (buff != null && !buff.hasEnded && buff is ShieldBuff)
+                {
+                    var shieldBuff = buff as ShieldBuff;
+
+                    finalDamage = shieldBuff.ShieldTakeDamage(finalDamage);
+
+                    if(finalDamage == 0)
+                    {
+                        break; //no need to keep looping
+                    }
+                }
+            }
+        }
+
+        health = Mathf.Max(0, health - finalDamage);
+
+        GameManager.instance.comboManager.IncreaseComboCount();
+        GameManager.instance.scoreManager.AddScoreOnHit(hitInfo);
+
+        if (hitInfo.hitParticle)
+        {
+            Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);
+        }
+
+        if (hitInfo.buffOnHit)
+        {
+            InitializeBuff(hitInfo.source, hitInfo.buffOnHit);
+        }
+
+        if (finalDamage > 0)
+        {
+            OnTakeDamageEvent(hitInfo, finalDamage);
+
+            if(health > 0 && this is Monster)
+            {
+                GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage.ToString(), DamageTextType.Physical);
+            }
+        }
+
+        return finalDamage;
+    }
+
     public void CalculateSpeed()
     {
         speed = (baseMovespeed + flatMovespeedBonus) * (1 - highestSlowPercent);
+    }
+
+    public void CalculateTotalDamage()
+    {
+        damage = (int)Math.Round((baseDamage + bonusDamage) * (1 + damageMultiplier));
     }
         
     public int CalculateDamage(float damage)

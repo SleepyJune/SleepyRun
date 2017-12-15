@@ -9,34 +9,20 @@ public class CircularSpell : Spell
 
     void DamageMonsters(Vector3 hitPos)
     {
-        var monsterObjects = Physics.OverlapSphere(hitPos, radius, collisionMask);
-        foreach (var monsterObject in monsterObjects)
+        var unitObjects = Physics.OverlapSphere(hitPos, radius, collisionMask);
+        foreach (var unitObject in unitObjects)
         {
-            if (monsterObject.gameObject.layer == LayerConstants.monsterLayer)
+            var unit = unitObject.GetComponent<Unit>();
+            if (unit != null && unit.canTakeDamage)
             {
-                var monster = monsterObject.GetComponent<Monster>();
-                if (monster)
-                {
-                    var monsterPos = monster.transform.position;
+                var unitPos = unit.transform.position;
 
-                    var dir = (monsterPos - hitPos).normalized;
-                    //var dir = Vector3.Cross(hitPos, monsterPos).normalized;
-                    //dir = transform.rotation * dir;
+                var dir = (unitPos - hitPos).normalized;
+                dir.y = .15f;
 
-                    dir.y = .15f;
+                var force = dir * 1000;
 
-                    var force = dir * 1000;
-                    
-                    monster.TakeDamage(InitializeHitInfo(monster, hitPos, monsterPos, force));
-                }
-            }
-            else if (monsterObject.gameObject.layer == LayerConstants.playerLayer)
-            {
-                var player = monsterObject.GetComponent<Player>();
-                if (player)
-                {
-                    player.TakeDamage(damage);
-                }
+                unit.TakeDamage(InitializeHitInfo(unit, hitPos, unitPos, force));
             }
         }
     }

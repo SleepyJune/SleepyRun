@@ -12,7 +12,7 @@ public class MonsterFixedTimingCondition : MonsterCondition
 
     public override void Initialize()
     {
-        monster.OnMonsterUpdate += CheckCondition;
+        monster.OnUnitUpdate += CheckCondition;
         nextActiveTime = Time.time + frequency;
     }
 
@@ -31,6 +31,6 @@ public class MonsterFixedTimingCondition : MonsterCondition
 
     public override void Destroy()
     {
-        monster.OnMonsterUpdate -= CheckCondition;
+        monster.OnUnitUpdate -= CheckCondition;
     }
 }

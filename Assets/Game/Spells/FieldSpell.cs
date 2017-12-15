@@ -66,28 +66,16 @@ public class FieldSpell : Spell
     void ApplyDamage(Unit unit, float previousTime)
     {
         if (isDead) return;
-                
+
         //if (Time.time - previousTime < .25f) return;
         //affectedUnits[unit] = Time.time;
-
-        if (gameObject.layer == LayerConstants.playerSpellLayer)
+        
+        if (unit != null && unit.canTakeDamage)
         {
-            var monster = unit as Monster;
-            if (monster != null)
-            {
-                var force = Vector3.zero;
-                var monsterPos = monster.transform.position;
+            var force = Vector3.zero;
+            var monsterPos = unit.transform.position;
 
-                monster.TakeDamage(InitializeHitInfo(monster, monsterPos, monsterPos, force));
-            }
-        }
-        else
-        {
-            var player = unit as Player;
-            if (player != null)
-            {
-                player.TakeDamage(damage);
-            }
+            unit.TakeDamage(InitializeHitInfo(unit, monsterPos, monsterPos, force));
         }
     }
 

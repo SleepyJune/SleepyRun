@@ -8,8 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4e4805c60fc82e4fa20e89e72979d0e, type: 3}
-  m_Name: SkillDatabase
+  m_Script: {fileID: 11500000, guid: 56706f6d7dbc7e74b87b1d8b9cbf0ba8, type: 3}
+  m_Name: ShieldBuff
   m_EditorClassIdentifier: 
-  allSkills:
-  - {fileID: 114917425911639244, guid: 6b5b5e558c70a4d479d4ec64251eefce, type: 2}
+  buffName: ShieldBuff
+  duration: 5
+  continuousBuff: 0
+  shieldAmount: 100

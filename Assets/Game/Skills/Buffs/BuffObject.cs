@@ -7,7 +7,6 @@ using UnityEngine;
 
 public abstract class BuffObject : ScriptableObject
 {
-    public int buffID;
     public string buffName;
     public float duration;
 

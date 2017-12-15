@@ -18,7 +18,7 @@ public class MonsterOnDeathCondition : MonsterCondition
 
     }
 
-    public void SetTrue()
+    public void SetTrue(HitInfo hitInfo)
     {
         isSatisfied = true;
 

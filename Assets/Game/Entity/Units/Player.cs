@@ -60,16 +60,16 @@ public class Player : Unit
         }
     }
     
-    public void TakeDamage(int damage)
+    public override void TakeDamage(HitInfo hitInfo)
     {
-        if (!GameManager.instance.isGameOver)
+        if (canTakeDamage)
         {
-            if (!isDead && !isInvincible)
+            var damageReceived = UnitTakeDamage(hitInfo);
+
+            //Debug.Log("Take damage: " + damage);
+
+            if (damageReceived > 0)
             {
-                health -= damage;
-
-                //Debug.Log("Take damage: " + damage);
-
                 if (health <= 0)
                 {
                     Death();

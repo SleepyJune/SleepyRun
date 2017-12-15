@@ -2,19 +2,12 @@
 using UnityEngine;
 
 public class Monster : Unit
-{
-    public int damage = 1;
-
+{    
     MonsterShatter shatterScript;
     
     [NonSerialized]
     public new Rigidbody rigidbody;
-
-    public delegate void Callback();
-    public event Callback OnTakeDamage;
-    public event Callback OnMonsterUpdate;
-    public event Callback OnDeath;
-
+        
     [NonSerialized]
     public float timeSpawned;
 
@@ -30,6 +23,7 @@ public class Monster : Unit
         name = name.Replace("(Clone)", "");
 
         baseMovespeed = speed;
+        baseDamage = damage;
 
         timeSpawned = Time.time;
     }
@@ -52,13 +46,10 @@ public class Monster : Unit
             }
         }
 
-        if (OnMonsterUpdate != null)
-        {
-            OnMonsterUpdate();
-        }
+        OnUnitUpdateEvent();
     }
 
-    public virtual void TakeDamage(HitInfo hitInfo)
+    public override void TakeDamage(HitInfo hitInfo)
     {
         if (Time.time - timeSpawned < .25f)
         {
@@ -66,29 +57,9 @@ public class Monster : Unit
             return;
         }
 
-        if (!isDead && !isInvincible)
+        if (canTakeDamage)
         {
-            var finalDamage = CalculateDamage(hitInfo.damage);
-
-            health = Mathf.Max(0, health - finalDamage);
-
-            GameManager.instance.comboManager.IncreaseComboCount();
-            GameManager.instance.scoreManager.AddScoreOnHit(hitInfo);
-
-            if (hitInfo.hitParticle)
-            {
-                Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);
-            }
-
-            if (hitInfo.buffOnHit)
-            {
-                InitializeBuff(hitInfo.source, hitInfo.buffOnHit);
-            }
-
-            if (finalDamage > 0 && OnTakeDamage != null)
-            {
-                OnTakeDamage();
-            }
+            UnitTakeDamage(hitInfo);
                         
             if (health == 0)
             {
@@ -102,12 +73,7 @@ public class Monster : Unit
                     //rigidbody.AddForce(knockBackForce);
 
                     transform.position += knockBackForce;
-                }
-
-                if (finalDamage > 0)
-                {
-                    GameManager.instance.damageTextManager.CreateDamageText(this, finalDamage.ToString(), DamageTextType.Physical);
-                }
+                }                
             }
         }
     }
@@ -142,7 +108,19 @@ public class Monster : Unit
         {
             GameManager.instance.comboManager.BreakCombo();
 
-            GameManager.instance.player.TakeDamage(damage);
+            GameManager.instance.player.TakeDamage(
+            new HitInfo
+            {
+                source = this,
+                target = GameManager.instance.player,
+                //hitStart = hitStart,
+                //hitEnd = hitEnd,
+                //force = force,
+                damage = damage,
+                //knockBackForce = knockBackForce,
+                //hitParticle = particleOnHit,
+                //buffOnHit = buffOnHit,
+            });
 
             var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
             if (monsterDeathParticle)
@@ -180,10 +158,7 @@ public class Monster : Unit
     {
         if (!isDead)
         {
-            if (OnDeath != null)
-            {
-                OnDeath();
-            }
+            OnDeathEvent(hitInfo);
 
             isDead = true;
 
