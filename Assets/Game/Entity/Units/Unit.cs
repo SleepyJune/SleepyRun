@@ -194,9 +194,9 @@ public abstract class Unit : Entity
     {
         if (!isDead)
         {
-            if (buffs.ContainsKey(buff.buffName))
+            if (buffs.ContainsKey(buff.buffName)) //what if buff has ended
             {
-                buffs[buff.buffName].endTime = Time.time + buff.duration; //refreshing the duration
+                buffs[buff.buffName].endTime = Time.time + buff.duration; //refreshing the duration                
             }
             else
             {
@@ -227,8 +227,8 @@ public abstract class Unit : Entity
         foreach(var pair in buffs)
         {
             var buff = pair.Value;
-
-            if (buff.hasEnded)
+                        
+            if (buff.hasEnded || (buff.endsOnOwnerDeath && buff.source == null))
             {
                 buff.EndBuff();
                 buffsToRemove.Add(pair.Key);

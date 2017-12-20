@@ -19,9 +19,9 @@ public class CameraFollow : MonoBehaviour
         transform.SetParent(target, false);
     }
 
-    void Update()
+    void LateUpdate()
     {
-        //transform.position = new Vector3(0, transform.position.y, transform.position.z);
+        transform.position = new Vector3(0, transform.position.y, transform.position.z);
     }
 
     /*void FixedUpdate()

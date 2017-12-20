@@ -17,6 +17,7 @@ public abstract class Buff
     public Unit unit;
 
     public bool continuousBuff;
+    public bool endsOnOwnerDeath;
 
     public Buff(Unit source, BuffObject buffObj, float duration)
     {
@@ -25,7 +26,8 @@ public abstract class Buff
         buffName = buffObj.buffName;
         duration = buffObj.duration;
         continuousBuff = buffObj.continuousBuff;
-        
+        endsOnOwnerDeath = buffObj.endsOnOwnerDeath;
+
         startTime = Time.time;
         endTime = Time.time + duration;
     }

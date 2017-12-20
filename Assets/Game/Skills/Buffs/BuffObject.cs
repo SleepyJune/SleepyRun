@@ -11,6 +11,7 @@ public abstract class BuffObject : ScriptableObject
     public float duration;
 
     public bool continuousBuff = false;
+    public bool endsOnOwnerDeath = false;
 
     public abstract Buff Initialize(Unit source);
 }

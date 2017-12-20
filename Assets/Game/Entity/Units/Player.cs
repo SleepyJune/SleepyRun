@@ -10,10 +10,13 @@ public class Player : Unit
     public bool isBossFight = false;
 
     public Lane destinationLane = Lane.mid;
+    [System.NonSerialized]
+    public Lane currentLane = Lane.mid;
     
     public UIUnitFrame_Bar healthBarScript;
 
     public WeaponButton playerPortrait;
+    public Transform playerPortraitTransform;
 
     [System.NonSerialized]
     public Skill[] skills = new Skill[3];
@@ -33,6 +36,17 @@ public class Player : Unit
 
         healthBarScript.SetValue(health);
         healthBarScript.SetMaxValue(maxHealth);
+
+        var lanePositions = playerPortraitTransform.Find("LanePositions");
+        var right = lanePositions.Find("Right");
+        var mid = lanePositions.Find("Mid");
+        var left = lanePositions.Find("Left");
+
+        laneVectors[Lane.right] = new Vector3(laneVectors[Lane.right].x, 0, right.position.x);
+        laneVectors[Lane.mid] = new Vector3(laneVectors[Lane.mid].x, 0, mid.position.x);
+        laneVectors[Lane.left] = new Vector3(laneVectors[Lane.left].x, 0, left.position.x);
+
+        Destroy(lanePositions.gameObject);
 
         /*for(int i = 0; i < skillSet.Length; i++)
         {
@@ -190,13 +204,27 @@ public class Player : Unit
             if (xDiff != 0)
             {
                 Vector3 currentPosition = transform.position;
+                Vector3 portraitPosition = playerPortraitTransform.position;
 
                 if (Mathf.Abs(xDiff) < 0.05)
                 {
+                    Debug.Log(playerPortraitTransform.position);
                     transform.position = new Vector3(destinationVector.x, transform.position.y, transform.position.z);
+                    playerPortraitTransform.position = new Vector3(destinationVector.z, portraitPosition.y, portraitPosition.z);
+                    currentLane = destinationLane;
+
                 }
                 else
                 {
+                    var totalLaneVector = laneVectors[Lane.right] - laneVectors[Lane.left];
+
+                    var movementCompletionPercent = (currentPosition.x - laneVectors[Lane.left].x)/ totalLaneVector.x;
+                    var portraitXPos = movementCompletionPercent * totalLaneVector.z + laneVectors[Lane.left].z;
+
+                    
+
+                    playerPortraitTransform.position = new Vector3(portraitXPos, portraitPosition.y, portraitPosition.z);
+
                     currentPosition.x += Mathf.Sign(xDiff) * speed * Time.deltaTime * .5f;
                     transform.position = currentPosition;
                 }
