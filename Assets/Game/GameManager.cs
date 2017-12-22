@@ -60,6 +60,9 @@ public class GameManager : MonoBehaviour
 
     public float screenDPI;
 
+    [NonSerialized]
+    public bool isSurvivalMode = false;
+
     void Awake()
     {
         if (instance == null)

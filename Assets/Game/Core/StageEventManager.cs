@@ -14,11 +14,16 @@ public class StageEventManager : MonoBehaviour
     public StageWave currentStageWave;
 
     public Text waveNumberText;
-
+        
+    public int currentStageCount = 0;
     public int currentWaveCount = 0;
+
+    public bool isSurvivalMode = false;
 
     void Start()
     {
+        GameManager.instance.isSurvivalMode = isSurvivalMode;
+
         currentStageInfo = SceneChanger.currentStageInfo;
 
         if (currentStageInfo == null)
@@ -36,6 +41,7 @@ public class StageEventManager : MonoBehaviour
 
         if (currentStageInfo != null)
         {
+            currentStageCount = currentStageInfo.stageId;
             currentStageWave = currentStageInfo.stageWaves[0];
             ResetStage();
         }
@@ -63,7 +69,36 @@ public class StageEventManager : MonoBehaviour
         }
         else
         {
-            return true; //Game Over on Level Completion
+            if (isSurvivalMode)
+            {
+                if(currentStageCount >= stageInfoDatabase.databaseArray.Length)
+                {
+                    return true; //completed the game
+                }
+                else
+                {
+                    currentStageInfo = stageInfoDatabase.databaseArray[currentStageCount];
+
+                    if (currentStageInfo != null)
+                    {
+                        currentStageCount = currentStageInfo.stageId;
+                        currentStageWave = currentStageInfo.stageWaves[0];
+                        ResetStage();
+
+                        waveNumberText.text = (currentWaveCount + 1).ToString();
+
+                        return false;
+                    }
+                    else
+                    {
+                        return true; //sth broke
+                    }
+                }
+            }
+            else
+            {
+                return true; //Game Over on Level Completion
+            }
         }        
     }
 

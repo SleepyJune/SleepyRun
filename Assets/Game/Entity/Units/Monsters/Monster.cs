@@ -11,17 +11,17 @@ public class Monster : Unit
     [NonSerialized]
     public float timeSpawned;
 
+    public BuffObject buffOnHit;
+
     void Awake()
-    {
-        id = GameManager.instance.GenerateEntityId();
-        
+    {        
         shatterScript = GetComponent<MonsterShatter>();
         rigidbody = GetComponent<Rigidbody>();
-
-        health = maxHealth;
-
+        
+        id = GameManager.instance.GenerateEntityId();
         name = name.Replace("(Clone)", "");
 
+        health = maxHealth;
         baseMovespeed = speed;
         baseDamage = damage;
 
@@ -119,7 +119,7 @@ public class Monster : Unit
                 damage = damage,
                 //knockBackForce = knockBackForce,
                 //hitParticle = particleOnHit,
-                //buffOnHit = buffOnHit,
+                buffOnHit = buffOnHit,
             });
 
             var monsterDeathParticle = GetComponent<MonsterDeathParticle>();

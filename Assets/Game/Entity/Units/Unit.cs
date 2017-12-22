@@ -20,6 +20,9 @@ public abstract class Unit : Entity
     public bool isRooted = false;
 
     [NonSerialized]
+    public bool isBlind = false;
+
+    [NonSerialized]
     public float flatMovespeedBonus = 0;
     [NonSerialized]
     public float highestSlowPercent = 0;

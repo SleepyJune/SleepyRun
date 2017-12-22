@@ -114,6 +114,7 @@ GameObject:
   - component: {fileID: 135561116997277430}
   - component: {fileID: 114053471282913358}
   - component: {fileID: 114518440861811656}
+  - component: {fileID: 114139130350803212}
   m_Layer: 8
   m_Name: Durian
   m_TagString: Untagged
@@ -485,11 +486,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabID: 0
-  speed: 0
+  speed: 4
   anim: {fileID: 0}
   maxHealth: 3
   defense: 25
+  shield: 0
+  isImmovable: 0
+  isInvincible: 0
   damage: 30
+--- !u!114 &114139130350803212
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225522463076946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionInfo: {fileID: 114718202498871026, guid: 3967d6e44d6c55d4f89f25d6d2d2be50,
+    type: 2}
 --- !u!114 &114518440861811656
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -23,6 +23,8 @@ public class Player : Unit
 
     public SpellSlotUI[] spellSlots = new SpellSlotUI[3];
 
+    public Animation blindAnimation;
+
     Dictionary<Lane, Vector3> laneVectors = new Dictionary<Lane, Vector3>()
     {
         { Lane.right, new Vector3(1.5f,0,0) },
@@ -106,6 +108,18 @@ public class Player : Unit
             {
                 health = maxHealth;
             }
+        }
+    }
+
+    public void ToggleBlindStatus()
+    {
+        if (isBlind)
+        {
+            blindAnimation.Play("ShadowBlind");
+        }
+        else
+        {
+            blindAnimation.Play("ShadowUnblind");
         }
     }
 
@@ -208,11 +222,9 @@ public class Player : Unit
 
                 if (Mathf.Abs(xDiff) < 0.05)
                 {
-                    Debug.Log(playerPortraitTransform.position);
                     transform.position = new Vector3(destinationVector.x, transform.position.y, transform.position.z);
                     playerPortraitTransform.position = new Vector3(destinationVector.z, portraitPosition.y, portraitPosition.z);
                     currentLane = destinationLane;
-
                 }
                 else
                 {
@@ -220,9 +232,7 @@ public class Player : Unit
 
                     var movementCompletionPercent = (currentPosition.x - laneVectors[Lane.left].x)/ totalLaneVector.x;
                     var portraitXPos = movementCompletionPercent * totalLaneVector.z + laneVectors[Lane.left].z;
-
                     
-
                     playerPortraitTransform.position = new Vector3(portraitXPos, portraitPosition.y, portraitPosition.z);
 
                     currentPosition.x += Mathf.Sign(xDiff) * speed * Time.deltaTime * .5f;

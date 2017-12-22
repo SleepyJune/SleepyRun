@@ -8,6 +8,7 @@ using UnityEngine;
 public class GameSceneSettings : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
+    public CanvasGroup settingsWindowCanvasGroup;
 
     public void ToggleSettingMenu()
     {
@@ -27,6 +28,37 @@ public class GameSceneSettings : MonoBehaviour
             canvasGroup.interactable = false;
             canvasGroup.blocksRaycasts = false;
         }
+    }
+
+    public void ToggleSettingsWindow()
+    {
+        if (settingsWindowCanvasGroup.alpha == 0)
+        {
+            GameManager.instance.PauseGame();
+
+            settingsWindowCanvasGroup.alpha = 1;
+            settingsWindowCanvasGroup.interactable = true;
+            settingsWindowCanvasGroup.blocksRaycasts = true;
+        }
+        else
+        {
+            GameManager.instance.ResumeGame();
+
+            settingsWindowCanvasGroup.alpha = 0;
+            settingsWindowCanvasGroup.interactable = false;
+            settingsWindowCanvasGroup.blocksRaycasts = false;
+        }
+    }
+
+    public void OpenSettingsWindow()
+    {
+        ToggleSettingMenu();
+        ToggleSettingsWindow();
+    }
+
+    public void CloseSettingsWindow()
+    {
+        ToggleSettingsWindow();
     }
 
     public void ExitLevel()
