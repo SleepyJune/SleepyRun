@@ -307,9 +307,13 @@ MonoBehaviour:
   prefabID: 0
   speed: 10
   anim: {fileID: 95174302885744688}
-  maxHealth: 10
-  defense: 0
+  maxHealth: 5
+  defense: 88
+  shield: 0
+  isImmovable: 0
+  isInvincible: 0
   damage: 100
+  buffOnHit: {fileID: 0}
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

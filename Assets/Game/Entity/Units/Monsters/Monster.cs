@@ -34,7 +34,7 @@ public class Monster : Unit
         {
             base.UnitUpdate();
                         
-            if (speed != 0 && !isRooted)
+            if (speed != 0 && !isRooted && !isImmovable)
             {
                 //var dir = new Vector3(0, 0, 1);
                 transform.position -= Vector3.forward * speed * Time.deltaTime;

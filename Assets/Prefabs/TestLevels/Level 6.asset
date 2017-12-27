@@ -1,0 +1,78 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 885dea3f2f4ba1442970a6853a6aad76, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  stageId: 6
+  stageName: Level 6
+  stageWaves:
+  - {fileID: 114590545175523380}
+--- !u!114 &114244827278273678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
+  m_Name: GameOverOnKillCountEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
+  killCount: 50
+  victory: 1
+--- !u!114 &114403830276105772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  maxOnScreen: 999
+  spawnFrequency: 1
+--- !u!114 &114494534943716432
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  maxOnScreen: 999
+  spawnFrequency: 1
+--- !u!114 &114590545175523380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2db11f28959c714f976e59cef30951e, type: 3}
+  m_Name: Wave 1
+  m_EditorClassIdentifier: 
+  stageEvents:
+  - {fileID: 114244827278273678}
+  - {fileID: 114494534943716432}
+  - {fileID: 114403830276105772}

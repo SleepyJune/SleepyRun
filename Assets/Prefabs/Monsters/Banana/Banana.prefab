@@ -475,7 +475,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
+  shield: 0
+  isImmovable: 1
+  isInvincible: 0
   damage: 1
+  buffOnHit: {fileID: 0}
 --- !u!114 &114878152614800402
 MonoBehaviour:
   m_ObjectHideFlags: 1
