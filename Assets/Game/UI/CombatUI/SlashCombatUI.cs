@@ -12,12 +12,16 @@ public class SlashCombatUI : CombatUI
     public LineRenderer linePrefab;
     float currentLineLength = 0;
     //public GameObject testObject;
+
+    Player player;
             
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
 
         slashes = new Dictionary<int, SlashInfo>();
+
+        player = GameManager.instance.player;
     }
 
     public override void OnTouchStart(Touch touch)
@@ -229,6 +233,8 @@ public class SlashCombatUI : CombatUI
 
                     HitInfo hitInfo = new HitInfo
                     {
+                        hitType = HitType.Physical,
+                        source = player,
                         hitStart = v1,
                         hitEnd = v2,
                         force = force,

@@ -12,7 +12,7 @@ public class MonsterCastSpell : MonsterAction
     public override bool Execute()
     {
         var newSpell = Instantiate(spell, monster.transform.position, monster.transform.rotation);
-        newSpell.GetComponent<Spell>().source = monster;
+        newSpell.source = monster;
 
         return true;
     }

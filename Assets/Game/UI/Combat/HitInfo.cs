@@ -5,8 +5,16 @@ using System.Text;
 
 using UnityEngine;
 
+public enum HitType
+{
+    Physical,
+    Spell
+}
+
 public class HitInfo
 {
+    public HitType hitType;
+
     public Unit source;
     public Unit target;
 

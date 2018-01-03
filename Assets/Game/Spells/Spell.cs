@@ -15,6 +15,8 @@ public abstract class Spell : Entity
 
     public float radius = 1;
 
+    public HitType hitType = HitType.Spell;
+
     public LayerMask collisionMask;
 
     public GameObject particleOnHit;
@@ -53,6 +55,7 @@ public abstract class Spell : Entity
     {
         HitInfo newHitInfo = new HitInfo
         {
+            hitType = hitType,
             source = source,
             target = target,
             hitStart = hitStart,

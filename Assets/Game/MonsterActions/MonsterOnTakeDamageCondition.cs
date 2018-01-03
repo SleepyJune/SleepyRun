@@ -8,6 +8,8 @@ public class MonsterOnTakeDamageCondition : MonsterCondition
 {
     public int conditionRepeats = 0;
 
+    public HitType hitType = HitType.Physical;
+
     public override void Initialize()
     {
         monster.OnTakeDamage += SetTrue;
@@ -20,6 +22,12 @@ public class MonsterOnTakeDamageCondition : MonsterCondition
 
     public void SetTrue(HitInfo hitInfo, int finalDamage)
     {
+
+        if(hitInfo.hitType != hitType)
+        {
+            return;
+        }
+
         isSatisfied = true;
 
         var isExecuted = conditionCollection.CheckAndReact();

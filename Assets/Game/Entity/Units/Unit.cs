@@ -117,10 +117,7 @@ public abstract class Unit : Entity
         }
 
         health = Mathf.Max(0, health - finalDamage);
-
-        GameManager.instance.comboManager.IncreaseComboCount();
-        GameManager.instance.scoreManager.AddScoreOnHit(hitInfo);
-
+                
         if (hitInfo.hitParticle)
         {
             Instantiate(hitInfo.hitParticle, transform.position, transform.rotation);

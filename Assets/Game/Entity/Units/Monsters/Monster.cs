@@ -61,6 +61,12 @@ public class Monster : Unit
         {
             UnitTakeDamage(hitInfo);
                         
+            if(hitInfo.damage > 0 && hitInfo.source == GameManager.instance.player)
+            {
+                GameManager.instance.comboManager.IncreaseComboCount();
+                GameManager.instance.scoreManager.AddScoreOnHit(hitInfo);
+            }
+
             if (health == 0)
             {
                 Death(hitInfo);
