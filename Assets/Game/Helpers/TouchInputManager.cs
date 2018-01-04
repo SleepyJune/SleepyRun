@@ -48,6 +48,8 @@ public class TouchInputManager : MonoBehaviour
 
     bool CheckClickableObjects(Touch touchData)
     {
+        return false;
+
         Ray ray = Camera.main.ScreenPointToRay(touchData.position);
 
         RaycastHit hit;

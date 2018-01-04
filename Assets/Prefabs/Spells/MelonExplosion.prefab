@@ -97,11 +97,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabID: 0
   speed: 1
-  damage: 100
+  damage: 150
   radius: 3.5
+  hitType: 1
   collisionMask:
     serializedVersion: 2
     m_Bits: 256
+  particleOnHit: {fileID: 0}
+  buffOnHit: {fileID: 0}
+  knockBackForce: 0
 --- !u!198 &198087363972599996
 ParticleSystem:
   m_ObjectHideFlags: 1

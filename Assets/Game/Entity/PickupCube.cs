@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-public class PickupCube : Entity, ClickableObject
+public class PickupCube : Entity
 {
     Player player;
 
@@ -27,6 +27,16 @@ public class PickupCube : Entity, ClickableObject
         if (player.transform.position.z - transform.position.z > 0)
         {
             Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter(Collider collision)
+    {
+        if (isDead) return;
+
+        if (collision.gameObject.layer == LayerConstants.playerLayer)
+        {
+            Activate();
         }
     }
 

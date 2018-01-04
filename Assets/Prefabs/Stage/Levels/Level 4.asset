@@ -31,6 +31,7 @@ MonoBehaviour:
   monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 1
 --- !u!114 &114141188054527646
@@ -64,6 +65,7 @@ MonoBehaviour:
   monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 1
 --- !u!114 &114178914032333322
@@ -112,6 +114,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 1
 --- !u!114 &114338436042533610
@@ -128,7 +131,8 @@ MonoBehaviour:
   monster: {fileID: 114333213690931734, guid: 1c6155c310bb832498849991fc5c0ab8, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 45
+  maxOnScreen: 3
   spawnFrequency: 3
 --- !u!114 &114489958927274566
 MonoBehaviour:
@@ -158,7 +162,8 @@ MonoBehaviour:
   monster: {fileID: 114333213690931734, guid: 1c6155c310bb832498849991fc5c0ab8, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 45
+  maxOnScreen: 3
   spawnFrequency: 2
 --- !u!114 &114609842139498702
 MonoBehaviour:
@@ -174,6 +179,7 @@ MonoBehaviour:
   monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 1
 --- !u!114 &114641078064794884
@@ -190,6 +196,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
 --- !u!114 &114673229565766168
@@ -206,7 +213,8 @@ MonoBehaviour:
   monster: {fileID: 114333213690931734, guid: 1c6155c310bb832498849991fc5c0ab8, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 45
+  maxOnScreen: 3
   spawnFrequency: 3
 --- !u!114 &114737828864753630
 MonoBehaviour:
@@ -222,6 +230,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: 2326ad4f8f6ceb844b6f9634f60537de, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 3
 --- !u!114 &114832275021183924
@@ -252,6 +261,7 @@ MonoBehaviour:
   monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 3
 --- !u!114 &114949717576503246

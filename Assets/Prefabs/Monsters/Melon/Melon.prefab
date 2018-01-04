@@ -291,7 +291,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 1249131384139570, guid: c945360906e65bd46aa7580a92efb4be, type: 2}
+  shatterPrefab: {fileID: 1249131384139570, guid: c945360906e65bd46aa7580a92efb4be,
+    type: 2}
 --- !u!114 &114351910669891932
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -303,11 +304,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  prefabID: 0
   speed: 0
   anim: {fileID: 95174302885744688}
   maxHealth: 10
   defense: 0
-  damage: 100
+  shield: 0
+  isImmovable: 0
+  isInvincible: 0
+  damage: 150
+  buffOnHit: {fileID: 0}
+  image: {fileID: 21300000, guid: e46b262055b91814a87519990306a18a, type: 3}
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

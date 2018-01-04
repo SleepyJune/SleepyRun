@@ -13,6 +13,8 @@ public class Monster : Unit
 
     public BuffObject buffOnHit;
 
+    public Sprite image;
+
     void Awake()
     {        
         shatterScript = GetComponent<MonsterShatter>();
@@ -140,24 +142,15 @@ public class Monster : Unit
             }
 
             isDead = true;
+
+            RemoveFromStage();
             Destroy(gameObject);
         }
     }
 
     public void RemoveFromStage()
     {
-        if (!isDead)
-        {
-            /*GameManager.instance.comboManager.BreakCombo();
-
-            GameManager.instance.player.TakeDamage(damage);
-
-            var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
-            if (monsterDeathParticle)
-            {
-                monsterDeathParticle.CreateParticle();
-            }*/
-        }
+        GameManager.instance.monsterManager.DecreaseMonsterCount(this);
     }
 
     public virtual void Death(HitInfo hitInfo)
@@ -171,7 +164,9 @@ public class Monster : Unit
             GameManager.instance.monsterManager.AddKillCount(this);
             GameManager.instance.scoreManager.AddScoreOnMonsterKill(this);
 
-            GameManager.instance.spawnPickupManager.SpawnPickup(this);
+            //GameManager.instance.spawnPickupManager.SpawnPickup(this);
+
+            RemoveFromStage();
 
             if (anim)
             {

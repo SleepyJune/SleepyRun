@@ -494,6 +494,8 @@ MonoBehaviour:
   isImmovable: 0
   isInvincible: 0
   damage: 30
+  buffOnHit: {fileID: 0}
+  image: {fileID: 21300000, guid: 4de4dcf9fb9bff243af620dd387ca837, type: 3}
 --- !u!114 &114139130350803212
 MonoBehaviour:
   m_ObjectHideFlags: 1

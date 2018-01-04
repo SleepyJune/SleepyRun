@@ -7,7 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "StageEvent/GameoverOnKillCount event")]
 class GameOverOnKillCountEvent : StageEvent
 {
-    public Monster monster;
+    public override string eventName { get { return "Victory Condition"; } }
+
+    //public Monster monster;
 
     public int killCount = 1;
 

@@ -307,13 +307,14 @@ MonoBehaviour:
   prefabID: 0
   speed: 10
   anim: {fileID: 95174302885744688}
-  maxHealth: 5
-  defense: 88
+  maxHealth: 50
+  defense: 50
   shield: 0
   isImmovable: 0
   isInvincible: 0
   damage: 100
   buffOnHit: {fileID: 0}
+  image: {fileID: 21300000, guid: b4d8d4ddee10bc7468ef799383169843, type: 3}
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -387,7 +388,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 7ec319615880e674fb0219d1400b28d3, type: 2}
-  - {fileID: 2100000, guid: eef9d0d19d4b13346b7858e27d9e581e, type: 2}
+  - {fileID: 2100000, guid: 4168fff8b2a78854bb908fffaa9b1016, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -432,7 +433,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2e3ae38fa4ee28f42a97b8b56471a75f, type: 2}
+  - {fileID: 2100000, guid: 0abbbc08e2c0ae344a1a48c009be9032, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

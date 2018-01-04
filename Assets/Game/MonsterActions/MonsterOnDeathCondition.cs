@@ -23,7 +23,7 @@ public class MonsterOnDeathCondition : MonsterCondition
         isSatisfied = true;
 
 
-        Debug.Log("OnDeath");
+        //Debug.Log("OnDeath");
 
         var isExecuted = conditionCollection.CheckAndReact();
         if (isExecuted)

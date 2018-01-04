@@ -39,6 +39,8 @@ public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
             //stageWaveEditors.Add(CreateEditor(stageWave));
             showFoldouts.Add(true);
         }
+
+        ShowStageEvents(false);
     }
 
     protected override void SubEditorSetup(StageWaveEditor editor, int index)
@@ -117,18 +119,12 @@ public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
 
         if (GUILayout.Button("Show Less"))
         {
-            for(int i = 0; i < showFoldouts.Count; i++)
-            {
-                showFoldouts[i] = false;
-            }
+            ShowStageEvents(false);
         }
 
         if (GUILayout.Button("Show All"))
         {
-            for (int i = 0; i < showFoldouts.Count; i++)
-            {
-                showFoldouts[i] = true;
-            }
+            ShowStageEvents(true);
         }
 
         EditorGUILayout.EndHorizontal();
@@ -137,6 +133,16 @@ public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
         {
             ConvertStage();
         }*/
+    }
+
+    void ShowStageEvents(bool show)
+    {
+        for (int i = 0; i < subEditors.Length; i++)
+        {
+            var stageWave = stageInfo.stageWaves[i];
+
+            subEditors[i].ShowSubFoldouts(show);
+        }
     }
 
     void CreateClickable(Rect lastRect, int index, bool isCondition)

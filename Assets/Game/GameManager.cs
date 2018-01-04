@@ -94,9 +94,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverText = canvas.Find("GameOverText").gameObject;
         victoryText = canvas.Find("VictoryText").gameObject;
-        waveText = canvas.Find("WaveText").gameObject;
-
-        MoveToNextArea();
+        waveText = canvas.Find("WaveText").gameObject;        
     }
 
     void Update()
@@ -153,8 +151,9 @@ public class GameManager : MonoBehaviour
         isMovingToNextWave = true;
 
         waveText.SetActive(true);
-        waveText.transform.Find("Text").GetComponent<Text>().text = "Wave " + (stageEventManager.currentWaveCount+1);
-        waveText.GetComponent<Animation>().Play("GameOverAnimation");
+        waveText.transform.Find("StageNumber").GetComponent<Text>().text = "Stage " + (stageEventManager.currentStageCount);
+        waveText.transform.Find("WaveNumber").GetComponent<Text>().text = "Wave " + (stageEventManager.currentWaveCount+1);
+        waveText.GetComponent<Animation>().Play("StageNumberAnimation");
 
         //moving...
 

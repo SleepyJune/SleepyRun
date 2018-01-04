@@ -197,4 +197,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnMonster: {fileID: 114276015024494692, guid: 3deb25ae45e0ad049b3b104bafea7d81,
     type: 2}
-  spawnOnTop: 0
+  spawnOnTop: 1

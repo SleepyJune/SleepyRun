@@ -7,9 +7,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "StageEvent/Random Monster Spawn")]
 class RandomIntervalSpawnMonsterEvent : StageEvent
 {
-    public Monster monster;
+    public override string eventName { get { return "Random Spawn"; } }
+
+    //public Monster monster;
     public float zPositionStart = 0;
     public float zPositionEnd = 99999;
+
+    public int zSpawnDistance = 60;
 
     public int maxOnScreen = 999;
 
@@ -27,15 +31,13 @@ class RandomIntervalSpawnMonsterEvent : StageEvent
                 int monsterCount;
                 if (GameManager.instance.monsterManager.monsterCount.TryGetValue(monster.name, out monsterCount))
                 {
-                    if (monsterCount < maxOnScreen)
+                    if (monsterCount >= maxOnScreen)
                     {
-                        GameManager.instance.monsterManager.MakeMonster(monster);
+                        return;
                     }
                 }
-                else
-                {
-                    GameManager.instance.monsterManager.MakeMonster(monster);
-                }
+
+                GameManager.instance.monsterManager.MakeMonster(monster, zSpawnDistance);
             }
         }
         else

@@ -92,11 +92,37 @@ public class MonsterManager : MonoBehaviour
     public Monster CreateNewMonster(Monster prefab, Vector3 spawnPos, Quaternion rotation)
     {
         var newMonster = Instantiate(prefab, spawnPos, rotation);
+
+        newMonster.name = newMonster.name.Replace("(Clone)", "");
         newMonster.transform.SetParent(monsterHolder);
 
         monsters.Add(newMonster.id, newMonster);
 
+        AddMonsterCount(newMonster);
+
         return newMonster;
+    }
+
+    public void AddMonsterCount(Monster monster)
+    {
+        int count;
+        if (monsterCount.TryGetValue(monster.name, out count))
+        {
+            monsterCount[monster.name] = count + 1;
+        }
+        else
+        {
+            monsterCount.Add(monster.name, 1);
+        }
+    }
+
+    public void DecreaseMonsterCount(Monster monster)
+    {
+        int count;
+        if (monsterCount.TryGetValue(monster.name, out count))
+        {
+            monsterCount[monster.name] = count - 1;
+        }
     }
 
     public void AddKillCount(Monster monster)
@@ -111,6 +137,8 @@ public class MonsterManager : MonoBehaviour
             monsterKillCount.Add(monster.name, 1);
         }
 
+        GameManager.instance.stageEventManager.UpdateVictoryCondition(monster, killCount + 1);   
+
         if (totalMonsterKillCount.TryGetValue(monster.name, out killCount))
         {
             totalMonsterKillCount[monster.name] = killCount + 1;
@@ -118,7 +146,7 @@ public class MonsterManager : MonoBehaviour
         else
         {
             totalMonsterKillCount.Add(monster.name, 1);
-        }        
+        }
     }
 
     public void ResetMonsterKillCount()

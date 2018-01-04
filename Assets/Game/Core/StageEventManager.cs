@@ -13,6 +13,7 @@ public class StageEventManager : MonoBehaviour
     public StageInfo currentStageInfo;
     public StageWave currentStageWave;
 
+    public Text stageNumberText;
     public Text waveNumberText;
         
     public int currentStageCount = 0;
@@ -20,11 +21,22 @@ public class StageEventManager : MonoBehaviour
 
     public bool isSurvivalMode = false;
 
+    public Transform killCountUI;
+    Text killCountText;
+    Image killCountImage;
+    CanvasGroup killCountCanvasGroup;
+
+    GameOverOnKillCountEvent victoryCondition;
+
     void Start()
     {
         GameManager.instance.isSurvivalMode = isSurvivalMode;
 
         currentStageInfo = SceneChanger.currentStageInfo;
+
+        killCountCanvasGroup = killCountUI.GetComponent<CanvasGroup>();
+        killCountText = killCountUI.Find("Text").GetComponent<Text>();
+        killCountImage = killCountUI.Find("Image").GetComponent<Image>();
 
         if (currentStageInfo == null)
         {
@@ -44,6 +56,22 @@ public class StageEventManager : MonoBehaviour
             currentStageCount = currentStageInfo.stageId;
             currentStageWave = currentStageInfo.stageWaves[0];
             ResetStage();
+
+            GameManager.instance.MoveToNextArea();
+        }
+    }
+
+    void GetVictoryCondition()
+    {
+        foreach (var stageEvent in currentStageWave.stageEvents)
+        {
+            if(stageEvent is GameOverOnKillCountEvent)
+            {
+                victoryCondition = (GameOverOnKillCountEvent)stageEvent;
+
+                killCountImage.sprite = victoryCondition.monster.image;
+                killCountText.text = victoryCondition.killCount.ToString();
+            }
         }
     }
 
@@ -52,6 +80,21 @@ public class StageEventManager : MonoBehaviour
         foreach (var stageEvent in currentStageWave.stageEvents)
         {
             stageEvent.isExecuted = false;
+        }
+
+        GameManager.instance.monsterManager.ResetMonsterKillCount();
+        GetVictoryCondition();
+    }
+
+    public void UpdateVictoryCondition(Monster monster, int killCount)
+    {
+        if (victoryCondition)
+        {
+            if(monster.name == victoryCondition.monster.name)
+            {
+                int amountLeft = victoryCondition.killCount - killCount;
+                killCountText.text = amountLeft.ToString();
+            }
         }
     }
 
@@ -64,7 +107,8 @@ public class StageEventManager : MonoBehaviour
             ResetStage();
 
             waveNumberText.text = (currentWaveCount+1).ToString();
-            
+            //stageNumberText.text = (currentStageInfo.stageId + 1).ToString();
+
             return false;
         }
         else
@@ -83,9 +127,11 @@ public class StageEventManager : MonoBehaviour
                     {
                         currentStageCount = currentStageInfo.stageId;
                         currentStageWave = currentStageInfo.stageWaves[0];
+                        currentWaveCount = 0;
                         ResetStage();
 
                         waveNumberText.text = (currentWaveCount + 1).ToString();
+                        //stageNumberText.text = (currentStageInfo.stageId + 1).ToString();
 
                         return false;
                     }

@@ -45,6 +45,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
 --- !u!114 &114170098526414126
@@ -61,6 +62,7 @@ MonoBehaviour:
   monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 3
 --- !u!114 &114234670121263554
@@ -77,6 +79,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
 --- !u!114 &114267906214892798
@@ -93,6 +96,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
 --- !u!114 &114310150540509194
@@ -109,8 +113,26 @@ MonoBehaviour:
   monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 45
+  maxOnScreen: 3
   spawnFrequency: 1
+--- !u!114 &114331808474147766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  zSpawnDistance: 60
+  maxOnScreen: 999
+  spawnFrequency: 5
 --- !u!114 &114499347404848640
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,6 +147,7 @@ MonoBehaviour:
   monster: {fileID: 114351910669891932, guid: ca415a82367f2bb439329e1d4a5071e1, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
 --- !u!114 &114524750649790912
@@ -141,7 +164,8 @@ MonoBehaviour:
   monster: {fileID: 114333213690931734, guid: 1c6155c310bb832498849991fc5c0ab8, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 60
+  maxOnScreen: 3
   spawnFrequency: 3
 --- !u!114 &114560210016078566
 MonoBehaviour:
@@ -157,8 +181,43 @@ MonoBehaviour:
   monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 45
+  maxOnScreen: 3
   spawnFrequency: 3
+--- !u!114 &114631459577974402
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  zSpawnDistance: 60
+  maxOnScreen: 999
+  spawnFrequency: 5
+--- !u!114 &114647686456458154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  zSpawnDistance: 60
+  maxOnScreen: 999
+  spawnFrequency: 5
 --- !u!114 &114698823699042736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,6 +236,7 @@ MonoBehaviour:
   - {fileID: 114310150540509194}
   - {fileID: 114085826317473592}
   - {fileID: 114798172108236078}
+  - {fileID: 114647686456458154}
 --- !u!114 &114755894783231520
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -205,6 +265,7 @@ MonoBehaviour:
   monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
 --- !u!114 &114798172108236078
@@ -221,6 +282,7 @@ MonoBehaviour:
   monster: {fileID: 114433792061735412, guid: 2326ad4f8f6ceb844b6f9634f60537de, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 5
 --- !u!114 &114804059152460562
@@ -237,7 +299,8 @@ MonoBehaviour:
   monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
-  maxOnScreen: 999
+  zSpawnDistance: 45
+  maxOnScreen: 3
   spawnFrequency: 2
 --- !u!114 &114822558119520530
 MonoBehaviour:
@@ -270,6 +333,7 @@ MonoBehaviour:
   - {fileID: 114935530856258452}
   - {fileID: 114499347404848640}
   - {fileID: 114822558119520530}
+  - {fileID: 114331808474147766}
 --- !u!114 &114935530856258452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -284,6 +348,7 @@ MonoBehaviour:
   monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
   zPositionStart: 0
   zPositionEnd: 99999
+  zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 3
 --- !u!114 &114980565868216080
@@ -302,3 +367,4 @@ MonoBehaviour:
   - {fileID: 114560210016078566}
   - {fileID: 114780265109407930}
   - {fileID: 114755894783231520}
+  - {fileID: 114631459577974402}

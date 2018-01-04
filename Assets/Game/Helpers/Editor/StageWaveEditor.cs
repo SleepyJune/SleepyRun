@@ -72,7 +72,11 @@ public class StageWaveEditor : Editor
         {
             var stageEvent = stageWave.stageEvents[i];
 
-            showFoldouts[i] = EditorGUILayout.Foldout(showFoldouts[i], stageEvent.GetType().ToString());
+            var eventTitle = stageEvent.monster != null ? 
+                stageEvent.monster.name
+                : stageEvent.eventName;
+
+            showFoldouts[i] = EditorGUILayout.Foldout(showFoldouts[i], eventTitle);
 
             if (showFoldouts[i])
             {
@@ -142,5 +146,13 @@ public class StageWaveEditor : Editor
         DestroyImmediate(subasset, true);
         stageEventEditors.RemoveAt(index);
         showFoldouts.RemoveAt(index);
+    }
+
+    public void ShowSubFoldouts(bool show)
+    {
+        for (int i = 0; i < showFoldouts.Count; i++)
+        {
+            showFoldouts[i] = show;
+        }
     }
 }

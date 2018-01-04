@@ -12,19 +12,55 @@ public class PickupCubeManager : MonoBehaviour
 
     public SkillDatabase skillDatabase;
 
+    public float spawnFrequency = 5;
+
     [NonSerialized]
     public Transform pickupHolder;
 
     [NonSerialized]
     public Transform newSkillsHolder;
 
+    Vector3[] lanes =
+    {
+        new Vector3(1.5f,0,0),
+        new Vector3(0,0,0),
+        new Vector3(-1.5f,0,0),
+    };
+
+    Player player;
+
     void Start()
     {
         pickupHolder = (new GameObject("Pickup Holder")).transform;
         newSkillsHolder = (new GameObject("Skills Holder")).transform;
+
+        player = GameManager.instance.player;
     }
 
-    public void SpawnPickup(Monster monster)
+    void Update()
+    {
+        var random = Random.Range(0, spawnFrequency / Time.deltaTime);
+
+        if (random <= 1)
+        {
+            SpawnPickup();
+        }
+    }
+
+    public void SpawnPickup()
+    {
+        var spawnDistance = 60;
+        var randomDist = spawnDistance + Random.Range(-5, 5);
+        var lane = lanes[Random.Range(0, 3)];
+        var pos = lane + new Vector3(0, 1f, player.transform.position.z + randomDist);
+
+        var pickup = Instantiate(pickupCubePrefab, pos, Quaternion.identity);
+        pickup.transform.SetParent(pickupHolder);
+
+        pickup.speed = Random.Range(5, 10);
+    }
+
+    public void SpawnPickup2(Monster monster)
     {
         var randomNum = Random.Range(0, 10);
 

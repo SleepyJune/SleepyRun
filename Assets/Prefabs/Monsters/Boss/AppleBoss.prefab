@@ -337,8 +337,12 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 250
   defense: 0
+  shield: 0
   isImmovable: 1
+  isInvincible: 0
   damage: 1
+  buffOnHit: {fileID: 0}
+  image: {fileID: 21300000, guid: 21df45a0f799ab04791b17bd794b74b6, type: 3}
   startPosition: {x: 0, y: -0.5, z: 20}
 --- !u!135 &135124130039191500
 SphereCollider:

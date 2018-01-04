@@ -7,7 +7,9 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "StageEvent/Fixed Monster Spawn")]
 class FixedMonsterSpawnEvent : StageEvent
 {
-    public Monster monster;
+    public override string eventName { get{return "Fixed Spawn"; } }
+
+    //public Monster monster;
     public float zSpawnPosition = 100;
 
     public float spawnCount = 1;

@@ -7,7 +7,9 @@ using UnityEngine;
 
 class SpawnMonsterEvent : StageEvent
 {
-    public Monster monster;
+    public override string eventName { get { return "Spawn Monster"; } }
+
+    //public Monster monster;
     public float zPosition;
 
     public override void ExecuteEvent()

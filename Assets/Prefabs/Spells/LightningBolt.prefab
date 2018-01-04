@@ -426,8 +426,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabID: 0
   speed: 1
-  damage: 100
+  damage: 200
   radius: 5
+  hitType: 1
   collisionMask:
     serializedVersion: 2
     m_Bits: 256

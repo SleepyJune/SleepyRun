@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Name: BlindDebuff
   m_EditorClassIdentifier: 
   buffName: BlindDebuff
-  duration: 5
+  duration: 2.5
   continuousBuff: 0
   endsOnOwnerDeath: 0
