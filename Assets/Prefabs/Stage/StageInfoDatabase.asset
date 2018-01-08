@@ -12,9 +12,12 @@ MonoBehaviour:
   m_Name: StageInfoDatabase
   m_EditorClassIdentifier: 
   databaseArray:
-  - {fileID: 11400000, guid: b25a769e0a304e14b81da0a2c9d65f56, type: 2}
-  - {fileID: 11400000, guid: 8072cafdf007a5c4fa19b4fadf843bb8, type: 2}
-  - {fileID: 11400000, guid: 419b9cbd9b9220d48b230f6442d14a56, type: 2}
-  - {fileID: 11400000, guid: 47e6156460b27444f838fbc999988d0e, type: 2}
-  - {fileID: 11400000, guid: 9b4f5f96dfa7d8a4584b00cad2fdc8be, type: 2}
-  - {fileID: 11400000, guid: a6bb8888f5ec3544f9b4c7146f855597, type: 2}
+  - {fileID: 11400000, guid: 2d815cea7c0061e4282ff5d90bca7f8b, type: 2}
+  - {fileID: 11400000, guid: 480532deed4bcf34e99570d78f187020, type: 2}
+  - {fileID: 11400000, guid: ccb39c0fefe7b7947aa6aa690b36d18a, type: 2}
+  - {fileID: 11400000, guid: 533418c09225c3f4c827e125d701adc3, type: 2}
+  - {fileID: 11400000, guid: 44b86782700e9ec42a92e1f174ae8618, type: 2}
+  - {fileID: 11400000, guid: 38e91014ec14255419c085cca9c18086, type: 2}
+  - {fileID: 11400000, guid: b87b9702dc0a42d4a912bbcff179fbc1, type: 2}
+  - {fileID: 11400000, guid: af9dc52c79280184e94c0f89176b1c6e, type: 2}
+  - {fileID: 11400000, guid: 08713d583ebb34646b7750de41b93fd0, type: 2}

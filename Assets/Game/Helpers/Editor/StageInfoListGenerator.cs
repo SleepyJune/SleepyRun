@@ -38,7 +38,7 @@ public class StageInfoListGenerator : Editor
 
         List<StageInfo> stageList = new List<StageInfo>();
 
-        string path = "/Prefabs/Stage/";
+        string path = "/Prefabs/Stage/Levels";
 
         var files = Directory.GetFiles(Application.dataPath + path, "*.asset", SearchOption.AllDirectories);
         foreach(var file in files)

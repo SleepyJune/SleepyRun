@@ -10,6 +10,13 @@ public class GameSceneSettings : MonoBehaviour
     public CanvasGroup canvasGroup;
     public CanvasGroup settingsWindowCanvasGroup;
 
+    public AudioListener audioListener;
+
+    void Start()
+    {
+        AdjustVolume(.5f);
+    }
+
     public void ToggleSettingMenu()
     {
         if(canvasGroup.alpha == 0)
@@ -48,6 +55,11 @@ public class GameSceneSettings : MonoBehaviour
             settingsWindowCanvasGroup.interactable = false;
             settingsWindowCanvasGroup.blocksRaycasts = false;
         }
+    }
+
+    public void AdjustVolume(float volume)
+    {
+        AudioListener.volume = volume;
     }
 
     public void OpenSettingsWindow()

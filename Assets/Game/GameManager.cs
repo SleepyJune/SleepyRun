@@ -47,6 +47,8 @@ public class GameManager : MonoBehaviour
 
     public Transform canvas;
 
+    public AudioSource audioSource;
+
     private GameObject gameOverText;
     private GameObject victoryText;
     private GameObject waveText;

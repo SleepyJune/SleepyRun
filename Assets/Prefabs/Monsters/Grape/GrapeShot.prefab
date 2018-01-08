@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 114149977590768144}
   - component: {fileID: 54367342103948802}
   - component: {fileID: 138467978191509304}
+  - component: {fileID: 82148678534911108}
   m_Layer: 13
   m_Name: GrapeShot
   m_TagString: Untagged
@@ -216,6 +217,92 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!82 &82148678534911108
+AudioSource:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1407827710127168}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 442f6495f6c325b4ea2da8fd26f34f1e, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.5
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 100
+  Pan2D: 0
+  rolloffMode: 1
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0.014310608
+      value: 0.9745712
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 0.32399297
+      value: 0.26835728
+      inSlope: -0.7791817
+      outSlope: -0.7791817
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0.031799316
+      inSlope: -1.010101
+      outSlope: -1.010101
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!114 &114149977590768144
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -231,15 +318,18 @@ MonoBehaviour:
   speed: 0
   damage: 50
   radius: 5
+  hitType: 1
   collisionMask:
     serializedVersion: 2
     m_Bits: 3072
+  particleOnHit: {fileID: 1986020937323958, guid: 6fec50ee510449c449c0575124468e01,
+    type: 2}
+  buffOnHit: {fileID: 0}
+  knockBackForce: 0
   angle: 45
   drag: 0.3
   targetCharacter: 1
   maxDistance: 500
-  particleOnHit: {fileID: 1986020937323958, guid: 6fec50ee510449c449c0575124468e01,
-    type: 2}
   initialCollisionTime: 0.25
 --- !u!135 &135340132772870766
 SphereCollider:

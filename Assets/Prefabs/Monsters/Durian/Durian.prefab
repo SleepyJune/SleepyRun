@@ -115,6 +115,7 @@ GameObject:
   - component: {fileID: 114053471282913358}
   - component: {fileID: 114518440861811656}
   - component: {fileID: 114139130350803212}
+  - component: {fileID: 114786311349823650}
   m_Layer: 8
   m_Name: Durian
   m_TagString: Untagged
@@ -522,6 +523,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shatterPrefab: {fileID: 1107349023778174, guid: e435c94e75b39ec459d1d9c731aa0d1c,
     type: 2}
+  explodeOnShatter: 1
+  explosionForce: 500
+  explosionPosition: {x: 0, y: 0.35, z: 0}
+--- !u!114 &114786311349823650
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1225522463076946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bc4444978303414ebad767032912256, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  particle: {fileID: 1539507095124946, guid: b247db5f6278c584d8f370b1e04d94f5, type: 2}
+  offset: {x: 0, y: -0.25, z: 0}
 --- !u!135 &135561116997277430
 SphereCollider:
   m_ObjectHideFlags: 1

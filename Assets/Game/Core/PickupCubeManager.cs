@@ -41,7 +41,7 @@ public class PickupCubeManager : MonoBehaviour
     {
         var random = Random.Range(0, spawnFrequency / Time.deltaTime);
 
-        if (random <= 1)
+        if (random <= 1 && !GameManager.instance.isGamePaused)
         {
             SpawnPickup();
         }

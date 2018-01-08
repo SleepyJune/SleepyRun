@@ -73,4 +73,5 @@ MonoBehaviour:
   mana: 0
   icon: {fileID: 21300018, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
   comabtUI: {fileID: 114392033665783256}
+  audioClip: {fileID: 8300000, guid: fd058b766d744b042aa41f556c9d56ed, type: 3}
   buffObject: {fileID: 11400000, guid: fa42659762a962b4190e44be2dff72e7, type: 2}

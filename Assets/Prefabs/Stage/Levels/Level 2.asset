@@ -12,124 +12,10 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   stageId: 2
-  stageName: Level 2
+  stageName: Melon
   stageWaves:
-  - {fileID: 114966011487629906}
-  - {fileID: 114987147241407700}
-  - {fileID: 114953908389759088}
---- !u!114 &114033210684146110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 2
---- !u!114 &114086208148379466
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 3
---- !u!114 &114092676754629516
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 1
---- !u!114 &114272489978234754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 1
---- !u!114 &114439256491962700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 2
---- !u!114 &114501424650725742
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 3
---- !u!114 &114585737735806722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
-  m_Name: RandomIntervalSpawnMonsterEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
-  zPositionStart: 0
-  zPositionEnd: 99999
-  maxOnScreen: 999
-  spawnFrequency: 1
---- !u!114 &114638532855745534
+  - {fileID: 114253121962507806}
+--- !u!114 &114066038233510962
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -140,10 +26,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
   m_Name: GameOverOnKillCountEvent
   m_EditorClassIdentifier: 
-  monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  killCount: 5
+  monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
+  killCount: 9999
   victory: 1
---- !u!114 &114810563801223038
+--- !u!114 &114234168583540160
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -151,29 +37,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
-  m_Name: GameOverOnKillCountEvent
+  m_Script: {fileID: 11500000, guid: 5140546d7463f21459048a60e82d6080, type: 3}
+  m_Name: RandomIntervalSpawnMonsterEvent
   m_EditorClassIdentifier: 
-  monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  killCount: 5
-  victory: 1
---- !u!114 &114953908389759088
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2db11f28959c714f976e59cef30951e, type: 3}
-  m_Name: Wave 3
-  m_EditorClassIdentifier: 
-  stageEvents:
-  - {fileID: 114439256491962700}
-  - {fileID: 114086208148379466}
-  - {fileID: 114638532855745534}
-  - {fileID: 114272489978234754}
---- !u!114 &114966011487629906
+  monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
+  zPositionStart: 0
+  zPositionEnd: 99999
+  zSpawnDistance: 60
+  maxOnScreen: 999
+  spawnFrequency: 2
+--- !u!114 &114253121962507806
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -185,35 +58,5 @@ MonoBehaviour:
   m_Name: Wave 1
   m_EditorClassIdentifier: 
   stageEvents:
-  - {fileID: 114585737735806722}
-  - {fileID: 114033210684146110}
-  - {fileID: 114970187835825878}
---- !u!114 &114970187835825878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
-  m_Name: GameOverOnKillCountEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114056038263308662, guid: 425e1c89743a2a047b2b63d5e5ef627a, type: 2}
-  killCount: 5
-  victory: 1
---- !u!114 &114987147241407700
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2db11f28959c714f976e59cef30951e, type: 3}
-  m_Name: Wave 2
-  m_EditorClassIdentifier: 
-  stageEvents:
-  - {fileID: 114092676754629516}
-  - {fileID: 114501424650725742}
-  - {fileID: 114810563801223038}
+  - {fileID: 114234168583540160}
+  - {fileID: 114066038233510962}

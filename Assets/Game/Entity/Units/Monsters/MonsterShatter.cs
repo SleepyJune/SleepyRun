@@ -11,6 +11,11 @@ public class MonsterShatter : MonoBehaviour
     [FormerlySerializedAs("target")]
     public GameObject shatterPrefab;
 
+    public bool explodeOnShatter = false;
+
+    public float explosionForce = 1.0f;
+    public Vector3 explosionPosition;
+
     Monster monster;
 
     void Awake()
@@ -34,6 +39,12 @@ public class MonsterShatter : MonoBehaviour
         foreach (var rb in shattered.GetComponentsInChildren<Rigidbody>())
         {
             rb.AddForce(hitInfo.force);
+
+            if (explodeOnShatter)
+            {
+                rb.AddExplosionForce(explosionForce, transform.position + explosionPosition, 2.0f);
+            }
+
         }        
 
         Destroy(shattered, 2);

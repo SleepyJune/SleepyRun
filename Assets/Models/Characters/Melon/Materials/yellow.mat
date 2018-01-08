@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: yellow
-  m_Shader: {fileID: 4800000, guid: 9ce107479d11178d11005b9844295342, type: 3}
+  m_Shader: {fileID: 4800000, guid: 965e290e751ce7a4bba8421e4c3224ac, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -83,4 +83,4 @@ Material:
     m_Colors:
     - _Color: {r: 0.4109557, g: 0.60294116, b: 0.07093425, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _OutlineColor: {r: 0.22656804, g: 0.3455882, b: 0.015246533, a: 1}
+    - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}

@@ -616,7 +616,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 1477260725391732, guid: 6661062f14140a84b8e2c44ad037d074,
+  shatterPrefab: {fileID: 1477260725391732, guid: 08ea68cd565110542b3e5da66aa55a50,
     type: 2}
 --- !u!114 &114056038263308662
 MonoBehaviour:

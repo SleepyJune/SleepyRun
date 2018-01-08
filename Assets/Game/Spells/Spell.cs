@@ -10,7 +10,7 @@ public abstract class Spell : Entity
 
     [System.NonSerialized]
     public Unit source;
-
+    
     public int damage;
 
     public float radius = 1;
