@@ -55,6 +55,7 @@ MonoBehaviour:
   skill: {fileID: 0}
   linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
     type: 2}
+  audioClip: {fileID: 8300000, guid: bb3ac415f105d294f90e25b967ce1acf, type: 3}
 --- !u!114 &114392975385987250
 MonoBehaviour:
   m_ObjectHideFlags: 1
