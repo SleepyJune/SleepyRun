@@ -14,7 +14,9 @@ public class SlashCombatUI : CombatUI
     //public GameObject testObject;
 
     Player player;
-            
+
+    public AudioClip audioClip;
+
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
@@ -179,6 +181,12 @@ public class SlashCombatUI : CombatUI
     public void EndSlash(SlashInfo slash)
     {
         slash.hasEnded = true;
+
+        if (audioClip)
+        {
+            var audioSource = slash.line.gameObject.GetComponent<AudioSource>();
+            audioSource.PlayOneShot(audioClip);
+        }
 
         slashes.Remove(slash.fingerID);
         Destroy(slash.line.gameObject, .5f);

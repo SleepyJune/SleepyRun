@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c6f590419c6820d44b8b067f02f3b213, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 0}
   spell: {fileID: 114173071043516224, guid: ec9662c9a0ea2404ebab3dec6d0c0079, type: 2}
   startOffset: {x: 0, y: 2, z: 0}
 --- !u!114 &114925803521445296
@@ -93,5 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: faca817df73b548409cf99cdee15a3d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  skill: {fileID: 0}
   linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
     type: 2}
+  audioClip: {fileID: 8300000, guid: bb3ac415f105d294f90e25b967ce1acf, type: 3}
