@@ -304,7 +304,6 @@ MonoBehaviour:
   button: {fileID: 80636233}
   numberText: {fileID: 1494415397}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &7539605
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -534,7 +533,6 @@ MonoBehaviour:
   button: {fileID: 1718850679}
   numberText: {fileID: 1483268062}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &26361903
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1263,7 +1261,6 @@ MonoBehaviour:
   button: {fileID: 787901744}
   numberText: {fileID: 579084769}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &81647174
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1431,7 +1428,6 @@ MonoBehaviour:
   button: {fileID: 1777436760}
   numberText: {fileID: 971686418}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &101930196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1884,7 +1880,6 @@ MonoBehaviour:
   button: {fileID: 935690081}
   numberText: {fileID: 1717062854}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &148199257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2874,7 +2869,6 @@ MonoBehaviour:
   button: {fileID: 259835615}
   numberText: {fileID: 700131058}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &256906487
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3777,6 +3771,7 @@ GameObject:
   - component: {fileID: 334446186}
   - component: {fileID: 334446187}
   - component: {fileID: 334446188}
+  - component: {fileID: 334446189}
   m_Layer: 5
   m_Name: MapParent
   m_TagString: Untagged
@@ -3857,6 +3852,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maskTransform: {fileID: 334446185}
+--- !u!114 &334446189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 334446184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9e1f2146ddf6a94ebb0b651d6e54f85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stageDatabase: {fileID: 11400000, guid: 01e45faa561b6344093964e6d770e113, type: 2}
 --- !u!1 &338211589
 GameObject:
   m_ObjectHideFlags: 0
@@ -3991,7 +3998,6 @@ MonoBehaviour:
   button: {fileID: 882778815}
   numberText: {fileID: 891659294}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &346809275
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4323,7 +4329,6 @@ MonoBehaviour:
   button: {fileID: 867148330}
   numberText: {fileID: 1435605471}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &396268276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4519,7 +4524,6 @@ MonoBehaviour:
   button: {fileID: 1286067829}
   numberText: {fileID: 1776316643}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &416816588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5664,7 +5668,6 @@ MonoBehaviour:
   button: {fileID: 1272155424}
   numberText: {fileID: 1675047184}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &613879965
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5792,7 +5795,6 @@ MonoBehaviour:
   button: {fileID: 1413165599}
   numberText: {fileID: 338211591}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &648677117
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5886,7 +5888,6 @@ MonoBehaviour:
   button: {fileID: 1514993443}
   numberText: {fileID: 1843712185}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &659103742
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6116,7 +6117,6 @@ MonoBehaviour:
   button: {fileID: 74830117}
   numberText: {fileID: 898335139}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &697041025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8870,7 +8870,6 @@ MonoBehaviour:
   button: {fileID: 1184909002}
   numberText: {fileID: 1044364555}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1000056106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9289,7 +9288,6 @@ MonoBehaviour:
   button: {fileID: 709370386}
   numberText: {fileID: 1725061280}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1033106350
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9451,7 +9449,6 @@ MonoBehaviour:
   button: {fileID: 1019858272}
   numberText: {fileID: 1445586844}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1035455041
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10188,7 +10185,6 @@ MonoBehaviour:
   button: {fileID: 995426342}
   numberText: {fileID: 174100233}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1117017569
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10384,7 +10380,6 @@ MonoBehaviour:
   button: {fileID: 48705278}
   numberText: {fileID: 2085452167}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1151299992
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11271,7 +11266,6 @@ MonoBehaviour:
   button: {fileID: 1400923079}
   numberText: {fileID: 1406201396}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1237856295
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12941,7 +12935,6 @@ MonoBehaviour:
   button: {fileID: 1797216272}
   numberText: {fileID: 1891035283}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1428154694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13217,7 +13210,6 @@ MonoBehaviour:
   button: {fileID: 2069504678}
   numberText: {fileID: 744814417}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1452684953
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14263,7 +14255,6 @@ MonoBehaviour:
   button: {fileID: 420853082}
   numberText: {fileID: 1966513447}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1559233991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14975,7 +14966,6 @@ MonoBehaviour:
   button: {fileID: 562323564}
   numberText: {fileID: 214713147}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1645326781
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15069,7 +15059,6 @@ MonoBehaviour:
   button: {fileID: 310154690}
   numberText: {fileID: 1940803062}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1656078862
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15163,7 +15152,6 @@ MonoBehaviour:
   button: {fileID: 120937827}
   numberText: {fileID: 1976462631}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1669898056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16390,7 +16378,6 @@ MonoBehaviour:
   button: {fileID: 1884039023}
   numberText: {fileID: 1288449370}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1751073721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17509,7 +17496,6 @@ MonoBehaviour:
   button: {fileID: 1086468891}
   numberText: {fileID: 1615019667}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1839128663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18010,7 +17996,7 @@ MonoBehaviour:
   - {fileID: 773870214}
   - {fileID: 1194797364}
   - {fileID: 1686583307}
-  stageDatabase: {fileID: 11400000, guid: 01e45faa561b6344093964e6d770e113, type: 2}
+  levelSelectManager: {fileID: 0}
 --- !u!114 &1886140289
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18180,7 +18166,6 @@ MonoBehaviour:
   button: {fileID: 1830246969}
   numberText: {fileID: 1114853621}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &1892554288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19282,7 +19267,6 @@ MonoBehaviour:
   button: {fileID: 1969599931}
   numberText: {fileID: 2086122807}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &2017386597
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19701,7 +19685,6 @@ MonoBehaviour:
   button: {fileID: 1894502308}
   numberText: {fileID: 83307068}
   level: 0
-  stageInfo: {fileID: 0}
 --- !u!114 &2071287273
 MonoBehaviour:
   m_ObjectHideFlags: 0

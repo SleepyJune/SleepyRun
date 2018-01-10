@@ -13,9 +13,11 @@ public class SpellSlotUI : MonoBehaviour
 
     public GameObject iconObject;
 
+    Animation anim;
+
     void Start()
     {
-
+        anim = GetComponent<Animation>();
     }
 
     public void SetSkill(Skill skill)
@@ -41,5 +43,7 @@ public class SpellSlotUI : MonoBehaviour
     public void OnSpellSlotPressed()
     {
         skill.UseSkill();
+
+        anim.Play("ActivateSkillAnimation");
     }
 }

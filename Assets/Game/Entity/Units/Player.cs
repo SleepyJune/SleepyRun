@@ -21,7 +21,10 @@ public class Player : Unit
     [System.NonSerialized]
     public Skill[] skills = new Skill[3];
 
-    public SpellSlotUI[] spellSlots = new SpellSlotUI[3];
+    public SpellSlotUI spellSlotPrefab;
+    public Transform spellSlotTransform;
+
+    SpellSlotUI[] spellSlots = new SpellSlotUI[3];
 
     public Animation blindAnimation;
 
@@ -50,16 +53,14 @@ public class Player : Unit
 
         Destroy(lanePositions.gameObject);
 
-        /*for(int i = 0; i < skillSet.Length; i++)
+        for (int i = 0; i < spellSlots.Length; i++)
         {
-            if (skillSet[i] != null)
-            {
-                skills[i] = Instantiate(skillSet[i]);
-                skills[i].Initialize(this);
+            var spellSlot = spellSlots[i];
 
-                spellSlots[i].SetSkill(skills[i]);
-            }
-        }*/
+            spellSlots[i] = Instantiate(spellSlotPrefab);
+            spellSlots[i].transform.parent = spellSlotTransform;
+            spellSlots[i].transform.localScale = Vector3.one;
+        }
     }
 
     public void SetNewSkill(Skill skill)
