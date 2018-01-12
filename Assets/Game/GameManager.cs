@@ -14,9 +14,7 @@ public enum Lane
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-
-    public LevelInfo level;
-    
+        
     [NonSerialized]
     public FloorManager floorManager;
     [NonSerialized]

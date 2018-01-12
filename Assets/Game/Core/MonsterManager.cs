@@ -11,7 +11,6 @@ public class MonsterManager : MonoBehaviour
     public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
 
     Player player;
-    LevelInfo level;
 
     FloorManager floorManager;
     
@@ -28,7 +27,6 @@ public class MonsterManager : MonoBehaviour
 
     void Start()
     {
-        level = GameManager.instance.level;
         player = GameManager.instance.player;
         floorManager = GameManager.instance.floorManager;
 
