@@ -12,8 +12,9 @@ public class FloorManager : MonoBehaviour
     [System.NonSerialized]
     public Floor lastFloor;
 
+    public Floor floorPrefab;
+
     Player player;
-    LevelInfo level;
 
     Transform floorHolder;
 
@@ -22,7 +23,6 @@ public class FloorManager : MonoBehaviour
 
     void Start()
     {
-        level = GameManager.instance.level;
         player = GameManager.instance.player;
 
         floorHolder = (new GameObject("Floor Holder")).transform;
@@ -35,9 +35,6 @@ public class FloorManager : MonoBehaviour
 
     void MakeFloor()
     {
-        var randomFloorId = Random.Range(0, level.floors.Length);
-        var randomFloor = level.floors[randomFloorId].floor;
-
         Vector3 spawnPos;
 
         if (lastFloor)
@@ -50,7 +47,7 @@ public class FloorManager : MonoBehaviour
             spawnPos.y = 0;
         }
 
-        lastFloor = Instantiate(randomFloor, spawnPos, Quaternion.identity);
+        lastFloor = Instantiate(floorPrefab, spawnPos, Quaternion.identity);
         
         lastFloor.transform.SetParent(floorHolder);
 
