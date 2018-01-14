@@ -11,9 +11,13 @@ public class Monster : Unit
     [NonSerialized]
     public float timeSpawned;
 
+    public bool isBadMonster;
+
     public BuffObject buffOnHit;
 
     public Sprite image;
+
+    Player player;
 
     void Awake()
     {        
@@ -28,6 +32,8 @@ public class Monster : Unit
         baseDamage = damage;
 
         timeSpawned = Time.time;
+
+        player = GameManager.instance.player;
     }
         
     void Update()
@@ -46,6 +52,8 @@ public class Monster : Unit
                     anim.SetFloat("speed", speed);
                 }
             }
+
+            RemoveOffStage();
         }
 
         OnUnitUpdateEvent();
@@ -65,7 +73,7 @@ public class Monster : Unit
                         
             if(hitInfo.damage > 0 && hitInfo.source == GameManager.instance.player)
             {
-                GameManager.instance.comboManager.IncreaseComboCount();
+                //GameManager.instance.comboManager.IncreaseComboCount();
                 GameManager.instance.scoreManager.AddScoreOnHit(hitInfo);
             }
 
@@ -110,47 +118,72 @@ public class Monster : Unit
         }
     }
 
+    void BadMonsterCollide()
+    {
+        GameManager.instance.comboManager.BreakCombo();
+
+        GameManager.instance.player.TakeDamage(
+        new HitInfo
+        {
+            source = this,
+            target = GameManager.instance.player,
+                    //hitStart = hitStart,
+                    //hitEnd = hitEnd,
+                    //force = force,
+                    damage = damage,
+                    //knockBackForce = knockBackForce,
+                    //hitParticle = particleOnHit,
+                    buffOnHit = buffOnHit,
+        });
+
+        var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
+        if (monsterDeathParticle)
+        {
+            monsterDeathParticle.CreateParticle();
+        }
+
+        if (anim)
+        {
+
+        }
+
+        isDead = true;
+    }
+
+    void GoodMonsterCollide()
+    {
+        GameManager.instance.comboManager.IncreaseComboCount();
+        GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
+    }
+
     public void CollideWithPlayer()
     {
         if (!isDead)
         {
-            GameManager.instance.comboManager.BreakCombo();
-
-            GameManager.instance.player.TakeDamage(
-            new HitInfo
+            if (isBadMonster)
             {
-                source = this,
-                target = GameManager.instance.player,
-                //hitStart = hitStart,
-                //hitEnd = hitEnd,
-                //force = force,
-                damage = damage,
-                //knockBackForce = knockBackForce,
-                //hitParticle = particleOnHit,
-                buffOnHit = buffOnHit,
-            });
-
-            var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
-            if (monsterDeathParticle)
+                BadMonsterCollide();
+            }
+            else
             {
-                monsterDeathParticle.CreateParticle();
+                GoodMonsterCollide();
             }
 
-            if (anim)
-            {
-
-            }
-
-            isDead = true;
-
-            RemoveFromStage();
-            Destroy(gameObject);
+            GameManager.instance.monsterManager.SetDead(this);
         }
     }
 
-    public void RemoveFromStage()
+    public void RemoveOffStage()
     {
-        GameManager.instance.monsterManager.DecreaseMonsterCount(this);
+        if (player.transform.position.z - transform.position.z > 0)
+        {
+            if (isBadMonster)
+            {
+                BadMonsterCollide();
+            }
+
+            GameManager.instance.monsterManager.SetDead(this);
+        }
     }
 
     public virtual void Death(HitInfo hitInfo)
@@ -159,15 +192,12 @@ public class Monster : Unit
         {
             OnDeathEvent(hitInfo);
 
-            isDead = true;
-
+            GameManager.instance.monsterManager.SetDead(this);
             GameManager.instance.monsterManager.AddKillCount(this);
             GameManager.instance.scoreManager.AddScoreOnMonsterKill(this);
 
             //GameManager.instance.spawnPickupManager.SpawnPickup(this);
-
-            RemoveFromStage();
-
+                        
             if (anim)
             {
                 anim.SetTrigger("Die");

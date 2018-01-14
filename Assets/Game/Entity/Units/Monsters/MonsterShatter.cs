@@ -27,7 +27,6 @@ public class MonsterShatter : MonoBehaviour
     {
         if (shatterPrefab == null)
         {
-            Destroy(gameObject);
             return;
         }
 
@@ -48,6 +47,6 @@ public class MonsterShatter : MonoBehaviour
         }        
 
         Destroy(shattered, 2);
-        Destroy(gameObject);
+        Destroy(monster.gameObject);
     }
 }

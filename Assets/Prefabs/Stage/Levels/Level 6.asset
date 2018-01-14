@@ -15,6 +15,20 @@ MonoBehaviour:
   stageName: Banana
   stageWaves:
   - {fileID: 114253121962507806}
+--- !u!114 &114119775029771554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec58d7510b2a1745b54d5ade31d7b06, type: 3}
+  m_Name: GameOverOnCountdown
+  m_EditorClassIdentifier: 
+  monster: {fileID: 0}
+  countdown: 60
+  victory: 1
 --- !u!114 &114234168583540160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,18 +59,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageEvents:
   - {fileID: 114234168583540160}
-  - {fileID: 114801582907522476}
---- !u!114 &114801582907522476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
-  m_Name: GameOverOnKillCountEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
-  killCount: 9999
-  victory: 1
+  - {fileID: 114119775029771554}

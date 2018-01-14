@@ -32,6 +32,20 @@ MonoBehaviour:
   zSpawnDistance: 60
   maxOnScreen: 999
   spawnFrequency: 2
+--- !u!114 &114251013809046808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec58d7510b2a1745b54d5ade31d7b06, type: 3}
+  m_Name: GameOverOnCountdown
+  m_EditorClassIdentifier: 
+  monster: {fileID: 0}
+  countdown: 60
+  victory: 1
 --- !u!114 &114253121962507806
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45,18 +59,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageEvents:
   - {fileID: 114234168583540160}
-  - {fileID: 114801582907522476}
---- !u!114 &114801582907522476
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
-  m_Name: GameOverOnKillCountEvent
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114056038263308662, guid: a70064d5937d80949aa8deb9b7a27c9d, type: 2}
-  killCount: 9999
-  victory: 1
+  - {fileID: 114251013809046808}

@@ -45,8 +45,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageEvents:
   - {fileID: 114234168583540160}
-  - {fileID: 114801582907522476}
---- !u!114 &114801582907522476
+  - {fileID: 114586480839619770}
+--- !u!114 &114586480839619770
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -54,9 +54,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
-  m_Name: GameOverOnKillCountEvent
+  m_Script: {fileID: 11500000, guid: 6ec58d7510b2a1745b54d5ade31d7b06, type: 3}
+  m_Name: GameOverOnCountdown
   m_EditorClassIdentifier: 
-  monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  killCount: 9999
+  monster: {fileID: 0}
+  countdown: 60
   victory: 1

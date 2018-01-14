@@ -33,6 +33,8 @@ public class GameManager : MonoBehaviour
     public StageEventManager stageEventManager;
     [NonSerialized]
     public ScoreManager scoreManager;
+    [NonSerialized]
+    public GameTimerManager timerManager;
 
     public delegate void Callback();
     public event Callback onUpdate;
@@ -84,6 +86,7 @@ public class GameManager : MonoBehaviour
         spawnPickupManager = GetComponent<PickupCubeManager>();
         stageEventManager = GetComponent<StageEventManager>();
         scoreManager = GetComponent<ScoreManager>();
+        timerManager = GetComponent<GameTimerManager>();
 
         gameStartTime = Time.time;
 
@@ -197,7 +200,7 @@ public class GameManager : MonoBehaviour
                 {
                     time = Time.time - gameStartTime,
                     monstersKilled = monsterManager.GetKillCount(),
-                    points = scoreManager.score
+                    points = scoreManager.totalCollected
                 };
 
                 SceneChanger.levelStats = stats;

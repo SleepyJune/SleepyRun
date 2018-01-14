@@ -63,14 +63,24 @@ public class StageEventManager : MonoBehaviour
 
     void GetVictoryCondition()
     {
+        killCountCanvasGroup.alpha = 0;
+
         foreach (var stageEvent in currentStageWave.stageEvents)
         {
             if(stageEvent is GameOverOnKillCountEvent)
             {
                 victoryCondition = (GameOverOnKillCountEvent)stageEvent;
 
+                killCountCanvasGroup.alpha = 1;
                 killCountImage.sprite = victoryCondition.monster.image;
                 killCountText.text = victoryCondition.killCount.ToString();
+            }
+
+            if(stageEvent is GameOverOnCountdown)
+            {
+                GameOverOnCountdown countdownEvent = (GameOverOnCountdown)stageEvent;
+
+                GameManager.instance.timerManager.timer = countdownEvent.countdown;
             }
         }
     }

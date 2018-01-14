@@ -11,6 +11,9 @@ public class ScoreManager : MonoBehaviour
     [NonSerialized]
     public int score = 0;
 
+    [NonSerialized]
+    public int totalCollected = 0;
+
     public Text scoreText;
 
     [NonSerialized]
@@ -19,11 +22,20 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         comboManager = GetComponent<ComboManager>();
+
+        UpdateScoreText();
     }
 
     public void UpdateScoreText()
     {
-        scoreText.text = score.ToString();
+        //scoreText.text = score.ToString();
+        scoreText.text = totalCollected.ToString();
+    }
+
+    public void AddCollectedMonsterCount(int collected = 1)
+    {        
+        totalCollected += collected;
+        UpdateScoreText();
     }
 
     public void AddScoreOnHit(HitInfo hitInfo)

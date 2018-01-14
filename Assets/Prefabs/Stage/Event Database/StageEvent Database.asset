@@ -13,9 +13,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   allEvents:
   - {fileID: 11400000, guid: b14bc233187409042bd0b73ce55686a9, type: 2}
+  - {fileID: 11400000, guid: a1987d166d795c4488f9521eca88282f, type: 2}
   - {fileID: 11400000, guid: f44fa8820cf43dc4cad557452f73d953, type: 2}
   - {fileID: 11400000, guid: 332583a30ea924343b396ccaf1b26aa8, type: 2}
   allEventOptions:
   - FixedMonsterSpawn Event
+  - GameOverOnCountdown Event
   - GameOverOnKillCount Event
   - RandomIntervalSpawnMonster Event

@@ -12,8 +12,12 @@ public class Player : Unit
     public Lane destinationLane = Lane.mid;
     [System.NonSerialized]
     public Lane currentLane = Lane.mid;
-    
-    public UIUnitFrame_Bar healthBarScript;
+
+    //public UIUnitFrame_Bar healthBarScript;
+    //public Slider healthBarSlider;
+
+    public Transform heartHolder;
+    public GameObject heartPrefab;
 
     public WeaponButton playerPortrait;
     public Transform playerPortraitTransform;
@@ -39,8 +43,18 @@ public class Player : Unit
     {
         health = maxHealth;
 
-        healthBarScript.SetValue(health);
-        healthBarScript.SetMaxValue(maxHealth);
+        //healthBarScript.SetValue(health);
+        //healthBarScript.SetMaxValue(maxHealth);
+
+        //healthBarSlider.value = 100 * health / maxHealth;
+
+        for(int i = 0; i < maxHealth; i++)
+        {
+            var newHeart = Instantiate(heartPrefab);
+            newHeart.transform.SetParent(heartHolder, false);
+        }
+
+        UpdateHealthBar();
 
         var lanePositions = playerPortraitTransform.Find("LanePositions");
         var right = lanePositions.Find("Right");
@@ -81,12 +95,15 @@ public class Player : Unit
     {
         if (canTakeDamage)
         {
+            hitInfo.damage = 1;
             var damageReceived = UnitTakeDamage(hitInfo);
 
             //Debug.Log("Take damage: " + damage);
 
             if (damageReceived > 0)
             {
+                UpdateHealthBar();
+
                 if (health <= 0)
                 {
                     Death();
@@ -103,12 +120,14 @@ public class Player : Unit
     {
         if (!GameManager.instance.isGameOver && !isDead)
         {
-            health += gain;
+            health += 1;//gain;
 
             if(health > maxHealth)
             {
                 health = maxHealth;
             }
+
+            UpdateHealthBar();
         }
     }
 
@@ -163,7 +182,14 @@ public class Player : Unit
     {
         if (isDead) return;
 
-        if(collision.gameObject.layer == LayerConstants.monsterLayer)
+        if (GameManager.instance.isGameOver
+            || GameManager.instance.isMovingToNextWave
+            || GameManager.instance.isGamePaused)
+        {
+            return;
+        }
+
+        if (collision.gameObject.layer == LayerConstants.monsterLayer)
         {
             var monster = collision.GetComponent<Monster>();
             if (monster && !monster.isDead)
@@ -186,16 +212,41 @@ public class Player : Unit
     {
         /*var percentHealth = 100 * health / maxHealth;
 
-        var lerpHealth = Mathf.Lerp(healthBar.value, percentHealth, 2 * Time.deltaTime);
-        healthBar.value = lerpHealth;*/
+        var lerpHealth = Mathf.Lerp(healthBarSlider.value, percentHealth, 2 * Time.deltaTime);
+        healthBarSlider.value = lerpHealth;*/
 
-        healthBarScript.SetValue(health);
+        var diff = health - heartHolder.childCount;
+                
+        if (diff > 0)
+        {
+            for (int i = 0;i< diff; i++)
+            {
+                var newHeart = Instantiate(heartPrefab);
+                newHeart.transform.SetParent(heartHolder, false);
+            }
+        }
+        else if(diff < 0)
+        {
+            
+            for (int i = 0; i < -diff; i++)
+            {
+                if(heartHolder.childCount == 0)
+                {
+                    break;
+                }
+
+                var heart = heartHolder.GetChild(0);
+                Destroy(heart.gameObject);
+            }
+        }
+
+        
+
+        //healthBarScript.SetValue(health);
     }
 
     void Update()
-    {
-        UpdateHealthBar();
-
+    {        
         if (!isDead)
         {
             base.UnitUpdate();

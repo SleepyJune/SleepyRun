@@ -211,7 +211,7 @@ public class SlashCombatUI : CombatUI
     {
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
-            if (!slash.damagedMonsters.Contains(monster))
+            if (!monster.isDead && !slash.damagedMonsters.Contains(monster))
             {                
                 var monsterPos = monster.transform.position;
                 monsterPos.y = 0;
