@@ -9,6 +9,7 @@ public class MonsterManager : MonoBehaviour
     public Dictionary<string, int> monsterCount = new Dictionary<string, int>();
     public Dictionary<string, int> monsterKillCount = new Dictionary<string, int>();
     public Dictionary<string, int> monsterCollectedCount = new Dictionary<string, int>();
+    public Dictionary<string, int> missedMonsterCount = new Dictionary<string, int>();
 
     public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
 
@@ -131,6 +132,19 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    public void AddMissedMonsterCount(Monster monster)
+    {
+        int count;
+        if (missedMonsterCount.TryGetValue(monster.name, out count))
+        {
+            missedMonsterCount[monster.name] = count + 1;
+        }
+        else
+        {
+            missedMonsterCount.Add(monster.name, 1);
+        }
+    }
+
     public void DecreaseMonsterCount(Monster monster)
     {
         int count;
@@ -186,7 +200,12 @@ public class MonsterManager : MonoBehaviour
     {
         return monsterKillCount.Values.Sum(count => count);
     }
-    
+
+    public int GetMissedCount()
+    {
+        return missedMonsterCount.Values.Sum(count => count);
+    }
+
     public void SetDead(Monster monster)
     {
         monster.isDead = true;

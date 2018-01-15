@@ -26,6 +26,24 @@ public class ScoreManager : MonoBehaviour
         UpdateScoreText();
     }
 
+    public void SetNewLevelStats(bool levelComplete = true)
+    {
+        var points = levelComplete ? Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount()) : 0;
+
+        LevelStats stats = new LevelStats
+        {
+            levelComplete = levelComplete,
+            levelTime = GameManager.instance.timerManager.levelTime,
+            time = GameManager.instance.timerManager.totalGameTime,
+            monstersKilled = GameManager.instance.monsterManager.GetKillCount(),
+            monstersMissedCount = GameManager.instance.monsterManager.GetMissedCount(),
+            monstersCollected = totalCollected,
+            points = points,
+        };
+
+        SceneChanger.levelStats = stats;
+    }
+
     public void UpdateScoreText()
     {
         //scoreText.text = score.ToString();

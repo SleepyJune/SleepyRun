@@ -80,7 +80,7 @@ public class StageEventManager : MonoBehaviour
             {
                 GameOverOnCountdown countdownEvent = (GameOverOnCountdown)stageEvent;
 
-                GameManager.instance.timerManager.timer = countdownEvent.countdown;
+                GameManager.instance.timerManager.SetTime(countdownEvent.countdown);
             }
         }
     }

@@ -181,6 +181,10 @@ public class Monster : Unit
             {
                 BadMonsterCollide();
             }
+            else
+            {
+                GameManager.instance.monsterManager.AddMissedMonsterCount(this);
+            }
 
             GameManager.instance.monsterManager.SetDead(this);
         }

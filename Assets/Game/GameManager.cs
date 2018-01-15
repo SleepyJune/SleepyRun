@@ -187,26 +187,18 @@ public class GameManager : MonoBehaviour
                 gameOverText.SetActive(true);
                 gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
 
-                DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
+                //DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
             }
             else
             {
                 player.Victory();
 
                 victoryText.SetActive(true);
-                victoryText.GetComponent<Animation>().Play("GameOverAnimation");
-
-                LevelStats stats = new LevelStats
-                {
-                    time = Time.time - gameStartTime,
-                    monstersKilled = monsterManager.GetKillCount(),
-                    points = scoreManager.totalCollected
-                };
-
-                SceneChanger.levelStats = stats;
-
-                DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete2"), 5);
+                victoryText.GetComponent<Animation>().Play("GameOverAnimation");                
             }
+
+            scoreManager.SetNewLevelStats(levelComplete);
+            DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete2"), 5);
         }
     }
 

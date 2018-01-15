@@ -12,11 +12,11 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroScreen2.unity
     guid: 3ba8c21d7371fdd4da3aef8e748e38e5
   - enabled: 1
+    path: Assets/Scenes/LoadingScene.unity
+    guid: 84deacc9028d5e94b971b871d78b9935
+  - enabled: 1
     path: Assets/Scenes/QuestScreen.unity
     guid: 9ce0082ec89bc0048b37dea1ed31fb61
-  - enabled: 1
-    path: Assets/Scenes/LoadingScene.unity
-    guid: 4a65b7f201d70034c86094946699e5a1
   - enabled: 1
     path: Assets/Scenes/LevelLoader.unity
     guid: 12981410b7e54a44c8a5126ce95221cd
