@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameSceneSettings : MonoBehaviour
 {
@@ -11,10 +12,22 @@ public class GameSceneSettings : MonoBehaviour
     public CanvasGroup settingsWindowCanvasGroup;
 
     public AudioListener audioListener;
+    public Slider volumeSlider;
+
+    [NonSerialized]
+    public float volume = .5f;
+    string volumeString = "volume";
 
     void Start()
     {
-        AdjustVolume(.5f);
+        if (PlayerPrefs.HasKey(volumeString))
+        {
+            volume = PlayerPrefs.GetFloat(volumeString);
+            AudioListener.volume = volume;
+            volumeSlider.value = volume;
+        }
+
+        AdjustVolume(volume);
     }
 
     public void ToggleSettingMenu()
@@ -60,6 +73,7 @@ public class GameSceneSettings : MonoBehaviour
     public void AdjustVolume(float volume)
     {
         AudioListener.volume = volume;
+        PlayerPrefs.SetFloat(volumeString, volume);
     }
 
     public void OpenSettingsWindow()

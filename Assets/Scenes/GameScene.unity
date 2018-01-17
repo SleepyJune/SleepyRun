@@ -1187,6 +1187,7 @@ MonoBehaviour:
   canvasGroup: {fileID: 206453589}
   settingsWindowCanvasGroup: {fileID: 1684347583}
   audioListener: {fileID: 716147779}
+  volumeSlider: {fileID: 1289756045}
 --- !u!1 &222374809
 GameObject:
   m_ObjectHideFlags: 0
