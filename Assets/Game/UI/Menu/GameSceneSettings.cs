@@ -76,7 +76,7 @@ public class GameSceneSettings : MonoBehaviour
     public void ExitLevel()
     {
         GameManager.instance.ResumeGame();
-        SceneChanger.ChangeScene("IntroScreen2");
+        SceneChanger.ChangeScene("LevelLoader3");
     }
 
     public void RestartLevel()

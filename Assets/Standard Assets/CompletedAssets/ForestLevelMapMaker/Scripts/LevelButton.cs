@@ -3,8 +3,8 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System;
 
-public class LevelButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler {
-
+public class LevelButton : MonoBehaviour//, IPointerDownHandler, IPointerUpHandler, IPointerExitHandler
+{
     public GameObject LeftStar;
     public GameObject MiddleStar;
     public GameObject RightStar;
@@ -14,9 +14,7 @@ public class LevelButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     public int level;
 
     GameObject levelSelectManager;
-
-    int buttonID = 0;
-
+    
     ScrollRect scrollRect;
 
     /// <summary>
@@ -25,10 +23,9 @@ public class LevelButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
     /// <param name="active"></param>
     /// <param name="activeStarsCount"></param>
     /// <param name="isPassed"></param>
-    internal void SetActive(int level, bool active, int activeStarsCount, bool isPassed, int buttonID, GameObject levelSelectManager)
+    public void SetActive(int level, bool active, int activeStarsCount, bool isPassed, GameObject levelSelectManager)
     {
         this.level = level;
-        this.buttonID = buttonID;
         this.levelSelectManager = levelSelectManager;
 
         name = "LevelButton " + (level+1);
@@ -42,12 +39,14 @@ public class LevelButton : MonoBehaviour, IPointerDownHandler, IPointerUpHandler
 
         scrollRect = transform.parent.parent.parent.GetComponent<ScrollRect>();
 
-        transform.Find("Button").gameObject.AddComponent<LevelButtonHandler>();
+        numberText.text = level.ToString();
+
+        //transform.Find("Button").gameObject.AddComponent<LevelButtonHandler>();
     }
 
     public void LoadLevel()
     {
-        levelSelectManager.SendMessage("LoadLevel", buttonID);
+        levelSelectManager.SendMessage("LoadLevel", level-1);
     }
 
     public void OnPointerDown(PointerEventData eventData)

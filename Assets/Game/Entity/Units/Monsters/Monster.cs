@@ -11,7 +11,7 @@ public class Monster : Unit
     [NonSerialized]
     public float timeSpawned;
 
-    public bool isBadMonster;
+    public bool isBadMonster = true;
 
     public BuffObject buffOnHit;
 
@@ -154,6 +154,8 @@ public class Monster : Unit
     {
         GameManager.instance.comboManager.IncreaseComboCount();
         GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
+
+        GameManager.instance.monsterManager.CreateMoneyExplosion(transform.position);
     }
 
     public void CollideWithPlayer()
@@ -201,7 +203,7 @@ public class Monster : Unit
             GameManager.instance.scoreManager.AddScoreOnMonsterKill(this);
 
             //GameManager.instance.spawnPickupManager.SpawnPickup(this);
-                        
+                                          
             if (anim)
             {
                 anim.SetTrigger("Die");

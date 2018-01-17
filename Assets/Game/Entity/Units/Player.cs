@@ -9,6 +9,8 @@ public class Player : Unit
     [System.NonSerialized]
     public bool isBossFight = false;
 
+    public float beltSpeed = 2.0f;
+
     public Lane destinationLane = Lane.mid;
     [System.NonSerialized]
     public Lane currentLane = Lane.mid;
@@ -252,9 +254,7 @@ public class Player : Unit
             base.UnitUpdate();
 
             if (GameManager.instance.isMovingToNextWave)
-            {
-                var dir = new Vector3(0, 0, 1);
-                transform.position += dir * speed * Time.deltaTime;
+            {                
                 //anim.SetFloat("Speed", speed);
             }
             else
@@ -262,8 +262,11 @@ public class Player : Unit
                 //anim.SetFloat("Speed", 0);
             }
 
+            var dir = new Vector3(0, 0, 1);
+            transform.position += dir * beltSpeed * Time.deltaTime;
+
             //Debug.Log(destinationLane);
-                        
+
             var destinationVector = laneVectors[destinationLane];
             var xDiff = destinationVector.x - transform.position.x;
 

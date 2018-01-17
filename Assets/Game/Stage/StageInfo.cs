@@ -9,5 +9,7 @@ public class StageInfo : ScriptableObject
 
     public string stageName;
 
+    public string missionText;
+
     public StageWave[] stageWaves = new StageWave[0];    
 }

@@ -13,11 +13,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   databaseArray:
   - {fileID: 11400000, guid: 2d815cea7c0061e4282ff5d90bca7f8b, type: 2}
-  - {fileID: 11400000, guid: 480532deed4bcf34e99570d78f187020, type: 2}
-  - {fileID: 11400000, guid: ccb39c0fefe7b7947aa6aa690b36d18a, type: 2}
-  - {fileID: 11400000, guid: 533418c09225c3f4c827e125d701adc3, type: 2}
-  - {fileID: 11400000, guid: 44b86782700e9ec42a92e1f174ae8618, type: 2}
-  - {fileID: 11400000, guid: 38e91014ec14255419c085cca9c18086, type: 2}
-  - {fileID: 11400000, guid: b87b9702dc0a42d4a912bbcff179fbc1, type: 2}
-  - {fileID: 11400000, guid: af9dc52c79280184e94c0f89176b1c6e, type: 2}
-  - {fileID: 11400000, guid: 08713d583ebb34646b7750de41b93fd0, type: 2}
+  - {fileID: 11400000, guid: dc0134c3870ecf74a9adbeeaf36019dc, type: 2}
+  - {fileID: 11400000, guid: e9cf75f394994f0429834efe3a1e72c2, type: 2}
+  - {fileID: 11400000, guid: a49e0ebcc77c5c045827b41309abf533, type: 2}

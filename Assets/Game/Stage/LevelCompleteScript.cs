@@ -47,11 +47,11 @@ public class LevelCompleteScript : MonoBehaviour
         float killPercent = stats.monstersKilled / totalMonsters;
         float levelTimePercent = stats.time / stats.levelTime;
 
-        if(levelTimePercent <= .5f)
+        if(!stats.levelComplete && levelTimePercent <= .5f)
         {
             return "lines";
         }
-        else if (levelTimePercent <= 1f)
+        else if (!stats.levelComplete)
         {
             return "no_words";
         }
@@ -62,19 +62,19 @@ public class LevelCompleteScript : MonoBehaviour
             return "sliced";
         }
 
-        if (earningPercent <= .5f)
+        if (earningPercent <= .2f)
         {
             return "puke";
         }
-        else if (earningPercent <= .6f)
+        else if (earningPercent <= .3f)
         {
             return "laugh";
         }
-        else if (earningPercent <= .7f)
+        else if (earningPercent <= .5f)
         {
             return "laugh2";
         }
-        else if (earningPercent <= .8f)
+        else if (earningPercent <= .7f)
         {
             return "worm";
         }

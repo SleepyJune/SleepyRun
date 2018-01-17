@@ -155,7 +155,16 @@ public class GameManager : MonoBehaviour
 
         waveText.SetActive(true);
         waveText.transform.Find("StageNumber").GetComponent<Text>().text = "Stage " + (stageEventManager.currentStageCount);
-        waveText.transform.Find("WaveNumber").GetComponent<Text>().text = "Wave " + (stageEventManager.currentWaveCount+1);
+
+        if(stageEventManager.currentStageInfo.stageWaves.Length <= 1)
+        {
+            waveText.transform.Find("WaveNumber").GetComponent<Text>().text = "";
+        }
+        else
+        {
+            waveText.transform.Find("WaveNumber").GetComponent<Text>().text = "Wave " + (stageEventManager.currentWaveCount+1);
+        }
+                
         waveText.GetComponent<Animation>().Play("StageNumberAnimation");
 
         //moving...

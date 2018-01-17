@@ -13,6 +13,8 @@ public class MonsterManager : MonoBehaviour
 
     public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
 
+    public GameObject moneyExplosionPrefab;
+
     Player player;
 
     FloorManager floorManager;
@@ -196,6 +198,19 @@ public class MonsterManager : MonoBehaviour
         }
     }
 
+    public int GetMonsterCollectCount(Monster monster)
+    {
+        int count;
+        if (monsterCollectedCount.TryGetValue(monster.name, out count))
+        {
+            return count;
+        }
+        else
+        {
+            return 0;
+        }
+    }
+
     public int GetKillCount()
     {
         return monsterKillCount.Values.Sum(count => count);
@@ -210,6 +225,11 @@ public class MonsterManager : MonoBehaviour
     {
         monster.isDead = true;
         DecreaseMonsterCount(monster);
+    }
+
+    public void CreateMoneyExplosion(Vector3 pos)
+    {
+        var explosion = Instantiate(moneyExplosionPrefab, pos, Quaternion.identity);
     }
 
     public void RemoveMonster(Monster monster)

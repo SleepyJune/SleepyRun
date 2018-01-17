@@ -10,6 +10,7 @@ public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
 
     SerializedProperty stageIdProperty;
     SerializedProperty stageNameProperty;
+    SerializedProperty missionTextProperty;    
 
     SerializedProperty stageWavesProperty;
     
@@ -31,6 +32,8 @@ public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
         stageNameProperty = serializedObject.FindProperty("stageName");
 
         stageWavesProperty = serializedObject.FindProperty("stageWaves");
+
+        missionTextProperty = serializedObject.FindProperty("missionText");
 
         CheckAndCreateSubEditors(stageInfo.stageWaves);
 
@@ -75,6 +78,7 @@ public class StageInfoEditor : EditorWithSubEditors<StageWaveEditor, StageWave>
         
         EditorGUILayout.PropertyField(stageIdProperty);
         EditorGUILayout.PropertyField(stageNameProperty);
+        EditorGUILayout.PropertyField(missionTextProperty);
 
         EditorGUILayout.Space();
 

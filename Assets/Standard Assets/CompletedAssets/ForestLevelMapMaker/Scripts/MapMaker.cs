@@ -301,7 +301,7 @@ public class MapMaker : MonoBehaviour
         }
         int activeStarsCount = PlayerPrefs.GetInt(saveKey);
 
-        levelButtons[sceneNumber].SetActive(sceneNumber, active, activeStarsCount, isPassed, buttonID, levelSelectManager);
+        levelButtons[sceneNumber].SetActive(sceneNumber, active, activeStarsCount, isPassed, levelSelectManager);
     }
 
     public void SetControlActivity(bool activity)

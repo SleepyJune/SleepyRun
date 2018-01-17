@@ -11,11 +11,14 @@ class GameOverOnCountdown : StageEvent
     
     public int countdown = 60;
 
+    public int collectCount = 30;
+
     public bool victory = true;
 
     public override void ExecuteEvent()
     {
-        if (GameManager.instance.timerManager.timer <= 0)
+        if (GameManager.instance.timerManager.timer <= 0 
+            && GameManager.instance.monsterManager.GetMonsterCollectCount(monster) >= collectCount)
         {
             GameManager.instance.AdvanceToNextWave(victory);
             isExecuted = true;
