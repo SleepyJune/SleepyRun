@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "StageEvent/Random Monster Spawn")]
-class RandomIntervalSpawnMonsterEvent : StageEvent
+public class RandomIntervalSpawnMonsterEvent : StageEvent
 {
     public override string eventName { get { return "Random Spawn"; } }
 

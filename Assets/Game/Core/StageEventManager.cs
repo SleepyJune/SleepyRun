@@ -20,7 +20,7 @@ public class StageEventManager : MonoBehaviour
     public int currentWaveCount = 0;
 
     public bool isSurvivalMode = false;
-
+    
     public Transform killCountUI;
     Text killCountText;
     Image killCountImage;
@@ -31,7 +31,7 @@ public class StageEventManager : MonoBehaviour
     void Start()
     {
         GameManager.instance.isSurvivalMode = isSurvivalMode;
-
+        
         currentStageInfo = SceneChanger.currentStageInfo;
 
         killCountCanvasGroup = killCountUI.GetComponent<CanvasGroup>();

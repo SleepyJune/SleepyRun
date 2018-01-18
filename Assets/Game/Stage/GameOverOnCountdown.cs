@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "StageEvent/GameoverOnCoutdown event")]
-class GameOverOnCountdown : StageEvent
+public class GameOverOnCountdown : StageEvent
 {
     public override string eventName { get { return "Victory Condition"; } }
     
@@ -13,12 +13,14 @@ class GameOverOnCountdown : StageEvent
 
     public int collectCount = 30;
 
+    public bool victoryOnCountdown = false;
+
     public bool victory = true;
 
     public override void ExecuteEvent()
     {
-        if (GameManager.instance.timerManager.timer <= 0 
-            && GameManager.instance.monsterManager.GetMonsterCollectCount(monster) >= collectCount)
+        if (GameManager.instance.timerManager.timer <= 0
+            && (victoryOnCountdown || GameManager.instance.monsterManager.GetMonsterCollectCount(monster) >= collectCount))
         {
             GameManager.instance.AdvanceToNextWave(victory);
             isExecuted = true;

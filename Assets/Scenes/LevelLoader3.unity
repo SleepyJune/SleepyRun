@@ -265,7 +265,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9e1f2146ddf6a94ebb0b651d6e54f85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stageDatabase: {fileID: 11400000, guid: 01e45faa561b6344093964e6d770e113, type: 2}
+  stageDatabase: {fileID: 11400000, guid: 7ae76b093c1652141b02277e2295a583, type: 2}
   missionText: {fileID: 1844268958}
 --- !u!114 &168934464
 MonoBehaviour:
@@ -282,7 +282,7 @@ MonoBehaviour:
   levelButtonPrefab: {fileID: 114802257080181230, guid: ee3e355d7ea41b54e89011cbdd03641a,
     type: 2}
   levelButtonHolder: {fileID: 218382280}
-  stageDatabase: {fileID: 11400000, guid: 01e45faa561b6344093964e6d770e113, type: 2}
+  stageDatabase: {fileID: 11400000, guid: 7ae76b093c1652141b02277e2295a583, type: 2}
   scrollSnapObject: {fileID: 174851792}
 --- !u!1 &174851786
 GameObject:
