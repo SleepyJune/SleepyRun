@@ -43,7 +43,7 @@ public class LevelCompleteScript : MonoBehaviour
     string GetAppleEmote(LevelStats stats)
     {
         int totalMonsters = stats.monstersCollected + stats.monstersKilled + stats.monstersMissedCount;
-        float earningPercent = stats.monstersCollected / (1+totalMonsters - stats.monstersKilled);
+        float earningPercent = stats.monstersCollected / (1+totalMonsters - stats.monstersKilled); //divide by 0??
         float killPercent = stats.monstersKilled / totalMonsters;
         float levelTimePercent = stats.time / stats.levelTime;
 

@@ -8337,6 +8337,16 @@ Prefab:
       propertyPath: spawnFrequency
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 114555843911704178, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: spawnFrequency
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114490352397581194, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: spawnFrequency
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
   m_IsPrefabParent: 0

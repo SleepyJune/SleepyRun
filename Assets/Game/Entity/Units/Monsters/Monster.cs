@@ -1,6 +1,15 @@
 ﻿using System;
 using UnityEngine;
 
+public enum MonsterCollisionMask
+{
+    None = 0,
+    All = 0xFFFF,
+    Good = 1,
+    Neutral = 2,
+    Bad = 4,
+}
+
 public class Monster : Unit
 {    
     MonsterShatter shatterScript;
@@ -10,6 +19,8 @@ public class Monster : Unit
         
     [NonSerialized]
     public float timeSpawned;
+
+    public MonsterCollisionMask monsterType = MonsterCollisionMask.Bad;
 
     public bool isBadMonster = true;
 
@@ -64,6 +75,11 @@ public class Monster : Unit
         if (Time.time - timeSpawned < .25f)
         {
             //invincible for .25 seconds at spawn
+            return;
+        }
+
+        if ((hitInfo.monsterHitType & monsterType) == 0)
+        {
             return;
         }
 
@@ -154,6 +170,8 @@ public class Monster : Unit
     {
         GameManager.instance.comboManager.IncreaseComboCount();
         GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
+
+        GameManager.instance.spawnPickupManager.TryPickup();
 
         GameManager.instance.monsterManager.CreateMoneyExplosion(transform.position);
     }

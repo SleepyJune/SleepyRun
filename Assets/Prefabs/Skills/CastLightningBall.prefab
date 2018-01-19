@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4148368724905470}
   - component: {fileID: 114400079632591812}
-  - component: {fileID: 114587842886939468}
+  - component: {fileID: 114507258747107002}
   m_Layer: 16
-  m_Name: CastLightningBolt
+  m_Name: CastLightningBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -54,17 +54,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   castType: 2
   id: 0
-  spellName: LightningBolt
+  spellName: LightningBall
   description: 
   castTime: 0
   cooldown: 0
   mana: 0
-  icon: {fileID: 21300022, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
-  comabtUI: {fileID: 114587842886939468}
+  icon: {fileID: 21300006, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
+  comabtUI: {fileID: 114507258747107002}
   audioClip: {fileID: 0}
-  spellPrefab: {fileID: 114490340627149148, guid: d7e46d868c063564e8dc6acbeeaf580a,
+  spellPrefab: {fileID: 114102086740357960, guid: 7da723f7c3e893b4c9743f735429f2f9,
     type: 2}
---- !u!114 &114587842886939468
+--- !u!114 &114507258747107002
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -72,7 +72,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1690593564712828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445b536e2e2854344880a0b66fcc6f10, type: 3}
+  m_Script: {fileID: 11500000, guid: 716f810d085e0ba4ab34c17ad414f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 114400079632591812}
+  amount: 1
+  startPosition: {x: 0, y: 2, z: 0}
+  direction: {x: 0, y: 0, z: 0}

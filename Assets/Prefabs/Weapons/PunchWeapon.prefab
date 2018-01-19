@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4100887829244798}
   - component: {fileID: 114857960300887534}
-  - component: {fileID: 114232753181062638}
+  - component: {fileID: 114205359483112890}
   - component: {fileID: 114256740194598448}
   m_Layer: 0
   m_Name: PunchWeapon
@@ -42,7 +42,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114232753181062638
+--- !u!114 &114205359483112890
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -53,8 +53,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 458ae975008fc6d43ba6a672602c8672, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  onHitEffect: {fileID: 1724964679931374, guid: 5e4039506241f744885f44f1e864f9ca,
-    type: 2}
+  skill: {fileID: 0}
+  spell: {fileID: 114950899614043028, guid: 5e4039506241f744885f44f1e864f9ca, type: 2}
 --- !u!114 &114256740194598448
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -66,7 +66,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 716f810d085e0ba4ab34c17ad414f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spell: {fileID: 114102086740357960, guid: 7da723f7c3e893b4c9743f735429f2f9, type: 2}
+  skill: {fileID: 0}
   amount: 1
   startPosition: {x: 0, y: 2, z: 0}
   direction: {x: 0, y: 0, z: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   chopModifier: 1
   slashModifier: 1
   damage: 25
-  combatUI: {fileID: 114232753181062638}
+  combatUI: {fileID: 114205359483112890}
   ultimateUI: {fileID: 114256740194598448}
   minSlashRange: 1
   maxSlashRange: 1

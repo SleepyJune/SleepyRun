@@ -17,6 +17,8 @@ public abstract class Spell : Entity
 
     public HitType hitType = HitType.Spell;
 
+    public MonsterCollisionMask monsterHitType = MonsterCollisionMask.All;
+        
     public LayerMask collisionMask;
 
     public GameObject particleOnHit;
@@ -26,7 +28,7 @@ public abstract class Spell : Entity
 
     [System.NonSerialized]
     public float startTime;
-
+        
     protected virtual void Initialize()
     {
         collider = GetComponent<Collider>();
@@ -65,6 +67,7 @@ public abstract class Spell : Entity
             knockBackForce = knockBackForce,
             hitParticle = particleOnHit,
             buffOnHit = buffOnHit,
+            monsterHitType = monsterHitType,
         };
 
         return newHitInfo;

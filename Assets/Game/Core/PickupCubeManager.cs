@@ -37,7 +37,7 @@ public class PickupCubeManager : MonoBehaviour
         player = GameManager.instance.player;
     }
 
-    void Update()
+    /*void Update()
     {
         var random = Random.Range(0, spawnFrequency / Time.deltaTime);
 
@@ -45,7 +45,7 @@ public class PickupCubeManager : MonoBehaviour
         {
             SpawnPickup();
         }
-    }
+    }*/
 
     public void SpawnPickup()
     {
@@ -60,7 +60,7 @@ public class PickupCubeManager : MonoBehaviour
         pickup.speed = Random.Range(5, 10);
     }
 
-    public void SpawnPickup2(Monster monster)
+    public void SpawnPickupOnMonsterDeath(Monster monster)
     {
         var randomNum = Random.Range(0, 10);
 
@@ -74,6 +74,16 @@ public class PickupCubeManager : MonoBehaviour
         }
     }
 
+    public void TryPickup()
+    {
+        var random = Random.Range(0, spawnFrequency);
+
+        if (random <= 1)
+        {
+            ActivatePickupCube();
+        }
+    }
+
     public void ActivatePickupCube()
     {
         var player = GameManager.instance.player;
@@ -81,7 +91,7 @@ public class PickupCubeManager : MonoBehaviour
 
         player.SetNewSkill(skill);
 
-        GameManager.instance.scoreManager.AddScore(20);
+        //GameManager.instance.scoreManager.AddScore(20);
     }
 
     public Skill GenerateRandomSkill(Unit owner)

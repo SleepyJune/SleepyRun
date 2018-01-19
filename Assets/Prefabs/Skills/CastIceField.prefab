@@ -61,6 +61,7 @@ MonoBehaviour:
   mana: 0
   icon: {fileID: 21300014, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
   comabtUI: {fileID: 114587842886939468}
+  audioClip: {fileID: 0}
   spellPrefab: {fileID: 114216681421561360, guid: a88f5743720c1a84bbaad2831a4f496b,
     type: 2}
 --- !u!114 &114587842886939468

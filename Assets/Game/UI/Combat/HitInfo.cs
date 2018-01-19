@@ -30,4 +30,6 @@ public class HitInfo
     public BuffObject buffOnHit;
 
     public int knockBackForce;
+
+    public MonsterCollisionMask monsterHitType;
 }

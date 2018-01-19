@@ -14,6 +14,7 @@ MonoBehaviour:
   buffName: GreenAppleSpeedBuff
   duration: 5
   continuousBuff: 0
-  speedIncrease: 20
+  endsOnOwnerDeath: 0
+  speedIncrease: 15
   effectTrailerPrefab: {fileID: 1498995601303440, guid: 92b365751fcbcc24f925db4c92b27772,
     type: 2}

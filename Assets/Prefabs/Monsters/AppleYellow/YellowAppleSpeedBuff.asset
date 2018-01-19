@@ -15,6 +15,6 @@ MonoBehaviour:
   duration: 0.5
   continuousBuff: 0
   endsOnOwnerDeath: 1
-  speedIncrease: 15
+  speedIncrease: 7.5
   effectTrailerPrefab: {fileID: 1498995601303440, guid: 2d0985553cf6ce6499dbb1232d75ea94,
     type: 2}
