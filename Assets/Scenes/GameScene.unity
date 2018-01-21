@@ -1492,6 +1492,7 @@ GameObject:
   - component: {fileID: 279949749}
   - component: {fileID: 279949748}
   - component: {fileID: 279949747}
+  - component: {fileID: 279949750}
   m_Layer: 5
   m_Name: SettingsButton
   m_TagString: Untagged
@@ -1602,6 +1603,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 279949745}
+--- !u!114 &279949750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 279949745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf582b03e48f8146bc31ca67fcc903a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSounds: 1
 --- !u!1 &349916175
 GameObject:
   m_ObjectHideFlags: 0
@@ -4411,9 +4424,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   clickSounds:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 8300000, guid: bc8053f3c6f4db64d8596bd437b30575, type: 3}
+  - {fileID: 8300000, guid: 35a963ccbef6f5f4284da4dd1f5cde46, type: 3}
+  - {fileID: 8300000, guid: 58c7d26d9c099c546b75b3722d9c2137, type: 3}
 --- !u!1 &789196830
 GameObject:
   m_ObjectHideFlags: 0
@@ -8347,6 +8360,20 @@ Prefab:
       propertyPath: spawnFrequency
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 114857574025624986, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: spawnFrequency
+      value: 1.0016481
+      objectReference: {fileID: 0}
+    - target: {fileID: 114480791208940712, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: spawnFrequency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1012943088575746, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
   m_IsPrefabParent: 0
@@ -9693,7 +9720,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: aad709c24dec99d4ca42cd1ba20ad082, type: 3}
+  m_audioClip: {fileID: 8300000, guid: fc7b613f2a5ea4e16a60ac3c67476f38, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -10547,7 +10574,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SLIDER
+  m_Text: Volume
 --- !u!222 &2093647882
 CanvasRenderer:
   m_ObjectHideFlags: 0

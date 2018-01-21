@@ -371,7 +371,7 @@ MonoBehaviour:
   prefabID: 0
   speed: 1
   damage: 25
-  radius: 1.5
+  radius: 2
   hitType: 0
   monsterHitType: 65535
   collisionMask:

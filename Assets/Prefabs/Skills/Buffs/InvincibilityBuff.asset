@@ -11,7 +11,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2a052b8a4f414ce4d9173fc5615f6889, type: 3}
   m_Name: InvincibilityBuff
   m_EditorClassIdentifier: 
-  buffID: 0
   buffName: Invincibility
-  duration: 2
+  duration: 5
   continuousBuff: 0
+  endsOnOwnerDeath: 0

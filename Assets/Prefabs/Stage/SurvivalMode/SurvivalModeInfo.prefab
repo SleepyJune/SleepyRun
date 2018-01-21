@@ -421,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
-  spawnFrequency: 5
+  spawnFrequency: 5.003649
 --- !u!114 &114555843911704178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: 2326ad4f8f6ceb844b6f9634f60537de, type: 2}
-  spawnFrequency: 5
+  spawnFrequency: 5.009218
 --- !u!114 &114677255235144032
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
-  spawnFrequency: 1.0016481
+  spawnFrequency: 0.5020604
 --- !u!114 &114944193831916084
 MonoBehaviour:
   m_ObjectHideFlags: 1

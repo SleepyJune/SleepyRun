@@ -275,7 +275,7 @@ public class Player : Unit
                 Vector3 currentPosition = transform.position;
                 Vector3 portraitPosition = playerPortraitTransform.position;
 
-                if (Mathf.Abs(xDiff) < 0.05)
+                if (Mathf.Abs(xDiff) < 0.05 || Mathf.Abs(xDiff) <= speed * Time.deltaTime)
                 {
                     transform.position = new Vector3(destinationVector.x, transform.position.y, transform.position.z);
                     playerPortraitTransform.position = new Vector3(destinationVector.z, portraitPosition.y, portraitPosition.z);
