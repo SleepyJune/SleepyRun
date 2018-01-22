@@ -19,7 +19,8 @@ public class Player : Unit
     //public Slider healthBarSlider;
 
     public Transform heartHolder;
-    public GameObject heartPrefab;
+    public HeartPrefabScript heartPrefab;
+    List<HeartPrefabScript> heartSlots = new List<HeartPrefabScript>();
 
     public WeaponButton playerPortrait;
     public Transform playerPortraitTransform;
@@ -50,11 +51,11 @@ public class Player : Unit
 
         //healthBarSlider.value = 100 * health / maxHealth;
 
-        for(int i = 0; i < maxHealth; i++)
+        /*for(int i = 0; i < maxHealth; i++)
         {
             var newHeart = Instantiate(heartPrefab);
             newHeart.transform.SetParent(heartHolder, false);
-        }
+        }*/
 
         UpdateHealthBar();
 
@@ -115,6 +116,20 @@ public class Player : Unit
                     anim.SetTrigger("isHurt");
                 }
             }
+        }
+    }
+
+    public override void GainShield(int shieldAmount)
+    {
+        if (!GameManager.instance.isGameOver && !isDead)
+        {
+            if (shieldAmount > 0)
+            {
+                shield += shieldAmount;
+                shield = Mathf.Min(health, shield);                
+            }
+
+            UpdateHealthBar();
         }
     }
 
@@ -209,7 +224,7 @@ public class Player : Unit
             }
         }*/
     }
-
+        
     void UpdateHealthBar()
     {
         /*var percentHealth = 100 * health / maxHealth;
@@ -225,6 +240,8 @@ public class Player : Unit
             {
                 var newHeart = Instantiate(heartPrefab);
                 newHeart.transform.SetParent(heartHolder, false);
+
+                heartSlots.Add(newHeart);
             }
         }
         else if(diff < 0)
@@ -232,17 +249,26 @@ public class Player : Unit
             
             for (int i = 0; i < -diff; i++)
             {
-                if(heartHolder.childCount == 0)
+                if(heartSlots.Count == 0)
                 {
                     break;
                 }
 
-                var heart = heartHolder.GetChild(0);
+                var heart = heartSlots[heartSlots.Count-1];
+                heartSlots.RemoveAt(heartSlots.Count - 1);
                 Destroy(heart.gameObject);
             }
         }
 
-        
+        int shieldLoop = shield;
+
+        for (int i = 0; i < heartSlots.Count; i++)
+        {
+            var heart = heartSlots[i];
+
+            heart.SetIcon(shieldLoop > 0);
+            shieldLoop--;
+        }
 
         //healthBarScript.SetValue(health);
     }

@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 224015799984206362}
   - component: {fileID: 222984886589644724}
   - component: {fileID: 114553551369585758}
+  - component: {fileID: 114708340903515610}
   m_Layer: 5
   m_Name: heart
   m_TagString: Untagged
@@ -41,7 +42,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -55,6 +56,20 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114708340903515610
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1259233987517510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f01989afd504a746b69c1153dbe07ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabIcon: {fileID: 114553551369585758}
+  shieldIcon: {fileID: 21300000, guid: cd9165ca19c288a4bac7006a00907a5a, type: 3}
+  heartIcon: {fileID: 21300000, guid: 74f9caca29b28b94998b4001199eaa91, type: 3}
 --- !u!222 &222984886589644724
 CanvasRenderer:
   m_ObjectHideFlags: 1

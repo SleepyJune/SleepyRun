@@ -216,7 +216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 5}
   m_SizeDelta: {x: 0, y: 60}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &11889920
@@ -402,7 +402,7 @@ Prefab:
         type: 2}
       propertyPath: heartPrefab
       value: 
-      objectReference: {fileID: 1259233987517510, guid: b8e84c1a41507a44d904af4f943df70b,
+      objectReference: {fileID: 114708340903515610, guid: b8e84c1a41507a44d904af4f943df70b,
         type: 2}
     - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
         type: 2}
@@ -7799,7 +7799,6 @@ MonoBehaviour:
   pickupCubePrefab: {fileID: 114125409921895236, guid: 535f8fcc1a198da41b4ce356073cc16e,
     type: 2}
   skillDatabase: {fileID: 11400000, guid: 4e13ab324498b8d42bff432609ba2da6, type: 2}
-  spawnFrequency: 5
 --- !u!114 &1465129610
 MonoBehaviour:
   m_ObjectHideFlags: 0

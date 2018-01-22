@@ -11,10 +11,12 @@ public abstract class Unit : Entity
 
     public int maxHealth = 10;
     public int defense = 0;
-    public int shield = 0;
     
     [NonSerialized]
     public int health;
+
+    [NonSerialized]
+    public int shield;
 
     [NonSerialized]
     public bool isRooted = false;
@@ -93,30 +95,21 @@ public abstract class Unit : Entity
             return !isDead && !isInvincible && !GameManager.instance.isGameOver;
         }
     }
-
+        
     public virtual int UnitTakeDamage(HitInfo hitInfo)
     {
         var finalDamage = CalculateDamage(hitInfo.damage);
 
-        if (finalDamage > 0)
+        int damageAfterShield = finalDamage;
+        if (finalDamage > 0 && shield > 0)
         {
-            foreach (var buff in buffs.Values)
-            {
-                if (buff != null && !buff.hasEnded && buff is ShieldBuff)
-                {
-                    var shieldBuff = buff as ShieldBuff;
+            damageAfterShield = Math.Max(0, finalDamage - shield);
 
-                    finalDamage = shieldBuff.ShieldTakeDamage(finalDamage);
-
-                    if(finalDamage == 0)
-                    {
-                        break; //no need to keep looping
-                    }
-                }
-            }
+            shield = Math.Max(0, shield - finalDamage);
+            shield = Math.Min(health, shield);
         }
 
-        health = Mathf.Max(0, health - finalDamage);
+        health = Mathf.Max(0, health - damageAfterShield);
                 
         if (hitInfo.hitParticle)
         {
@@ -130,7 +123,7 @@ public abstract class Unit : Entity
 
         if (finalDamage > 0)
         {
-            OnTakeDamageEvent(hitInfo, finalDamage);
+            OnTakeDamageEvent(hitInfo, damageAfterShield);
 
             if(health > 0 && this is Monster)
             {
@@ -163,6 +156,18 @@ public abstract class Unit : Entity
         finalDamage = Mathf.Max(1, finalDamage - defense);
 
         return (int)Mathf.Round(finalDamage);
+    }
+
+    public virtual void GainShield(int shieldAmount)
+    {
+        if (!isDead)
+        {
+            if (shieldAmount > 0)
+            {
+                shield += shieldAmount;
+                shield = Math.Min(health, shield);
+            }
+        }
     }
 
     public virtual void GainHealth(int gain)

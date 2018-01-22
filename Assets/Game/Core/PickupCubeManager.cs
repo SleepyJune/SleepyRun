@@ -12,7 +12,8 @@ public class PickupCubeManager : MonoBehaviour
 
     public SkillDatabase skillDatabase;
 
-    public float spawnFrequency = 5;
+    [NonSerialized]
+    public float spawnRate = 1f;
 
     [NonSerialized]
     public Transform pickupHolder;
@@ -76,8 +77,8 @@ public class PickupCubeManager : MonoBehaviour
 
     public void TryPickup()
     {
-        var random = Random.Range(0, spawnFrequency);
-
+        var random = Random.Range(0, 1/spawnRate);
+        
         if (random <= 1)
         {
             ActivatePickupCube();

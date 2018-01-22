@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Name: ShieldBuff
   m_EditorClassIdentifier: 
   buffName: ShieldBuff
-  duration: 5
+  duration: 0
   continuousBuff: 0
-  shieldAmount: 100
+  endsOnOwnerDeath: 0
+  shieldAmount: 1
