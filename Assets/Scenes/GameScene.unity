@@ -7626,6 +7626,7 @@ GameObject:
   - component: {fileID: 1465129609}
   - component: {fileID: 1465129610}
   - component: {fileID: 1465129611}
+  - component: {fileID: 1465129612}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -7826,6 +7827,18 @@ MonoBehaviour:
   levelTime: 0
   timerText: {fileID: 1527321018}
   gameTime: 0
+--- !u!114 &1465129612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1465129598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03acd87a65437e7458c83592bed2788f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 11400000, guid: 884b17d8ea7c5014f861e347e204769f, type: 2}
 --- !u!1 &1475007277
 GameObject:
   m_ObjectHideFlags: 0

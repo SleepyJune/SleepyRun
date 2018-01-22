@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class UpgradeInfo : ScriptableObject
 {
-    
+    public int level;
+    public float value;
 
+    public int cost;
 }
