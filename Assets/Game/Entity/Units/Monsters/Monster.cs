@@ -20,9 +20,9 @@ public class Monster : Unit
     [NonSerialized]
     public float timeSpawned;
 
-    public MonsterCollisionMask monsterType = MonsterCollisionMask.Bad;
+    public MonsterCollisionMask monsterType = MonsterCollisionMask.Neutral;
 
-    public bool isBadMonster = true;
+    //public bool isBadMonster = true;
 
     public BuffObject buffOnHit;
 
@@ -139,18 +139,41 @@ public class Monster : Unit
         GameManager.instance.comboManager.BreakCombo();
 
         GameManager.instance.player.TakeDamage(
-        new HitInfo
-        {
-            source = this,
-            target = GameManager.instance.player,
-                    //hitStart = hitStart,
-                    //hitEnd = hitEnd,
-                    //force = force,
+                new HitInfo
+                {
+                    source = this,
+                    target = GameManager.instance.player,
                     damage = damage,
-                    //knockBackForce = knockBackForce,
-                    //hitParticle = particleOnHit,
                     buffOnHit = buffOnHit,
-        });
+                });
+
+        var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
+        if (monsterDeathParticle)
+        {
+            monsterDeathParticle.CreateParticle();
+        }
+
+        if (anim)
+        {
+
+        }
+
+        isDead = true;
+    }
+
+    void NeutralMonsterCollide()
+    {
+        if (buffOnHit != null)
+        {
+            GameManager.instance.player.TakeDamage(
+                new HitInfo
+                {
+                    source = this,
+                    target = GameManager.instance.player,
+                    damage = 0,
+                    buffOnHit = buffOnHit,
+                });
+        }
 
         var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
         if (monsterDeathParticle)
@@ -180,11 +203,15 @@ public class Monster : Unit
     {
         if (!isDead)
         {
-            if (isBadMonster)
+            if (monsterType == MonsterCollisionMask.Bad)
             {
                 BadMonsterCollide();
             }
-            else
+            else if (monsterType == MonsterCollisionMask.Neutral)
+            {
+                NeutralMonsterCollide();
+            }            
+            else if (monsterType == MonsterCollisionMask.Good)
             {
                 GoodMonsterCollide();
             }
@@ -197,7 +224,7 @@ public class Monster : Unit
     {
         if (player.transform.position.z - transform.position.z > 0)
         {
-            if (isBadMonster)
+            if(monsterType == MonsterCollisionMask.Bad)
             {
                 BadMonsterCollide();
             }

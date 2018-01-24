@@ -37,6 +37,7 @@ public class ScoreManager : MonoBehaviour
             time = GameManager.instance.timerManager.totalGameTime,
             monstersKilled = GameManager.instance.monsterManager.GetKillCount(),
             monstersMissedCount = GameManager.instance.monsterManager.GetMissedCount(),
+            totalMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(),
             monstersCollected = totalCollected,
             points = points,
         };

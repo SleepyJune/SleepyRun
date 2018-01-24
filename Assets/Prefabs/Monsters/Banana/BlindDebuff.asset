@@ -8,10 +8,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e85c67e03086594b9e08ab8f3f21c0b, type: 3}
+  m_Script: {fileID: 11500000, guid: 42f4958528337bb4faf82ccbfefa0c4c, type: 3}
   m_Name: BlindDebuff
   m_EditorClassIdentifier: 
   buffName: BlindDebuff
   duration: 2.5
   continuousBuff: 0
   endsOnOwnerDeath: 0
+  statusBuffType: 4

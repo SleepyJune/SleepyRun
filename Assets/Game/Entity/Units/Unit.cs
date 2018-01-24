@@ -39,6 +39,8 @@ public abstract class Unit : Entity
 
     public bool isInvincible = false;
 
+    public bool isSilenced = false;
+
     private float lastBuffUpdateTime;
 
     public int damage = 1;

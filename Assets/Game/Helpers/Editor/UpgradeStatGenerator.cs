@@ -52,17 +52,39 @@ public class UpgradeStatGenerator : Editor
             }
         }
     }
-    
+
+    public int RoundDigits(int i)
+    {
+        int digits = (int)(Mathf.Floor(Mathf.Log10(i) + 1)/2.0f);
+        var digitPower = (int)Mathf.Pow(10, digits);
+
+        return ((int)Mathf.Round(i / digitPower)) * digitPower;
+    }
+
     UpgradeInfo AddUpgradeInfo(int level)
     {
         var info = CreateInstance<UpgradeInfo>() as UpgradeInfo;
 
-        info.name = "Level " + (level+1);
-        info.level = (level + 1);
+        info.name = "Level " + level;
+        info.level = level;
         info.value = Mathf.Min(database.maxStatValue, database.baseStatValue + level * database.valueIncreament);
-        info.cost = Mathf.RoundToInt(
-            database.baseCost 
-            + Mathf.Pow(database.costIncreamentExponential, level) * database.costIncreament);
+
+        if(level == 0)
+        {
+            info.cost = 0;
+        }
+        else if(level == 1)
+        {
+            info.cost = database.baseCost;
+        }
+        else
+        {
+            info.cost = RoundDigits(Mathf.RoundToInt(
+                database.baseCost
+                    + Mathf.Pow(database.costIncreamentExponential, level-1) * database.costIncreament));
+        }
+
+        
 
         AssetDatabase.AddObjectToAsset(info, target);
 

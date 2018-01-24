@@ -13,6 +13,8 @@ public class MonsterManager : MonoBehaviour
 
     public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
 
+    public Dictionary<string, int> monsterSpawnCount = new Dictionary<string, int>();
+
     public GameObject moneyExplosionPrefab;
 
     Player player;
@@ -132,6 +134,15 @@ public class MonsterManager : MonoBehaviour
         {
             monsterCount.Add(monster.name, 1);
         }
+
+        if (monsterSpawnCount.TryGetValue(monster.name, out count))
+        {
+            monsterSpawnCount[monster.name] = count + 1;
+        }
+        else
+        {
+            monsterSpawnCount.Add(monster.name, 1);
+        }
     }
 
     public void AddMissedMonsterCount(Monster monster)
@@ -185,23 +196,10 @@ public class MonsterManager : MonoBehaviour
         monsterKillCount = new Dictionary<string, int>();
     }
 
-    public int GetMonsterKillCount(Monster monster)
-    {
-        int killCount;
-        if (monsterKillCount.TryGetValue(monster.name, out killCount))
-        {
-            return killCount;
-        }
-        else
-        {
-            return 0;
-        }
-    }
-
-    public int GetMonsterCollectCount(Monster monster)
+    public int GetDatabaseCount(Dictionary<string, int> database, Monster monster)
     {
         int count;
-        if (monsterCollectedCount.TryGetValue(monster.name, out count))
+        if (database.TryGetValue(monster.name, out count))
         {
             return count;
         }
@@ -209,6 +207,21 @@ public class MonsterManager : MonoBehaviour
         {
             return 0;
         }
+    }
+
+    public int GetMonsterKillCount(Monster monster)
+    {
+        return GetDatabaseCount(monsterKillCount, monster);
+    }
+
+    public int GetMonsterCollectCount(Monster monster)
+    {
+        return GetDatabaseCount(monsterCollectedCount, monster);
+    }
+
+    public int GetMonsterSpawnCount()
+    {
+        return monsterSpawnCount.Values.Sum(count => count);
     }
 
     public int GetKillCount()

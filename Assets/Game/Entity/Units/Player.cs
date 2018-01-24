@@ -25,12 +25,13 @@ public class Player : Unit
     public WeaponButton playerPortrait;
     public Transform playerPortraitTransform;
 
-    [System.NonSerialized]
-    public Skill[] skills = new Skill[3];
+    //[System.NonSerialized]
+    //public Skill[] skills = new Skill[3];
 
     public SpellSlotUI spellSlotPrefab;
     public Transform spellSlotTransform;
 
+    public int numSpellSlots = 3;
     SpellSlotUI[] spellSlots = new SpellSlotUI[3];
 
     public Animation blindAnimation;
@@ -44,19 +45,13 @@ public class Player : Unit
 
     void Start()
     {
+        Invoke("InitPlayer", 0.25f);
+    }
+
+    void InitPlayer()
+    {
         health = maxHealth;
-
-        //healthBarScript.SetValue(health);
-        //healthBarScript.SetMaxValue(maxHealth);
-
-        //healthBarSlider.value = 100 * health / maxHealth;
-
-        /*for(int i = 0; i < maxHealth; i++)
-        {
-            var newHeart = Instantiate(heartPrefab);
-            newHeart.transform.SetParent(heartHolder, false);
-        }*/
-
+        
         UpdateHealthBar();
 
         var lanePositions = playerPortraitTransform.Find("LanePositions");
@@ -69,6 +64,8 @@ public class Player : Unit
         laneVectors[Lane.left] = new Vector3(laneVectors[Lane.left].x, 0, left.position.x);
 
         Destroy(lanePositions.gameObject);
+
+        spellSlots = new SpellSlotUI[numSpellSlots];
 
         for (int i = 0; i < spellSlots.Length; i++)
         {
@@ -98,7 +95,11 @@ public class Player : Unit
     {
         if (canTakeDamage)
         {
-            hitInfo.damage = 1;
+            if(hitInfo.damage > 0)
+            {
+                hitInfo.damage = 1;
+            }
+
             var damageReceived = UnitTakeDamage(hitInfo);
 
             //Debug.Log("Take damage: " + damage);
@@ -148,18 +149,6 @@ public class Player : Unit
         }
     }
 
-    public void ToggleBlindStatus()
-    {
-        if (isBlind)
-        {
-            blindAnimation.Play("ShadowBlind");
-        }
-        else
-        {
-            blindAnimation.Play("ShadowUnblind");
-        }
-    }
-
     public void Death()
     {
         health = 0;
@@ -188,11 +177,39 @@ public class Player : Unit
         }
     }
 
-    public void SetInvincibility(bool isPlayerInvincible)
+    public void OnStatusChange(StatusBuffObject.StatusBuffType statusType, bool status)
     {
-        isInvincible = isPlayerInvincible;
+        if (statusType == StatusBuffObject.StatusBuffType.Root)
+        {
+            
+        }
+        else if (statusType == StatusBuffObject.StatusBuffType.Blind)
+        {
+            if (isBlind)
+            {
+                blindAnimation.Play("ShadowBlind");
+            }
+            else
+            {
+                blindAnimation.Play("ShadowUnblind");
+            }
+        }
+        else if (statusType == StatusBuffObject.StatusBuffType.Invincibility)
+        {
+            anim.SetBool("isInvincible", isInvincible);
+        }
+        else if (statusType == StatusBuffObject.StatusBuffType.Silence)
+        {
+            for (int i= 0;i < spellSlots.Length; i++)
+            {
+                var spellSlot = spellSlots[i];
+                spellSlot.DisableSkill(isSilenced);
+            }
+        }        
+        else
+        {
 
-        anim.SetBool("isInvincible", isInvincible);
+        }
     }
         
     void OnTriggerEnter(Collider collision)

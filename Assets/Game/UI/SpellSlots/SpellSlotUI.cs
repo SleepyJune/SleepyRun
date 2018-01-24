@@ -13,6 +13,10 @@ public class SpellSlotUI : MonoBehaviour
 
     public GameObject iconObject;
 
+    public GameObject disabledObject;
+
+    public bool isSkillDisabled = false;
+
     Animation anim;
 
     void Start()
@@ -40,10 +44,26 @@ public class SpellSlotUI : MonoBehaviour
         }
     }
 
+    public void DisableSkill(bool disable = true)
+    {
+        if (disable)
+        {
+            disabledObject.SetActive(true);
+            isSkillDisabled = true;
+        }
+        else
+        {
+            disabledObject.SetActive(false);
+            isSkillDisabled = false;
+        }
+    }
+
     public void OnSpellSlotPressed()
     {
-        skill.UseSkill();
-
-        anim.Play("ActivateSkillAnimation");
+        if (!isSkillDisabled)
+        {
+            skill.UseSkill();
+            anim.Play("ActivateSkillAnimation");
+        }
     }
 }

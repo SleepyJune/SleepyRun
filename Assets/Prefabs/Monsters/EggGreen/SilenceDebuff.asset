@@ -9,10 +9,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 42f4958528337bb4faf82ccbfefa0c4c, type: 3}
-  m_Name: RootDebuff
+  m_Name: SilenceDebuff
   m_EditorClassIdentifier: 
-  buffName: RootDebuff
-  duration: 5
+  buffName: SilenceDebuff
+  duration: 3
   continuousBuff: 0
   endsOnOwnerDeath: 0
-  statusBuffType: 1
+  statusBuffType: 3

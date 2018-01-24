@@ -11,9 +11,6 @@ public class UpgradeManager : MonoBehaviour
 
     void Start()
     {
-        PlayerPrefs.SetInt("Upgrade_PickupRate", 5);
-        PlayerPrefs.SetInt("Upgrade_MovementSpeed", 8);
-
         foreach (var upgrade in database.allUpgrades)
         {
             var upgradeLevel = PlayerPrefs.GetInt("Upgrade_" + upgrade.upgradeName, 0);
@@ -21,6 +18,10 @@ public class UpgradeManager : MonoBehaviour
             if(upgradeLevel > 0)
             {
                 upgrade.ApplyUpgrade(upgradeLevel);
+            }
+            else if(upgrade.defaultMockLevel > 0)
+            {
+                upgrade.ApplyUpgrade(upgrade.defaultMockLevel);
             }
         }
     }

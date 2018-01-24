@@ -24,6 +24,8 @@ public class Upgrade : ScriptableObject
 
     public UpgradeInfo[] stats;
 
+    public int defaultMockLevel = 5;
+
     public enum TargetObject
     {
         Prefab,
@@ -64,9 +66,11 @@ public class Upgrade : ScriptableObject
         {
             var stat = stats[level];
 
-            target.GetType().GetField(targetString).SetValue(target, stat.value);
+            var targetField = target.GetType().GetField(targetString);            
 
-            Debug.Log(target.GetType().GetField(targetString).GetValue(target));
+            targetField.SetValue(target, System.Convert.ChangeType(stat.value, targetField.FieldType));
+
+            //Debug.Log(target.GetType().GetField(targetString).GetValue(target));
         }
 
     }

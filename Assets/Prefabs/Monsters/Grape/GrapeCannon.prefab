@@ -230,6 +230,7 @@ MeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -247,6 +248,7 @@ MeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -291,10 +293,11 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
-  shield: 0
   isImmovable: 1
   isInvincible: 0
+  isSilenced: 0
   damage: 1
+  monsterType: 4
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: e87cf57bea810c04192f3943a3effc38, type: 3}
 --- !u!114 &114729313123097880
@@ -310,6 +313,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shatterPrefab: {fileID: 1895281047071958, guid: 87c41194e6b149e458ad70af6820f4ff,
     type: 2}
+  explodeOnShatter: 0
+  explosionForce: 1
+  explosionPosition: {x: 0, y: 0, z: 0}
 --- !u!135 &135187490924617148
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -331,6 +337,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -347,6 +354,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -378,6 +386,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -394,6 +403,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

@@ -146,13 +146,13 @@ MonoBehaviour:
   anim: {fileID: 0}
   maxHealth: 1
   defense: 0
-  shield: 0
   isImmovable: 0
   isInvincible: 0
+  isSilenced: 0
   damage: 5
   monsterType: 2
   isBadMonster: 0
-  buffOnHit: {fileID: 11400000, guid: 4ae39e5494dc40348a87e03fad565186, type: 2}
+  buffOnHit: {fileID: 11400000, guid: 77a546790859b694ab5b99a8752450f0, type: 2}
   image: {fileID: 21300000, guid: 7790b772eb76e1a4aa0c386425369bbd, type: 3}
 --- !u!135 &135596424252103894
 SphereCollider:
