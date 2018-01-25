@@ -28,7 +28,7 @@ public class ScoreManager : MonoBehaviour
 
     public void SetNewLevelStats(bool levelComplete = true)
     {
-        var points = levelComplete ? Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount()) : 0;
+        var points = totalCollected;//Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount());
 
         LevelStats stats = new LevelStats
         {
@@ -37,7 +37,8 @@ public class ScoreManager : MonoBehaviour
             time = GameManager.instance.timerManager.totalGameTime,
             monstersKilled = GameManager.instance.monsterManager.GetKillCount(),
             monstersMissedCount = GameManager.instance.monsterManager.GetMissedCount(),
-            totalMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(),
+            totalMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.All),
+            totalGoodMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.Good),
             monstersCollected = totalCollected,
             points = points,
         };

@@ -43,18 +43,20 @@ public class LevelCompleteScript : MonoBehaviour
     string GetAppleEmote(LevelStats stats)
     {
         int totalMonsters = stats.totalMonsterSpawned;
-        float earningPercent = stats.monstersCollected / (totalMonsters - stats.monstersKilled); //divide by 0??
-        float killPercent = stats.monstersKilled / totalMonsters;
+        float earningPercent = (float)stats.monstersCollected / stats.totalGoodMonsterSpawned; //divide by 0??
+        float killPercent = (float)stats.monstersKilled / totalMonsters;
         float levelTimePercent = stats.time / stats.levelTime;
 
-        if(!stats.levelComplete && levelTimePercent <= .5f)
+        Debug.Log("Apples Spawned: " + stats.totalGoodMonsterSpawned);
+
+        /*if(!stats.levelComplete && levelTimePercent <= .5f)
         {
             return "lines";
         }
         else if (!stats.levelComplete)
         {
             return "no_words";
-        }
+        }*/
 
 
         if (killPercent > .8f)
@@ -62,27 +64,27 @@ public class LevelCompleteScript : MonoBehaviour
             return "sliced";
         }
 
-        if (earningPercent <= .2f)
+        if (earningPercent <= .1f)
         {
-            return "puke";
+            return "lines";
+        }
+        else if (earningPercent <= .2f)
+        {
+            return "no_words";
         }
         else if (earningPercent <= .3f)
         {
-            return "laugh";
-        }
-        else if (earningPercent <= .5f)
-        {
             return "laugh2";
         }
-        else if (earningPercent <= .7f)
+        else if (earningPercent <= .4f)
         {
             return "worm";
         }
-        else if (earningPercent <= .9f)
+        else if (earningPercent <= .5f)
         {
             return "half_eaten";
         }
-        else if (earningPercent >= .9f)
+        else if (earningPercent >= .5f)
         {
             return "sunglasses";
         }

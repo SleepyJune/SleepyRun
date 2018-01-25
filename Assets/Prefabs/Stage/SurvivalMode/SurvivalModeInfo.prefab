@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4487185450961090}
   - component: {fileID: 114490352397581194}
   m_Layer: 0
-  m_Name: GreenEgg
+  m_Name: EggGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114279824525025166, guid: e4ac1aace424fe64c98d56f2047ec125, type: 2}
-  spawnFrequency: 5
+  spawnFrequency: 10
 --- !u!114 &114555843911704178
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -13,4 +13,5 @@ public class LevelStats
     public int monstersMissedCount;
     public int monstersCollected;
     public int totalMonsterSpawned;
+    public int totalGoodMonsterSpawned;
 }

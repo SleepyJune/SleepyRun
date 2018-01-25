@@ -134,14 +134,19 @@ public class SurvivalModeDatabaseGenerator : Editor
 
         for(int i = 0; i < clip.length * 60; i++)
         {
+            if(i == 0)
+            {
+                continue;//skip 0th stage
+            }
+
             clip.SampleAnimation(info, i/60.0f);
 
             //Debug.Log(baseInfoScript.beltSpeed);
 
             var stageInfo = CreateInstance<StageInfo>();
-            var stageName = "Level " + (i + 1).ToString();
+            var stageName = "Level " + i;
 
-            stageInfo.stageId = i + 1;
+            stageInfo.stageId = i;
             stageInfo.stageName = stageName;
             stageInfo.name = stageInfo.stageName;
             AssetDatabase.AddObjectToAsset(stageInfo, target);
