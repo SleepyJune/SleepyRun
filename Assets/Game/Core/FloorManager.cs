@@ -16,7 +16,9 @@ public class FloorManager : MonoBehaviour
 
     Player player;
 
-    Transform floorHolder;
+    public Transform floorHolder;
+
+    public float beltSpeed = 2.0f;
 
     int numFloorsToPregenerate = 10;
     int numFloorsTillDestruction = 5;
@@ -25,12 +27,14 @@ public class FloorManager : MonoBehaviour
     {
         player = GameManager.instance.player;
 
-        floorHolder = (new GameObject("Floor Holder")).transform;
+        //floorHolder = (new GameObject("Floor Holder")).transform;
     }
 
     void Update()
     {
         CheckFloors();
+
+        floorHolder.position += Vector3.back * beltSpeed * Time.deltaTime;
     }
 
     void MakeFloor()

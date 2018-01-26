@@ -39,7 +39,7 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     ComboManager comboManager;
     WeaponManager weaponManager;
-
+        
     void Start()
     {
         playerPortraitTransform = transform.parent;
@@ -128,6 +128,11 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
         if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
         {
+            if (GameManager.instance.player.isConfused)
+            {
+                delta.x *= -1;
+            }
+
             if (delta.x > 0)
             {
                 if(playerPosition.x < 0)
@@ -171,7 +176,7 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
             
         }
     }
-
+        
     public void OnUltimateButtonPressed()
     {
         if (true)//comboManager.charged)

@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 135566127602306982}
   - component: {fileID: 114433792061735412}
   - component: {fileID: 114501068332162278}
-  - component: {fileID: 114814002029419056}
   m_Layer: 8
   m_Name: YellowMovingApple
   m_TagString: Untagged
@@ -343,13 +342,9 @@ MonoBehaviour:
   anim: {fileID: 95299592547556498}
   maxHealth: 10
   defense: 0
-  shield: 0
-  isImmovable: 0
-  isInvincible: 0
   damage: 5
   monsterType: 2
-  isBadMonster: 1
-  buffOnHit: {fileID: 0}
+  buffOnHit: {fileID: 11400000, guid: f2cf2e9f439352c4490821c5b6462bc9, type: 2}
   image: {fileID: 21300000, guid: 8196eeca684e12743b107e21b7a73090, type: 3}
 --- !u!114 &114501068332162278
 MonoBehaviour:
@@ -367,19 +362,6 @@ MonoBehaviour:
   explodeOnShatter: 0
   explosionForce: 1
   explosionPosition: {x: 0, y: 0, z: 0}
---- !u!114 &114814002029419056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1620783191166748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionInfo: {fileID: 114247615370516076, guid: 25638666aad73d34f8ec0c428dbf734f,
-    type: 2}
 --- !u!135 &135566127602306982
 SphereCollider:
   m_ObjectHideFlags: 1

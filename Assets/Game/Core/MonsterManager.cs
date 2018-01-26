@@ -29,6 +29,7 @@ public class MonsterManager : MonoBehaviour
     };
 
     public Transform monsterHolder;
+    public Transform immovableMonsterHolder;
 
     float spawnRadius = 1f;
 
@@ -37,7 +38,7 @@ public class MonsterManager : MonoBehaviour
         player = GameManager.instance.player;
         floorManager = GameManager.instance.floorManager;
 
-        monsterHolder = (new GameObject("Monster Holder")).transform;
+        //monsterHolder = (new GameObject("Monster Holder")).transform;
     }
 
     void Update()
@@ -99,7 +100,15 @@ public class MonsterManager : MonoBehaviour
         var newMonster = Instantiate(prefab, spawnPos, rotation);
 
         newMonster.name = newMonster.name.Replace("(Clone)", "");
-        newMonster.transform.SetParent(monsterHolder);
+
+        if (newMonster.isImmovable)
+        {            
+            newMonster.transform.SetParent(immovableMonsterHolder);
+        }
+        else
+        {
+            newMonster.transform.SetParent(monsterHolder);
+        }
 
         monsters.Add(newMonster.id, newMonster);
 

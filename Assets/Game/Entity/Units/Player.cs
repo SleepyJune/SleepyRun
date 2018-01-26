@@ -9,7 +9,7 @@ public class Player : Unit
     [System.NonSerialized]
     public bool isBossFight = false;
 
-    public float beltSpeed = 2.0f;
+    //public float beltSpeed = 2.0f;
 
     public Lane destinationLane = Lane.mid;
     [System.NonSerialized]
@@ -23,6 +23,7 @@ public class Player : Unit
     List<HeartPrefabScript> heartSlots = new List<HeartPrefabScript>();
 
     public WeaponButton playerPortrait;
+    public EffectOverlayManager overlayManager;
     public Transform playerPortraitTransform;
 
     //[System.NonSerialized]
@@ -177,13 +178,13 @@ public class Player : Unit
         }
     }
 
-    public void OnStatusChange(StatusBuffObject.StatusBuffType statusType, bool status)
+    public void OnStatusChange(StatusEffectType statusType, bool status)
     {
-        if (statusType == StatusBuffObject.StatusBuffType.Root)
+        if (statusType == StatusEffectType.Rooted)
         {
-            
+
         }
-        else if (statusType == StatusBuffObject.StatusBuffType.Blind)
+        else if (statusType == StatusEffectType.Blinded)
         {
             if (isBlind)
             {
@@ -194,18 +195,29 @@ public class Player : Unit
                 blindAnimation.Play("ShadowUnblind");
             }
         }
-        else if (statusType == StatusBuffObject.StatusBuffType.Invincibility)
+        else if (statusType == StatusEffectType.Invincible)
         {
             anim.SetBool("isInvincible", isInvincible);
         }
-        else if (statusType == StatusBuffObject.StatusBuffType.Silence)
+        else if (statusType == StatusEffectType.Silenced)
         {
-            for (int i= 0;i < spellSlots.Length; i++)
+            for (int i = 0; i < spellSlots.Length; i++)
             {
                 var spellSlot = spellSlots[i];
                 spellSlot.DisableSkill(isSilenced);
             }
-        }        
+        }
+        else if (statusType == StatusEffectType.Confused)
+        {
+            if (status)
+            {
+                overlayManager.AddEffectOverlay("ConfusedAnimation");
+            }
+            else
+            {
+                overlayManager.RemoveEffectOverlay("ConfusedAnimation");
+            }
+        }
         else
         {
 
@@ -305,8 +317,8 @@ public class Player : Unit
                 //anim.SetFloat("Speed", 0);
             }
 
-            var dir = new Vector3(0, 0, 1);
-            transform.position += dir * beltSpeed * Time.deltaTime;
+            //var dir = new Vector3(0, 0, 1);
+            //transform.position += dir * beltSpeed * Time.deltaTime;
 
             //Debug.Log(destinationLane);
 

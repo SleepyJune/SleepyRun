@@ -3,6 +3,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum StatusEffectType
+{
+    None,
+    Rooted,
+    Invincible,
+    Silenced,
+    Blinded,
+    Confused,
+}
+
 public abstract class Unit : Entity
 {
     public Animator anim;
@@ -18,11 +28,6 @@ public abstract class Unit : Entity
     [NonSerialized]
     public int shield;
 
-    [NonSerialized]
-    public bool isRooted = false;
-
-    [NonSerialized]
-    public bool isBlind = false;
 
     [NonSerialized]
     public float flatMovespeedBonus = 0;
@@ -35,11 +40,18 @@ public abstract class Unit : Entity
     [NonSerialized]
     public float baseMovespeed = 0;
 
-    public bool isImmovable = false;
-
-    public bool isInvincible = false;
-
+    [NonSerialized]
+    public bool isRooted = false;
+    [NonSerialized]
+    public bool isBlind = false;    
+    [NonSerialized]
     public bool isSilenced = false;
+    [NonSerialized]
+    public bool isConfused = false;
+
+    //serialized
+    public bool isImmovable = false;    
+    public bool isInvincible = false;
 
     private float lastBuffUpdateTime;
 

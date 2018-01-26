@@ -35,21 +35,25 @@ public class StatusBuff : Buff
 
         Debug.Log(statusType);
 
-        if (statusType == StatusBuffObject.StatusBuffType.Root)
+        if (statusType == StatusEffectType.Rooted)
         {
             target.isRooted = buffStatus;
         }
-        else if (statusType == StatusBuffObject.StatusBuffType.Blind)
+        else if (statusType == StatusEffectType.Blinded)
         {
             target.isBlind = buffStatus;
         }
-        else if (statusType == StatusBuffObject.StatusBuffType.Invincibility)
+        else if (statusType == StatusEffectType.Invincible)
         {
             target.isInvincible = buffStatus;
         }
-        else if (statusType == StatusBuffObject.StatusBuffType.Silence)
+        else if (statusType == StatusEffectType.Silenced)
         {
             target.isSilenced = buffStatus;
+        }
+        else if (statusType == StatusEffectType.Confused)
+        {
+            target.isConfused = buffStatus;
         }
         else
         {

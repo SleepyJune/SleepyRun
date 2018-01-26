@@ -82,6 +82,11 @@ public class SurvivalModeDatabaseGenerator : Editor
         spawnEvent.monster = monsterInfo.monster;
         spawnEvent.spawnFrequency = monsterInfo.spawnFrequency;
 
+        if (monsterInfo.monster.isImmovable)
+        {
+            spawnEvent.zSpawnDistance = 30;
+        }
+
         AssetDatabase.AddObjectToAsset(spawnEvent, target);
 
         return spawnEvent as StageEvent;
