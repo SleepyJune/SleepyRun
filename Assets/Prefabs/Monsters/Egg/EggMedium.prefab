@@ -632,18 +632,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Egg
   prefabID: 0
   speed: 7.5
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0
-  shield: 0
   isImmovable: 0
   isInvincible: 0
   damage: 10
-  isBadMonster: 1
+  monsterType: 2
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: db273763bb206b4409aa7722376d19c8, type: 3}
+  description: These eggs are hiding apples in them.
 --- !u!135 &135374386111168378
 SphereCollider:
   m_ObjectHideFlags: 1

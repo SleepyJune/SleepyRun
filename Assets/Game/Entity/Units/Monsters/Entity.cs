@@ -10,6 +10,8 @@ public abstract class Entity : MonoBehaviour
     [NonSerialized]
     public int id;
 
+    public string displayName;
+
     public int prefabID;
 
     public float speed = 0; //for spells

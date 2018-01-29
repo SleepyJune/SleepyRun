@@ -288,6 +288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Grape Cannon
   prefabID: 0
   speed: 0
   anim: {fileID: 0}
@@ -295,11 +296,11 @@ MonoBehaviour:
   defense: 0
   isImmovable: 1
   isInvincible: 0
-  isSilenced: 0
   damage: 1
   monsterType: 4
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: e87cf57bea810c04192f3943a3effc38, type: 3}
+  description: They shoot long range grape cannon balls.
 --- !u!114 &114729313123097880
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -280,6 +280,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   shatterPrefab: {fileID: 1249131384139570, guid: 293155f089e4c8d44b1c1510a5392c82,
     type: 2}
+  explodeOnShatter: 0
+  explosionForce: 1
+  explosionPosition: {x: 0, y: 0, z: 0}
 --- !u!114 &114249947175610706
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -304,17 +307,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Black Melon
   prefabID: 0
   speed: 10
   anim: {fileID: 95174302885744688}
   maxHealth: 50
   defense: 50
-  shield: 0
   isImmovable: 0
   isInvincible: 0
   damage: 100
+  monsterType: 2
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: b4d8d4ddee10bc7468ef799383169843, type: 3}
+  description: Mean black melons.
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -336,6 +341,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -353,6 +359,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -383,6 +390,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -399,6 +407,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
@@ -429,6 +438,7 @@ SkinnedMeshRenderer:
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
@@ -444,6 +454,7 @@ SkinnedMeshRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
+  m_StitchLightmapSeams: 0
   m_SelectedEditorRenderState: 3
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5

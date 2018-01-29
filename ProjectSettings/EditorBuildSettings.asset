@@ -9,8 +9,14 @@ EditorBuildSettings:
     path: Assets/Scenes/IntroScreen.unity
     guid: ef1771f05f40fe64aad9c6ddecc2736e
   - enabled: 1
-    path: Assets/Scenes/IntroScreen2.unity
-    guid: 3ba8c21d7371fdd4da3aef8e748e38e5
+    path: Assets/Scenes/IntroScreen3.unity
+    guid: 76e9c2ee174dd784f8580d788ee94838
+  - enabled: 1
+    path: Assets/Scenes/TutorialScreen.unity
+    guid: 718e18ad246e7a3449c1b8636c88c463
+  - enabled: 1
+    path: Assets/Scenes/StoreScene2.unity
+    guid: 3b0e999ca7c092845990256b846d4fb1
   - enabled: 1
     path: Assets/Scenes/LevelLoader3.unity
     guid: dd8ba3fbb748a5f468ee59d79633f55e

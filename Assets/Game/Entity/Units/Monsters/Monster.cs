@@ -28,6 +28,8 @@ public class Monster : Unit
 
     public Sprite image;
 
+    public string description;
+
     Player player;
 
     void Awake()

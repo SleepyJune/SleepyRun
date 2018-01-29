@@ -321,19 +321,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Melon
   prefabID: 0
   speed: 7
   anim: {fileID: 95174302885744688}
   maxHealth: 10
   defense: 0
-  shield: 0
   isImmovable: 0
   isInvincible: 0
   damage: 100
   monsterType: 4
-  isBadMonster: 1
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: e46b262055b91814a87519990306a18a, type: 3}
+  description: They will explode, killing everything around them.
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

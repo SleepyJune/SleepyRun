@@ -337,15 +337,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Pear
   prefabID: 0
   speed: 5
   anim: {fileID: 95299592547556498}
   maxHealth: 10
   defense: 0
+  isImmovable: 0
+  isInvincible: 0
   damage: 5
   monsterType: 2
   buffOnHit: {fileID: 11400000, guid: f2cf2e9f439352c4490821c5b6462bc9, type: 2}
   image: {fileID: 21300000, guid: 8196eeca684e12743b107e21b7a73090, type: 3}
+  description: Getting hit by these will make your head dizzy.
 --- !u!114 &114501068332162278
 MonoBehaviour:
   m_ObjectHideFlags: 1
