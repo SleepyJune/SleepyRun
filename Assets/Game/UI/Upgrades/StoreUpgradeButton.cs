@@ -14,9 +14,22 @@ public class StoreUpgradeButton : MonoBehaviour
 
     public Text costText;
 
+    Upgrade currentUpgrade;
+
+    StoreUpgradeButtonManager upgradeManager;
+
+    //int upgradeLevel;
+
+    void Start()
+    {
+        upgradeManager = transform.parent.parent.GetComponent<StoreUpgradeButtonManager>();
+    }
+
     public void InitButton(Upgrade upgrade, int level)
     {
-        var upgradeInfo = upgrade.stats[level+1];
+        currentUpgrade = upgrade;
+
+        var upgradeInfo = upgrade.stats[level];
 
         titleText.text = upgrade.name + " Lv. " + level;
         iconImage.sprite = upgrade.iconImage;
@@ -26,6 +39,10 @@ public class StoreUpgradeButton : MonoBehaviour
         {
             descText.text = upgrade.description;
         }
+    }
 
+    public void OnBuyUpgrade()
+    {
+        upgradeManager.BuyUpgrade(currentUpgrade);
     }
 }
