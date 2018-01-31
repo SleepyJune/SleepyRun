@@ -120,6 +120,11 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
 
     public void OnEndDrag(PointerEventData eventData)
     {
+        if(GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
+        {
+            return;
+        }
+
         var endPos = eventData.position;
 
         var delta = (endPos - swipeStartPos);

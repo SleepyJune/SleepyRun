@@ -12,10 +12,7 @@ public class StageEventManager : MonoBehaviour
 
     public StageInfo currentStageInfo;
     public StageWave currentStageWave;
-
-    public Text stageNumberText;
-    public Text waveNumberText;
-        
+            
     public int currentStageCount = 0;
     public int currentWaveCount = 0;
 
@@ -115,10 +112,7 @@ public class StageEventManager : MonoBehaviour
             currentWaveCount++;
             currentStageWave = currentStageInfo.stageWaves[currentWaveCount];
             ResetStage();
-
-            waveNumberText.text = (currentWaveCount+1).ToString();
-            //stageNumberText.text = (currentStageInfo.stageId + 1).ToString();
-
+            
             return false;
         }
         else
@@ -139,10 +133,7 @@ public class StageEventManager : MonoBehaviour
                         currentStageWave = currentStageInfo.stageWaves[0];
                         currentWaveCount = 0;
                         ResetStage();
-
-                        waveNumberText.text = (currentWaveCount + 1).ToString();
-                        //stageNumberText.text = (currentStageInfo.stageId + 1).ToString();
-
+                        
                         return false;
                     }
                     else

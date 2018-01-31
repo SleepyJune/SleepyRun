@@ -204,7 +204,7 @@ RectTransform:
   - {fileID: 1341333130}
   - {fileID: 600634005}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -274,7 +274,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &86305738
 GameObject:
@@ -474,11 +474,137 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 036a39b34400fab4996d391c2b9b9b16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upgradeButtonPrefab: {fileID: 114686584260501136, guid: 1ae28075975a75a4f8b737261b1fd688,
+  upgradeButtonPrefab: {fileID: 114934551155606416, guid: d09072a2f6e86664eacc5aab232747c5,
     type: 2}
   database: {fileID: 11400000, guid: 884b17d8ea7c5014f861e347e204769f, type: 2}
   upgradeList: {fileID: 905487500}
   coinText: {fileID: 1027047079}
+--- !u!1 &555926810
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 555926813}
+  - component: {fileID: 555926812}
+  - component: {fileID: 555926811}
+  m_Layer: 5
+  m_Name: UIAudioLibrary
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &555926811
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 555926810}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+--- !u!114 &555926812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 555926810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e61b996bb65f5eb49b66c642bd9c1b52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSounds:
+  - {fileID: 8300000, guid: bc8053f3c6f4db64d8596bd437b30575, type: 3}
+  - {fileID: 8300000, guid: 35a963ccbef6f5f4284da4dd1f5cde46, type: 3}
+  - {fileID: 8300000, guid: 58c7d26d9c099c546b75b3722d9c2137, type: 3}
+  uiAudioSource: {fileID: 0}
+--- !u!4 &555926813
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 555926810}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &600634004
 GameObject:
   m_ObjectHideFlags: 0
@@ -491,6 +617,7 @@ GameObject:
   - component: {fileID: 600634007}
   - component: {fileID: 600634006}
   - component: {fileID: 600634009}
+  - component: {fileID: 600634010}
   m_Layer: 5
   m_Name: ResetButton
   m_TagString: Untagged
@@ -614,6 +741,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeDatabase: {fileID: 11400000, guid: 884b17d8ea7c5014f861e347e204769f, type: 2}
   upgradeManager: {fileID: 176609990}
+--- !u!114 &600634010
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 600634004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf582b03e48f8146bc31ca67fcc903a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSounds: 1
 --- !u!1 &652929252
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,7 +954,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &838153124
 GameObject:
@@ -1135,6 +1274,7 @@ GameObject:
   - component: {fileID: 1341333133}
   - component: {fileID: 1341333132}
   - component: {fileID: 1341333131}
+  - component: {fileID: 1341333134}
   m_Layer: 5
   m_Name: BackButton
   m_TagString: Untagged
@@ -1245,6 +1385,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1341333129}
+--- !u!114 &1341333134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1341333129}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bcf582b03e48f8146bc31ca67fcc903a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clickSounds: 1
 --- !u!1 &1475677592
 GameObject:
   m_ObjectHideFlags: 0
@@ -1351,7 +1503,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2004655231
 GameObject:
@@ -1413,7 +1565,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2022844613
 GameObject:

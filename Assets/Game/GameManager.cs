@@ -35,7 +35,9 @@ public class GameManager : MonoBehaviour
     public ScoreManager scoreManager;
     [NonSerialized]
     public GameTimerManager timerManager;
-
+    [NonSerialized]
+    public GameTextOverlayManager textOverlayManager;
+        
     public delegate void Callback();
     public event Callback onUpdate;
     public event Callback onFixedUpdate;
@@ -48,10 +50,9 @@ public class GameManager : MonoBehaviour
     public Transform canvas;
 
     public AudioSource audioSource;
-
-    private GameObject gameOverText;
-    private GameObject victoryText;
-    private GameObject waveText;
+            
+    
+    private CanvasGroupWindow reviveWindow;
 
     public bool isBossFight = false;
 
@@ -64,6 +65,8 @@ public class GameManager : MonoBehaviour
 
     [NonSerialized]
     public bool isSurvivalMode = false;
+
+    public float pauseCountdownEndTime = 0;
 
     void Awake()
     {
@@ -87,6 +90,7 @@ public class GameManager : MonoBehaviour
         stageEventManager = GetComponent<StageEventManager>();
         scoreManager = GetComponent<ScoreManager>();
         timerManager = GetComponent<GameTimerManager>();
+        textOverlayManager = GetComponent<GameTextOverlayManager>();
 
         gameStartTime = Time.time;
 
@@ -95,9 +99,10 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
-        gameOverText = canvas.Find("GameOverText").gameObject;
-        victoryText = canvas.Find("VictoryText").gameObject;
-        waveText = canvas.Find("WaveText").gameObject;        
+        //victoryText = canvas.Find("VictoryText").gameObject;
+        //waveText = canvas.Find("WaveText").gameObject;
+
+        reviveWindow = canvas.Find("ReviveWindow").GetComponent<CanvasGroupWindow>();
     }
 
     void Update()
@@ -153,19 +158,7 @@ public class GameManager : MonoBehaviour
         isGamePaused = true;
         isMovingToNextWave = true;
 
-        waveText.SetActive(true);
-        waveText.transform.Find("StageNumber").GetComponent<Text>().text = "Stage " + (stageEventManager.currentStageCount);
-
-        if(stageEventManager.currentStageInfo.stageWaves.Length <= 1)
-        {
-            waveText.transform.Find("WaveNumber").GetComponent<Text>().text = "";
-        }
-        else
-        {
-            waveText.transform.Find("WaveNumber").GetComponent<Text>().text = "Wave " + (stageEventManager.currentWaveCount+1);
-        }
-                
-        waveText.GetComponent<Animation>().Play("StageNumberAnimation");
+        textOverlayManager.CreateWaveText();
 
         //moving...
 
@@ -179,35 +172,55 @@ public class GameManager : MonoBehaviour
     {
         isGamePaused = false;
         isMovingToNextWave = false;
+    }
 
-        waveText.SetActive(false);
+    public void ShowReviveWindow()
+    {
+        PauseGame();
+        reviveWindow.ShowWindow();
+    }
+
+    public void ReviveAccept()
+    {
+        isGameOver = false;
+        ResumeGame();
+        weaponManager.DisableWeapon(false);
+        player.Revive();
+
+        reviveWindow.HideWindow();
+    }
+
+    public void ReviveCancel()
+    {
+        scoreManager.SetNewLevelStats(false);
+        SceneChanger.ChangeScene("LevelComplete2");
     }
 
     public void GameOver(bool levelComplete = false)
     {
         if (!isGameOver)
         {
-            weaponManager.DisableWeapon();
+            weaponManager.DisableWeapon(true);
 
             isGameOver = true;
 
             if (!levelComplete)
             {
-                gameOverText.SetActive(true);
-                gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
+                //gameOverText.SetActive(true);
 
-                //DelayAction.Add(() => SceneChanger.ChangeScene("LevelLoader"), 5);
+                textOverlayManager.CreateGameOverText();
+
+                DelayAction.Add(() => ShowReviveWindow(), 5);
             }
             else
             {
                 player.Victory();
 
-                victoryText.SetActive(true);
-                victoryText.GetComponent<Animation>().Play("GameOverAnimation");                
-            }
-
-            scoreManager.SetNewLevelStats(levelComplete);
-            DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete2"), 5);
+                textOverlayManager.CreateVictoryText();
+                                
+                scoreManager.SetNewLevelStats(levelComplete);
+                DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete2"), 5);
+            }            
         }
     }
 
@@ -242,6 +255,31 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         isGamePaused = false;
+        StartCoroutine(ResumeCountdown());
+    }
+
+    IEnumerator ResumeCountdown()
+    {
+        textOverlayManager.CreateCountdownText();
+
+        var endPauseTime = Time.realtimeSinceStartup + 3;
+        pauseCountdownEndTime = endPauseTime;
+
+        while (Time.realtimeSinceStartup < endPauseTime
+            && pauseCountdownEndTime == endPauseTime)
+        {
+            yield return 0;
+        }
+
+        if(pauseCountdownEndTime == endPauseTime && isGamePaused == false)
+        {            
+            Resume();
+        }
+
+    }
+
+    void Resume()
+    {        
         Time.timeScale = 1f;
     }
 }

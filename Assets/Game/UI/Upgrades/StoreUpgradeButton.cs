@@ -10,6 +10,7 @@ public class StoreUpgradeButton : MonoBehaviour
 {
     public Text titleText;
     public Text descText;
+    public Text levelText;
     public Image iconImage;
 
     public Text costText;
@@ -31,9 +32,10 @@ public class StoreUpgradeButton : MonoBehaviour
 
         var upgradeInfo = upgrade.stats[level];
 
-        titleText.text = upgrade.name + " Lv. " + level;
+        titleText.text = upgrade.name;
         iconImage.sprite = upgrade.iconImage;
         costText.text = upgradeInfo.cost.ToString();
+        levelText.text = "Lv." + level;
 
         if (descText)
         {

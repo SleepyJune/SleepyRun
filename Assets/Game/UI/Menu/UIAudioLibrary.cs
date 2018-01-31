@@ -11,11 +11,16 @@ public class UIAudioLibrary : MonoBehaviour
 
     public AudioClip[] clickSounds;
 
+    public AudioSource uiAudioSource;
+
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(transform.gameObject);
+
+            uiAudioSource = GetComponent<AudioSource>();
         }
         else if (instance != this)
         {

@@ -47,7 +47,10 @@ public class GameSceneSettings : MonoBehaviour
     {
         if(canvasGroup.alpha == 0)
         {
-            GameManager.instance.PauseGame();
+            if (!GameManager.instance.isGameOver)
+            {
+                GameManager.instance.PauseGame();
+            }
 
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
@@ -55,7 +58,10 @@ public class GameSceneSettings : MonoBehaviour
         }
         else
         {
-            GameManager.instance.ResumeGame();
+            if (!GameManager.instance.isGameOver)
+            {
+                GameManager.instance.ResumeGame();
+            }
 
             canvasGroup.alpha = 0;
             canvasGroup.interactable = false;
