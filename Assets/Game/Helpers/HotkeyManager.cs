@@ -11,7 +11,7 @@ public class HotkeyManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneChanger.ChangeScene("LevelLoader3");
+            SceneChanger.ChangeScene("IntroScreen3");
         }
     }
 }

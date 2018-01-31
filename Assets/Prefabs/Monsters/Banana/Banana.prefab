@@ -480,6 +480,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Banana
   prefabID: 0
   speed: 0
   anim: {fileID: 0}
@@ -491,6 +492,7 @@ MonoBehaviour:
   monsterType: 2
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: 7790b772eb76e1a4aa0c386425369bbd, type: 3}
+  description: These banana shoot out blinding darts!
 --- !u!114 &114878152614800402
 MonoBehaviour:
   m_ObjectHideFlags: 1

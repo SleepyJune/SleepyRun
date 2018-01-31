@@ -12,14 +12,19 @@ public class GameSceneSettings : MonoBehaviour
     public CanvasGroup settingsWindowCanvasGroup;
 
     public AudioListener audioListener;
+    public AudioSource musicSource;
     public Slider volumeSlider;
-
-    [NonSerialized]
-    public float volume = .5f;
+    public Slider musicSlider;
+    
     string volumeString = "volume";
+
+    string musicString = "musicVolume";
 
     void Start()
     {
+        float volume = .5f;
+        float musicVolume = .5f;
+
         if (PlayerPrefs.HasKey(volumeString))
         {
             volume = PlayerPrefs.GetFloat(volumeString);
@@ -27,7 +32,15 @@ public class GameSceneSettings : MonoBehaviour
             volumeSlider.value = volume;
         }
 
+        if (PlayerPrefs.HasKey(musicString))
+        {
+            musicVolume = PlayerPrefs.GetFloat(musicString);
+            musicSource.volume = musicVolume;
+            musicSlider.value = musicVolume;
+        }
+
         AdjustVolume(volume);
+        AdjustMusicVolume(musicVolume);
     }
 
     public void ToggleSettingMenu()
@@ -76,6 +89,12 @@ public class GameSceneSettings : MonoBehaviour
         PlayerPrefs.SetFloat(volumeString, volume);
     }
 
+    public void AdjustMusicVolume(float volume)
+    {
+        musicSource.volume = volume;
+        PlayerPrefs.SetFloat(musicString, volume);
+    }
+
     public void OpenSettingsWindow()
     {
         ToggleSettingMenu();
@@ -90,7 +109,7 @@ public class GameSceneSettings : MonoBehaviour
     public void ExitLevel()
     {
         GameManager.instance.ResumeGame();
-        SceneChanger.ChangeScene("LevelLoader3");
+        SceneChanger.ChangeScene("IntroScreen3");
     }
 
     public void RestartLevel()

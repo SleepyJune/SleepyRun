@@ -602,6 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Kiwi
   prefabID: 0
   speed: 7.5
   anim: {fileID: 0}
@@ -609,11 +610,11 @@ MonoBehaviour:
   defense: 0
   isImmovable: 0
   isInvincible: 0
-  isSilenced: 0
   damage: 10
   monsterType: 2
   buffOnHit: {fileID: 11400000, guid: f3cc37fee42df12499dbb2063ca706fc, type: 2}
-  image: {fileID: 21300000, guid: db273763bb206b4409aa7722376d19c8, type: 3}
+  image: {fileID: 21300000, guid: f0d98cda249f5a64e9035853be1baf7a, type: 3}
+  description: 
 --- !u!114 &114422642570671890
 MonoBehaviour:
   m_ObjectHideFlags: 1

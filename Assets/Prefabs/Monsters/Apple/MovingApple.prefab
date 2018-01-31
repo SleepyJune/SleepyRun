@@ -338,19 +338,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  displayName: Apple
   prefabID: 0
   speed: 5
   anim: {fileID: 95819187710336606}
   maxHealth: 10
   defense: 0
-  shield: 0
   isImmovable: 0
   isInvincible: 0
   damage: 5
   monsterType: 1
-  isBadMonster: 0
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: 21df45a0f799ab04791b17bd794b74b6, type: 3}
+  description: Yummy Apples. Collect them all!
 --- !u!114 &114249481325317622
 MonoBehaviour:
   m_ObjectHideFlags: 1
