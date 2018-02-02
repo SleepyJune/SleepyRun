@@ -160,6 +160,15 @@ public class Player : Unit
         GameManager.instance.GameOver();
     }
 
+    public void Revive()
+    {
+        isDead = false;
+        health = maxHealth;
+        UpdateHealthBar();
+
+        anim.SetTrigger("revive");
+    }
+
     public void Victory()
     {
         anim.SetTrigger("victory");

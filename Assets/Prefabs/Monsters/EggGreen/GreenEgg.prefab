@@ -614,7 +614,7 @@ MonoBehaviour:
   monsterType: 2
   buffOnHit: {fileID: 11400000, guid: f3cc37fee42df12499dbb2063ca706fc, type: 2}
   image: {fileID: 21300000, guid: f0d98cda249f5a64e9035853be1baf7a, type: 3}
-  description: 
+  description: Getting hit by these will disable all skills.
 --- !u!114 &114422642570671890
 MonoBehaviour:
   m_ObjectHideFlags: 1

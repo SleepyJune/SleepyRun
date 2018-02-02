@@ -20,9 +20,8 @@ public class ClickSound : MonoBehaviour
 
     void Start()
     {
-        source = GameManager.instance.audioSource;
-
         library = UIAudioLibrary.instance;
+        source = library.uiAudioSource;
 
         GetComponent<Button>().onClick.AddListener(PlayAudioClip);
     }

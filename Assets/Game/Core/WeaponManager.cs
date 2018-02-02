@@ -15,6 +15,8 @@ public class WeaponManager : MonoBehaviour
     public CombatUI currentCombatUI;
 
     bool usingUlt = false;
+
+    bool weaponDisabled = false;
     
     void Start()
     {
@@ -30,7 +32,7 @@ public class WeaponManager : MonoBehaviour
 
     void OnTouchStartHandler(Touch touch)
     {
-        if (currentCombatUI != null)
+        if (currentCombatUI != null && !weaponDisabled)
         {
             currentCombatUI.OnTouchStart(touch);
         }
@@ -38,7 +40,7 @@ public class WeaponManager : MonoBehaviour
 
     void OnTouchMoveHandler(Touch touch)
     {
-        if (currentCombatUI != null)
+        if (currentCombatUI != null && !weaponDisabled)
         {
             currentCombatUI.OnTouchMove(touch);
         }
@@ -46,7 +48,7 @@ public class WeaponManager : MonoBehaviour
 
     void OnTouchEndHandler(Touch touch)
     {
-        if (currentCombatUI != null)
+        if (currentCombatUI != null && !weaponDisabled)
         {
             currentCombatUI.OnTouchEnd(touch);
         }
@@ -112,15 +114,17 @@ public class WeaponManager : MonoBehaviour
         }
     }
 
-    public void DisableWeapon()
+    public void DisableWeapon(bool disable)
     {
-        if (currentCombatUI != null)
+        /*if (currentCombatUI != null)
         {
             currentCombatUI.End();
             currentCombatUI = null;
 
             usingUlt = false;
-        }
+        }*/
+
+        weaponDisabled = disable;
     }
 
     public void SwitchWeapons(Weapon newWeapon)
