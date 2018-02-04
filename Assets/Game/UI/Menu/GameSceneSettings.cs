@@ -123,4 +123,10 @@ public class GameSceneSettings : MonoBehaviour
         GameManager.instance.ResumeGame();
         SceneChanger.ChangeScene("GameScene");
     }
+
+    public void ExitToLevelLoader()
+    {
+        GameManager.instance.ResumeGame();
+        SceneChanger.ChangeScene("LevelLoader3");
+    }
 }

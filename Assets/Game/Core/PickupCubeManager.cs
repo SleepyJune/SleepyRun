@@ -30,23 +30,36 @@ public class PickupCubeManager : MonoBehaviour
 
     Player player;
 
+    int totalDropCount = 0;
+
     void Start()
     {
         pickupHolder = (new GameObject("Pickup Holder")).transform;
         newSkillsHolder = (new GameObject("Skills Holder")).transform;
 
         player = GameManager.instance.player;
+
+        Invoke("CalculateDropChance", .25f);
     }
 
-    /*void Update()
+    void CalculateDropChance()
     {
-        var random = Random.Range(0, spawnFrequency / Time.deltaTime);
+        int dropCount = 0;
 
-        if (random <= 1 && !GameManager.instance.isGamePaused)
+        foreach(var skill in skillDatabase.allSkills)
         {
-            SpawnPickup();
+            if(skill != null)
+            {
+                skill.randDropMin = dropCount;
+
+                dropCount += skill.dropChance;
+
+                skill.randDropMax = dropCount;
+            }
         }
-    }*/
+
+        totalDropCount = dropCount;
+    }
 
     public void SpawnPickup()
     {
@@ -101,10 +114,30 @@ public class PickupCubeManager : MonoBehaviour
 
         Skill skill = null;
 
-        while(skill == null)
+        /*while(skill == null)
         {
             skill = skillDatabase.allSkills[Random.Range(0, numSkills)];
-        }        
+        } */
+
+        int randomNum = Random.Range(0, totalDropCount);
+        
+        foreach(var candidate in skillDatabase.allSkills)
+        {
+            if (candidate != null)
+            {
+                if (candidate.randDropMin <= randomNum && randomNum < candidate.randDropMax)
+                {
+                    skill = candidate;
+                    break;
+                }
+            }
+        }               
+
+        if(skill == null)
+        {
+            Debug.Log("errr skill");
+            return null;
+        }
 
         Skill newSkill = Instantiate(skill, newSkillsHolder); //create a new skill from prefab
         newSkill.Initialize(owner);
