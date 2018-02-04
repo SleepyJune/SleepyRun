@@ -28,6 +28,13 @@ public abstract class Skill : MonoBehaviour
 
     public CombatUI comabtUI;
 
+    public int dropChance = 5;
+
+    [NonSerialized]
+    public int randDropMin;
+    [NonSerialized]
+    public int randDropMax;
+
     [NonSerialized]
     public Unit owner;
     
@@ -39,7 +46,7 @@ public abstract class Skill : MonoBehaviour
 
     [NonSerialized]
     public SpellSlotUI spellslot;
-
+        
     public AudioClip audioClip;
 
     public virtual void Initialize(Unit owner)

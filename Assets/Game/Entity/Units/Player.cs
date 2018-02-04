@@ -37,6 +37,8 @@ public class Player : Unit
 
     public Animation blindAnimation;
 
+    public StatusBuffObject reviveBuffObj;
+
     Dictionary<Lane, Vector3> laneVectors = new Dictionary<Lane, Vector3>()
     {
         { Lane.right, new Vector3(1.5f,0,0) },
@@ -165,6 +167,8 @@ public class Player : Unit
         isDead = false;
         health = maxHealth;
         UpdateHealthBar();
+
+        SelfBuff(reviveBuffObj);
 
         anim.SetTrigger("revive");
     }

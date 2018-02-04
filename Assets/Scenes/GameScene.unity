@@ -431,6 +431,12 @@ Prefab:
       propertyPath: overlayManager
       value: 
       objectReference: {fileID: 956484864}
+    - target: {fileID: 114110817134876620, guid: 8d187a13763e6a348ad3c4dc12dcbc98,
+        type: 2}
+      propertyPath: reviveBuffObj
+      value: 
+      objectReference: {fileID: 11400000, guid: efb8dc9fb23c46c489a525f612cf0cba,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8d187a13763e6a348ad3c4dc12dcbc98, type: 2}
   m_IsPrefabParent: 0
@@ -6066,7 +6072,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 206453592}
-        m_MethodName: ToggleSettingMenu
+        m_MethodName: ExitToLevelLoader
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8867,6 +8873,7 @@ MonoBehaviour:
   isGamePaused: 0
   isMovingToNextWave: 0
   screenDPI: 0
+  pauseCountdownEndTime: 0
 --- !u!4 &1465129600
 Transform:
   m_ObjectHideFlags: 0
@@ -9562,7 +9569,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: decf47d53125c1b46a4feb9e8c798270, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 266863c807937774794d04d2696c25ab, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11260,6 +11267,16 @@ Prefab:
         type: 2}
       propertyPath: spawnFrequency
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 114480791208940712, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: spawnFrequency
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114944193831916084, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: beltSpeed
+      value: 19.98434
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
