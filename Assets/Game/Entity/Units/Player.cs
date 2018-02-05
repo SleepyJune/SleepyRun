@@ -117,6 +117,7 @@ public class Player : Unit
                 }
                 else
                 {
+                    SelfBuff(reviveBuffObj);
                     anim.SetTrigger("isHurt");
                 }
             }

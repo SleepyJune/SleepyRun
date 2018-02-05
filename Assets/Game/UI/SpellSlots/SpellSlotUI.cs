@@ -19,9 +19,13 @@ public class SpellSlotUI : MonoBehaviour
 
     Animation anim;
 
+    CanvasGroup canvasGroup;
+
     void Start()
     {
         anim = GetComponent<Animation>();
+
+        canvasGroup = GetComponent<CanvasGroup>();
     }
 
     public void SetSkill(Skill skill)
@@ -31,6 +35,9 @@ public class SpellSlotUI : MonoBehaviour
 
         slotImage.sprite = skill.icon;
         iconObject.SetActive(true);
+
+        canvasGroup.interactable = true;
+        canvasGroup.blocksRaycasts = true;
     }
 
     public void RemoveSkill()
@@ -41,6 +48,9 @@ public class SpellSlotUI : MonoBehaviour
 
             slotImage.sprite = null;
             iconObject.SetActive(false);
+
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
         }
     }
 
@@ -50,11 +60,17 @@ public class SpellSlotUI : MonoBehaviour
         {
             disabledObject.SetActive(true);
             isSkillDisabled = true;
+
+            canvasGroup.interactable = false;
+            canvasGroup.blocksRaycasts = false;
         }
         else
         {
             disabledObject.SetActive(false);
             isSkillDisabled = false;
+
+            canvasGroup.interactable = true;
+            canvasGroup.blocksRaycasts = true;
         }
     }
 

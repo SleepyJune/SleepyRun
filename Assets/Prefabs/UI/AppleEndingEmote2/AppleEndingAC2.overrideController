@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_Name: AppleEndingAC2
+  m_Controller: {fileID: 9100000, guid: 0fee71fb5e0f33b40956a8acd84a1f63, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 43f618f020575e94cacec55ad029a25f, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 358a0d6a189430e40b2ef471e6ca12e2, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: cdc3bc10ac6d91347b65ba13ec759700, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 554c744c7d6f79d4bad124cc29d83db6, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 164a28eccdd584245b1ebb20004d3583, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: abbafd88d79f3924cb8a2385a8fb1499, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 744522ce8eabcd34fad2381886db0c30, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c5d893318b91fe948b81f0b3011747b0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 9f895112c92996840bdc76f374ff5ac1, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: fba01c9661fc3d846b372fbe294497e0, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 320512301692e9d49a6688bc5e702795, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: a6e5a6db25c75ee48a37f6b76c2c4d81, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: ce1a35e20e3ee9e43acce4203a0c798e, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: b9223ac244536894a824131fd33bf427, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 4caf6dcf86cc4534f812339e45e896c6, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: c7771f302c32e554f9d2c4b75b4126c4, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 87397da129429584ca3b7d775cf75911, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 2b990e96f1c3f314285210e0ac761161, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 193a6d9d481b4c34eab4d6e8dbe70222, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 889322472beab0644b596bc1b19782b8, type: 2}

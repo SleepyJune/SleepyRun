@@ -5,9 +5,8 @@ using System.Text;
 
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
-public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
+public class WeaponButton : MonoBehaviour
 {    
     public GameObject weaponItemTemplate;
 
@@ -26,13 +25,9 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
     Weapon[] weapons;    
 
     bool isDragged;
-
-    Vector2 swipeStartPos;
-
+        
     bool pointerInButton = false;
-
-    Lane destinationLane = Lane.mid;
-
+        
     Transform playerPortraitTransform;
 
     Animator anim;
@@ -107,96 +102,12 @@ public class WeaponButton : MonoBehaviour, IBeginDragHandler, IDragHandler, IEnd
         anim.runtimeAnimatorController = GameManager.instance.weaponManager.currentWeapon.facePortraitAC;
         portraitImage.sprite = GameManager.instance.weaponManager.currentWeapon.facePortrait;
     }
-    
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        swipeStartPos = eventData.position;
-    }
 
-    public void OnDrag(PointerEventData eventData)
-    {
-        //transform.position = eventData.position;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        if(GameManager.instance.isGameOver || GameManager.instance.isGamePaused)
-        {
-            return;
-        }
-
-        var endPos = eventData.position;
-
-        var delta = (endPos - swipeStartPos);
-
-        var playerPosition = GameManager.instance.player.transform.position;
-
-        if (Mathf.Abs(delta.x) >= Mathf.Abs(delta.y))
-        {
-            if (GameManager.instance.player.isConfused)
-            {
-                delta.x *= -1;
-            }
-
-            if (delta.x > 0)
-            {
-                if(playerPosition.x < 0)
-                {
-                    destinationLane = Lane.mid;
-                }
-                else if(playerPosition.x >= 0)
-                {
-                    destinationLane = Lane.right;
-                }
-            }
-            else
-            {
-                if (playerPosition.x > 0)
-                {
-                    destinationLane = Lane.mid;
-                }
-                else if (playerPosition.x <= 0)
-                {
-                    destinationLane = Lane.left;
-                }
-            }
-
-            GameManager.instance.player.destinationLane = destinationLane;
-        }
-        else
-        {
-            if (delta.y <= 0)
-            {
-
-                
-            }
-            else
-            {
-                /*
-                if (true)//comboManager.charged)
-                {
-                    weaponManager.UseUltimate();
-                }*/
-            }
-            
-        }
-    }
-        
     public void OnUltimateButtonPressed()
     {
         if (true)//comboManager.charged)
         {
             weaponManager.UseUltimate();
         }
-    }
-
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        //throw new NotImplementedException();
-    }
-
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        //throw new NotImplementedException();
     }
 }

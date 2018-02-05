@@ -9,32 +9,31 @@ Prefab:
     m_Modifications: []
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 1721267723939240}
+  m_RootGameObject: {fileID: 1906068257091738}
   m_IsPrefabParent: 1
---- !u!1 &1721267723939240
+--- !u!1 &1906068257091738
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   serializedVersion: 5
   m_Component:
-  - component: {fileID: 4044631361372964}
-  - component: {fileID: 114882492998022248}
-  - component: {fileID: 114094553609451580}
-  - component: {fileID: 114637845716118612}
+  - component: {fileID: 4657026156961642}
+  - component: {fileID: 114392975385987250}
+  - component: {fileID: 114157090876454448}
   m_Layer: 0
-  m_Name: NodachiWeapon
+  m_Name: DefaultWeapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4044631361372964
+--- !u!4 &4657026156961642
 Transform:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721267723939240}
+  m_GameObject: {fileID: 1906068257091738}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -42,12 +41,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &114094553609451580
+--- !u!114 &114157090876454448
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721267723939240}
+  m_GameObject: {fileID: 1906068257091738}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: faca817df73b548409cf99cdee15a3d4, type: 3}
@@ -56,46 +55,32 @@ MonoBehaviour:
   skill: {fileID: 0}
   linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
     type: 2}
-  audioClip: {fileID: 0}
---- !u!114 &114637845716118612
+  audioClip: {fileID: 8300000, guid: bb3ac415f105d294f90e25b967ce1acf, type: 3}
+--- !u!114 &114392975385987250
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721267723939240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e260b8e5687a124eb81aeec97638060, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  skill: {fileID: 0}
-  linePrefab: {fileID: 120307039884828882, guid: 22f7f2a46e545e64ea62d8b1011476b2,
-    type: 2}
-  model: {fileID: 1700252204226682, guid: 333d58c144bb0d443b3b7e534ddec9d8, type: 2}
---- !u!114 &114882492998022248
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1721267723939240}
+  m_GameObject: {fileID: 1906068257091738}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b88de42b6a39aca4d80340c7511b6e10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  image: {fileID: 21300000, guid: 488f91a27b146ab409a521e0cef4a720, type: 3}
-  facePortrait: {fileID: 21300000, guid: 3d6aca36bb0830b4893c06dd24de933d, type: 3}
-  facePortraitAC: {fileID: 22100000, guid: 2a88e4eed8418ec40a59bb5f6aa51b1c, type: 2}
-  weaponType: 1
-  thrustModifier: 2
-  chopModifier: 1
+  image: {fileID: 21300000, guid: c8cca35b64f43b84f9120ffe2a4bbb12, type: 3}
+  facePortrait: {fileID: 21300000, guid: 88d4db513219bab4baff1a77d304775d, type: 3}
+  facePortraitAC: {fileID: 22100000, guid: b324b60ca030dd4468f31739ab8e83a5, type: 2}
+  weaponType: 0
+  thrustModifier: 1
+  chopModifier: 2
   slashModifier: 1.5
-  damage: 15
-  combatUI: {fileID: 114637845716118612}
-  ultimateUI: {fileID: 114637845716118612}
-  minSlashRange: 5
-  maxSlashRange: 10
-  weaponRadius: 2.5
-  attackFrequency: 1.5
+  damage: 20
+  combatUI: {fileID: 114157090876454448}
+  ultimateUI: {fileID: 114587842886939468, guid: fefd263b5f26518408c706bd79412ce7,
+    type: 2}
+  minSlashRange: 1
+  maxSlashRange: 5
+  weaponRadius: 0.5
+  attackFrequency: 3
   particle: {fileID: 0}
   isDualWeapon: 0

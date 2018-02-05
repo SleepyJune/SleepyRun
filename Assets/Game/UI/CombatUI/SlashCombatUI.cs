@@ -17,6 +17,8 @@ public class SlashCombatUI : CombatUI
 
     public AudioClip audioClip;
 
+    LayerMask collisionMask;
+
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
@@ -24,6 +26,8 @@ public class SlashCombatUI : CombatUI
         slashes = new Dictionary<int, SlashInfo>();
 
         player = GameManager.instance.player;
+
+        collisionMask = LayerConstants.monsterMask;
     }
 
     public override void OnTouchStart(Touch touch)
@@ -172,7 +176,7 @@ public class SlashCombatUI : CombatUI
             line.SetPosition(line.positionCount - 1, newPos);
 
             var previous = line.GetPosition(line.positionCount - 2);
-            DestroyMonsters(slash, previous, pos);
+            DestroyMonsters(slash, previous, newPos);
 
             EndSlash(slash);
         }
@@ -207,8 +211,72 @@ public class SlashCombatUI : CombatUI
         DestroyMonsters(slash, start, end);
     }
 
+    Vector3 GetForce(SlashInfo slash)
+    {
+        Vector3[] positions = new Vector3[slash.line.positionCount];
+
+        slash.line.GetPositions(positions);
+
+        Vector3 prev = Vector3.zero;
+        Vector3 force = Vector3.zero;
+
+        for (int i = 0; i < positions.Length; i++)
+        {
+            if (i == 0)
+            {
+                prev = positions[i];
+                continue;
+            }
+
+            var current = positions[i];
+
+            var delta = current - prev;
+
+            force += delta;
+
+            prev = current;
+        }
+
+        return force;
+    }
+
     void DestroyMonsters(SlashInfo slash, Vector3 v1, Vector3 v2)
     {
+        var colliders = Physics.OverlapCapsule(v1, v2, weapon.weaponRadius, collisionMask);
+        
+        Debug.DrawLine(v1, v2, Color.green, 2);
+
+        foreach (var collider in colliders)
+        {
+            var monster = collider.gameObject.GetComponent<Monster>();
+            
+            if (monster != null && !monster.isDead && !slash.damagedMonsters.Contains(monster))
+            {
+                var dir = GetForce(slash);
+                dir.y = .15f;
+                
+                var force = dir * (25.0f / (Time.time - slash.startTime));
+
+                HitInfo hitInfo = new HitInfo
+                {
+                    hitType = HitType.Physical,
+                    source = player,
+                    hitStart = v1,
+                    hitEnd = v2,
+                    force = force,
+                    damage = weapon.damage,
+                    hitParticle = weapon.particle,
+                    monsterHitType = MonsterCollisionMask.All,
+                };
+
+                monster.TakeDamage(hitInfo);
+                //slash.damagedMonsters.Add(monster);
+            }
+        }
+    }
+
+    void DestroyMonsters2(SlashInfo slash, Vector3 v1, Vector3 v2)
+    {                
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
             if (!monster.isDead && !slash.damagedMonsters.Contains(monster))
@@ -247,7 +315,8 @@ public class SlashCombatUI : CombatUI
                         hitEnd = v2,
                         force = force,
                         damage = weapon.damage,
-                        hitParticle = weapon.particle
+                        hitParticle = weapon.particle,
+                        monsterHitType = MonsterCollisionMask.All,
                     };
 
                     monster.TakeDamage(hitInfo);
