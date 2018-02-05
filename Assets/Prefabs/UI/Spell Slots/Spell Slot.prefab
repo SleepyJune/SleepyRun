@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114510087356801216}
   - component: {fileID: 114826675892325468}
   - component: {fileID: 111534663948681238}
+  - component: {fileID: 225603990809012688}
   m_Layer: 5
   m_Name: Spell Slot
   m_TagString: Untagged
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -236,6 +237,7 @@ MonoBehaviour:
   skill: {fileID: 0}
   iconObject: {fileID: 1851994036738674}
   disabledObject: {fileID: 1650595650305224}
+  isSkillDisabled: 0
 --- !u!114 &114878467937159606
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -249,7 +251,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -453,3 +455,14 @@ RectTransform:
   m_AnchoredPosition: {x: 0.00008392334, y: 0}
   m_SizeDelta: {x: 116, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &225603990809012688
+CanvasGroup:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1116205391869102}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
