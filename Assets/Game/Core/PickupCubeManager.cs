@@ -88,6 +88,19 @@ public class PickupCubeManager : MonoBehaviour
         }
     }
 
+    public void SpawnUltimateSkill()
+    {
+        Weapon weapon = GameManager.instance.weaponManager.currentWeapon;
+
+        if(weapon != null && weapon.ultimateSkill != null)
+        {
+            Skill newSkill = Instantiate(weapon.ultimateSkill, newSkillsHolder); //create a new skill from prefab
+            newSkill.Initialize(GameManager.instance.player);
+
+            GameManager.instance.player.SetNewSkill(newSkill);
+        }
+    }
+
     public void TryPickup()
     {
         var random = Random.Range(0, 1/spawnRate);
@@ -135,7 +148,7 @@ public class PickupCubeManager : MonoBehaviour
 
         if(skill == null)
         {
-            Debug.Log("errr skill");
+            Debug.Log("Generating Skill Error");
             return null;
         }
 

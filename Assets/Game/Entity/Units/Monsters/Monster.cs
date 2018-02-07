@@ -196,9 +196,14 @@ public class Monster : Unit
         GameManager.instance.comboManager.IncreaseComboCount();
         GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
 
-        GameManager.instance.spawnPickupManager.TryPickup();
+        if (buffOnHit != null)
+        {
+            GameManager.instance.player.InitializeBuff(this, buffOnHit);
+        }
 
-        GameManager.instance.monsterManager.CreateMoneyExplosion(transform.position);
+        //GameManager.instance.spawnPickupManager.TryPickup();
+
+        //GameManager.instance.monsterManager.CreateMoneyExplosion(transform.position);
     }
 
     public void CollideWithPlayer()

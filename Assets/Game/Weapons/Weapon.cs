@@ -35,6 +35,8 @@ public class Weapon : MonoBehaviour
     public CombatUI combatUI;
     public CombatUI ultimateUI;
 
+    public Skill ultimateSkill;
+
     public float minSlashRange = 1;
     public float maxSlashRange = 10;
 

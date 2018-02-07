@@ -9479,7 +9479,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 266863c807937774794d04d2696c25ab, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 55fe6b7f6e91ad4408a8c2fd2fee9209, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11175,17 +11175,7 @@ Prefab:
     - target: {fileID: 114490352397581194, guid: 70ab060e61d60054e88507b0f9b85909,
         type: 2}
       propertyPath: spawnFrequency
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114480791208940712, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114944193831916084, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: beltSpeed
-      value: 19.98434
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}

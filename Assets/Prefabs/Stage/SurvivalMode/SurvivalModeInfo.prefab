@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4487185450961090}
   - component: {fileID: 114490352397581194}
   m_Layer: 0
-  m_Name: EggGreen
+  m_Name: ApplePurple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -134,6 +134,22 @@ GameObject:
   - component: {fileID: 114415372961903480}
   m_Layer: 0
   m_Name: EggMedium
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1509948255797072
+GameObject:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4848272219047816}
+  - component: {fileID: 114404052582749598}
+  m_Layer: 0
+  m_Name: EggGreen
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -263,7 +279,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4612239401366786}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4581284033231782
 Transform:
@@ -296,6 +312,7 @@ Transform:
   - {fileID: 4711902544246474}
   - {fileID: 4660069459268500}
   - {fileID: 4246378406480882}
+  - {fileID: 4848272219047816}
   - {fileID: 4487185450961090}
   m_Father: {fileID: 4729053325307710}
   m_RootOrder: 0
@@ -340,6 +357,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4848272219047816
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509948255797072}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4612239401366786}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &95655493084796744
 Animator:
   serializedVersion: 3
@@ -369,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
-  spawnFrequency: 5.003649
+  spawnFrequency: 20
 --- !u!114 &114176365779883804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -395,6 +425,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
+  spawnFrequency: 10
+--- !u!114 &114404052582749598
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1509948255797072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114279824525025166, guid: e4ac1aace424fe64c98d56f2047ec125, type: 2}
   spawnFrequency: 10
 --- !u!114 &114415372961903480
 MonoBehaviour:
@@ -433,8 +476,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monster: {fileID: 114279824525025166, guid: e4ac1aace424fe64c98d56f2047ec125, type: 2}
-  spawnFrequency: 10
+  monster: {fileID: 114433792061735412, guid: c10c193755618814792928a923dfed45, type: 2}
+  spawnFrequency: 7.503649
 --- !u!114 &114555843911704178
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -78,6 +78,8 @@ MonoBehaviour:
   combatUI: {fileID: 114157090876454448}
   ultimateUI: {fileID: 114587842886939468, guid: fefd263b5f26518408c706bd79412ce7,
     type: 2}
+  ultimateSkill: {fileID: 114400079632591812, guid: a65e7c07c46957d4fa997f9fcff36c69,
+    type: 2}
   minSlashRange: 1
   maxSlashRange: 5
   weaponRadius: 0.5
