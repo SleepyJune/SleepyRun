@@ -19,6 +19,10 @@ public class StageEventManager : MonoBehaviour
     public bool isSurvivalMode = false;
     
     public Transform killCountUI;
+
+    public TutorialParentController tutorialController;
+
+
     Text killCountText;
     Image killCountImage;
     CanvasGroup killCountCanvasGroup;
@@ -54,8 +58,19 @@ public class StageEventManager : MonoBehaviour
             currentStageWave = currentStageInfo.stageWaves[0];
             ResetStage();
 
-            GameManager.instance.MoveToNextArea();
+            GameManager.instance.MoveToNextArea();            
         }
+    }
+
+    public void StartTutorial()
+    {
+        var tutorialString = "Tutorial_Intro";
+
+        if (!PlayerPrefs.HasKey(tutorialString))
+        {
+            tutorialController.StartTutorial();
+            //PlayerPrefs.SetInt(tutorialString, 1);
+        }        
     }
 
     void GetVictoryCondition()
@@ -147,6 +162,23 @@ public class StageEventManager : MonoBehaviour
                 return true; //Game Over on Level Completion
             }
         }        
+    }
+
+    public void ShowMonsterInfo(Monster monster)
+    {
+        var monsterTutorialString = "Tutorial_MonsterInfo_" + monster.name;
+
+        if (!PlayerPrefs.HasKey(monsterTutorialString))
+        {
+            if (!tutorialController.ShowMonsterInfo(monster))
+            {
+                DelayAction.Add(() => ShowMonsterInfo(monster), 5);
+            }
+            else
+            {
+                //PlayerPrefs.SetInt(monsterTutorialString, 1);
+            }
+        }
     }
 
     void Update()

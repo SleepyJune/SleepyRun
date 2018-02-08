@@ -18,6 +18,8 @@ public class SurvivalModeDatabaseGenerator : Editor
     SerializedProperty infoPrefabProperty;
     SerializedProperty clipProperty;
 
+    Dictionary<SurvivalModeMonsterInfo, float> prevSpawnValue = new Dictionary<SurvivalModeMonsterInfo, float>();
+
     private void OnEnable()
     {
         databaseProperty = serializedObject.FindProperty("databaseArray");
@@ -116,6 +118,29 @@ public class SurvivalModeDatabaseGenerator : Editor
         return stageEvent as StageEvent;
     }
 
+    StageEvent AddTutorialEvent(SurvivalModeMonsterInfo monsterInfo)
+    {
+        var stageEvent = CreateInstance<TutorialEvent>() as TutorialEvent;
+        stageEvent.monster = monsterInfo.monster;
+        stageEvent.name = "Tutorial " + monsterInfo.monster.name;
+        stageEvent.tutorialType = TutorialEvent.TutorialType.Monster;
+        
+        AssetDatabase.AddObjectToAsset(stageEvent, target);
+
+        return stageEvent as StageEvent;
+    }
+
+    StageEvent AddIntroTutorialEvent()
+    {
+        var stageEvent = CreateInstance<TutorialEvent>() as TutorialEvent;
+        stageEvent.name = "Intro Tutorial";
+        stageEvent.tutorialType = TutorialEvent.TutorialType.Intro;
+
+        AssetDatabase.AddObjectToAsset(stageEvent, target);
+
+        return stageEvent as StageEvent;
+    }
+
     void Generate()
     {
         SurvivalModeDatabase database = target as SurvivalModeDatabase;
@@ -166,11 +191,25 @@ public class SurvivalModeDatabaseGenerator : Editor
 
             //stage events
 
+            if(stageInfo.stageId == 1)
+            {
+                stageEvents.Add(AddIntroTutorialEvent());
+            }
+
             foreach(var monsterInfo in monsterInfos)
             {
                 if(monsterInfo.spawnFrequency != 0)
                 {
                     stageEvents.Add(AddRandomSpawnEvent(monsterInfo));
+                }
+
+                float spawnValue = 0;
+                prevSpawnValue.TryGetValue(monsterInfo, out spawnValue);
+
+                if (spawnValue == 0 && monsterInfo.spawnFrequency > 0)
+                {
+                    stageEvents.Add(AddTutorialEvent(monsterInfo));
+                    prevSpawnValue.Add(monsterInfo, monsterInfo.spawnFrequency);
                 }
 
             }

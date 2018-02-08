@@ -14,6 +14,8 @@ public class DebugFunctions : MonoBehaviour
     {
         if (upgradeDatabase)
         {
+            PlayerPrefs.DeleteAll();
+
             foreach(var upgrade in upgradeDatabase.allUpgrades)
             {
                 if(upgrade != null)

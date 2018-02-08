@@ -399,7 +399,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
-  spawnFrequency: 20
+  spawnFrequency: 30
 --- !u!114 &114176365779883804
 MonoBehaviour:
   m_ObjectHideFlags: 1

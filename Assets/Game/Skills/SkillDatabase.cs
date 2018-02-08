@@ -5,7 +5,7 @@ using System.Text;
 
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Skills/Skills Database")]
+[CreateAssetMenu(menuName = "Database/Skills Database")]
 public class SkillDatabase : ScriptableObject
 {
     public Skill[] allSkills = new Skill[0];

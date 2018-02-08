@@ -237,6 +237,11 @@ public class Monster : Unit
             }
             else
             {
+                if(monsterType == MonsterCollisionMask.Good)
+                {
+                    GameManager.instance.comboManager.BreakCombo();
+                }
+
                 GameManager.instance.monsterManager.AddMissedMonsterCount(this);
             }
 

@@ -44,9 +44,16 @@ public class GameSceneSettings : MonoBehaviour
     }
 
     public void ToggleSettingMenu()
-    {
+    {        
         if(canvasGroup.alpha == 0)
         {
+            if (GameManager.instance.isGamePaused ||
+            GameManager.instance.isGameOver ||
+            GameManager.instance.isMovingToNextWave)
+            {
+                return;
+            }
+
             if (!GameManager.instance.isGameOver)
             {
                 GameManager.instance.PauseGame();

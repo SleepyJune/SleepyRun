@@ -25,10 +25,12 @@ public class MonsterCollideBuff : Buff
 
         if(buffObj.functionType == MonsterCollideBuffObject.EffectFunctionType.Apple)
         {
+            GameManager.instance.scoreManager.AddCollectedMonsterCount();
             GameManager.instance.spawnPickupManager.TryPickup();
         }
         else if(buffObj.functionType == MonsterCollideBuffObject.EffectFunctionType.GoldenApple)
         {
+            GameManager.instance.scoreManager.AddCollectedMonsterCount(3);
             GameManager.instance.spawnPickupManager.SpawnUltimateSkill();
         }
         else

@@ -58,7 +58,7 @@ public class ComboManager : MonoBehaviour
     {
         if(Time.time - lastComboTime > 2) //lose combo in 3 seconds
         {
-            BreakCombo();
+            //BreakCombo();
         }
 
         if (comboQueue.Count > 0)

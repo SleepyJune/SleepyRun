@@ -252,10 +252,18 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void ResumeGame()
+    public void ResumeGame(bool countdown = true)
     {
-        isGamePaused = false;
-        StartCoroutine(ResumeCountdown());
+        if (countdown)
+        {
+            isGamePaused = false;
+            StartCoroutine(ResumeCountdown());
+        }
+        else
+        {
+            isGamePaused = false;
+            Resume();
+        }
     }
 
     IEnumerator ResumeCountdown()

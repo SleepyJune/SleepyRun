@@ -127,9 +127,7 @@ public class MonsterManager : MonoBehaviour
         else
         {
             monsterCollectedCount.Add(monster.name, 1);
-        }
-
-        GameManager.instance.scoreManager.AddCollectedMonsterCount();
+        }        
     }
 
     public void AddMonsterCount(Monster monster)
@@ -153,7 +151,7 @@ public class MonsterManager : MonoBehaviour
             monsterSpawnCount.Add(monster, 1);
         }
     }
-
+        
     public void AddMissedMonsterCount(Monster monster)
     {
         int count;
