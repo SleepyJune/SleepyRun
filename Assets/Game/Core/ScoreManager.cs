@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
 
     public Text scoreText;
 
+    public Text appleText;
+
     [NonSerialized]
     public ComboManager comboManager;
 
@@ -48,32 +50,36 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        //scoreText.text = score.ToString();
-        scoreText.text = totalCollected.ToString();
+        scoreText.text = score.ToString();
+        appleText.text = totalCollected.ToString();
     }
 
     public void AddCollectedMonsterCount(int collected = 1)
-    {        
+    {
+        float stageMultiplier = 1+(GameManager.instance.stageEventManager.currentStageCount / 30.0f);
+
+        Debug.Log(stageMultiplier);
+
         totalCollected += collected;
-        score += collected * comboManager.comboCount;
+        score += (int)Math.Round(collected * comboManager.comboCount * stageMultiplier);
         UpdateScoreText();
     }
 
     public void AddScoreOnHit(HitInfo hitInfo)
     {
-        score += (int)Mathf.Max(1,Mathf.Round(comboManager.comboCount * hitInfo.damage / 100f));
-        UpdateScoreText();
+        //score += (int)Mathf.Max(1,Mathf.Round(comboManager.comboCount * hitInfo.damage / 100f));
+        //UpdateScoreText();
     }
 
     public void AddScoreOnMonsterKill(Monster monster)
     {
-        score += monster.maxHealth;
-        UpdateScoreText();
+        //score += monster.maxHealth;
+        //UpdateScoreText();
     }
 
     public void AddScore(int amount)
     {
-        score += amount;
-        UpdateScoreText();
+        //score += amount;
+        //UpdateScoreText();
     }
 }

@@ -13,10 +13,15 @@ public class GameTextOverlayManager : MonoBehaviour
     public GameObject victoryTextPrefab;
     public GameObject gameoverTextPrefab;
     public GameObject waveTextPrefab;
+    
+    public GameObject resumeTapTextPrefab;
+        
+    GameObject resumeTapTextObject;
+    
+    void Start()
+    {
 
-    public GameObject countdownTextPrefab;
-
-    GameObject countdownObject;
+    }
 
     public void CreateWaveText()
     {
@@ -38,6 +43,23 @@ public class GameTextOverlayManager : MonoBehaviour
         waveText.GetComponent<Animation>().Play("StageNumberAnimation");
     }
 
+    public void CreateResumeTapText()
+    {
+        if (resumeTapTextObject == null)
+        {
+            resumeTapTextObject = Instantiate(resumeTapTextPrefab, overlayParent);
+            GameManager.instance.touchInputManager.touchStart += OnTouchResumeHandler;
+        }
+    }
+
+
+    public void OnTouchResumeHandler(Touch touch)
+    {
+        GameManager.instance.ResumeGame();
+        GameManager.instance.touchInputManager.touchStart -= OnTouchResumeHandler;
+        Destroy(resumeTapTextObject);
+    }
+
     public void CreateGameOverText()
     {
         var gameOverText = Instantiate(gameoverTextPrefab, overlayParent);
@@ -49,16 +71,4 @@ public class GameTextOverlayManager : MonoBehaviour
         var victoryText = Instantiate(victoryTextPrefab, overlayParent);
         victoryText.GetComponent<Animation>().Play("GameOverAnimation");
     }
-
-    public void CreateCountdownText()
-    {
-        if(countdownObject != null)
-        {
-            Destroy(countdownObject);
-        }
-
-        countdownObject = Instantiate(countdownTextPrefab, overlayParent);
-        countdownObject.GetComponent<Animation>().Play("CountDownAnimation");
-    }   
-
 }

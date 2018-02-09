@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 135566127602306982}
   - component: {fileID: 114433792061735412}
   - component: {fileID: 114501068332162278}
-  - component: {fileID: 114814002029419056}
   m_Layer: 8
   m_Name: GreenMovingApple
   m_TagString: Untagged
@@ -348,9 +347,9 @@ MonoBehaviour:
   isInvincible: 0
   damage: 5
   monsterType: 2
-  buffOnHit: {fileID: 0}
+  buffOnHit: {fileID: 11400000, guid: 22916b696808d684ea08fe6774a71611, type: 2}
   image: {fileID: 21300000, guid: 05c2fd15357f01941bac1c3ed068c669, type: 3}
-  description: 
+  description: Getting hit by these will make your head dizzy.
 --- !u!114 &114501068332162278
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -367,19 +366,6 @@ MonoBehaviour:
   explodeOnShatter: 0
   explosionForce: 1
   explosionPosition: {x: 0, y: 0, z: 0}
---- !u!114 &114814002029419056
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1620783191166748}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionInfo: {fileID: 114247615370516076, guid: 4a78681b525224345b32b069ad2e71c5,
-    type: 2}
 --- !u!135 &135566127602306982
 SphereCollider:
   m_ObjectHideFlags: 1

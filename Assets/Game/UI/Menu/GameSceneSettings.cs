@@ -40,7 +40,7 @@ public class GameSceneSettings : MonoBehaviour
         }
 
         AdjustVolume(volume);
-        AdjustMusicVolume(musicVolume);
+        AdjustMusicVolume(musicVolume);        
     }
 
     public void ToggleSettingMenu()
@@ -67,7 +67,11 @@ public class GameSceneSettings : MonoBehaviour
         {
             if (!GameManager.instance.isGameOver)
             {
-                GameManager.instance.ResumeGame();
+                //GameManager.instance.ResumeGame();
+
+                GameManager.instance.isGamePaused = false;
+                GameManager.instance.textOverlayManager.CreateResumeTapText();
+                
             }
 
             canvasGroup.alpha = 0;
@@ -75,7 +79,7 @@ public class GameSceneSettings : MonoBehaviour
             canvasGroup.blocksRaycasts = false;
         }
     }
-
+    
     public void ToggleSettingsWindow()
     {
         if (settingsWindowCanvasGroup.alpha == 0)

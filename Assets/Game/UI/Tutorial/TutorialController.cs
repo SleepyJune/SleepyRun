@@ -40,7 +40,7 @@ public class TutorialController : MonoBehaviour
     public void DisableTutorialOverlay()
     {
         tutorialParent.tutorialLock = false;
-        GameManager.instance.ResumeGame(false);
+        GameManager.instance.ResumeGame();
         tutorialObject.SetActive(false);
     }
 

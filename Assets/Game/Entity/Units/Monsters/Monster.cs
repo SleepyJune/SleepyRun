@@ -137,9 +137,7 @@ public class Monster : Unit
     }
 
     void BadMonsterCollide()
-    {
-        GameManager.instance.comboManager.BreakCombo();
-
+    {        
         GameManager.instance.player.TakeDamage(
                 new HitInfo
                 {

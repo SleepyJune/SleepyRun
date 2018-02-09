@@ -252,42 +252,9 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0f;
     }
 
-    public void ResumeGame(bool countdown = true)
+    public void ResumeGame()
     {
-        if (countdown)
-        {
-            isGamePaused = false;
-            StartCoroutine(ResumeCountdown());
-        }
-        else
-        {
-            isGamePaused = false;
-            Resume();
-        }
-    }
-
-    IEnumerator ResumeCountdown()
-    {
-        textOverlayManager.CreateCountdownText();
-
-        var endPauseTime = Time.realtimeSinceStartup + 3;
-        pauseCountdownEndTime = endPauseTime;
-
-        while (Time.realtimeSinceStartup < endPauseTime
-            && pauseCountdownEndTime == endPauseTime)
-        {
-            yield return 0;
-        }
-
-        if(pauseCountdownEndTime == endPauseTime && isGamePaused == false)
-        {            
-            Resume();
-        }
-
-    }
-
-    void Resume()
-    {        
+        isGamePaused = false;
         Time.timeScale = 1f;
     }
 }
