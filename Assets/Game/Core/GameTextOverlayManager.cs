@@ -15,6 +15,8 @@ public class GameTextOverlayManager : MonoBehaviour
     public GameObject waveTextPrefab;
     
     public GameObject resumeTapTextPrefab;
+
+    public GameObject skipLevelOverlayPrefab;
         
     GameObject resumeTapTextObject;
     
@@ -70,5 +72,10 @@ public class GameTextOverlayManager : MonoBehaviour
     {
         var victoryText = Instantiate(victoryTextPrefab, overlayParent);
         victoryText.GetComponent<Animation>().Play("GameOverAnimation");
+    }
+
+    public void CreateSkipLevelOverlay()
+    {
+        var skipLevelOverlay = Instantiate(skipLevelOverlayPrefab, overlayParent);
     }
 }

@@ -46,7 +46,7 @@ public class LevelButton : MonoBehaviour//, IPointerDownHandler, IPointerUpHandl
 
     public void LoadLevel()
     {
-        levelSelectManager.SendMessage("LoadLevel", level-1);
+        levelSelectManager.SendMessage("LoadLevelEx", level-1);
     }
 
     public void OnPointerDown(PointerEventData eventData)

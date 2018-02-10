@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public GameTimerManager timerManager;
     [NonSerialized]
     public GameTextOverlayManager textOverlayManager;
+    [NonSerialized]
+    public LevelSelectManager levelSelectManager;
         
     public delegate void Callback();
     public event Callback onUpdate;
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
         scoreManager = GetComponent<ScoreManager>();
         timerManager = GetComponent<GameTimerManager>();
         textOverlayManager = GetComponent<GameTextOverlayManager>();
+        levelSelectManager = GetComponent<LevelSelectManager>();
 
         gameStartTime = Time.time;
 
@@ -172,6 +175,13 @@ public class GameManager : MonoBehaviour
     {
         isGamePaused = false;
         isMovingToNextWave = false;
+    }
+
+    public void SkipLevels()
+    {
+        Debug.Log("skip");
+
+        levelSelectManager.LoadLevel(19, false);
     }
 
     public void ShowReviveWindow()

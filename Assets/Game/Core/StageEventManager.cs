@@ -21,7 +21,8 @@ public class StageEventManager : MonoBehaviour
     public Transform killCountUI;
 
     public TutorialParentController tutorialController;
-
+    
+    string topLevelString = "TopLevelPassed";
 
     Text killCountText;
     Image killCountImage;
@@ -58,7 +59,22 @@ public class StageEventManager : MonoBehaviour
             currentStageWave = currentStageInfo.stageWaves[0];
             ResetStage();
 
+            SkipLevelOverlay();
+
             GameManager.instance.MoveToNextArea();            
+        }
+    }
+
+    void SkipLevelOverlay()
+    {
+        if(currentStageCount == 1) 
+        {            
+            var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
+
+            if (topPassedLevel >= 20) //and coins over 500
+            {
+                GameManager.instance.textOverlayManager.CreateSkipLevelOverlay();
+            }
         }
     }
 
@@ -148,7 +164,13 @@ public class StageEventManager : MonoBehaviour
                         currentStageWave = currentStageInfo.stageWaves[0];
                         currentWaveCount = 0;
                         ResetStage();
-                        
+
+                        var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
+                        if(topPassedLevel < currentStageCount-1)
+                        {
+                            PlayerPrefs.SetInt(topLevelString, currentStageCount-1);
+                        }
+
                         return false;
                     }
                     else
