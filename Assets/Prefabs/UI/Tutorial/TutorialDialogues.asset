@@ -8,9 +8,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 0}
+  m_Script: {fileID: 11500000, guid: 0e829203f14c88f41b98c4b6e6a56659, type: 3}
   m_Name: TutorialDialogues
-  m_EditorClassIdentifier: Assembly-CSharp::TextScriptDatabase
+  m_EditorClassIdentifier: 
   allTexts:
   - {fileID: 11400000, guid: 417cfd8d0e3d1a54eb2addada431b25e, type: 2}
   - {fileID: 11400000, guid: b81a58cc9c4bb1641a278b946560d79e, type: 2}

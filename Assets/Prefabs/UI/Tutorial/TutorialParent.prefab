@@ -331,7 +331,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20888be3ead25ad4e9664d705bb3827e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textScriptDatabase: {fileID: 11400000, guid: 3047fb383f8a1fb429aa55cb0dd6145a, type: 2}
+  textScriptDatabase: {fileID: 11400000, guid: 97f45b76393354d4cb56c24964d116ea, type: 2}
   bossText: {fileID: 114898515200835216}
   tutorialObject: {fileID: 1916117696526526}
   tutorialParent: {fileID: 114288133097671340}

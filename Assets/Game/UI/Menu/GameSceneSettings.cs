@@ -20,6 +20,8 @@ public class GameSceneSettings : MonoBehaviour
 
     string musicString = "musicVolume";
 
+    bool settingWindowOpen = false;
+
     void Start()
     {
         float volume = .5f;
@@ -61,17 +63,13 @@ public class GameSceneSettings : MonoBehaviour
 
             canvasGroup.alpha = 1;
             canvasGroup.interactable = true;
-            canvasGroup.blocksRaycasts = true;
+            canvasGroup.blocksRaycasts = true;            
         }
         else
         {
-            if (!GameManager.instance.isGameOver)
+            if (settingsWindowCanvasGroup.alpha == 0)
             {
-                //GameManager.instance.ResumeGame();
-
-                GameManager.instance.isGamePaused = false;
-                GameManager.instance.textOverlayManager.CreateResumeTapText();
-                
+                ResumeGameText();
             }
 
             canvasGroup.alpha = 0;
@@ -84,20 +82,24 @@ public class GameSceneSettings : MonoBehaviour
     {
         if (settingsWindowCanvasGroup.alpha == 0)
         {
-            GameManager.instance.PauseGame();
-
             settingsWindowCanvasGroup.alpha = 1;
             settingsWindowCanvasGroup.interactable = true;
             settingsWindowCanvasGroup.blocksRaycasts = true;
         }
         else
         {
-            GameManager.instance.ResumeGame();
+            ResumeGameText();
 
             settingsWindowCanvasGroup.alpha = 0;
             settingsWindowCanvasGroup.interactable = false;
             settingsWindowCanvasGroup.blocksRaycasts = false;
         }
+    }
+
+    void ResumeGameText()
+    {
+        GameManager.instance.isGamePaused = false;
+        GameManager.instance.textOverlayManager.CreateResumeTapText();
     }
 
     public void AdjustVolume(float volume)
@@ -114,8 +116,8 @@ public class GameSceneSettings : MonoBehaviour
 
     public void OpenSettingsWindow()
     {
-        ToggleSettingMenu();
         ToggleSettingsWindow();
+        ToggleSettingMenu();
     }
 
     public void CloseSettingsWindow()

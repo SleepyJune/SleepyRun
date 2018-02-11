@@ -308,7 +308,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 6d8945de7b1d92741a64925057c05f40, type: 3}
+  m_Sprite: {fileID: 21300000, guid: e131495ce36bede428291f225bd0881d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -10010,56 +10010,12 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
+    - target: {fileID: 114346519564158950, guid: d59bce207b85d0d4c961567bc9954c20,
         type: 2}
-      propertyPath: m_AnchoredPosition.y
-      value: -199.19
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
+      propertyPath: textScriptDatabase
+      value: 
+      objectReference: {fileID: 11400000, guid: c2775ae7c85fdb7419e3307755c00a6a,
         type: 2}
-      propertyPath: m_AnchorMin.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_AnchorMin.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_AnchorMax.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_AnchorMax.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_Pivot.x
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_Pivot.y
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_SizeDelta.y
-      value: 125
-      objectReference: {fileID: 0}
-    - target: {fileID: 224918352404587466, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: m_SizeDelta.x
-      value: 125
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d59bce207b85d0d4c961567bc9954c20, type: 2}
   m_IsPrefabParent: 0
@@ -12574,7 +12530,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300016, guid: 6d8945de7b1d92741a64925057c05f40, type: 3}
+  m_Sprite: {fileID: 21300016, guid: e131495ce36bede428291f225bd0881d, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

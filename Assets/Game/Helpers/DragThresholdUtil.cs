@@ -16,6 +16,6 @@ public class DragThresholdUtil : MonoBehaviour
                      defaultValue,
                      (int)(defaultValue * Screen.dpi / 160f));
 
-        Debug.Log(Screen.dpi);
+        //Debug.Log(Screen.dpi);
     }
 }

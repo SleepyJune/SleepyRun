@@ -48,5 +48,54 @@ public static class EditorHelperFunctions
 
         collection = newList.ToArray();
         EditorUtility.SetDirty(target);
-    }    
+    }
+
+    public static void GenerateFromVariable<T>(string path, ref T[] collection, ref string[] nameCollection, Object target, string variableName, string assetType = "*.asset")
+    {
+        List<T> newList = new List<T>();
+        List<string> nameList = new List<string>();
+
+        var files = Directory.GetFiles(Application.dataPath + path, assetType, SearchOption.AllDirectories);
+        foreach (var file in files)
+        {
+            string assetPath = "Assets" + file.Replace(Application.dataPath, "").Replace('\\', '/');
+
+            Object asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(Object));
+            if (asset != null)
+            {
+                var targetField = asset.GetType().GetField(variableName);
+
+                if (targetField != null)
+                {
+                    var targetValue = (T)targetField.GetValue(asset);
+                    newList.Add(targetValue);
+                    nameList.Add(asset.name);
+                }                
+            }
+        }
+
+        collection = newList.ToArray();
+        nameCollection = nameList.ToArray();
+        EditorUtility.SetDirty(target);
+    }
+
+    /*public static void GenerateNames(string path, ref string[] collection, Object target, string assetType = "*.asset")
+    {
+        List<string> newList = new List<string>();
+
+        var files = Directory.GetFiles(Application.dataPath + path, assetType, SearchOption.AllDirectories);
+        foreach (var file in files)
+        {
+            string assetPath = "Assets" + file.Replace(Application.dataPath, "").Replace('\\', '/');
+
+            Object asset = AssetDatabase.LoadAssetAtPath(assetPath, typeof(Object));
+            if (asset != null)
+            {
+                newList.Add(asset.name);
+            }
+        }
+
+        collection = newList.ToArray();
+        EditorUtility.SetDirty(target);
+    }*/
 }
