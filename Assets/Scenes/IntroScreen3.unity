@@ -304,11 +304,11 @@ RectTransform:
   m_Children:
   - {fileID: 1155533557}
   m_Father: {fileID: 1812149898}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 25}
+  m_AnchoredPosition: {x: 10, y: 95}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &740231368
@@ -1109,7 +1109,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Tutorial
+  m_Text: Settings
 --- !u!222 &1752595728
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1143,8 +1143,8 @@ RectTransform:
   m_Children:
   - {fileID: 2053556336}
   - {fileID: 1304918672}
-  - {fileID: 1929783548}
   - {fileID: 740231367}
+  - {fileID: 1929783548}
   - {fileID: 1304020359}
   m_Father: {fileID: 70945843}
   m_RootOrder: 1
@@ -1167,7 +1167,7 @@ GameObject:
   - component: {fileID: 1929783549}
   - component: {fileID: 1929783552}
   m_Layer: 5
-  m_Name: Monster
+  m_Name: Setting
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1185,11 +1185,11 @@ RectTransform:
   m_Children:
   - {fileID: 1752595726}
   m_Father: {fileID: 1812149898}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 10, y: 100}
+  m_AnchoredPosition: {x: 10, y: 25}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1929783549
@@ -1230,18 +1230,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1929783550}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2053556339}
-        m_MethodName: LoadScene
-        m_Mode: 5
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: TutorialScreen
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1929783550
@@ -1263,7 +1252,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300056, guid: ebfcf5a277aec2146a35a88cbaff1fd2, type: 3}
+  m_Sprite: {fileID: 21300052, guid: ebfcf5a277aec2146a35a88cbaff1fd2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

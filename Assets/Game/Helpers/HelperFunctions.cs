@@ -11,4 +11,14 @@ public class HelperFunctions : MonoBehaviour
     {
         SceneChanger.ChangeScene(str);
     }
+
+    public void GameManagerExecute(string functionName)
+    {
+        GameManager.instance.SendMessage(functionName);
+    }
+
+    public void AnimatorTrigger(string triggerName)
+    {
+        GetComponent<Animator>().SetTrigger(triggerName);
+    }
 }

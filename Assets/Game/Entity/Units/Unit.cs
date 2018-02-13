@@ -213,18 +213,30 @@ public abstract class Unit : Entity
     {
         if (!isDead)
         {
-            if (buffs.ContainsKey(buff.buffName)) //what if buff has ended
+            Buff currentBuff = null;
+            buffs.TryGetValue(buff.buffName, out currentBuff);
+
+            if (currentBuff != null && !currentBuff.hasEnded) //what if buff has ended
             {
                 buffs[buff.buffName].endTime = Time.time + buff.duration; //refreshing the duration                
             }
             else
-            {
-                buffs.Add(buff.buffName, buff);
+            {                
                 buff.ActivateBuff(this);
 
-                if(buff.duration == 0)
+                if(buff.duration < .1)
                 {
                     buff.EndBuff();
+                }
+                else
+                {
+                    if(currentBuff != null)
+                    {
+                        currentBuff.EndBuff();
+                        buffs.Remove(buff.buffName);
+                    }
+
+                    buffs.Add(buff.buffName, buff);
                 }
             }
         }

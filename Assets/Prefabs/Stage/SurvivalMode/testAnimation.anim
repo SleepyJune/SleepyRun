@@ -99,7 +99,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.083333336
-        value: 3
+        value: 10
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
@@ -126,14 +126,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.5
-        value: 10
+        time: 0.8333333
+        value: 20
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 10
+        value: 20
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -154,14 +154,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.33333334
-        value: 10
+        time: 0.25
+        value: 15
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 5
+        value: 10
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -182,14 +182,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.083333336
-        value: 20
+        time: 0.33333334
+        value: 30
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 20
+        value: 30
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -211,13 +211,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.6666667
-        value: 10
+        value: 15
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 10
+        value: 15
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -244,20 +244,8 @@ AnimationClip:
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
-        time: 0.48333332
-        value: 10
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.5
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
         time: 1
-        value: 0
+        value: 10
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -278,14 +266,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 10
+        time: 0.5
+        value: 15
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 10
+        value: 15
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -294,34 +282,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: spawnFrequency
     path: Database/EggGreen
-    classID: 114
-    script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.25
-        value: 10
-        inSlope: Infinity
-        outSlope: 0
-        tangentMode: 7
-      - serializedVersion: 2
-        time: 1
-        value: 7.5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: spawnFrequency
-    path: Database/ApplePurple
     classID: 114
     script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
   m_PPtrCurves: []
@@ -397,13 +357,6 @@ AnimationClip:
       isPPtrCurve: 0
     - serializedVersion: 2
       path: 3498062078
-      attribute: 335998487
-      script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
-      typeID: 114
-      customType: 0
-      isPPtrCurve: 0
-    - serializedVersion: 2
-      path: 1198725303
       attribute: 335998487
       script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
       typeID: 114
@@ -514,7 +467,7 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.083333336
-        value: 3
+        value: 10
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
@@ -541,14 +494,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.5
-        value: 10
+        time: 0.8333333
+        value: 20
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 10
+        value: 20
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -569,14 +522,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.33333334
-        value: 10
+        time: 0.25
+        value: 15
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 5
+        value: 10
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -597,14 +550,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.083333336
-        value: 20
+        time: 0.33333334
+        value: 30
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 20
+        value: 30
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -626,13 +579,13 @@ AnimationClip:
         tangentMode: 136
       - serializedVersion: 2
         time: 0.6666667
-        value: 10
+        value: 15
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 10
+        value: 15
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -659,20 +612,8 @@ AnimationClip:
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
-        time: 0.48333332
-        value: 10
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.5
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
         time: 1
-        value: 0
+        value: 10
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -693,14 +634,14 @@ AnimationClip:
         outSlope: 0
         tangentMode: 136
       - serializedVersion: 2
-        time: 0.75
-        value: 10
+        time: 0.5
+        value: 15
         inSlope: Infinity
         outSlope: 0
         tangentMode: 7
       - serializedVersion: 2
         time: 1
-        value: 10
+        value: 15
         inSlope: 0
         outSlope: 0
         tangentMode: 136
@@ -709,34 +650,6 @@ AnimationClip:
       m_RotationOrder: 4
     attribute: spawnFrequency
     path: Database/EggGreen
-    classID: 114
-    script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
-  - curve:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 2
-        time: 0
-        value: 0
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      - serializedVersion: 2
-        time: 0.25
-        value: 10
-        inSlope: Infinity
-        outSlope: 0
-        tangentMode: 7
-      - serializedVersion: 2
-        time: 1
-        value: 7.5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 136
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    attribute: spawnFrequency
-    path: Database/ApplePurple
     classID: 114
     script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
   m_EulerEditorCurves: []

@@ -37,6 +37,8 @@ public class GameManager : MonoBehaviour
     public GameTimerManager timerManager;
     [NonSerialized]
     public GameTextOverlayManager textOverlayManager;
+    [NonSerialized]
+    public LevelSelectManager levelSelectManager;
         
     public delegate void Callback();
     public event Callback onUpdate;
@@ -91,6 +93,7 @@ public class GameManager : MonoBehaviour
         scoreManager = GetComponent<ScoreManager>();
         timerManager = GetComponent<GameTimerManager>();
         textOverlayManager = GetComponent<GameTextOverlayManager>();
+        levelSelectManager = GetComponent<LevelSelectManager>();
 
         gameStartTime = Time.time;
 
@@ -174,6 +177,13 @@ public class GameManager : MonoBehaviour
         isMovingToNextWave = false;
     }
 
+    public void SkipLevels()
+    {
+        Debug.Log("skip");
+
+        levelSelectManager.LoadLevel(19, false);
+    }
+
     public void ShowReviveWindow()
     {
         PauseGame();
@@ -255,31 +265,6 @@ public class GameManager : MonoBehaviour
     public void ResumeGame()
     {
         isGamePaused = false;
-        StartCoroutine(ResumeCountdown());
-    }
-
-    IEnumerator ResumeCountdown()
-    {
-        textOverlayManager.CreateCountdownText();
-
-        var endPauseTime = Time.realtimeSinceStartup + 3;
-        pauseCountdownEndTime = endPauseTime;
-
-        while (Time.realtimeSinceStartup < endPauseTime
-            && pauseCountdownEndTime == endPauseTime)
-        {
-            yield return 0;
-        }
-
-        if(pauseCountdownEndTime == endPauseTime && isGamePaused == false)
-        {            
-            Resume();
-        }
-
-    }
-
-    void Resume()
-    {        
         Time.timeScale = 1f;
     }
 }

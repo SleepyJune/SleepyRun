@@ -27,22 +27,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!1 &1051445022296802
-GameObject:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 4487185450961090}
-  - component: {fileID: 114490352397581194}
-  m_Layer: 0
-  m_Name: ApplePurple
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
 --- !u!1 &1137001357879560
 GameObject:
   m_ObjectHideFlags: 1
@@ -268,19 +252,6 @@ Transform:
   m_Father: {fileID: 4612239401366786}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &4487185450961090
-Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1051445022296802}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 4612239401366786}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4581284033231782
 Transform:
   m_ObjectHideFlags: 1
@@ -313,7 +284,6 @@ Transform:
   - {fileID: 4660069459268500}
   - {fileID: 4246378406480882}
   - {fileID: 4848272219047816}
-  - {fileID: 4487185450961090}
   m_Father: {fileID: 4729053325307710}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -399,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: e80a96d933146f844b0379f054f2770c, type: 2}
-  spawnFrequency: 20
+  spawnFrequency: 30
 --- !u!114 &114176365779883804
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -412,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
-  spawnFrequency: 3
+  spawnFrequency: 3.0068588
 --- !u!114 &114348228123992852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -425,7 +395,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114398583686171958, guid: 6f4a2092a030c8f4ba1c832982015709, type: 2}
-  spawnFrequency: 10
+  spawnFrequency: 15
 --- !u!114 &114404052582749598
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -438,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114279824525025166, guid: e4ac1aace424fe64c98d56f2047ec125, type: 2}
-  spawnFrequency: 10
+  spawnFrequency: 15
 --- !u!114 &114415372961903480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -451,7 +421,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114056038263308662, guid: 64e4829e3475bed45aebd50e8bdfe4fa, type: 2}
-  spawnFrequency: 0
+  spawnFrequency: 10
 --- !u!114 &114480791208940712
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -465,19 +435,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: d127870723be926478a9137768279c4b, type: 2}
   spawnFrequency: 3.0018249
---- !u!114 &114490352397581194
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1051445022296802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4286ba5a684690c479891b8810013ca5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monster: {fileID: 114433792061735412, guid: c10c193755618814792928a923dfed45, type: 2}
-  spawnFrequency: 7.503649
 --- !u!114 &114555843911704178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -490,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: 2326ad4f8f6ceb844b6f9634f60537de, type: 2}
-  spawnFrequency: 5.009218
+  spawnFrequency: 10.007298
 --- !u!114 &114853443666338242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -503,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  spawnFrequency: 10
+  spawnFrequency: 20
 --- !u!114 &114857574025624986
 MonoBehaviour:
   m_ObjectHideFlags: 1

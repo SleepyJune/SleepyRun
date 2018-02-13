@@ -19,6 +19,11 @@ public class StageEventManager : MonoBehaviour
     public bool isSurvivalMode = false;
     
     public Transform killCountUI;
+
+    public TutorialParentController tutorialController;
+    
+    string topLevelString = "TopLevelPassed";
+
     Text killCountText;
     Image killCountImage;
     CanvasGroup killCountCanvasGroup;
@@ -54,8 +59,34 @@ public class StageEventManager : MonoBehaviour
             currentStageWave = currentStageInfo.stageWaves[0];
             ResetStage();
 
-            GameManager.instance.MoveToNextArea();
+            SkipLevelOverlay();
+
+            GameManager.instance.MoveToNextArea();            
         }
+    }
+
+    void SkipLevelOverlay()
+    {
+        if(currentStageCount == 1) 
+        {            
+            var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
+
+            if (topPassedLevel >= 20) //and coins over 500
+            {
+                GameManager.instance.textOverlayManager.CreateSkipLevelOverlay();
+            }
+        }
+    }
+
+    public void StartTutorial()
+    {
+        var tutorialString = "Tutorial_Intro";
+
+        if (!PlayerPrefs.HasKey(tutorialString))
+        {
+            tutorialController.StartTutorial();
+            //PlayerPrefs.SetInt(tutorialString, 1);
+        }        
     }
 
     void GetVictoryCondition()
@@ -133,7 +164,13 @@ public class StageEventManager : MonoBehaviour
                         currentStageWave = currentStageInfo.stageWaves[0];
                         currentWaveCount = 0;
                         ResetStage();
-                        
+
+                        var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
+                        if(topPassedLevel < currentStageCount-1)
+                        {
+                            PlayerPrefs.SetInt(topLevelString, currentStageCount-1);
+                        }
+
                         return false;
                     }
                     else
@@ -147,6 +184,23 @@ public class StageEventManager : MonoBehaviour
                 return true; //Game Over on Level Completion
             }
         }        
+    }
+
+    public void ShowMonsterInfo(Monster monster)
+    {
+        var monsterTutorialString = "Tutorial_MonsterInfo_" + monster.name;
+
+        if (!PlayerPrefs.HasKey(monsterTutorialString))
+        {
+            if (!tutorialController.ShowMonsterInfo(monster))
+            {
+                DelayAction.Add(() => ShowMonsterInfo(monster), 5);
+            }
+            else
+            {
+                //PlayerPrefs.SetInt(monsterTutorialString, 1);
+            }
+        }
     }
 
     void Update()

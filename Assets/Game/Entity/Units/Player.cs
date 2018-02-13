@@ -109,6 +109,8 @@ public class Player : Unit
 
             if (damageReceived > 0)
             {
+                GameManager.instance.comboManager.BreakCombo();
+
                 UpdateHealthBar();
 
                 if (health <= 0)

@@ -16,6 +16,8 @@ public class ScoreManager : MonoBehaviour
 
     public Text scoreText;
 
+    public Text appleText;
+
     [NonSerialized]
     public ComboManager comboManager;
 
@@ -28,7 +30,7 @@ public class ScoreManager : MonoBehaviour
 
     public void SetNewLevelStats(bool levelComplete = true)
     {
-        var points = totalCollected;//Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount());
+        //var points = totalCollected;//Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount());
 
         LevelStats stats = new LevelStats
         {
@@ -40,7 +42,7 @@ public class ScoreManager : MonoBehaviour
             totalMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.All),
             totalGoodMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.Good),
             monstersCollected = totalCollected,
-            points = points,
+            points = score,
         };
 
         SceneChanger.levelStats = stats;
@@ -48,31 +50,36 @@ public class ScoreManager : MonoBehaviour
 
     public void UpdateScoreText()
     {
-        //scoreText.text = score.ToString();
-        scoreText.text = totalCollected.ToString();
+        scoreText.text = score.ToString();
+        appleText.text = totalCollected.ToString();
     }
 
     public void AddCollectedMonsterCount(int collected = 1)
-    {        
+    {
+        float stageMultiplier = 1+(GameManager.instance.stageEventManager.currentStageCount / 30.0f);
+
+        Debug.Log(stageMultiplier);
+
         totalCollected += collected;
+        score += (int)Math.Round(collected * comboManager.comboCount * stageMultiplier);
         UpdateScoreText();
     }
 
     public void AddScoreOnHit(HitInfo hitInfo)
     {
-        score += (int)Mathf.Max(1,Mathf.Round(comboManager.comboCount * hitInfo.damage / 100f));
-        UpdateScoreText();
+        //score += (int)Mathf.Max(1,Mathf.Round(comboManager.comboCount * hitInfo.damage / 100f));
+        //UpdateScoreText();
     }
 
     public void AddScoreOnMonsterKill(Monster monster)
     {
-        score += monster.maxHealth;
-        UpdateScoreText();
+        //score += monster.maxHealth;
+        //UpdateScoreText();
     }
 
     public void AddScore(int amount)
     {
-        score += amount;
-        UpdateScoreText();
+        //score += amount;
+        //UpdateScoreText();
     }
 }

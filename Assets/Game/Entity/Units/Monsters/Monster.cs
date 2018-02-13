@@ -137,9 +137,7 @@ public class Monster : Unit
     }
 
     void BadMonsterCollide()
-    {
-        GameManager.instance.comboManager.BreakCombo();
-
+    {        
         GameManager.instance.player.TakeDamage(
                 new HitInfo
                 {
@@ -237,6 +235,11 @@ public class Monster : Unit
             }
             else
             {
+                if(monsterType == MonsterCollisionMask.Good)
+                {
+                    GameManager.instance.comboManager.BreakCombo();
+                }
+
                 GameManager.instance.monsterManager.AddMissedMonsterCount(this);
             }
 

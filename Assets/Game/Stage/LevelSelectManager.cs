@@ -47,7 +47,12 @@ public class LevelSelectManager : MonoBehaviour
         missionText.text = stage.missionText + "\n" + quote;
     }
 
-    public void LoadLevel(int stageID)
+    public void LoadLevelEx(int stageID)
+    {
+        LoadLevel(stageID);
+    }
+
+    public void LoadLevel(int stageID, bool reload = true)
     {        
         if (stageID >= stageDatabase.databaseArray.Length)
         {
@@ -63,7 +68,15 @@ public class LevelSelectManager : MonoBehaviour
 
             SceneChanger.currentStageInfo = stageInfo;
             SceneChanger.sceneToLoad = "GameScene";
-            SceneChanger.ChangeScene("LoadingScene");
+
+            if (reload)
+            {
+                SceneChanger.ChangeScene("LoadingScene");
+            }
+            else
+            {
+                SceneChanger.ChangeScene("GameScene");
+            }
         }
     }
 }
