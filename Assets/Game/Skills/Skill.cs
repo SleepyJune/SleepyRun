@@ -77,7 +77,7 @@ public abstract class Skill : MonoBehaviour
 
     public void CastSpell(Vector3 startPos, Vector3 endPos, Unit target = null)
     {
-        GameManager.instance.scoreManager.AddScore(50);
+        //GameManager.instance.scoreManager.AddScore(50);
 
         Cast(startPos, endPos, target);
 

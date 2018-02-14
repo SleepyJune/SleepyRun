@@ -4,14 +4,22 @@ using System.Linq;
 using System.Text;
 
 using UnityEngine;
+using UnityEngine.Events;
 
 public class HotkeyManager : MonoBehaviour
 {
+    public UnityEvent escapeKeyEvent;
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            SceneChanger.ChangeScene("IntroScreen3");
+            escapeKeyEvent.Invoke();
         }
+    }
+
+    public void ChangeScene(string str)
+    {
+        SceneChanger.ChangeScene(str);
     }
 }

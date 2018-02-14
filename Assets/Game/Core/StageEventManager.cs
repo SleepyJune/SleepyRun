@@ -59,9 +59,20 @@ public class StageEventManager : MonoBehaviour
             currentStageWave = currentStageInfo.stageWaves[0];
             ResetStage();
 
-            SkipLevelOverlay();
+            SkipLevelOverlay();           
 
             GameManager.instance.MoveToNextArea();            
+        }
+    }
+
+    public void ShowRewardOverlay()
+    {
+        int rewardLevel = currentStageCount % 5;
+                
+        if(rewardLevel == 0 && currentStageCount > 0
+            && GameManager.instance.adManager.isAdReady())
+        {
+            GameManager.instance.textOverlayManager.ShowAdRewardButton(currentStageCount);
         }
     }
 

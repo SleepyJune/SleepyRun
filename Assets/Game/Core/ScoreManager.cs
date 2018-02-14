@@ -79,7 +79,7 @@ public class ScoreManager : MonoBehaviour
 
     public void AddScore(int amount)
     {
-        //score += amount;
-        //UpdateScoreText();
+        score += amount;
+        UpdateScoreText();
     }
 }

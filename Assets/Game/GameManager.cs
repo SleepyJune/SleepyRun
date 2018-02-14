@@ -39,6 +39,8 @@ public class GameManager : MonoBehaviour
     public GameTextOverlayManager textOverlayManager;
     [NonSerialized]
     public LevelSelectManager levelSelectManager;
+    [NonSerialized]
+    public AdManager adManager;
         
     public delegate void Callback();
     public event Callback onUpdate;
@@ -54,7 +56,7 @@ public class GameManager : MonoBehaviour
     public AudioSource audioSource;
             
     
-    private CanvasGroupWindow reviveWindow;
+    private ReviveWindow reviveWindow;
 
     public bool isBossFight = false;
 
@@ -69,6 +71,8 @@ public class GameManager : MonoBehaviour
     public bool isSurvivalMode = false;
 
     public float pauseCountdownEndTime = 0;
+
+    public int reviveCount = 2;
 
     void Awake()
     {
@@ -94,6 +98,7 @@ public class GameManager : MonoBehaviour
         timerManager = GetComponent<GameTimerManager>();
         textOverlayManager = GetComponent<GameTextOverlayManager>();
         levelSelectManager = GetComponent<LevelSelectManager>();
+        adManager = GetComponent<AdManager>();
 
         gameStartTime = Time.time;
 
@@ -105,7 +110,7 @@ public class GameManager : MonoBehaviour
         //victoryText = canvas.Find("VictoryText").gameObject;
         //waveText = canvas.Find("WaveText").gameObject;
 
-        reviveWindow = canvas.Find("ReviveWindow").GetComponent<CanvasGroupWindow>();
+        reviveWindow = canvas.Find("ReviveWindow").GetComponent<ReviveWindow>();
     }
 
     void Update()
@@ -168,6 +173,8 @@ public class GameManager : MonoBehaviour
         monsterManager.ResetMonsterKillCount();
         monsterManager.RemoveMonsters(true);
 
+        DelayAction.Add(()=>stageEventManager.ShowRewardOverlay(),.5f);
+
         DelayAction.Add(EndMoveToNextArea, 5);
     }
 
@@ -186,16 +193,31 @@ public class GameManager : MonoBehaviour
 
     public void ShowReviveWindow()
     {
-        PauseGame();
-        reviveWindow.ShowWindow();
+        if (reviveCount > 0 && adManager.isAdReady())
+        {
+            PauseGame();
+            reviveWindow.SetReviveCount(reviveCount);
+            reviveWindow.ShowWindow();
+        }
+        else
+        {
+            ReviveCancel();
+        }
     }
 
     public void ReviveAccept()
+    {
+        adManager.ShowAdForRevive();
+    }
+
+    public void ReviveAdComplete()
     {
         isGameOver = false;
         ResumeGame();
         weaponManager.DisableWeapon(false);
         player.Revive();
+
+        reviveCount -= 1;
 
         reviveWindow.HideWindow();
     }

@@ -4903,7 +4903,7 @@ GameObject:
   - component: {fileID: 784477132}
   - component: {fileID: 784477131}
   m_Layer: 5
-  m_Name: Text
+  m_Name: ReviveCount
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7066,9 +7066,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1090062331}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd04980a5b8621e4dae8b4b0c21ea7ef, type: 3}
+  m_Script: {fileID: 11500000, guid: a7a54b4e3d87eb248a9c992f4b86e8d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  reviveCountText: {fileID: 784477131}
 --- !u!1 &1115027848
 GameObject:
   m_ObjectHideFlags: 0
@@ -8893,6 +8894,7 @@ GameObject:
   - component: {fileID: 1465129612}
   - component: {fileID: 1465129613}
   - component: {fileID: 1465129614}
+  - component: {fileID: 1465129615}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8921,6 +8923,7 @@ MonoBehaviour:
   isMovingToNextWave: 0
   screenDPI: 0
   pauseCountdownEndTime: 0
+  reviveCount: 2
 --- !u!4 &1465129600
 Transform:
   m_ObjectHideFlags: 0
@@ -9040,6 +9043,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f9d94f6368661488a0b7db2dba52df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  escapeKeyEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 206453592}
+        m_MethodName: ToggleSettingMenu
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1465129608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9131,6 +9150,8 @@ MonoBehaviour:
     type: 2}
   skipLevelOverlayPrefab: {fileID: 1940960691475496, guid: 5dabf1df162dcc24ca9fab5616265d87,
     type: 2}
+  adRewardWindow: {fileID: 114707157920757598, guid: 1cbbb77026e10dc40b22f9be351128d2,
+    type: 2}
 --- !u!114 &1465129614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9144,6 +9165,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stageDatabase: {fileID: 11400000, guid: 7ae76b093c1652141b02277e2295a583, type: 2}
   missionText: {fileID: 0}
+--- !u!114 &1465129615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1465129598}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd4dab00c3b0dcb458b19fdcc9e27a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  adRewardWindow: {fileID: 0}
 --- !u!1 &1475007277
 GameObject:
   m_ObjectHideFlags: 0

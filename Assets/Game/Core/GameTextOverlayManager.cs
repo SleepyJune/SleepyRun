@@ -17,12 +17,20 @@ public class GameTextOverlayManager : MonoBehaviour
     public GameObject resumeTapTextPrefab;
 
     public GameObject skipLevelOverlayPrefab;
+
+    public AdRewardWindow adRewardWindow; 
         
     GameObject resumeTapTextObject;
     
     void Start()
     {
 
+    }
+
+    public void ShowAdRewardButton(int currentLevel)
+    {
+        var rewardWindow = Instantiate(adRewardWindow, overlayParent);
+        rewardWindow.SetReward(currentLevel);
     }
 
     public void CreateWaveText()
