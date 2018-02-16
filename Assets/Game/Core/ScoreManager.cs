@@ -6,10 +6,15 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.UI;
 
+using UnityEngine.Analytics;
+
 public class ScoreManager : MonoBehaviour
 {
     [NonSerialized]
     public int score = 0;
+
+    [NonSerialized]
+    public int rewardedPoints = 0;
 
     [NonSerialized]
     public int totalCollected = 0;
@@ -35,6 +40,7 @@ public class ScoreManager : MonoBehaviour
         LevelStats stats = new LevelStats
         {
             levelComplete = levelComplete,
+            currentLevel = GameManager.instance.stageEventManager.currentStageCount,            
             levelTime = GameManager.instance.timerManager.levelTime,
             time = GameManager.instance.timerManager.totalGameTime,
             monstersKilled = GameManager.instance.monsterManager.GetKillCount(),
@@ -43,7 +49,18 @@ public class ScoreManager : MonoBehaviour
             totalGoodMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.Good),
             monstersCollected = totalCollected,
             points = score,
+            collectedPoints = score - rewardedPoints,
+            rewardAdPoints = rewardedPoints,
+            rewardAdWatched = GameManager.instance.adManager.rewardAdWatched,
+            revivesUsed = GameManager.instance.revivesUsed,
         };
+
+        var statsDictionary = stats.ParseDictionary();
+        var results = Analytics.CustomEvent("gameOver2", statsDictionary);
+
+        Debug.Log("Sending Analytics: " + results);
+
+        Analytics.FlushEvents();
 
         SceneChanger.levelStats = stats;
     }
@@ -75,6 +92,12 @@ public class ScoreManager : MonoBehaviour
     {
         //score += monster.maxHealth;
         //UpdateScoreText();
+    }
+
+    public void AddRewardPoints(int amount)
+    {
+        rewardedPoints += amount;
+        AddScore(amount);
     }
 
     public void AddScore(int amount)

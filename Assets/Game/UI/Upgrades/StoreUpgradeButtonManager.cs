@@ -5,6 +5,7 @@ using System.Text;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Analytics;
 
 public class StoreUpgradeButtonManager : MonoBehaviour
 {
@@ -59,10 +60,19 @@ public class StoreUpgradeButtonManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("Upgrade_" + upgrade.upgradeName, upgradeLevel);
 
+            var results = Analytics.CustomEvent("buyUpgrade", new Dictionary<string, object>()
+            {
+                { "upgradeName", upgrade.upgradeName},
+                { "level", upgradeLevel},
+                { "cost", cost},
+            });
+
+            Debug.Log("Sending Analytics: " + results);
+
             ReInitializeButton(upgrade);
 
             mockCoins -= cost;
-            coinText.text = mockCoins.ToString();
+            coinText.text = mockCoins.ToString();            
         }
 
         

@@ -482,7 +482,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Banana
   prefabID: 0
-  speed: 0
+  speed: -2.5
   anim: {fileID: 0}
   maxHealth: 10
   defense: 0

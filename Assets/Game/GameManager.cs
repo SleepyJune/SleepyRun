@@ -74,6 +74,9 @@ public class GameManager : MonoBehaviour
 
     public int reviveCount = 2;
 
+    [NonSerialized]
+    public int revivesUsed = 0;
+
     void Awake()
     {
         if (instance == null)
@@ -218,6 +221,7 @@ public class GameManager : MonoBehaviour
         player.Revive();
 
         reviveCount -= 1;
+        revivesUsed += 1;
 
         reviveWindow.HideWindow();
     }
