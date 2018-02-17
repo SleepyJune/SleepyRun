@@ -189,9 +189,11 @@ public class GameManager : MonoBehaviour
 
     public void SkipLevels()
     {
-        Debug.Log("skip");
-
-        levelSelectManager.LoadLevel(19, false);
+        if (MoneyManager.instance.DecreaseGold(500))
+        {
+            Debug.Log("skip");
+            levelSelectManager.LoadLevel(19, false);
+        }
     }
 
     public void ShowReviveWindow()

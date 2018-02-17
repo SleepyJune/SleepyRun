@@ -9,12 +9,17 @@ public class MoneyManager : MonoBehaviour
 {
     public static MoneyManager instance = null;
 
+    private int gold = 0;
+    private const string goldString = "Gold";
+
     void Awake()
     {
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(transform.gameObject);
+
+            InitGold();
         }
         else if (instance != this)
         {
@@ -23,13 +28,31 @@ public class MoneyManager : MonoBehaviour
         }
     }
 
-    public void IncreaseGold(int amount)
-    {
-
+    public void InitGold()
+    {        
+        gold = PlayerPrefs.GetInt(goldString, 0);
     }
 
-    public void DecreaseGold(int amount)
+    public int GetGold()
     {
+        return gold;
+    }
 
+    public void IncreaseGold(int amount)
+    {
+        gold += amount;
+        PlayerPrefs.SetInt(goldString, gold);
+    }
+
+    public bool DecreaseGold(int amount)
+    {
+        if (gold > amount)
+        {
+            gold -= amount;
+            PlayerPrefs.SetInt(goldString, gold);
+            return true;
+        }
+
+        return false;
     }
 }

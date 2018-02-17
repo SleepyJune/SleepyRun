@@ -632,6 +632,7 @@ MonoBehaviour:
   levelText: {fileID: 114121985369094596}
   iconImage: {fileID: 114025793976029356}
   costText: {fileID: 114425633926773870}
+  buyButton: {fileID: 114650632560407338}
 --- !u!222 &222050677126841222
 CanvasRenderer:
   m_ObjectHideFlags: 1

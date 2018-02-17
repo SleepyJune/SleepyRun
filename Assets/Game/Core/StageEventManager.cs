@@ -82,13 +82,13 @@ public class StageEventManager : MonoBehaviour
         {            
             var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
 
-            if (topPassedLevel >= 20) //and coins over 500
+            if (topPassedLevel >= 20 && MoneyManager.instance.GetGold() >= 500)
             {
                 GameManager.instance.textOverlayManager.CreateSkipLevelOverlay();
             }
         }
     }
-
+    
     public void StartTutorial()
     {
         var tutorialString = "Tutorial_Intro";

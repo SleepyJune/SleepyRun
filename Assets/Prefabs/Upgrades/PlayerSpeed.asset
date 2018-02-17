@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: MovementSpeed
   description: Increases side to side movement speed.
-  iconImage: {fileID: 21300026, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
+  iconImage: {fileID: 21300000, guid: 228e598457f52fc45bb6827bcdbc5c01, type: 3}
   baseStatValue: 5
   maxStatValue: 20
   valueIncreament: 1

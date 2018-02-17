@@ -17,10 +17,10 @@ public class StoreUpgradeButtonManager : MonoBehaviour
 
     public Text coinText;
 
+    public StoreUpgradeConfirmWindow confirmWindow;
+
     Dictionary<Upgrade, StoreUpgradeButton> buttonCache = new Dictionary<Upgrade, StoreUpgradeButton>();
-
-    double mockCoins = 8 * Math.Pow(10, 4);
-
+        
     void Start()
     {
         InitializeButtons();
@@ -46,7 +46,17 @@ public class StoreUpgradeButtonManager : MonoBehaviour
             }
         }
 
-        coinText.text = mockCoins.ToString();
+        UpdateCoinText();
+    }
+
+    public void UpdateCoinText()
+    {
+        coinText.text = MoneyManager.instance.GetGold().ToString();
+    }
+
+    public void OpenConfirmWindow(Upgrade upgrade)
+    {
+        confirmWindow.OpenWindow(upgrade);
     }
 
     public void BuyUpgrade(Upgrade upgrade)
@@ -56,7 +66,7 @@ public class StoreUpgradeButtonManager : MonoBehaviour
         var upgradeInfo = upgrade.stats[upgradeLevel];
         var cost = upgradeInfo.cost;
 
-        if(mockCoins >= cost)
+        if(MoneyManager.instance.GetGold() >= cost)
         {
             PlayerPrefs.SetInt("Upgrade_" + upgrade.upgradeName, upgradeLevel);
 
@@ -71,8 +81,8 @@ public class StoreUpgradeButtonManager : MonoBehaviour
 
             ReInitializeButton(upgrade);
 
-            mockCoins -= cost;
-            coinText.text = mockCoins.ToString();            
+            MoneyManager.instance.DecreaseGold(cost);
+            UpdateCoinText();
         }
 
         

@@ -75,7 +75,7 @@ public class ScoreManager : MonoBehaviour
     {
         float stageMultiplier = 1+(GameManager.instance.stageEventManager.currentStageCount / 30.0f);
 
-        Debug.Log(stageMultiplier);
+        //Debug.Log(stageMultiplier);
 
         totalCollected += collected;
         score += (int)Math.Round(collected * comboManager.comboCount * stageMultiplier);

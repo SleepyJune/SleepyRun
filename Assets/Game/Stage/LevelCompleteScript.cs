@@ -38,6 +38,13 @@ public class LevelCompleteScript : MonoBehaviour
         earningText.text = "$" + stats.points.ToString();
 
         appleEndingAC.Play(GetAppleEmote(stats));
+
+        SetGold();
+    }
+
+    private void SetGold()
+    {
+        MoneyManager.instance.IncreaseGold(stats.points);
     }
 
     string GetAppleEmote(LevelStats stats)
