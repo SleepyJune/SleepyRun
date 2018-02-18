@@ -173,7 +173,8 @@ public class GameManager : MonoBehaviour
 
         //moving...
 
-        monsterManager.ResetMonsterKillCount();
+        stageEventManager.GameResetStage();
+
         monsterManager.RemoveMonsters(true);
 
         DelayAction.Add(()=>stageEventManager.ShowRewardOverlay(),.5f);
@@ -234,7 +235,7 @@ public class GameManager : MonoBehaviour
         SceneChanger.ChangeScene("LevelComplete2");
     }
 
-    public void GameOver(bool levelComplete = false)
+    public void GameOver(bool levelComplete = false, bool reviveUsable = true)
     {
         if (!isGameOver)
         {
@@ -248,7 +249,14 @@ public class GameManager : MonoBehaviour
 
                 textOverlayManager.CreateGameOverText();
 
-                DelayAction.Add(() => ShowReviveWindow(), 5);
+                if (reviveUsable)
+                {
+                    DelayAction.Add(() => ShowReviveWindow(), 5);
+                }
+                else
+                {
+                    DelayAction.Add(() => ReviveCancel(), 5);
+                }
             }
             else
             {

@@ -15,67 +15,24 @@ MonoBehaviour:
   description: Increases max health.
   iconImage: {fileID: 21300000, guid: 74f9caca29b28b94998b4001199eaa91, type: 3}
   baseStatValue: 2
-  maxStatValue: 9
   valueIncreament: 1
   baseCost: 10
   costIncreament: 20
   costIncreamentExponential: 2
   maxLevel: 7
   stats:
-  - {fileID: 114360360898267214}
-  - {fileID: 114706718161941026}
-  - {fileID: 114568549542593684}
-  - {fileID: 114194280394701958}
-  - {fileID: 114578466084992746}
-  - {fileID: 114639951103948730}
-  - {fileID: 114863030085298840}
+  - {fileID: 114914036301351854}
+  - {fileID: 114790898120880188}
+  - {fileID: 114674529110903116}
+  - {fileID: 114855621903339714}
+  - {fileID: 114026298862475372}
+  - {fileID: 114306010064198090}
+  - {fileID: 114977300553701336}
   defaultMockLevel: 0
   targetObj: 2
   prefabTargetObj: {fileID: 0}
   targetString: maxHealth
---- !u!114 &114194280394701958
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 3
-  m_EditorClassIdentifier: 
-  level: 3
-  value: 5
-  cost: 90
---- !u!114 &114360360898267214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 0
-  m_EditorClassIdentifier: 
-  level: 0
-  value: 2
-  cost: 0
---- !u!114 &114568549542593684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 2
-  m_EditorClassIdentifier: 
-  level: 2
-  value: 4
-  cost: 50
---- !u!114 &114578466084992746
+--- !u!114 &114026298862475372
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -89,7 +46,7 @@ MonoBehaviour:
   level: 4
   value: 6
   cost: 170
---- !u!114 &114639951103948730
+--- !u!114 &114306010064198090
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -103,7 +60,21 @@ MonoBehaviour:
   level: 5
   value: 7
   cost: 330
---- !u!114 &114706718161941026
+--- !u!114 &114674529110903116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  level: 2
+  value: 4
+  cost: 50
+--- !u!114 &114790898120880188
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -117,7 +88,35 @@ MonoBehaviour:
   level: 1
   value: 3
   cost: 10
---- !u!114 &114863030085298840
+--- !u!114 &114855621903339714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 3
+  m_EditorClassIdentifier: 
+  level: 3
+  value: 5
+  cost: 90
+--- !u!114 &114914036301351854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 0
+  m_EditorClassIdentifier: 
+  level: 0
+  value: 2
+  cost: 0
+--- !u!114 &114977300553701336
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}

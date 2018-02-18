@@ -67,9 +67,10 @@ public class UpgradeStatGenerator : Editor
 
         info.name = "Level " + level;
         info.level = level;
-        info.value = Mathf.Min(database.maxStatValue, database.baseStatValue + level * database.valueIncreament);
+        info.value = database.baseStatValue + level * database.valueIncreament;
+            //Mathf.Min(database.maxStatValue, database.baseStatValue + level * database.valueIncreament);
 
-        if(level == 0)
+        if (level == 0)
         {
             info.cost = 0;
         }

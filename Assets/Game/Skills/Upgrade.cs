@@ -13,7 +13,7 @@ public class Upgrade : ScriptableObject
     public Sprite iconImage;
 
     public float baseStatValue = 0;
-    public float maxStatValue = 1;
+    //public float maxStatValue = 1;
     public float valueIncreament = .1f;
 
     public int baseCost = 100;

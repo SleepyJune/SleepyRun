@@ -18,10 +18,15 @@ public class ScoreManager : MonoBehaviour
 
     [NonSerialized]
     public int totalCollected = 0;
+    [NonSerialized]
+    public int stageCollected = 0;
 
     public Text scoreText;
 
     public Text appleText;
+
+    [NonSerialized]
+    public int appleToCollect = 5;
 
     [NonSerialized]
     public ComboManager comboManager;
@@ -29,6 +34,15 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {
         comboManager = GetComponent<ComboManager>();
+
+        GameManager.instance.stageEventManager.OnStageResetEvent += OnStageReset;
+
+        UpdateScoreText();
+    }
+
+    void OnStageReset()
+    {
+        stageCollected = 0;
 
         UpdateScoreText();
     }
@@ -68,7 +82,7 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScoreText()
     {
         scoreText.text = score.ToString();
-        appleText.text = totalCollected.ToString();
+        appleText.text = stageCollected.ToString() + " / " + appleToCollect;
     }
 
     public void AddCollectedMonsterCount(int collected = 1)
@@ -78,6 +92,8 @@ public class ScoreManager : MonoBehaviour
         //Debug.Log(stageMultiplier);
 
         totalCollected += collected;
+        stageCollected += collected;
+
         score += (int)Math.Round(collected * comboManager.comboCount * stageMultiplier);
         UpdateScoreText();
     }
