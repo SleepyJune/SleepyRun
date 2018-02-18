@@ -486,3 +486,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beltSpeed: 9.994232
+  appleToCollect: 30

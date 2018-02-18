@@ -8,7 +8,7 @@ using UnityEngine;
 public class CanvasGroupWindow : MonoBehaviour
 {
     protected CanvasGroup canvasGroup;
-    protected bool isWindowOpen = false;
+    public bool isWindowOpen = false;
 
     void Start()
     {

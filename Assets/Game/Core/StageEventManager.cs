@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class StageEventManager : MonoBehaviour
-{
+{    
     public StageInfoDatabase stageInfoDatabase;
 
     public StageInfo currentStageInfo;
@@ -23,6 +23,11 @@ public class StageEventManager : MonoBehaviour
     public TutorialParentController tutorialController;
     
     string topLevelString = "TopLevelPassed";
+
+    public delegate void Callback();
+    public event Callback OnStageResetEvent;
+
+    public int appleToCollect = 5;
 
     Text killCountText;
     Image killCountImage;
@@ -82,13 +87,13 @@ public class StageEventManager : MonoBehaviour
         {            
             var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
 
-            if (topPassedLevel >= 20) //and coins over 500
+            if (topPassedLevel >= 20 && MoneyManager.instance.GetGold() >= 500)
             {
                 GameManager.instance.textOverlayManager.CreateSkipLevelOverlay();
             }
         }
     }
-
+    
     public void StartTutorial()
     {
         var tutorialString = "Tutorial_Intro";
@@ -98,6 +103,13 @@ public class StageEventManager : MonoBehaviour
             tutorialController.StartTutorial();
             //PlayerPrefs.SetInt(tutorialString, 1);
         }        
+    }
+
+    public void SetAppleToCollect(int apples)
+    {
+        appleToCollect = apples;
+        GameManager.instance.scoreManager.appleToCollect = apples;
+        GameManager.instance.scoreManager.UpdateScoreText();
     }
 
     void GetVictoryCondition()
@@ -124,14 +136,21 @@ public class StageEventManager : MonoBehaviour
         }
     }
 
-    void ResetStage()
+    public void GameResetStage()
     {
+        if (OnStageResetEvent != null)
+        {
+            OnStageResetEvent();
+        }
+    }
+
+    void ResetStage()
+    {        
         foreach (var stageEvent in currentStageWave.stageEvents)
         {
             stageEvent.isExecuted = false;
         }
 
-        GameManager.instance.monsterManager.ResetMonsterKillCount();
         GetVictoryCondition();
     }
 
@@ -216,13 +235,16 @@ public class StageEventManager : MonoBehaviour
 
     void Update()
     {
-        if (!GameManager.instance.isGamePaused && currentStageInfo && currentStageWave)
+        if (currentStageInfo && currentStageWave)
         {
             foreach (var stageEvent in currentStageWave.stageEvents)
             {
-                if (!stageEvent.isExecuted)
+                if (!GameManager.instance.isGamePaused || stageEvent is PreStageEvent)
                 {
-                    stageEvent.ExecuteEvent();
+                    if (!stageEvent.isExecuted)
+                    {
+                        stageEvent.ExecuteEvent();
+                    }
                 }
             }
         }

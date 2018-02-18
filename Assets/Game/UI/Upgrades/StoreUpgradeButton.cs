@@ -14,10 +14,12 @@ public class StoreUpgradeButton : MonoBehaviour
     public Image iconImage;
 
     public Text costText;
+    public Button buyButton;
 
     Upgrade currentUpgrade;
 
     StoreUpgradeButtonManager upgradeManager;
+
 
     //int upgradeLevel;
 
@@ -41,10 +43,27 @@ public class StoreUpgradeButton : MonoBehaviour
         {
             descText.text = upgrade.description;
         }
+
+        SetButtonInteractive(upgradeInfo.cost);
     }
 
     public void OnBuyUpgrade()
     {
-        upgradeManager.BuyUpgrade(currentUpgrade);
+        upgradeManager.OpenConfirmWindow(currentUpgrade);
+    }
+
+    public void SetButtonInteractive(int cost)
+    {
+        if (MoneyManager.instance.GetGold() >= cost)
+        {
+            if (!buyButton.interactable)
+            {
+                buyButton.interactable = true;
+            }
+        }
+        else
+        {
+            buyButton.interactable = false;
+        }
     }
 }

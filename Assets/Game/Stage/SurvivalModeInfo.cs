@@ -9,4 +9,5 @@ public class SurvivalModeInfo : MonoBehaviour
 {
     public float beltSpeed = 1.0f;
 
+    public int appleToCollect = 5;
 }

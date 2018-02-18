@@ -19,10 +19,17 @@ public class GameOverOnCountdown : StageEvent
 
     public override void ExecuteEvent()
     {
-        if (GameManager.instance.timerManager.timer <= 0
-            && (victoryOnCountdown || GameManager.instance.monsterManager.GetMonsterCollectCount(monster) >= collectCount))
+        if (GameManager.instance.timerManager.timer <= 0)
         {
-            GameManager.instance.AdvanceToNextWave(victory);
+            if(GameManager.instance.scoreManager.stageCollected >= collectCount)
+            {
+                GameManager.instance.AdvanceToNextWave(victory);
+            }
+            else
+            {
+                GameManager.instance.GameOver(false, false);
+            }
+            
             isExecuted = true;
         }
     }

@@ -13,264 +13,30 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: MovementSpeed
   description: Increases side to side movement speed.
-  iconImage: {fileID: 21300026, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
-  baseStatValue: 5
-  maxStatValue: 20
-  valueIncreament: 1
+  iconImage: {fileID: 21300000, guid: 228e598457f52fc45bb6827bcdbc5c01, type: 3}
+  baseStatValue: 6
+  valueIncreament: 2
   baseCost: 100
   costIncreament: 50
   costIncreamentExponential: 1.5
-  maxLevel: 20
+  maxLevel: 11
   stats:
-  - {fileID: 114336544545434314}
-  - {fileID: 114637672494419926}
-  - {fileID: 114043364908009188}
-  - {fileID: 114626767402763420}
-  - {fileID: 114184837561304094}
-  - {fileID: 114899007131953120}
-  - {fileID: 114420799508215808}
-  - {fileID: 114928231976358502}
-  - {fileID: 114898146715178222}
-  - {fileID: 114314726897022812}
-  - {fileID: 114320322812828662}
-  - {fileID: 114331984138893934}
-  - {fileID: 114179865064875632}
-  - {fileID: 114160005209041164}
-  - {fileID: 114290870982692836}
-  - {fileID: 114455571725900376}
-  - {fileID: 114928221544075536}
-  - {fileID: 114396343914004624}
-  - {fileID: 114850148573041360}
-  - {fileID: 114560063869482684}
+  - {fileID: 114141155456585098}
+  - {fileID: 114364433489554570}
+  - {fileID: 114278201760314816}
+  - {fileID: 114092447683083338}
+  - {fileID: 114563863931213282}
+  - {fileID: 114144661235959974}
+  - {fileID: 114928588561120360}
+  - {fileID: 114312244787919108}
+  - {fileID: 114018864502079816}
+  - {fileID: 114456544984283532}
+  - {fileID: 114832379750326464}
   defaultMockLevel: 5
   targetObj: 2
   prefabTargetObj: {fileID: 0}
   targetString: speed
---- !u!114 &114043364908009188
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 2
-  m_EditorClassIdentifier: 
-  level: 2
-  value: 7
-  cost: 170
---- !u!114 &114160005209041164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 13
-  m_EditorClassIdentifier: 
-  level: 13
-  value: 18
-  cost: 6500
---- !u!114 &114179865064875632
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 12
-  m_EditorClassIdentifier: 
-  level: 12
-  value: 17
-  cost: 4400
---- !u!114 &114184837561304094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: 
-  level: 4
-  value: 9
-  cost: 260
---- !u!114 &114290870982692836
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 14
-  m_EditorClassIdentifier: 
-  level: 14
-  value: 19
-  cost: 9800
---- !u!114 &114314726897022812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 9
-  m_EditorClassIdentifier: 
-  level: 9
-  value: 14
-  cost: 1300
---- !u!114 &114320322812828662
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 10
-  m_EditorClassIdentifier: 
-  level: 10
-  value: 15
-  cost: 2000
---- !u!114 &114331984138893934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 11
-  m_EditorClassIdentifier: 
-  level: 11
-  value: 16
-  cost: 2900
---- !u!114 &114336544545434314
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 0
-  m_EditorClassIdentifier: 
-  level: 0
-  value: 5
-  cost: 0
---- !u!114 &114396343914004624
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 17
-  m_EditorClassIdentifier: 
-  level: 17
-  value: 20
-  cost: 32900
---- !u!114 &114420799508215808
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 6
-  m_EditorClassIdentifier: 
-  level: 6
-  value: 11
-  cost: 480
---- !u!114 &114455571725900376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 15
-  m_EditorClassIdentifier: 
-  level: 15
-  value: 20
-  cost: 14600
---- !u!114 &114560063869482684
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 19
-  m_EditorClassIdentifier: 
-  level: 19
-  value: 20
-  cost: 73900
---- !u!114 &114626767402763420
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 3
-  m_EditorClassIdentifier: 
-  level: 3
-  value: 8
-  cost: 210
---- !u!114 &114637672494419926
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 1
-  m_EditorClassIdentifier: 
-  level: 1
-  value: 6
-  cost: 100
---- !u!114 &114850148573041360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 18
-  m_EditorClassIdentifier: 
-  level: 18
-  value: 20
-  cost: 49300
---- !u!114 &114898146715178222
+--- !u!114 &114018864502079816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -282,9 +48,37 @@ MonoBehaviour:
   m_Name: Level 8
   m_EditorClassIdentifier: 
   level: 8
-  value: 13
+  value: 22
   cost: 950
---- !u!114 &114899007131953120
+--- !u!114 &114092447683083338
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 3
+  m_EditorClassIdentifier: 
+  level: 3
+  value: 12
+  cost: 210
+--- !u!114 &114141155456585098
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 0
+  m_EditorClassIdentifier: 
+  level: 0
+  value: 6
+  cost: 0
+--- !u!114 &114144661235959974
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -296,9 +90,9 @@ MonoBehaviour:
   m_Name: Level 5
   m_EditorClassIdentifier: 
   level: 5
-  value: 10
+  value: 16
   cost: 350
---- !u!114 &114928221544075536
+--- !u!114 &114278201760314816
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -307,12 +101,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 16
+  m_Name: Level 2
   m_EditorClassIdentifier: 
-  level: 16
-  value: 20
-  cost: 21900
---- !u!114 &114928231976358502
+  level: 2
+  value: 10
+  cost: 170
+--- !u!114 &114312244787919108
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -324,5 +118,75 @@ MonoBehaviour:
   m_Name: Level 7
   m_EditorClassIdentifier: 
   level: 7
-  value: 12
+  value: 20
   cost: 670
+--- !u!114 &114364433489554570
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  level: 1
+  value: 8
+  cost: 100
+--- !u!114 &114456544984283532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 9
+  m_EditorClassIdentifier: 
+  level: 9
+  value: 24
+  cost: 1300
+--- !u!114 &114563863931213282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  level: 4
+  value: 14
+  cost: 260
+--- !u!114 &114832379750326464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 10
+  m_EditorClassIdentifier: 
+  level: 10
+  value: 26
+  cost: 2000
+--- !u!114 &114928588561120360
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  level: 6
+  value: 18
+  cost: 480

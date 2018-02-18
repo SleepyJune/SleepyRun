@@ -15,14 +15,9 @@ public class UpgradeManager : MonoBehaviour
         {
             var upgradeLevel = PlayerPrefs.GetInt("Upgrade_" + upgrade.upgradeName, 0);
 
-            if(upgradeLevel > 0)
-            {
-                upgrade.ApplyUpgrade(upgradeLevel);
-            }
-            else if(upgrade.defaultMockLevel > 0)
-            {
-                upgrade.ApplyUpgrade(upgrade.defaultMockLevel);
-            }
+            upgrade.ApplyUpgrade(upgradeLevel);
+
+            //upgrade.ApplyUpgrade(upgrade.defaultMockLevel);
         }
     }
 

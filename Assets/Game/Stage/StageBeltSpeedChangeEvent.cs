@@ -5,7 +5,7 @@ using System.Text;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "StageEvent/Belt Speed Change")]
-public class StageBeltSpeedChangeEvent : StageEvent
+public class StageBeltSpeedChangeEvent : PreStageEvent
 {
     public override string eventName { get { return "Belt Speed"; } }
     

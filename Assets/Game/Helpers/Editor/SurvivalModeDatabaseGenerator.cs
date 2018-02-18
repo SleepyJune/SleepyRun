@@ -106,12 +106,26 @@ public class SurvivalModeDatabaseGenerator : Editor
         return stageEvent as StageEvent;
     }
 
-    StageEvent AddVictoryConditionEvent()
+    StageEvent AddAppleCollectEvent(int appleToCollect)
+    {
+        var stageEvent = CreateInstance<StageAppleToCollectChangeEvent>() as StageAppleToCollectChangeEvent;
+        stageEvent.name = "ApplesToCollect";
+
+        stageEvent.appleToCollect = appleToCollect;
+
+        AssetDatabase.AddObjectToAsset(stageEvent, target);
+
+        return stageEvent as StageEvent;
+    }
+
+    StageEvent AddVictoryConditionEvent(int appleToCollect)
     {
         var stageEvent = CreateInstance<GameOverOnCountdown>() as GameOverOnCountdown;
         stageEvent.name = "Victory";
 
         stageEvent.victoryOnCountdown = true;
+
+        stageEvent.collectCount = appleToCollect;
 
         AssetDatabase.AddObjectToAsset(stageEvent, target);
 
@@ -215,7 +229,8 @@ public class SurvivalModeDatabaseGenerator : Editor
             }
 
             stageEvents.Add(AddBeltSpeedEvent(baseInfoScript.beltSpeed));
-            stageEvents.Add(AddVictoryConditionEvent());
+            stageEvents.Add(AddAppleCollectEvent(baseInfoScript.appleToCollect));
+            stageEvents.Add(AddVictoryConditionEvent(baseInfoScript.appleToCollect));
 
             stageWave.stageEvents = stageEvents.ToArray();
 

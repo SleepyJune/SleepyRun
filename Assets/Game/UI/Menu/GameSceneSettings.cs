@@ -9,40 +9,11 @@ using UnityEngine.UI;
 public class GameSceneSettings : MonoBehaviour
 {
     public CanvasGroup canvasGroup;
-    public CanvasGroup settingsWindowCanvasGroup;
-
-    public AudioListener audioListener;
-    public AudioSource musicSource;
-    public Slider volumeSlider;
-    public Slider musicSlider;
-    
-    string volumeString = "volume";
-
-    string musicString = "musicVolume";
-
-    bool settingWindowOpen = false;
+    public CanvasGroupWindow settingsWindow;
 
     void Start()
     {
-        float volume = .5f;
-        float musicVolume = .5f;
-
-        if (PlayerPrefs.HasKey(volumeString))
-        {
-            volume = PlayerPrefs.GetFloat(volumeString);
-            AudioListener.volume = volume;
-            volumeSlider.value = volume;
-        }
-
-        if (PlayerPrefs.HasKey(musicString))
-        {
-            musicVolume = PlayerPrefs.GetFloat(musicString);
-            musicSource.volume = musicVolume;
-            musicSlider.value = musicVolume;
-        }
-
-        AdjustVolume(volume);
-        AdjustMusicVolume(musicVolume);        
+        
     }
 
     public void ToggleSettingMenu()
@@ -67,7 +38,7 @@ public class GameSceneSettings : MonoBehaviour
         }
         else
         {
-            if (settingsWindowCanvasGroup.alpha == 0)
+            if (!settingsWindow.isWindowOpen)
             {
                 ResumeGameText();
             }
@@ -80,19 +51,15 @@ public class GameSceneSettings : MonoBehaviour
     
     public void ToggleSettingsWindow()
     {
-        if (settingsWindowCanvasGroup.alpha == 0)
+        if (!settingsWindow.isWindowOpen)
         {
-            settingsWindowCanvasGroup.alpha = 1;
-            settingsWindowCanvasGroup.interactable = true;
-            settingsWindowCanvasGroup.blocksRaycasts = true;
+            settingsWindow.ShowWindow();
         }
         else
         {
             ResumeGameText();
 
-            settingsWindowCanvasGroup.alpha = 0;
-            settingsWindowCanvasGroup.interactable = false;
-            settingsWindowCanvasGroup.blocksRaycasts = false;
+            settingsWindow.HideWindow();
         }
     }
 
@@ -100,18 +67,6 @@ public class GameSceneSettings : MonoBehaviour
     {
         GameManager.instance.isGamePaused = false;
         GameManager.instance.textOverlayManager.CreateResumeTapText();
-    }
-
-    public void AdjustVolume(float volume)
-    {
-        AudioListener.volume = volume;
-        PlayerPrefs.SetFloat(volumeString, volume);
-    }
-
-    public void AdjustMusicVolume(float volume)
-    {
-        musicSource.volume = volume;
-        PlayerPrefs.SetFloat(musicString, volume);
     }
 
     public void OpenSettingsWindow()

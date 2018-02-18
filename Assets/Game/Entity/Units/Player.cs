@@ -213,7 +213,16 @@ public class Player : Unit
         }
         else if (statusType == StatusEffectType.Invincible)
         {
-            anim.SetBool("isInvincible", isInvincible);
+            //anim.SetBool("isInvincible", isInvincible);
+
+            if (status)
+            {
+                overlayManager.AddEffectOverlay("InvincibleEffect");
+            }
+            else
+            {
+                overlayManager.RemoveEffectOverlay("InvincibleEffect");
+            }
         }
         else if (statusType == StatusEffectType.Silenced)
         {

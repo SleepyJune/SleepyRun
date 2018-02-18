@@ -24,6 +24,18 @@ public class DebugFunctions : MonoBehaviour
                 }
             }
 
+            if(MoneyManager.instance.GetGold() == 0)
+            {
+                PlayerPrefs.SetInt("Gold", 999999);
+            }
+            else
+            {
+                PlayerPrefs.SetInt("Gold", 0);
+            }
+
+            
+            MoneyManager.instance.InitGold();
+
             upgradeManager.ReInitializeButtons();
         }
     }

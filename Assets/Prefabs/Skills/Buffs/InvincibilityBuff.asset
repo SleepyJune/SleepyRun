@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Name: InvincibilityBuff
   m_EditorClassIdentifier: 
   buffName: Invincibility
-  duration: 2
+  duration: 3
   continuousBuff: 0
   endsOnOwnerDeath: 0
   statusBuffType: 2

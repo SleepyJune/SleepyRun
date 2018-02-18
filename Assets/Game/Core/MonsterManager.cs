@@ -9,6 +9,7 @@ public class MonsterManager : MonoBehaviour
     public Dictionary<string, int> monsterCount = new Dictionary<string, int>();
     public Dictionary<string, int> monsterKillCount = new Dictionary<string, int>();
     public Dictionary<string, int> monsterCollectedCount = new Dictionary<string, int>();
+    public Dictionary<string, int> stageMonsterCollectedCount = new Dictionary<string, int>();
     public Dictionary<string, int> missedMonsterCount = new Dictionary<string, int>();
 
     public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
@@ -39,6 +40,8 @@ public class MonsterManager : MonoBehaviour
         floorManager = GameManager.instance.floorManager;
 
         //monsterHolder = (new GameObject("Monster Holder")).transform;
+
+        GameManager.instance.stageEventManager.OnStageResetEvent += OnStageReset;
     }
 
     void Update()
@@ -119,29 +122,15 @@ public class MonsterManager : MonoBehaviour
 
     public void AddMonsterCollectedCount(Monster monster)
     {
-        int count;
-        if (monsterCollectedCount.TryGetValue(monster.name, out count))
-        {
-            monsterCollectedCount[monster.name] = count + 1;
-        }
-        else
-        {
-            monsterCollectedCount.Add(monster.name, 1);
-        }        
+        IncreaseDatabaseCount(monsterCollectedCount, monster);
+        IncreaseDatabaseCount(stageMonsterCollectedCount, monster);
     }
 
     public void AddMonsterCount(Monster monster)
     {
-        int count;
-        if (monsterCount.TryGetValue(monster.name, out count))
-        {
-            monsterCount[monster.name] = count + 1;
-        }
-        else
-        {
-            monsterCount.Add(monster.name, 1);
-        }
+        IncreaseDatabaseCount(monsterCount, monster);
 
+        int count;
         if (monsterSpawnCount.TryGetValue(monster, out count))
         {
             monsterSpawnCount[monster] = count + 1;
@@ -149,20 +138,12 @@ public class MonsterManager : MonoBehaviour
         else
         {
             monsterSpawnCount.Add(monster, 1);
-        }
+        }        
     }
         
     public void AddMissedMonsterCount(Monster monster)
     {
-        int count;
-        if (missedMonsterCount.TryGetValue(monster.name, out count))
-        {
-            missedMonsterCount[monster.name] = count + 1;
-        }
-        else
-        {
-            missedMonsterCount.Add(monster.name, 1);
-        }
+        IncreaseDatabaseCount(missedMonsterCount, monster);
     }
 
     public void DecreaseMonsterCount(Monster monster)
@@ -186,21 +167,28 @@ public class MonsterManager : MonoBehaviour
             monsterKillCount.Add(monster.name, 1);
         }
 
-        GameManager.instance.stageEventManager.UpdateVictoryCondition(monster, killCount + 1);   
+        GameManager.instance.stageEventManager.UpdateVictoryCondition(monster, killCount + 1);
 
-        if (totalMonsterKillCount.TryGetValue(monster.name, out killCount))
+        IncreaseDatabaseCount(totalMonsterKillCount, monster);
+    }
+
+    public void OnStageReset()
+    {
+        monsterKillCount = new Dictionary<string, int>();
+        stageMonsterCollectedCount = new Dictionary<string, int>();
+    }
+
+    public void IncreaseDatabaseCount(Dictionary<string, int> database, Monster monster)
+    {
+        int count;
+        if (database.TryGetValue(monster.name, out count))
         {
-            totalMonsterKillCount[monster.name] = killCount + 1;
+            database[monster.name] = count + 1;
         }
         else
         {
-            totalMonsterKillCount.Add(monster.name, 1);
+            database.Add(monster.name, 1);
         }
-    }
-
-    public void ResetMonsterKillCount()
-    {
-        monsterKillCount = new Dictionary<string, int>();
     }
 
     public int GetDatabaseCount(Dictionary<string, int> database, Monster monster)
@@ -224,6 +212,11 @@ public class MonsterManager : MonoBehaviour
     public int GetMonsterCollectCount(Monster monster)
     {
         return GetDatabaseCount(monsterCollectedCount, monster);
+    }
+
+    public int GetStageMonsterCollectCount(Monster monster)
+    {
+        return GetDatabaseCount(stageMonsterCollectedCount, monster);
     }
 
     public int GetMonsterSpawnCount(MonsterCollisionMask filterMonsterType)
