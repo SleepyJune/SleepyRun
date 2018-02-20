@@ -196,21 +196,6 @@ public class SlashCombatUI : CombatUI
         Destroy(slash.line.gameObject, .5f);
     }
 
-    protected virtual void ExecuteAttack(SlashInfo slash)
-    {
-        LineRenderer line = slash.line;
-
-        var start = line.GetPosition(0);
-        var end = line.GetPosition(line.positionCount - 1);
-
-        var damage = weapon.GetDamage(start, end);
-        line.colorGradient = weapon.GetSlashGradient(damage);
-
-        Debug.Log("Total Damage: " + damage);
-
-        DestroyMonsters(slash, start, end);
-    }
-
     Vector3 GetForce(SlashInfo slash)
     {
         Vector3[] positions = new Vector3[slash.line.positionCount];
@@ -242,15 +227,56 @@ public class SlashCombatUI : CombatUI
 
     void DestroyMonsters(SlashInfo slash, Vector3 v1, Vector3 v2)
     {
+        Vector3 delta = v2 - v1;
+
+        var colliders = Physics.SphereCastAll(v1, weapon.weaponRadius, delta.normalized, delta.magnitude, collisionMask);
+
+        //Debug.DrawLine(v1, v2, Color.green, 2);
+
+        foreach (var collider in colliders)
+        {
+            var monster = collider.collider.gameObject.GetComponent<Monster>();
+
+            if (monster != null && monster.canTakeDamage)// && !slash.damagedMonsters.Contains(monster))
+            {
+                var dir = GetForce(slash);
+                dir.y = .15f;
+
+                var force = dir * (25.0f / (Time.time - slash.startTime));
+
+                HitInfo hitInfo = new HitInfo
+                {
+                    hitType = HitType.Physical,
+                    source = player,
+                    hitStart = v1,
+                    hitEnd = v2,
+                    force = force,
+                    damage = weapon.damage,
+                    hitParticle = weapon.particle,
+                    monsterHitType = MonsterCollisionMask.All,
+                };
+
+                monster.TakeDamage(hitInfo);
+                //slash.damagedMonsters.Add(monster);
+            }
+        }
+    }
+
+    void DestroyMonstersCapsule(SlashInfo slash, Vector3 v1, Vector3 v2)
+    {
+        Vector3 delta = v2 - v1;
+
+        Debug.Log("Vector: " + delta);
+
         var colliders = Physics.OverlapCapsule(v1, v2, weapon.weaponRadius, collisionMask);
         
-        Debug.DrawLine(v1, v2, Color.green, 2);
+        //Debug.DrawLine(v1, v2, Color.green, 2);
 
         foreach (var collider in colliders)
         {
             var monster = collider.gameObject.GetComponent<Monster>();
             
-            if (monster != null && !monster.isDead && !slash.damagedMonsters.Contains(monster))
+            if (monster != null && monster.canTakeDamage)// && !slash.damagedMonsters.Contains(monster))
             {
                 var dir = GetForce(slash);
                 dir.y = .15f;
@@ -279,7 +305,7 @@ public class SlashCombatUI : CombatUI
     {                
         foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
         {
-            if (!monster.isDead && !slash.damagedMonsters.Contains(monster))
+            if (!monster.isDead)// && !slash.damagedMonsters.Contains(monster))
             {                
                 var monsterPos = monster.transform.position;
                 monsterPos.y = 0;
@@ -320,7 +346,7 @@ public class SlashCombatUI : CombatUI
                     };
 
                     monster.TakeDamage(hitInfo);
-                    slash.damagedMonsters.Add(monster);
+                    //slash.damagedMonsters.Add(monster);
                 }
             }
         }

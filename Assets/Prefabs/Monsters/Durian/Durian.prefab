@@ -490,12 +490,12 @@ MonoBehaviour:
   prefabID: 0
   speed: 3
   anim: {fileID: 0}
-  maxHealth: 3
+  maxHealth: 2
   defense: 25
   isImmovable: 0
   isInvincible: 0
   damage: 30
-  monsterType: 2
+  monsterType: 4
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: 4de4dcf9fb9bff243af620dd387ca837, type: 3}
   description: Ugh spikey durians, don't touch them.

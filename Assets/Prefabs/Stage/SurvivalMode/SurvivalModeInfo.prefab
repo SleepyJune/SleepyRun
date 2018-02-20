@@ -382,7 +382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114351910669891932, guid: 8b265f93659d9f04fa636896c9267cd0, type: 2}
-  spawnFrequency: 3.0068588
+  spawnFrequency: 3.0039186
 --- !u!114 &114348228123992852
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: d127870723be926478a9137768279c4b, type: 2}
-  spawnFrequency: 3.0018249
+  spawnFrequency: 3.0008817
 --- !u!114 &114555843911704178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114433792061735412, guid: 2326ad4f8f6ceb844b6f9634f60537de, type: 2}
-  spawnFrequency: 10.007298
+  spawnFrequency: 10
 --- !u!114 &114853443666338242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
-  spawnFrequency: 0.5020604
+  spawnFrequency: 0.50164807
 --- !u!114 &114944193831916084
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -486,4 +486,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   beltSpeed: 9.994232
-  appleToCollect: 30
+  appleToCollect: 59
+  apple: {fileID: 114857574025624986}
+  egg: {fileID: 114415372961903480}
+  goldenApple: {fileID: 114168715161473946}

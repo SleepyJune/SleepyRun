@@ -628,7 +628,7 @@ MonoBehaviour:
   isImmovable: 0
   isInvincible: 0
   damage: 25
-  monsterType: 2
+  monsterType: 4
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: db273763bb206b4409aa7722376d19c8, type: 3}
   description: 

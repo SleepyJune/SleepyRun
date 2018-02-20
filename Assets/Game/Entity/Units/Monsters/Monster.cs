@@ -137,13 +137,27 @@ public class Monster : Unit
     }
 
     void BadMonsterCollide()
-    {        
+    {
+        if (monsterType == MonsterCollisionMask.Good)
+        {
+            GameManager.instance.comboManager.IncreaseComboCount();
+            GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
+        }
+
+        var damageTaken = damage;
+
+        if (monsterType == MonsterCollisionMask.Good ||
+            monsterType == MonsterCollisionMask.Neutral)
+        {
+            damageTaken = 0;
+        }
+
         GameManager.instance.player.TakeDamage(
                 new HitInfo
                 {
                     source = this,
                     target = GameManager.instance.player,
-                    damage = damage,
+                    damage = damageTaken,
                     buffOnHit = buffOnHit,
                 });
 
@@ -208,7 +222,7 @@ public class Monster : Unit
     {
         if (!isDead)
         {
-            if (monsterType == MonsterCollisionMask.Bad)
+            /*if (monsterType == MonsterCollisionMask.Bad)
             {
                 BadMonsterCollide();
             }
@@ -219,7 +233,9 @@ public class Monster : Unit
             else if (monsterType == MonsterCollisionMask.Good)
             {
                 GoodMonsterCollide();
-            }
+            }*/
+
+            BadMonsterCollide();
 
             GameManager.instance.monsterManager.SetDead(this);
         }
@@ -229,7 +245,7 @@ public class Monster : Unit
     {
         if (player.transform.position.z - transform.position.z > 0)
         {
-            if(monsterType == MonsterCollisionMask.Bad)
+            /*if(monsterType == MonsterCollisionMask.Bad)
             {
                 BadMonsterCollide();
             }
@@ -240,8 +256,10 @@ public class Monster : Unit
                     GameManager.instance.comboManager.BreakCombo();
                 }
 
-                GameManager.instance.monsterManager.AddMissedMonsterCount(this);
-            }
+            }*/
+
+            BadMonsterCollide();
+            GameManager.instance.monsterManager.AddMissedMonsterCount(this);
 
             GameManager.instance.monsterManager.SetDead(this);
         }

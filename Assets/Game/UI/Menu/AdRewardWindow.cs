@@ -23,5 +23,9 @@ public class AdRewardWindow : MonoBehaviour
     public void ShowAd()
     {
         GameManager.instance.adManager.ShowAdForReward(promisedReward);
+        //GameManager.instance.PauseGame();
+        //GameManager.instance.ResumeGameText();
+
+        Destroy(gameObject);
     }
 }

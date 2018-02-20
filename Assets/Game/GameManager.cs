@@ -213,13 +213,13 @@ public class GameManager : MonoBehaviour
 
     public void ReviveAccept()
     {
+        PauseGame();
         adManager.ShowAdForRevive();
     }
 
     public void ReviveAdComplete()
     {
         isGameOver = false;
-        ResumeGame();
         weaponManager.DisableWeapon(false);
         player.Revive();
 
@@ -227,12 +227,19 @@ public class GameManager : MonoBehaviour
         revivesUsed += 1;
 
         reviveWindow.HideWindow();
+        ResumeGameText();
     }
 
     public void ReviveCancel()
     {
         scoreManager.SetNewLevelStats(false);
         SceneChanger.ChangeScene("LevelComplete2");
+    }
+
+    public void ResumeGameText()
+    {
+        isGamePaused = false;
+        textOverlayManager.CreateResumeTapText();
     }
 
     public void GameOver(bool levelComplete = false, bool reviveUsable = true)

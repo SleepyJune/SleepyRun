@@ -174,6 +174,8 @@ public class SurvivalModeDatabaseGenerator : Editor
 
         var monsterInfos = baseInfoTransform.GetComponentsInChildren<SurvivalModeMonsterInfo>();
 
+        //baseInfoScript.InitAppleCalculation(monsterInfos);
+
         var clip = database.clip;
 
         for(int i = 0; i < clip.length * 60; i++)
@@ -229,8 +231,13 @@ public class SurvivalModeDatabaseGenerator : Editor
             }
 
             stageEvents.Add(AddBeltSpeedEvent(baseInfoScript.beltSpeed));
-            stageEvents.Add(AddAppleCollectEvent(baseInfoScript.appleToCollect));
-            stageEvents.Add(AddVictoryConditionEvent(baseInfoScript.appleToCollect));
+
+            var applesToCollect = baseInfoScript.appleToCollect;
+
+            Debug.Log(baseInfoScript.CalculateAppleToCollect());
+
+            stageEvents.Add(AddAppleCollectEvent(applesToCollect));
+            stageEvents.Add(AddVictoryConditionEvent(applesToCollect));
 
             stageWave.stageEvents = stageEvents.ToArray();
 

@@ -1213,41 +1213,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
-    - target: {fileID: 114555843911704178, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
-      value: 5.009218
-      objectReference: {fileID: 0}
-    - target: {fileID: 114415372961903480, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114853443666338242, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114404052582749598, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114348228123992852, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 114176365779883804, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: spawnFrequency
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114944193831916084, guid: 70ab060e61d60054e88507b0f9b85909,
-        type: 2}
-      propertyPath: appleToCollect
-      value: 5
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
   m_IsPrefabParent: 0
@@ -6880,12 +6845,6 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0.5
       objectReference: {fileID: 0}
-    - target: {fileID: 114346519564158950, guid: d59bce207b85d0d4c961567bc9954c20,
-        type: 2}
-      propertyPath: textScriptDatabase
-      value: 
-      objectReference: {fileID: 11400000, guid: c2775ae7c85fdb7419e3307755c00a6a,
-        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d59bce207b85d0d4c961567bc9954c20, type: 2}
   m_IsPrefabParent: 0

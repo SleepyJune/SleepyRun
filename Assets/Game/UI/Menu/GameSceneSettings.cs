@@ -40,7 +40,7 @@ public class GameSceneSettings : MonoBehaviour
         {
             if (!settingsWindow.isWindowOpen)
             {
-                ResumeGameText();
+                GameManager.instance.ResumeGameText();
             }
 
             canvasGroup.alpha = 0;
@@ -57,16 +57,10 @@ public class GameSceneSettings : MonoBehaviour
         }
         else
         {
-            ResumeGameText();
+            GameManager.instance.ResumeGameText();
 
             settingsWindow.HideWindow();
         }
-    }
-
-    void ResumeGameText()
-    {
-        GameManager.instance.isGamePaused = false;
-        GameManager.instance.textOverlayManager.CreateResumeTapText();
     }
 
     public void OpenSettingsWindow()
