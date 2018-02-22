@@ -226,6 +226,8 @@ public class GameManager : MonoBehaviour
         reviveCount -= 1;
         revivesUsed += 1;
 
+        scoreManager.stageRevivesUsed += 1;
+
         reviveWindow.HideWindow();
         ResumeGameText();
     }

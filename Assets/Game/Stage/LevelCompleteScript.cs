@@ -27,16 +27,7 @@ public class LevelCompleteScript : MonoBehaviour
             //SceneChanger.ChangeScene("IntroScreen2");
             return;
         }
-
-        pointText.text = stats.monstersCollected.ToString();
-        missedCountText.text = stats.monstersMissedCount.ToString();
-        killCountText.text = stats.monstersKilled.ToString();
-
-        string minSec = string.Format("{0}:{1:00}", (int)stats.time / 60, (int)stats.time % 60);
-        timeText.text = minSec;
-
-        earningText.text = "$" + stats.points.ToString();
-
+                
         appleEndingAC.Play(GetAppleEmote(stats));
 
         SetGold();
@@ -50,11 +41,23 @@ public class LevelCompleteScript : MonoBehaviour
     string GetAppleEmote(LevelStats stats)
     {
         int totalMonsters = stats.totalMonsterSpawned;
-        float earningPercent = (float)stats.monstersCollected / stats.totalGoodMonsterSpawned; //divide by 0??
+
+        var totalGoodApples = stats.monstersCollected + stats.monstersMissedCount;
+
+        float earningPercent = totalGoodApples > 0 ? (float)stats.monstersCollected / totalGoodApples : 0; //divide by 0??
         float killPercent = (float)stats.monstersKilled / totalMonsters;
         float levelTimePercent = stats.time / stats.levelTime;
 
-        Debug.Log("Apples Spawned: " + stats.totalGoodMonsterSpawned);
+        pointText.text = stats.monstersCollected.ToString();
+        missedCountText.text = stats.monstersMissedCount.ToString();
+        killCountText.text = stats.monstersKilled.ToString();
+
+        string minSec = string.Format("{0}:{1:00}", (int)stats.time / 60, (int)stats.time % 60);
+        timeText.text = minSec;
+
+        earningText.text = "$" + stats.points.ToString();
+
+        Debug.Log("Collection: " + ((int)Math.Round(earningPercent * 100)).ToString() + "%");
 
         /*if(!stats.levelComplete && levelTimePercent <= .5f)
         {
@@ -71,27 +74,27 @@ public class LevelCompleteScript : MonoBehaviour
             return "sliced";
         }
 
-        if (earningPercent <= .1f)
+        if (earningPercent <= .3f)
         {
             return "lines";
         }
-        else if (earningPercent <= .2f)
+        else if (earningPercent <= .4f)
         {
             return "no_words";
         }
-        else if (earningPercent <= .3f)
+        else if (earningPercent <= .5f)
         {
             return "laugh2";
         }
-        else if (earningPercent <= .4f)
+        else if (earningPercent <= .6f)
         {
             return "worm";
         }
-        else if (earningPercent <= .5f)
+        else if (earningPercent <= .7f)
         {
             return "half_eaten";
         }
-        else if (earningPercent >= .5f)
+        else if (earningPercent >= .8f)
         {
             return "sunglasses";
         }

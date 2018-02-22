@@ -12,6 +12,8 @@ public class ScoreManager : MonoBehaviour
 {
     [NonSerialized]
     public int score = 0;
+    [NonSerialized]
+    public int stageScore = 0;
 
     [NonSerialized]
     public int rewardedPoints = 0;
@@ -31,6 +33,17 @@ public class ScoreManager : MonoBehaviour
     [NonSerialized]
     public ComboManager comboManager;
 
+    [NonSerialized]
+    public int stageRewardAdWatched = 0;
+
+    [NonSerialized]
+    public int stageRevivesUsed = 0;
+
+    [NonSerialized]
+    public int missedGoodApples = 0;
+    [NonSerialized]
+    public int stageMissedGoodApples = 0;
+
     void Start()
     {
         comboManager = GetComponent<ComboManager>();
@@ -43,6 +56,9 @@ public class ScoreManager : MonoBehaviour
     void OnStageReset()
     {
         stageCollected = 0;
+        stageScore = 0;
+        stageRewardAdWatched = 0;
+        stageMissedGoodApples = 0;
 
         UpdateScoreText();
     }
@@ -51,14 +67,19 @@ public class ScoreManager : MonoBehaviour
     {
         //var points = totalCollected;//Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount());
 
+        if (!levelComplete)
+        {
+            GameManager.instance.scoreManager.SetNewStageStats(false);
+        }
+
         LevelStats stats = new LevelStats
         {
             levelComplete = levelComplete,
             currentLevel = GameManager.instance.stageEventManager.currentStageCount,            
             levelTime = GameManager.instance.timerManager.levelTime,
             time = GameManager.instance.timerManager.totalGameTime,
-            monstersKilled = GameManager.instance.monsterManager.GetKillCount(),
-            monstersMissedCount = GameManager.instance.monsterManager.GetMissedCount(),
+            monstersKilled = GameManager.instance.monsterManager.GetTotalKillCount(),
+            monstersMissedCount = missedGoodApples,
             totalMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.All),
             totalGoodMonsterSpawned = GameManager.instance.monsterManager.GetMonsterSpawnCount(MonsterCollisionMask.Good),
             monstersCollected = totalCollected,
@@ -79,6 +100,36 @@ public class ScoreManager : MonoBehaviour
         SceneChanger.levelStats = stats;
     }
 
+    public void SetNewStageStats(bool levelComplete = true)
+    {
+        //var points = totalCollected;//Math.Max(0, totalCollected - GameManager.instance.monsterManager.GetMissedCount());
+
+        //Debug.Log(GameManager.instance.monsterManager.GetStageGoodMonsterSpawnCount());
+
+        var stageGoodApples = stageMissedGoodApples + stageCollected;
+
+        var collectPercent = stageGoodApples > 0 ? (float)stageCollected / stageGoodApples : 0;
+        Debug.Log(collectPercent);
+
+        StageStats stats = new StageStats
+        {
+            levelComplete = levelComplete,
+            currentLevel = GameManager.instance.stageEventManager.currentStageCount,
+            monstersKilled = GameManager.instance.monsterManager.GetKillCount(),
+            stageMissedGoodApples = stageMissedGoodApples,
+            appleCollectPercent = collectPercent,
+            monstersCollected = stageCollected,
+            stagePoints = stageScore,
+            rewardAdWatched = stageRewardAdWatched,
+            revivesUsed = stageRevivesUsed,
+        };
+
+        var statsDictionary = stats.ParseDictionary();
+        var results = Analytics.CustomEvent("stageOver2", statsDictionary);
+
+        Debug.Log("Sending Analytics: " + results);
+    }
+
     public void UpdateScoreText()
     {
         scoreText.text = score.ToString();
@@ -87,15 +138,13 @@ public class ScoreManager : MonoBehaviour
 
     public void AddCollectedMonsterCount(int collected = 1)
     {
-        float stageMultiplier = 1+(GameManager.instance.stageEventManager.currentStageCount / 30.0f);
-
-        //Debug.Log(stageMultiplier);
-
         totalCollected += collected;
         stageCollected += collected;
 
-        score += (int)Math.Round(collected * comboManager.comboCount * stageMultiplier);
-        UpdateScoreText();
+        float stageMultiplier = 1+(GameManager.instance.stageEventManager.currentStageCount / 30.0f);
+        var amount = (int)Math.Round(collected * comboManager.comboCount * stageMultiplier);
+
+        AddScore(amount);
     }
 
     public void AddScoreOnHit(HitInfo hitInfo)
@@ -119,6 +168,14 @@ public class ScoreManager : MonoBehaviour
     public void AddScore(int amount)
     {
         score += amount;
+        stageScore += amount;
+
         UpdateScoreText();
+    }
+
+    public void AddMissedGoodApple(int amount)
+    {
+        stageMissedGoodApples += amount;
+        missedGoodApples += amount;
     }
 }

@@ -102,7 +102,7 @@ public class Player : Unit
             {
                 hitInfo.damage = 1;
             }
-
+                        
             var damageReceived = UnitTakeDamage(hitInfo);
 
             //Debug.Log("Take damage: " + damage);

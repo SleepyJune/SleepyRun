@@ -7,15 +7,20 @@ public class MonsterManager : MonoBehaviour
 {
     public Dictionary<int, Monster> monsters = new Dictionary<int, Monster>();
     public Dictionary<string, int> monsterCount = new Dictionary<string, int>();
+
     public Dictionary<string, int> monsterKillCount = new Dictionary<string, int>();
+    public Dictionary<string, int> stageMonsterKillCount = new Dictionary<string, int>();
+
     public Dictionary<string, int> monsterCollectedCount = new Dictionary<string, int>();
     public Dictionary<string, int> stageMonsterCollectedCount = new Dictionary<string, int>();
+        
     public Dictionary<string, int> missedMonsterCount = new Dictionary<string, int>();
 
     public Dictionary<string, int> totalMonsterKillCount = new Dictionary<string, int>();
 
     public Dictionary<Monster, int> monsterSpawnCount = new Dictionary<Monster, int>();
-
+    public Dictionary<string, int> stageMonsterSpawnCount = new Dictionary<string, int>();
+        
     public GameObject moneyExplosionPrefab;
 
     Player player;
@@ -129,6 +134,7 @@ public class MonsterManager : MonoBehaviour
     public void AddMonsterCount(Monster monster)
     {
         IncreaseDatabaseCount(monsterCount, monster);
+        IncreaseDatabaseCount(stageMonsterSpawnCount, monster);
 
         int count;
         if (monsterSpawnCount.TryGetValue(monster, out count))
@@ -176,6 +182,7 @@ public class MonsterManager : MonoBehaviour
     {
         monsterKillCount = new Dictionary<string, int>();
         stageMonsterCollectedCount = new Dictionary<string, int>();
+        stageMonsterSpawnCount = new Dictionary<string, int>();
     }
 
     public void IncreaseDatabaseCount(Dictionary<string, int> database, Monster monster)
@@ -229,6 +236,11 @@ public class MonsterManager : MonoBehaviour
         return monsterKillCount.Values.Sum(count => count);
     }
 
+    public int GetTotalKillCount()
+    {
+        return totalMonsterKillCount.Values.Sum(count => count);
+    }
+
     public int GetMissedCount()
     {
         return missedMonsterCount.Values.Sum(count => count);
@@ -243,6 +255,13 @@ public class MonsterManager : MonoBehaviour
     public void CreateMoneyExplosion(Vector3 pos)
     {
         var explosion = Instantiate(moneyExplosionPrefab, pos, Quaternion.identity);
+    }
+
+    public int GetStageGoodMonsterSpawnCount()
+    {
+        return stageMonsterSpawnCount.Where(p => p.Key == "MovingApple").Sum(p => p.Value) +
+            stageMonsterSpawnCount.Where(p => p.Key == "EggMedium").Sum(p => p.Value) +
+            3 * stageMonsterSpawnCount.Where(p => p.Key == "YellowMovingApple").Sum(p => p.Value);
     }
 
     public void RemoveMonster(Monster monster)
