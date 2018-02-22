@@ -23,6 +23,8 @@ public class MonsterManager : MonoBehaviour
         
     public GameObject moneyExplosionPrefab;
 
+    public int stageGoodMonsterSpawn = 0;
+
     Player player;
 
     FloorManager floorManager;
@@ -136,6 +138,11 @@ public class MonsterManager : MonoBehaviour
         IncreaseDatabaseCount(monsterCount, monster);
         IncreaseDatabaseCount(stageMonsterSpawnCount, monster);
 
+        if(monster.monsterType == MonsterCollisionMask.Good)
+        {
+            stageGoodMonsterSpawn += monster.damage;
+        }
+
         int count;
         if (monsterSpawnCount.TryGetValue(monster, out count))
         {
@@ -183,6 +190,8 @@ public class MonsterManager : MonoBehaviour
         monsterKillCount = new Dictionary<string, int>();
         stageMonsterCollectedCount = new Dictionary<string, int>();
         stageMonsterSpawnCount = new Dictionary<string, int>();
+
+        stageGoodMonsterSpawn = 0;
     }
 
     public void IncreaseDatabaseCount(Dictionary<string, int> database, Monster monster)

@@ -44,6 +44,11 @@ public class ScoreManager : MonoBehaviour
     [NonSerialized]
     public int stageMissedGoodApples = 0;
 
+    [NonSerialized]
+    public float stageMissedPercent = 0.0f;
+
+    public Animator appleCountAC;
+
     void Start()
     {
         comboManager = GetComponent<ComboManager>();
@@ -133,7 +138,9 @@ public class ScoreManager : MonoBehaviour
     public void UpdateScoreText()
     {
         scoreText.text = score.ToString();
-        appleText.text = stageCollected.ToString() + " / " + appleToCollect;
+        //appleText.text = stageCollected.ToString() + " / " + appleToCollect;
+
+        appleText.text = totalCollected.ToString();
     }
 
     public void AddCollectedMonsterCount(int collected = 1)
@@ -177,5 +184,18 @@ public class ScoreManager : MonoBehaviour
     {
         stageMissedGoodApples += amount;
         missedGoodApples += amount;
+
+        var stageGoodApple = GameManager.instance.monsterManager.stageGoodMonsterSpawn;
+                
+        stageMissedPercent = stageGoodApple > 0 ? (float)stageMissedGoodApples / stageGoodApple : 0.0f;
+
+        if(stageMissedPercent > .5f)
+        {
+            appleCountAC.SetBool("FlashRed", true);
+        }
+        else
+        {
+            appleCountAC.SetBool("FlashRed", false);
+        }
     }
 }

@@ -21,7 +21,9 @@ public class GameOverOnCountdown : StageEvent
     {
         if (GameManager.instance.timerManager.timer <= 0)
         {
-            if(GameManager.instance.scoreManager.stageCollected >= collectCount)
+            Debug.Log("Missed Percent: " + GameManager.instance.scoreManager.stageMissedPercent);
+
+            if(GameManager.instance.scoreManager.stageMissedPercent <= .50f) //50%
             {
                 GameManager.instance.AdvanceToNextWave(victory);
             }

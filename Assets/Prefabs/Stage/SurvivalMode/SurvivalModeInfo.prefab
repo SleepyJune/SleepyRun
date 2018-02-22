@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 74478a98ca91482418b243be87b5b303, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  beltSpeed: 9.994232
+  beltSpeed: 19.993061
   appleToCollect: 59
   apple: {fileID: 114857574025624986}
   egg: {fileID: 114415372961903480}

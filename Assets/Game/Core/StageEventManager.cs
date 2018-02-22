@@ -101,7 +101,7 @@ public class StageEventManager : MonoBehaviour
         if (!PlayerPrefs.HasKey(tutorialString))
         {
             tutorialController.StartTutorial();
-            //PlayerPrefs.SetInt(tutorialString, 1);
+            PlayerPrefs.SetInt(tutorialString, 1);
         }        
     }
 
@@ -213,7 +213,7 @@ public class StageEventManager : MonoBehaviour
             }
             else
             {
-                //PlayerPrefs.SetInt(monsterTutorialString, 1);
+                PlayerPrefs.SetInt(monsterTutorialString, 1);
             }
         }
     }
