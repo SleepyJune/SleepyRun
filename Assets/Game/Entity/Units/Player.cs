@@ -190,7 +190,8 @@ public class Player : Unit
                 !isDead
                 && !GameManager.instance.isGameOver
                 && !GameManager.instance.isGamePaused
-                && !GameManager.instance.isMovingToNextWave;
+                && !GameManager.instance.isMovingToNextWave
+                && Time.timeScale > 0.1f;
         }
     }
 
@@ -221,7 +222,19 @@ public class Player : Unit
             }
             else
             {
-                overlayManager.RemoveEffectOverlay("InvincibleEffect");
+                var overlay = overlayManager.GetEffectOverlay("InvincibleEffect");
+
+                if (overlay != null)
+                {
+                    var animator = overlay.GetComponent<Animator>();
+
+                    if (animator)
+                    {
+                        animator.SetTrigger("Die");
+                    }
+                }
+
+                overlayManager.RemoveEffectOverlay("InvincibleEffect", false);
             }
         }
         else if (statusType == StatusEffectType.Silenced)

@@ -80,7 +80,7 @@ public class ScoreManager : MonoBehaviour
         LevelStats stats = new LevelStats
         {
             levelComplete = levelComplete,
-            currentLevel = GameManager.instance.stageEventManager.currentStageCount,            
+            currentLevel = GameManager.instance.stageEventManager.currentStageCount,
             levelTime = GameManager.instance.timerManager.levelTime,
             time = GameManager.instance.timerManager.totalGameTime,
             monstersKilled = GameManager.instance.monsterManager.GetTotalKillCount(),
@@ -90,6 +90,7 @@ public class ScoreManager : MonoBehaviour
             monstersCollected = totalCollected,
             points = score,
             collectedPoints = score - rewardedPoints,
+            moneyEarned = (int)Math.Floor((float)score / 100),
             rewardAdPoints = rewardedPoints,
             rewardAdWatched = GameManager.instance.adManager.rewardAdWatched,
             revivesUsed = GameManager.instance.revivesUsed,

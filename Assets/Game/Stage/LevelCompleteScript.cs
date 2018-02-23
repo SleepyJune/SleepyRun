@@ -35,7 +35,7 @@ public class LevelCompleteScript : MonoBehaviour
 
     private void SetGold()
     {
-        MoneyManager.instance.IncreaseGold(stats.points);
+        MoneyManager.instance.IncreaseGold(stats.moneyEarned);
     }
 
     string GetAppleEmote(LevelStats stats)
@@ -50,12 +50,15 @@ public class LevelCompleteScript : MonoBehaviour
 
         pointText.text = stats.monstersCollected.ToString();
         missedCountText.text = stats.monstersMissedCount.ToString();
-        killCountText.text = stats.monstersKilled.ToString();
+
+        int hourlyRate = (int)Math.Round(stats.moneyEarned / Math.Ceiling(stats.time / 60));
+
+        killCountText.text = "$" + hourlyRate.ToString() + "/hr";
 
         string minSec = string.Format("{0}:{1:00}", (int)stats.time / 60, (int)stats.time % 60);
         timeText.text = minSec;
 
-        earningText.text = "$" + stats.points.ToString();
+        earningText.text = "$" + stats.moneyEarned.ToString();
 
         Debug.Log("Collection: " + ((int)Math.Round(earningPercent * 100)).ToString() + "%");
 

@@ -45,18 +45,36 @@ public class EffectOverlayManager : MonoBehaviour
         }        
     }
 
-    public void RemoveEffectOverlay(string key)
+    public void RemoveEffectOverlay(string key, bool destroyOverlay = true)
+    {
+        if (destroyOverlay)
+        {
+            GameObject overlay;
+            
+            if (effectOverlay.TryGetValue(key, out overlay))
+            {
+                if (overlay != null)
+                {
+                    Destroy(overlay);
+                }
+            }
+        }  
+
+        effectOverlay.Remove(key);
+    }
+
+    public GameObject GetEffectOverlay(string key)
     {
         GameObject overlay;
 
-        if(effectOverlay.TryGetValue(key, out overlay))
+        if (effectOverlay.TryGetValue(key, out overlay))
         {
             if (overlay != null)
             {
-                Destroy(overlay);
+                return overlay;
             }
-        }        
+        }
 
-        effectOverlay.Remove(key);
+        return null;
     }
 }

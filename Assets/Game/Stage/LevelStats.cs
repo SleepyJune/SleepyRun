@@ -17,6 +17,8 @@ public class LevelStats
     public int totalMonsterSpawned;
     public int totalGoodMonsterSpawned;
 
+    public int moneyEarned;
+
     public int revivesUsed;
     public int rewardAdPoints;
     public int rewardAdWatched;

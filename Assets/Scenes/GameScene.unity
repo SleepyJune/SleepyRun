@@ -1218,6 +1218,11 @@ Prefab:
       propertyPath: appleToCollect
       value: 40
       objectReference: {fileID: 0}
+    - target: {fileID: 114944193831916084, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: beltSpeed
+      value: 9.994232
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
   m_IsPrefabParent: 0
@@ -6264,7 +6269,7 @@ RectTransform:
   m_GameObject: {fileID: 1475007277}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
+  m_LocalScale: {x: 0.31, y: 0.31, z: 0.25}
   m_Children: []
   m_Father: {fileID: 1115027849}
   m_RootOrder: 0
@@ -6337,7 +6342,7 @@ MonoBehaviour:
     m_Top: 60
     m_Bottom: 60
   m_ChildAlignment: 0
-  m_Spacing: 12.49
+  m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 1
