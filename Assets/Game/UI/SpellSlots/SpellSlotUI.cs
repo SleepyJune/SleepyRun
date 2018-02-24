@@ -5,8 +5,9 @@ using System.Text;
 
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class SpellSlotUI : MonoBehaviour
+public class SpellSlotUI : MonoBehaviour, IPointerDownHandler
 {
     public Image slotImage;
     public Skill skill;
@@ -81,5 +82,10 @@ public class SpellSlotUI : MonoBehaviour
             skill.UseSkill();
             anim.Play("ActivateSkillAnimation");
         }
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        OnSpellSlotPressed();
     }
 }

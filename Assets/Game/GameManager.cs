@@ -244,6 +244,26 @@ public class GameManager : MonoBehaviour
         textOverlayManager.CreateResumeTapText();
     }
 
+    public void GameOverOnFired()
+    {
+        if (!isGameOver)
+        {
+            weaponManager.DisableWeapon(true);
+
+            isGameOver = true;
+            
+            //textOverlayManager.CreateGameOverText();
+
+            player.SetGameOverAnimation();
+
+            //stageEventManager.tutorialController.SetFiredAnimation();
+
+            textOverlayManager.CreateGameOverOnAppleMissed();
+
+            DelayAction.Add(() => ReviveCancel(), 5);
+        }
+    }
+
     public void GameOver(bool levelComplete = false, bool reviveUsable = true)
     {
         if (!isGameOver)
@@ -257,6 +277,8 @@ public class GameManager : MonoBehaviour
                 //gameOverText.SetActive(true);
 
                 textOverlayManager.CreateGameOverText();
+
+                player.SetGameOverAnimation();
 
                 if (reviveUsable)
                 {

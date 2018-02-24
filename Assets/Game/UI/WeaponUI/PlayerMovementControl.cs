@@ -6,7 +6,7 @@ using System.Text;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class PlayerMovementControl : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
+public class PlayerMovementControl : MonoBehaviour, IBeginDragHandler, IEndDragHandler
 {
     Lane destinationLane = Lane.mid;
     Vector2 swipeStartPos;

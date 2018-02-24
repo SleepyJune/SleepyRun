@@ -155,6 +155,11 @@ public class Player : Unit
         }
     }
 
+    public void SetGameOverAnimation()
+    {
+        anim.SetTrigger("die");
+    }
+
     public void Death()
     {
         health = 0;

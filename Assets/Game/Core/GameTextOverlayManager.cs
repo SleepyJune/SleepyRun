@@ -12,6 +12,7 @@ public class GameTextOverlayManager : MonoBehaviour
 
     public GameObject victoryTextPrefab;
     public GameObject gameoverTextPrefab;
+    public GameObject gameoverApplePrefab;
     public GameObject waveTextPrefab;
     
     public GameObject resumeTapTextPrefab;
@@ -73,7 +74,13 @@ public class GameTextOverlayManager : MonoBehaviour
     public void CreateGameOverText()
     {
         var gameOverText = Instantiate(gameoverTextPrefab, overlayParent);
-        gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
+        //gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
+    }
+
+    public void CreateGameOverOnAppleMissed()
+    {
+        var gameOverText = Instantiate(gameoverApplePrefab, overlayParent);
+        //gameOverText.GetComponent<Animation>().Play("GameOverAnimation");
     }
 
     public void CreateVictoryText()

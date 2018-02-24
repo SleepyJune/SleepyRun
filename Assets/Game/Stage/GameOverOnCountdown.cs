@@ -29,7 +29,8 @@ public class GameOverOnCountdown : StageEvent
             }
             else
             {
-                GameManager.instance.GameOver(false, false);
+                //GameManager.instance.GameOver(false, false);
+                GameManager.instance.GameOverOnFired();
             }
             
             isExecuted = true;
