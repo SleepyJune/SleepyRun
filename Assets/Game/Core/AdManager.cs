@@ -40,6 +40,7 @@ public class AdManager : MonoBehaviour
         if (CheckAdResult(result))
         {
             GameManager.instance.scoreManager.AddRewardPoints(promisedReward);
+            GameManager.instance.scoreManager.stageRewardAdWatched += 1;
             rewardAdWatched += 1;
         }
     }

@@ -21,4 +21,9 @@ public class HelperFunctions : MonoBehaviour
     {
         GetComponent<Animator>().SetTrigger(triggerName);
     }
+
+    public void SelfDestructImmediate()
+    {
+        Destroy(gameObject);
+    }
 }

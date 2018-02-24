@@ -136,12 +136,16 @@ public class Monster : Unit
         }
     }
 
-    void BadMonsterCollide()
+    void MonsterCollide()
     {
         if (monsterType == MonsterCollisionMask.Good)
         {
             GameManager.instance.comboManager.IncreaseComboCount();
             GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
+            if (buffOnHit)
+            {
+                GameManager.instance.player.InitializeBuff(this, buffOnHit);
+            }
         }
 
         var damageTaken = damage;
@@ -152,13 +156,43 @@ public class Monster : Unit
             damageTaken = 0;
         }
 
+        if (monsterType == MonsterCollisionMask.Bad ||
+            monsterType == MonsterCollisionMask.Neutral)
+        {
+            GameManager.instance.player.TakeDamage(
+                    new HitInfo
+                    {
+                        source = this,
+                        target = GameManager.instance.player,
+                        damage = damageTaken,
+                        buffOnHit = buffOnHit,
+                    });
+        }
+
+        var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
+        if (monsterDeathParticle)
+        {
+            monsterDeathParticle.CreateParticle();
+        }
+
+        if (anim)
+        {
+
+        }
+
+        isDead = true;
+    }
+
+    void MonsterRemoveOffStage()
+    {
+        var damageTaken = monsterType == MonsterCollisionMask.Neutral ? 0 : 1;// damage;
+        
         GameManager.instance.player.TakeDamage(
                 new HitInfo
                 {
                     source = this,
                     target = GameManager.instance.player,
                     damage = damageTaken,
-                    buffOnHit = buffOnHit,
                 });
 
         var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
@@ -173,70 +207,15 @@ public class Monster : Unit
         }
 
         isDead = true;
-    }
 
-    void NeutralMonsterCollide()
-    {
-        if (buffOnHit != null)
-        {
-            GameManager.instance.player.TakeDamage(
-                new HitInfo
-                {
-                    source = this,
-                    target = GameManager.instance.player,
-                    damage = 0,
-                    buffOnHit = buffOnHit,
-                });
-        }
-
-        var monsterDeathParticle = GetComponent<MonsterDeathParticle>();
-        if (monsterDeathParticle)
-        {
-            monsterDeathParticle.CreateParticle();
-        }
-
-        if (anim)
-        {
-
-        }
-
-        isDead = true;
-    }
-
-    void GoodMonsterCollide()
-    {
-        GameManager.instance.comboManager.IncreaseComboCount();
-        GameManager.instance.monsterManager.AddMonsterCollectedCount(this);
-
-        if (buffOnHit != null)
-        {
-            GameManager.instance.player.InitializeBuff(this, buffOnHit);
-        }
-
-        //GameManager.instance.spawnPickupManager.TryPickup();
-
-        //GameManager.instance.monsterManager.CreateMoneyExplosion(transform.position);
+        AddMissedApple();
     }
 
     public void CollideWithPlayer()
     {
         if (!isDead)
         {
-            /*if (monsterType == MonsterCollisionMask.Bad)
-            {
-                BadMonsterCollide();
-            }
-            else if (monsterType == MonsterCollisionMask.Neutral)
-            {
-                NeutralMonsterCollide();
-            }            
-            else if (monsterType == MonsterCollisionMask.Good)
-            {
-                GoodMonsterCollide();
-            }*/
-
-            BadMonsterCollide();
-
+            MonsterCollide();
             GameManager.instance.monsterManager.SetDead(this);
         }
     }
@@ -245,23 +224,25 @@ public class Monster : Unit
     {
         if (player.transform.position.z - transform.position.z > 0)
         {
-            /*if(monsterType == MonsterCollisionMask.Bad)
-            {
-                BadMonsterCollide();
-            }
-            else
-            {
-                if(monsterType == MonsterCollisionMask.Good)
-                {
-                    GameManager.instance.comboManager.BreakCombo();
-                }
+            MonsterRemoveOffStage();
 
-            }*/
-
-            BadMonsterCollide();
             GameManager.instance.monsterManager.AddMissedMonsterCount(this);
-
             GameManager.instance.monsterManager.SetDead(this);
+        }
+    }
+
+    public void AddMissedApple()
+    {
+        if (monsterType == MonsterCollisionMask.Good)
+        {
+            if (displayName == "GoldenApple")
+            {
+                GameManager.instance.scoreManager.AddMissedGoodApple(3);
+            }
+            else if (displayName == "Apple")
+            {
+                GameManager.instance.scoreManager.AddMissedGoodApple(1);
+            }
         }
     }
 
@@ -275,8 +256,10 @@ public class Monster : Unit
             GameManager.instance.monsterManager.AddKillCount(this);
             GameManager.instance.scoreManager.AddScoreOnMonsterKill(this);
 
+            AddMissedApple();
+
             //GameManager.instance.spawnPickupManager.SpawnPickup(this);
-                                          
+
             if (anim)
             {
                 anim.SetTrigger("Die");

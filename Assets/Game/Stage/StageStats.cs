@@ -3,39 +3,31 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-public class LevelStats
+public class StageStats
 {
     public bool levelComplete;
     public int currentLevel;
-    public float levelTime;
-    public float time;
     public int monstersKilled;
-    public int points;
-    public int collectedPoints;
-    public int monstersMissedCount;
-    public int monstersCollected;
-    public int totalMonsterSpawned;
-    public int totalGoodMonsterSpawned;
+    public int stagePoints;
+    public int stageMissedGoodApples;
+    public float appleCollectPercent;
 
-    public int moneyEarned;
+    public int monstersCollected;
 
     public int revivesUsed;
-    public int rewardAdPoints;
     public int rewardAdWatched;
 
     public Dictionary<string, object> ParseDictionary() //max 10 parameters
     {
         return new Dictionary<string, object>
         {
-            {"time", time },
             {"level", currentLevel },
+            {"levelComplete", levelComplete },
             {"monstersKilled", monstersKilled},
-            {"points", points },
-            {"collectedPoints", collectedPoints },
+            {"stagePoints", stagePoints },
+            {"appleCollectPercent", appleCollectPercent },
             {"monstersCollected", monstersCollected },
-            {"totalMonsterSpawned", totalMonsterSpawned },
             {"revivesUsed" , revivesUsed },
-            {"rewardAdPoints", rewardAdPoints },
             {"rewardAdWatched", rewardAdWatched},
         };
     }

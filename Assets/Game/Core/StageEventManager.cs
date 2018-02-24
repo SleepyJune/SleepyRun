@@ -101,7 +101,7 @@ public class StageEventManager : MonoBehaviour
         if (!PlayerPrefs.HasKey(tutorialString))
         {
             tutorialController.StartTutorial();
-            //PlayerPrefs.SetInt(tutorialString, 1);
+            PlayerPrefs.SetInt(tutorialString, 1);
         }        
     }
 
@@ -168,52 +168,37 @@ public class StageEventManager : MonoBehaviour
 
     public bool AdvanceToNextWave()
     {
-        if (currentWaveCount+1 < currentStageInfo.stageWaves.Length)
+        if (currentStageCount >= stageInfoDatabase.databaseArray.Length)
         {
-            currentWaveCount++;
-            currentStageWave = currentStageInfo.stageWaves[currentWaveCount];
-            ResetStage();
-            
-            return false;
+            return true; //completed the game
         }
         else
         {
-            if (isSurvivalMode)
+            currentStageInfo = stageInfoDatabase.databaseArray[currentStageCount];
+
+            if (currentStageInfo != null)
             {
-                if(currentStageCount >= stageInfoDatabase.databaseArray.Length)
+                currentStageCount = currentStageInfo.stageId;
+                currentStageWave = currentStageInfo.stageWaves[0];
+                currentWaveCount = 0;
+
+                GameManager.instance.scoreManager.SetNewStageStats();
+
+                ResetStage();
+
+                var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
+                if (topPassedLevel < currentStageCount - 1)
                 {
-                    return true; //completed the game
+                    PlayerPrefs.SetInt(topLevelString, currentStageCount - 1);
                 }
-                else
-                {
-                    currentStageInfo = stageInfoDatabase.databaseArray[currentStageCount];
 
-                    if (currentStageInfo != null)
-                    {
-                        currentStageCount = currentStageInfo.stageId;
-                        currentStageWave = currentStageInfo.stageWaves[0];
-                        currentWaveCount = 0;
-                        ResetStage();
-
-                        var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
-                        if(topPassedLevel < currentStageCount-1)
-                        {
-                            PlayerPrefs.SetInt(topLevelString, currentStageCount-1);
-                        }
-
-                        return false;
-                    }
-                    else
-                    {
-                        return true; //sth broke
-                    }
-                }
+                return false;
             }
             else
             {
-                return true; //Game Over on Level Completion
+                return true; //sth broke
             }
-        }        
+        }
     }
 
     public void ShowMonsterInfo(Monster monster)
@@ -228,7 +213,7 @@ public class StageEventManager : MonoBehaviour
             }
             else
             {
-                //PlayerPrefs.SetInt(monsterTutorialString, 1);
+                PlayerPrefs.SetInt(monsterTutorialString, 1);
             }
         }
     }
