@@ -53,4 +53,10 @@ public class TutorialParentController : MonoBehaviour
     {
         tutorialObject.SetActive(false);
     }
+
+    public void SetFiredAnimation()
+    {
+        tutorialObject.SetActive(true);
+        anim.SetTrigger("Fired");
+    }
 }

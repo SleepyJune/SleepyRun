@@ -141,10 +141,10 @@ RectTransform:
   m_Father: {fileID: 1045301372}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &11600372
 GameObject:
@@ -6206,7 +6206,9 @@ MonoBehaviour:
   overlayParent: {fileID: 2716719}
   victoryTextPrefab: {fileID: 1402734563602740, guid: 2f76b06b67362c44d98afafe4f37f064,
     type: 2}
-  gameoverTextPrefab: {fileID: 1825985047145282, guid: 0f07d69716cec0c47a78403cea723925,
+  gameoverTextPrefab: {fileID: 1543606772323402, guid: a0850b417c913a54991445805d1902d8,
+    type: 2}
+  gameoverApplePrefab: {fileID: 1543606772323402, guid: 4f60b6d147baeee4387de4a2cedd95d8,
     type: 2}
   waveTextPrefab: {fileID: 1797539787279698, guid: c001835e2c9a9794bb0b57e9871cbe78,
     type: 2}
@@ -6874,6 +6876,10 @@ Prefab:
         type: 2}
       propertyPath: m_Pivot.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1973517190401206, guid: d59bce207b85d0d4c961567bc9954c20, type: 2}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d59bce207b85d0d4c961567bc9954c20, type: 2}
