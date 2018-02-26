@@ -77,6 +77,8 @@ public class GameManager : MonoBehaviour
     [NonSerialized]
     public int revivesUsed = 0;
 
+    public int skipLevelGold = 10;
+
     void Awake()
     {
         if (instance == null)
@@ -190,7 +192,7 @@ public class GameManager : MonoBehaviour
 
     public void SkipLevels()
     {
-        if (MoneyManager.instance.DecreaseGold(500))
+        if (MoneyManager.instance.DecreaseGold(skipLevelGold))
         {
             Debug.Log("skip");
             levelSelectManager.LoadLevel(19, false);

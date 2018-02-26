@@ -13,7 +13,7 @@ public class StageBeltSpeedChangeEvent : PreStageEvent
 
     public override void ExecuteEvent()
     {
-        GameManager.instance.floorManager.beltSpeed = speed;
+        GameManager.instance.floorManager.SetBeltSpeed(speed);
 
         isExecuted = true;
     }

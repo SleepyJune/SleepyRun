@@ -61,6 +61,8 @@ MonoBehaviour:
   mana: 0
   icon: {fileID: 21300008, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
   comabtUI: {fileID: 114507258747107002}
+  dropChance: 5
+  audioClip: {fileID: 0}
   spellPrefab: {fileID: 114409965893671840, guid: fa8d889e7c83682429ad541f8b5fe7f9,
     type: 2}
 --- !u!114 &114507258747107002
@@ -78,3 +80,4 @@ MonoBehaviour:
   amount: 1
   startPosition: {x: 0, y: 0, z: 0}
   direction: {x: 0, y: 0, z: 0}
+  usePlayerX: 0

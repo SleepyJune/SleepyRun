@@ -20,6 +20,10 @@ public class FloorManager : MonoBehaviour
 
     public float beltSpeed = 2.0f;
 
+    float baseBeltSpeed = 2.0f;
+    float slowPercent = 0;
+    float slowEffectTime = 0;
+
     int numFloorsToPregenerate = 10;
     int numFloorsTillDestruction = 5;
 
@@ -34,7 +38,46 @@ public class FloorManager : MonoBehaviour
     {
         CheckFloors();
 
-        floorHolder.position += Vector3.back * beltSpeed * Time.deltaTime;
+        floorHolder.position += Vector3.back * beltSpeed * Time.deltaTime;        
+    }
+
+    public void UpdateBeltSpeed()
+    {
+        beltSpeed = baseBeltSpeed * (1 - slowPercent);
+    }
+
+    public void SetBeltSpeed(float newSpeed)
+    {
+        baseBeltSpeed = newSpeed;
+        UpdateBeltSpeed();
+    }
+
+    public void SetPercentSlow(float slow, float effectTime)
+    {
+        if (Time.time > slowEffectTime)
+        {
+            slowEffectTime = Time.time + effectTime;
+            slowPercent = slow;
+        }
+        else
+        {
+            slowEffectTime += effectTime;
+            slowPercent = slow;
+        }
+
+        DelayAction.Add(CheckSlow, effectTime);
+
+        UpdateBeltSpeed();
+    }
+
+    public void CheckSlow()
+    {
+        if (Time.time > slowEffectTime)
+        {
+            slowPercent = 0.0f;
+        }
+
+        UpdateBeltSpeed();
     }
 
     void MakeFloor()

@@ -15,8 +15,31 @@ public class KnockBackBuff : Buff
     }
 
     public override void ActivateBuff(Unit unit)
-    {
-        unit.transform.position += new Vector3(0,0,buffObj.knockBackForce);
+    {        
+        var monster = unit as Monster;
+
+        if (monster)
+        {
+            if (monster.monsterType == MonsterCollisionMask.Good)
+            {
+                if (unit.transform.position.x > 0.1)
+                {
+                    unit.transform.position -= new Vector3(buffObj.knockBackForce, 0, 0);
+                }
+                else if (unit.transform.position.x < -0.1)
+                {
+                    unit.transform.position += new Vector3(buffObj.knockBackForce, 0, 0);
+                }
+                else
+                {
+                    //unit.transform.position = new Vector3(buffObj.knockBackForce, 0, 0);
+                }
+            }
+            else
+            {
+                unit.transform.position += new Vector3(0, 0, buffObj.knockBackForce);
+            }
+        }
     }
 
     public override void EndBuff()
