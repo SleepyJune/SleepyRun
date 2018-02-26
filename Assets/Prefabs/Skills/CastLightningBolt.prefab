@@ -78,6 +78,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   skill: {fileID: 114400079632591812}
   amount: 1
-  startPosition: {x: 0, y: 0, z: 30}
+  startPosition: {x: 0, y: 0, z: 15}
   direction: {x: 0, y: 0, z: 0}
   usePlayerX: 0

@@ -38,7 +38,7 @@ public class PlayerMovementControl : MonoBehaviour, IBeginDragHandler, IDragHand
                 OnEndDrag(eventData);
             }
 
-            dragStarted = true;
+            dragStarted = false;
         }
     }
 
