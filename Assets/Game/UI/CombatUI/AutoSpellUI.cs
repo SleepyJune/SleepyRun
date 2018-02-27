@@ -12,11 +12,20 @@ public class AutoSpellUI : CombatUI
     public Vector3 startPosition;
     public Vector3 direction;
 
+    public bool usePlayerX = false;
+
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
 
-        var pos = GameManager.instance.player.transform.position + startPosition;
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+
+        if (!usePlayerX)
+        {
+            playerPos.x = 0;
+        }
+
+        var pos = playerPos + startPosition;
 
         skill.CastSpell(pos, pos);
 

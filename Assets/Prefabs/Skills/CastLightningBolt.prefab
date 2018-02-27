@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4148368724905470}
   - component: {fileID: 114400079632591812}
-  - component: {fileID: 114587842886939468}
+  - component: {fileID: 114406394986393170}
   m_Layer: 16
   m_Name: CastLightningBolt
   m_TagString: Untagged
@@ -52,7 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 985984d838dba154ab896dbf13f94249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  castType: 2
+  castType: 1
   id: 0
   spellName: LightningBolt
   description: 
@@ -60,12 +60,12 @@ MonoBehaviour:
   cooldown: 0
   mana: 0
   icon: {fileID: 21300022, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
-  comabtUI: {fileID: 114587842886939468}
+  comabtUI: {fileID: 114406394986393170}
   dropChance: 5
   audioClip: {fileID: 0}
   spellPrefab: {fileID: 114490340627149148, guid: d7e46d868c063564e8dc6acbeeaf580a,
     type: 2}
---- !u!114 &114587842886939468
+--- !u!114 &114406394986393170
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -73,7 +73,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 1690593564712828}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 445b536e2e2854344880a0b66fcc6f10, type: 3}
+  m_Script: {fileID: 11500000, guid: 716f810d085e0ba4ab34c17ad414f319, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   skill: {fileID: 114400079632591812}
+  amount: 1
+  startPosition: {x: 0, y: 0, z: 15}
+  direction: {x: 0, y: 0, z: 0}
+  usePlayerX: 0

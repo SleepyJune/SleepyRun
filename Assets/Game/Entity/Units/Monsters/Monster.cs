@@ -60,6 +60,13 @@ public class Monster : Unit
                 //var dir = new Vector3(0, 0, 1);
                 transform.position -= Vector3.forward * speed * Time.deltaTime;
 
+                if(highestSlowPercent > 0.05)
+                {
+                    var reverseBeltSpeed = GameManager.instance.floorManager.beltSpeed * highestSlowPercent;
+
+                    transform.position += Vector3.forward * reverseBeltSpeed * Time.deltaTime;
+                }
+
                 if (anim)
                 {
                     anim.SetFloat("speed", speed);
@@ -102,11 +109,28 @@ public class Monster : Unit
             else//if monster not dead from the damage
             {
                 if (hitInfo.knockBackForce != 0 && !isImmovable)
-                {
-                    var knockBackForce = new Vector3(0, 0, hitInfo.knockBackForce);
-                    //rigidbody.AddForce(knockBackForce);
+                {                   
 
-                    transform.position += knockBackForce;
+                    if (monsterType == MonsterCollisionMask.Good)
+                    {
+                        if (transform.position.x > 0.1)
+                        {
+                            transform.position -= new Vector3(.2f, 0, -3f);
+                        }
+                        else if (transform.position.x < -0.1)
+                        {
+                            transform.position += new Vector3(.2f, 0, 3f);
+                        }
+                        else
+                        {
+                            //unit.transform.position = new Vector3(buffObj.knockBackForce, 0, 0);
+                        }
+                    }
+                    else
+                    {
+                        transform.position += new Vector3(0, 0, hitInfo.knockBackForce);
+                    }
+
                 }                
             }
         }

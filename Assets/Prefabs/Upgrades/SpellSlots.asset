@@ -18,61 +18,17 @@ MonoBehaviour:
   valueIncreament: 1
   baseCost: 2500
   costIncreament: 5000
-  costIncreamentExponential: 2
-  maxLevel: 5
+  costIncreamentExponential: 3
+  maxLevel: 3
   stats:
-  - {fileID: 114540234214634100}
-  - {fileID: 114250059828184290}
-  - {fileID: 114570686929838324}
-  - {fileID: 114404308316012484}
-  - {fileID: 114528931383991838}
+  - {fileID: 114269188228389202}
+  - {fileID: 114991397048828464}
+  - {fileID: 114568834410919394}
   defaultMockLevel: 1
   targetObj: 2
   prefabTargetObj: {fileID: 0}
   targetString: numSpellSlots
---- !u!114 &114250059828184290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 1
-  m_EditorClassIdentifier: 
-  level: 1
-  value: 4
-  cost: 2500
---- !u!114 &114404308316012484
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 3
-  m_EditorClassIdentifier: 
-  level: 3
-  value: 6
-  cost: 22500
---- !u!114 &114528931383991838
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: 
-  level: 4
-  value: 7
-  cost: 42500
---- !u!114 &114540234214634100
+--- !u!114 &114269188228389202
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -86,7 +42,7 @@ MonoBehaviour:
   level: 0
   value: 3
   cost: 0
---- !u!114 &114570686929838324
+--- !u!114 &114568834410919394
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -99,4 +55,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   value: 5
-  cost: 12500
+  cost: 17500
+--- !u!114 &114991397048828464
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  level: 1
+  value: 4
+  cost: 2500

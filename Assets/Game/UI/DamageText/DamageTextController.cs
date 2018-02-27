@@ -23,14 +23,14 @@ public class DamageTextController : MonoBehaviour {
 
     public void CreateDamageText(Entity unit, string text, DamageTextType textType)
     {
-        if(textType == DamageTextType.Recovery)
+        /*if(textType == DamageTextType.Recovery)
         {
             CreateDamageText(unit, text, gainHealthTextPrefab);
         }
         else
         {
             CreateDamageText(unit, text, damageTextPrefab);
-        }
+        }*/
     }
 
     public void CreateDamageText(Entity unit, string displayedText, GameObject textPrefab)
