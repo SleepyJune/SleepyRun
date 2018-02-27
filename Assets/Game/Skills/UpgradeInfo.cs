@@ -11,4 +11,6 @@ public class UpgradeInfo : ScriptableObject
     public float value;
 
     public int cost;
+
+    public string description;
 }

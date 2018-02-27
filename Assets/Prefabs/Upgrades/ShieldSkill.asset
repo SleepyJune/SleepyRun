@@ -12,26 +12,23 @@ MonoBehaviour:
   m_Name: ShieldSkill
   m_EditorClassIdentifier: 
   upgradeName: ShieldSkill
-  description: Increases shield amount.
+  description: Increases shield amount to (value).
   iconImage: {fileID: 21300000, guid: cd9165ca19c288a4bac7006a00907a5a, type: 3}
   baseStatValue: 1
-  maxStatValue: 5
   valueIncreament: 1
-  baseCost: 2000
-  costIncreament: 2000
-  costIncreamentExponential: 3
-  maxLevel: 5
+  baseCost: 400
+  costIncreament: 400
+  costIncreamentExponential: 1
+  maxLevel: 3
   stats:
-  - {fileID: 114760070972589634}
-  - {fileID: 114228433724325356}
-  - {fileID: 114306922797000582}
-  - {fileID: 114265808499151580}
-  - {fileID: 114429348366465980}
+  - {fileID: 114209121739951120}
+  - {fileID: 114202947838644972}
+  - {fileID: 114203821257395480}
   defaultMockLevel: 2
   targetObj: 0
   prefabTargetObj: {fileID: 11400000, guid: 2700ec5151338894a9cc82b87cb98f8f, type: 2}
   targetString: shieldAmount
---- !u!114 &114228433724325356
+--- !u!114 &114202947838644972
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -44,22 +41,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   value: 2
-  cost: 2000
---- !u!114 &114265808499151580
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 3
-  m_EditorClassIdentifier: 
-  level: 3
-  value: 4
-  cost: 20000
---- !u!114 &114306922797000582
+  cost: 400
+  description: Increases shield amount to 2.
+--- !u!114 &114203821257395480
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -72,22 +56,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   value: 3
-  cost: 8000
---- !u!114 &114429348366465980
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: 
-  level: 4
-  value: 5
-  cost: 56000
---- !u!114 &114760070972589634
+  cost: 800
+  description: Increases shield amount to 3.
+--- !u!114 &114209121739951120
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -101,3 +72,4 @@ MonoBehaviour:
   level: 0
   value: 1
   cost: 0
+  description: Increases shield amount to 1.

@@ -195,7 +195,7 @@ public class GameManager : MonoBehaviour
         if (MoneyManager.instance.DecreaseGold(skipLevelGold))
         {
             Debug.Log("skip");
-            levelSelectManager.LoadLevel(19, false);
+            levelSelectManager.LoadLevel(9, false);
         }
     }
 
@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            ReviveCancel();
+            GameOverComplete();
         }
     }
 
@@ -234,8 +234,8 @@ public class GameManager : MonoBehaviour
         ResumeGameText();
     }
 
-    public void ReviveCancel()
-    {
+    public void GameOverComplete()
+    {        
         scoreManager.SetNewLevelStats(false);
         SceneChanger.ChangeScene("LevelComplete2");
     }
@@ -262,7 +262,7 @@ public class GameManager : MonoBehaviour
 
             textOverlayManager.CreateGameOverOnAppleMissed();
 
-            DelayAction.Add(() => ReviveCancel(), 5);
+            DelayAction.Add(() => GameOverComplete(), 5);
         }
     }
 
@@ -288,7 +288,7 @@ public class GameManager : MonoBehaviour
                 }
                 else
                 {
-                    DelayAction.Add(() => ReviveCancel(), 5);
+                    DelayAction.Add(() => GameOverComplete(), 5);
                 }
             }
             else

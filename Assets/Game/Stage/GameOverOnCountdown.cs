@@ -11,7 +11,7 @@ public class GameOverOnCountdown : StageEvent
     
     public int countdown = 60;
 
-    public int collectCount = 30;
+    //public int collectCount = 30;
 
     public bool victoryOnCountdown = false;
 

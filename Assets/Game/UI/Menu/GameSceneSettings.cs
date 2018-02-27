@@ -82,12 +82,14 @@ public class GameSceneSettings : MonoBehaviour
 
     public void RestartLevel()
     {
+        SetResolution.AdjustResolution();
         GameManager.instance.ResumeGame();
         SceneChanger.ChangeScene("GameScene");
     }
 
     public void ExitToLevelLoader()
     {
+        SetResolution.AdjustResolution();
         GameManager.instance.ResumeGame();
         SceneChanger.ChangeScene("LevelLoader3");
     }

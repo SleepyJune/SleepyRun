@@ -82,10 +82,18 @@ public class UpgradeStatGenerator : Editor
         {
             info.cost = RoundDigits(Mathf.RoundToInt(
                 database.baseCost
-                    + Mathf.Pow(database.costIncreamentExponential, level-1) * database.costIncreament));
+                    + Mathf.Pow(level - 1, database.costIncreamentExponential) * database.costIncreament));
         }
 
+
+        string valueStr = info.value > 0 && info.value < 1 ?
+            Mathf.RoundToInt(info.value * 100) + "%" : 
+            info.value.ToString();
+
+        string desc = database.description.Replace("(value)", valueStr);
+
         
+        info.description = desc;
 
         AssetDatabase.AddObjectToAsset(info, target);
 
