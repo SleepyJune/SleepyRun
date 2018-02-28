@@ -146,7 +146,7 @@ GameObject:
   - component: {fileID: 4098420029295278}
   - component: {fileID: 82760029213832796}
   m_Layer: 0
-  m_Name: GreenEggShattered
+  m_Name: BrownEggShattered
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1168,7 +1168,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0abbbc08e2c0ae344a1a48c009be9032, type: 2}
+  - {fileID: 2100000, guid: 3543186489e9bd345868bc020fafd922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1222,7 +1222,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0abbbc08e2c0ae344a1a48c009be9032, type: 2}
+  - {fileID: 2100000, guid: 3543186489e9bd345868bc020fafd922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

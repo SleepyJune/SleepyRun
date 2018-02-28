@@ -19,6 +19,8 @@ public class SlashCombatUI : CombatUI
 
     LayerMask collisionMask;
 
+    float slashRemainTime = .25f;
+
     public override void Initialize(Weapon weapon)
     {
         this.weapon = weapon;
@@ -193,7 +195,8 @@ public class SlashCombatUI : CombatUI
         }
 
         slashes.Remove(slash.fingerID);
-        Destroy(slash.line.gameObject, .5f);
+
+        Destroy(slash.line.gameObject, slashRemainTime);
     }
 
     Vector3 GetForce(SlashInfo slash)
@@ -262,93 +265,4 @@ public class SlashCombatUI : CombatUI
         }
     }
 
-    void DestroyMonstersCapsule(SlashInfo slash, Vector3 v1, Vector3 v2)
-    {
-        Vector3 delta = v2 - v1;
-
-        Debug.Log("Vector: " + delta);
-
-        var colliders = Physics.OverlapCapsule(v1, v2, weapon.weaponRadius, collisionMask);
-        
-        //Debug.DrawLine(v1, v2, Color.green, 2);
-
-        foreach (var collider in colliders)
-        {
-            var monster = collider.gameObject.GetComponent<Monster>();
-            
-            if (monster != null && monster.canTakeDamage)// && !slash.damagedMonsters.Contains(monster))
-            {
-                var dir = GetForce(slash);
-                dir.y = .15f;
-                
-                var force = dir * (25.0f / (Time.time - slash.startTime));
-
-                HitInfo hitInfo = new HitInfo
-                {
-                    hitType = HitType.Physical,
-                    source = player,
-                    hitStart = v1,
-                    hitEnd = v2,
-                    force = force,
-                    damage = weapon.damage,
-                    hitParticle = weapon.particle,
-                    monsterHitType = MonsterCollisionMask.All,
-                };
-
-                monster.TakeDamage(hitInfo);
-                //slash.damagedMonsters.Add(monster);
-            }
-        }
-    }
-
-    void DestroyMonsters2(SlashInfo slash, Vector3 v1, Vector3 v2)
-    {                
-        foreach (var monster in GameManager.instance.monsterManager.monsters.Values)
-        {
-            if (!monster.isDead)// && !slash.damagedMonsters.Contains(monster))
-            {                
-                var monsterPos = monster.transform.position;
-                monsterPos.y = 0;
-
-                var proj = monsterPos.ProjectPoint2DOnLineSegment(v1, v2);
-                var dist = Vector3.Distance(proj, monsterPos);
-
-                var diff = (v2 - v1);
-                float length = diff.magnitude;
-
-                var verticalRadius = (Math.Abs(diff.z) / length) * 1;
-                var horizontalRadius = (Math.Abs(diff.x) / length) * weapon.weaponRadius;
-
-                //Debug.Log((verticalRadius + horizontalRadius) * .5f);
-
-                var monsterRadius = monster.transform.localScale.x * .5f * .5f;
-                
-                if (dist <= (verticalRadius + horizontalRadius) * .5f + monsterRadius)
-                {
-                    //previous vector with tolerance, add to force
-                                        
-
-                    var dir = (v2 - v1);
-                    dir.y = .15f;
-
-                    var force = dir * 50;
-
-                    HitInfo hitInfo = new HitInfo
-                    {
-                        hitType = HitType.Physical,
-                        source = player,
-                        hitStart = v1,
-                        hitEnd = v2,
-                        force = force,
-                        damage = weapon.damage,
-                        hitParticle = weapon.particle,
-                        monsterHitType = MonsterCollisionMask.All,
-                    };
-
-                    monster.TakeDamage(hitInfo);
-                    //slash.damagedMonsters.Add(monster);
-                }
-            }
-        }
-    }
 }

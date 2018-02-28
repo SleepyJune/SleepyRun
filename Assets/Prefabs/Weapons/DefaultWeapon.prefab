@@ -77,7 +77,7 @@ MonoBehaviour:
   damage: 20
   combatUI: {fileID: 114321555969510546}
   ultimateUI: {fileID: 0}
-  ultimateSkill: {fileID: 114400079632591812, guid: a65e7c07c46957d4fa997f9fcff36c69,
+  ultimateSkill: {fileID: 114400079632591812, guid: e9013c401886ce444934fffd0686039e,
     type: 2}
   minSlashRange: 1
   maxSlashRange: 5

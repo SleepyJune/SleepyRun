@@ -320,11 +320,11 @@ RectTransform:
   - {fileID: 1138335437}
   - {fileID: 631383754}
   m_Father: {fileID: 555220745}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 0}
+  m_AnchoredPosition: {x: -125, y: -100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1001 &210743979
@@ -372,7 +372,7 @@ Prefab:
     - target: {fileID: 224114791036841940, guid: 519b89c59a898f34b99f2dc481715a46,
         type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 224114791036841940, guid: 519b89c59a898f34b99f2dc481715a46,
         type: 2}
@@ -434,6 +434,12 @@ Prefab:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
       value: IntroScreen3
       objectReference: {fileID: 0}
+    - target: {fileID: 114339647122407532, guid: 519b89c59a898f34b99f2dc481715a46,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300004, guid: ebfcf5a277aec2146a35a88cbaff1fd2,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 519b89c59a898f34b99f2dc481715a46, type: 2}
   m_IsPrefabParent: 0
@@ -560,11 +566,11 @@ RectTransform:
   - {fileID: 324604007}
   - {fileID: 1843146624}
   m_Father: {fileID: 555220745}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 200}
+  m_AnchoredPosition: {x: -125, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &324604006
@@ -654,7 +660,7 @@ GameObject:
   m_Component:
   - component: {fileID: 348373418}
   m_Layer: 5
-  m_Name: Time
+  m_Name: Stage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -673,11 +679,11 @@ RectTransform:
   - {fileID: 695997898}
   - {fileID: 1863397761}
   m_Father: {fileID: 555220745}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: -100}
+  m_AnchoredPosition: {x: -125, y: 100}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &364243838
@@ -770,10 +776,10 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 315706933}
   - {fileID: 998662747}
-  - {fileID: 172103972}
   - {fileID: 348373418}
+  - {fileID: 315706933}
+  - {fileID: 172103972}
   - {fileID: 1664765278}
   m_Father: {fileID: 152356134}
   m_RootOrder: 0
@@ -936,7 +942,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Time:'
+  m_Text: 'Stage:'
 --- !u!222 &695997900
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1014,7 +1020,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'Missed:'
+  m_Text: 'Points:'
 --- !u!222 &874952175
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1031,7 +1037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 998662747}
   m_Layer: 5
-  m_Name: Missed
+  m_Name: Points
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1050,11 +1056,11 @@ RectTransform:
   - {fileID: 874952173}
   - {fileID: 417612}
   m_Father: {fileID: 555220745}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -125, y: 100}
+  m_AnchoredPosition: {x: -125, y: 200}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &1034899901 stripped
@@ -1739,8 +1745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a39b63e784d6c4499d74e2e562cc10f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointText: {fileID: 1843146622}
-  missedCountText: {fileID: 417613}
+  collectedText: {fileID: 1843146622}
+  pointsText: {fileID: 417613}
   killCountText: {fileID: 631383755}
   timeText: {fileID: 1863397762}
   earningText: {fileID: 284871211}

@@ -9,8 +9,8 @@ public class SetResolution : MonoBehaviour
 {
     public static int currentQuality = -1;
 
-    int width = 1080;
-    int height = 1920;
+    public static int nativeWidth = 1080;
+    public static int nativeHeight = 1920;
 
     public enum ScreenQuality
     {
@@ -30,6 +30,14 @@ public class SetResolution : MonoBehaviour
         new Vector2(720, 1280),
         new Vector2(270, 480),
     };
+
+    public void InitResolution()
+    {
+        nativeHeight = Screen.height;
+        nativeWidth = Screen.width;
+
+        AdjustResolution();
+    }
 
     public static void AdjustResolution()
     {
@@ -69,8 +77,14 @@ public class SetResolution : MonoBehaviour
         var height = resolution.y;
         var width = resolution.x;
 
+        if(height > nativeHeight && width > nativeWidth)
+        {
+            Debug.Log("Screen size too small.");
+            return;
+        }
+
         float scale = (float)Screen.height / height;
-        Screen.SetResolution(Mathf.RoundToInt(Screen.width / scale), Mathf.RoundToInt(Screen.height / scale), true, 30);
+        Screen.SetResolution(Mathf.RoundToInt(Screen.width / scale), Mathf.RoundToInt(Screen.height / scale), true);
 
         currentQuality = quality;
 

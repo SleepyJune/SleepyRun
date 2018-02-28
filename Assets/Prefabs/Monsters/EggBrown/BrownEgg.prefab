@@ -22,8 +22,9 @@ GameObject:
   - component: {fileID: 135955215755870874}
   - component: {fileID: 114279824525025166}
   - component: {fileID: 114422642570671890}
+  - component: {fileID: 114246313662549732}
   m_Layer: 8
-  m_Name: GreenEgg
+  m_Name: BrownEgg
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -591,6 +592,19 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114246313662549732
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1041213432282532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionInfo: {fileID: 114670791708798688, guid: a262e72830d79f140851cc870ecc1585,
+    type: 2}
 --- !u!114 &114279824525025166
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -602,19 +616,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  displayName: Kiwi
+  displayName: Brown Egg
   prefabID: 0
-  speed: 7.5
+  speed: 10
   anim: {fileID: 0}
-  maxHealth: 2
-  defense: 50
+  maxHealth: 5
+  defense: 0
   isImmovable: 0
   isInvincible: 0
   damage: 10
   monsterType: 4
-  buffOnHit: {fileID: 11400000, guid: 22916b696808d684ea08fe6774a71611, type: 2}
-  image: {fileID: 21300000, guid: f0d98cda249f5a64e9035853be1baf7a, type: 3}
-  description: Getting hit by these will make your head dizzy.
+  buffOnHit: {fileID: 0}
+  image: {fileID: 21300000, guid: 0a4313577daf718418044faa9d671cfa, type: 3}
+  description: These eggs are hiding apples in them.
 --- !u!114 &114422642570671890
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -874,7 +888,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0abbbc08e2c0ae344a1a48c009be9032, type: 2}
+  - {fileID: 2100000, guid: 3543186489e9bd345868bc020fafd922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -928,7 +942,7 @@ SkinnedMeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 0abbbc08e2c0ae344a1a48c009be9032, type: 2}
+  - {fileID: 2100000, guid: 3543186489e9bd345868bc020fafd922, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

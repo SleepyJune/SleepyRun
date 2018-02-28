@@ -10,8 +10,8 @@ public class LevelCompleteScript : MonoBehaviour
 {
     LevelStats stats;
 
-    public Text pointText;
-    public Text missedCountText;
+    public Text collectedText;
+    public Text pointsText;
     public Text killCountText;
     public Text timeText;
     public Text earningText;
@@ -48,15 +48,16 @@ public class LevelCompleteScript : MonoBehaviour
         float killPercent = (float)stats.monstersKilled / totalMonsters;
         float levelTimePercent = stats.time / stats.levelTime;
 
-        pointText.text = stats.monstersCollected.ToString();
-        missedCountText.text = stats.monstersMissedCount.ToString();
+        collectedText.text = stats.monstersCollected.ToString();
+        pointsText.text = stats.points.ToString();
 
         int hourlyRate = (int)Math.Round(stats.moneyEarned / Math.Ceiling(stats.time / 60));
 
         killCountText.text = "$" + hourlyRate.ToString() + "/hr";
 
-        string minSec = string.Format("{0}:{1:00}", (int)stats.time / 60, (int)stats.time % 60);
-        timeText.text = minSec;
+        //string minSec = string.Format("{0}:{1:00}", (int)stats.time / 60, (int)stats.time % 60);
+
+        timeText.text = stats.currentLevel.ToString();// minSec;
 
         earningText.text = "$" + stats.moneyEarned.ToString();
 

@@ -133,7 +133,7 @@ GameObject:
   - component: {fileID: 4848272219047816}
   - component: {fileID: 114404052582749598}
   m_Layer: 0
-  m_Name: EggGreen
+  m_Name: EggBrown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -408,7 +408,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114279824525025166, guid: e4ac1aace424fe64c98d56f2047ec125, type: 2}
-  spawnFrequency: 15
+  spawnFrequency: 10
 --- !u!114 &114415372961903480
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -434,7 +434,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: d127870723be926478a9137768279c4b, type: 2}
-  spawnFrequency: 5
+  spawnFrequency: 2.5
 --- !u!114 &114555843911704178
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -447,7 +447,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114351910669891932, guid: ca415a82367f2bb439329e1d4a5071e1, type: 2}
-  spawnFrequency: 15
+  spawnFrequency: 5
 --- !u!114 &114853443666338242
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -460,7 +460,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114053471282913358, guid: e13e5e5464d3b2f499b197ad9742ae70, type: 2}
-  spawnFrequency: 20
+  spawnFrequency: 10
 --- !u!114 &114857574025624986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -473,7 +473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   monster: {fileID: 114154353901187418, guid: b43261faa8ff7d2468972b93ae8fe07b, type: 2}
-  spawnFrequency: 1.5
+  spawnFrequency: 1
 --- !u!114 &114944193831916084
 MonoBehaviour:
   m_ObjectHideFlags: 1

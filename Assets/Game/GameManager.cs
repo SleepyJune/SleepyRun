@@ -298,7 +298,7 @@ public class GameManager : MonoBehaviour
                 textOverlayManager.CreateVictoryText();
                                 
                 scoreManager.SetNewLevelStats(levelComplete);
-                DelayAction.Add(() => SceneChanger.ChangeScene("LevelComplete2"), 5);
+                DelayAction.Add(() => SceneChanger.ChangeScene("GameComplete"), 5);
             }            
         }
     }
