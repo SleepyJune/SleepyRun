@@ -12,31 +12,30 @@ MonoBehaviour:
   m_Name: PickupRate
   m_EditorClassIdentifier: 
   upgradeName: PickupRate
-  description: Increases chances of getting a skill from apples.
+  description: Increases chances of getting a skill from apples to (value).
   iconImage: {fileID: 21300000, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
   baseStatValue: 0.2
-  maxStatValue: 1
   valueIncreament: 0.05
-  baseCost: 500
-  costIncreament: 500
-  costIncreamentExponential: 3
+  baseCost: 100
+  costIncreament: 100
+  costIncreamentExponential: 1
   maxLevel: 10
   stats:
-  - {fileID: 114565338795655826}
-  - {fileID: 114442910610539736}
-  - {fileID: 114958237689560298}
-  - {fileID: 114320933841713794}
-  - {fileID: 114868674848874522}
-  - {fileID: 114673393389381844}
-  - {fileID: 114359155505265410}
-  - {fileID: 114026251163737870}
-  - {fileID: 114263015376783244}
-  - {fileID: 114437386104586126}
+  - {fileID: 114627746671731560}
+  - {fileID: 114469744102813424}
+  - {fileID: 114756711563937886}
+  - {fileID: 114444166161682914}
+  - {fileID: 114755789327482900}
+  - {fileID: 114174841619144076}
+  - {fileID: 114933428934241420}
+  - {fileID: 114109403604709626}
+  - {fileID: 114177495096676464}
+  - {fileID: 114718810798207852}
   defaultMockLevel: 5
   targetObj: 3
   prefabTargetObj: {fileID: 0}
   targetString: spawnRate
---- !u!114 &114026251163737870
+--- !u!114 &114109403604709626
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -49,8 +48,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 7
   value: 0.55
-  cost: 365000
---- !u!114 &114263015376783244
+  cost: 700
+  description: Increases chances of getting a skill from apples to 55%.
+--- !u!114 &114174841619144076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 5
+  m_EditorClassIdentifier: 
+  level: 5
+  value: 0.45000002
+  cost: 500
+  description: Increases chances of getting a skill from apples to 45%.
+--- !u!114 &114177495096676464
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -63,8 +78,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 8
   value: 0.6
-  cost: 1094000
---- !u!114 &114320933841713794
+  cost: 800
+  description: Increases chances of getting a skill from apples to 60%.
+--- !u!114 &114444166161682914
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -77,36 +93,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 3
   value: 0.35
-  cost: 5000
---- !u!114 &114359155505265410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 6
-  m_EditorClassIdentifier: 
-  level: 6
-  value: 0.5
-  cost: 122000
---- !u!114 &114437386104586126
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 9
-  m_EditorClassIdentifier: 
-  level: 9
-  value: 0.65000004
-  cost: 3281000
---- !u!114 &114442910610539736
+  cost: 300
+  description: Increases chances of getting a skill from apples to 35%.
+--- !u!114 &114469744102813424
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -119,8 +108,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   value: 0.25
-  cost: 500
---- !u!114 &114565338795655826
+  cost: 100
+  description: Increases chances of getting a skill from apples to 25%.
+--- !u!114 &114627746671731560
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -134,7 +124,8 @@ MonoBehaviour:
   level: 0
   value: 0.2
   cost: 0
---- !u!114 &114673393389381844
+  description: Increases chances of getting a skill from apples to 20%.
+--- !u!114 &114718810798207852
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -143,12 +134,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 5
+  m_Name: Level 9
   m_EditorClassIdentifier: 
-  level: 5
-  value: 0.45000002
-  cost: 41000
---- !u!114 &114868674848874522
+  level: 9
+  value: 0.65000004
+  cost: 900
+  description: Increases chances of getting a skill from apples to 65%.
+--- !u!114 &114755789327482900
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -161,8 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 4
   value: 0.4
-  cost: 14000
---- !u!114 &114958237689560298
+  cost: 400
+  description: Increases chances of getting a skill from apples to 40%.
+--- !u!114 &114756711563937886
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -175,4 +168,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   value: 0.3
-  cost: 2000
+  cost: 200
+  description: Increases chances of getting a skill from apples to 30%.
+--- !u!114 &114933428934241420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  level: 6
+  value: 0.5
+  cost: 600
+  description: Increases chances of getting a skill from apples to 50%.

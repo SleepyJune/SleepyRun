@@ -144,7 +144,7 @@ public class Player : Unit
     {
         if (!GameManager.instance.isGameOver && !isDead)
         {
-            health += 1;//gain;
+            health += gain;
 
             if(health > maxHealth)
             {

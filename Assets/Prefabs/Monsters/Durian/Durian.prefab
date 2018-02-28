@@ -491,7 +491,7 @@ MonoBehaviour:
   speed: 3
   anim: {fileID: 0}
   maxHealth: 2
-  defense: 25
+  defense: 50
   isImmovable: 0
   isInvincible: 0
   damage: 30

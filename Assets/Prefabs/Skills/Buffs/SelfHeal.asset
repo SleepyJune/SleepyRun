@@ -11,8 +11,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271e54019540b9649a7fec0483b0b82b, type: 3}
   m_Name: SelfHeal
   m_EditorClassIdentifier: 
-  buffID: 0
   buffName: SelfHeal
   duration: 0
   continuousBuff: 0
-  healing: 10
+  endsOnOwnerDeath: 0
+  healing: 1

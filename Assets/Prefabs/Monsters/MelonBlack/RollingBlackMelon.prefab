@@ -309,17 +309,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   displayName: Black Melon
   prefabID: 0
-  speed: 10
+  speed: 20
   anim: {fileID: 95174302885744688}
-  maxHealth: 50
-  defense: 50
+  maxHealth: 10
+  defense: 0
   isImmovable: 0
   isInvincible: 0
-  damage: 100
-  monsterType: 2
-  buffOnHit: {fileID: 0}
+  damage: 10
+  monsterType: 4
+  buffOnHit: {fileID: 11400000, guid: f3cc37fee42df12499dbb2063ca706fc, type: 2}
   image: {fileID: 21300000, guid: b4d8d4ddee10bc7468ef799383169843, type: 3}
-  description: Mean black melons.
+  description: Getting hit by these will disable all skills.
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

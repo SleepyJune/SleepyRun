@@ -9,56 +9,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 40facebc54a50154db0fe05f0264fe5b, type: 3}
-  m_Name: SpellSlots
+  m_Name: ApplePie
   m_EditorClassIdentifier: 
-  upgradeName: SpellSlots
-  description: Increases number of spell slots to (value).
-  iconImage: {fileID: 21300000, guid: 0a54b7ffb8034944f97635f1136c904e, type: 3}
-  baseStatValue: 3
+  upgradeName: ApplePie
+  description: Increases to (value) hearts per pie.
+  iconImage: {fileID: 21300020, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
+  baseStatValue: 1
   valueIncreament: 1
-  baseCost: 500
+  baseCost: 250
   costIncreament: 500
-  costIncreamentExponential: 3
+  costIncreamentExponential: 1.5
   maxLevel: 3
   stats:
-  - {fileID: 114494737864461888}
-  - {fileID: 114447520980669172}
-  - {fileID: 114853907301324916}
-  defaultMockLevel: 1
-  targetObj: 2
-  prefabTargetObj: {fileID: 0}
-  targetString: numSpellSlots
---- !u!114 &114447520980669172
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 1
-  m_EditorClassIdentifier: 
-  level: 1
-  value: 4
-  cost: 500
-  description: Increases number of spell slots to 4.
---- !u!114 &114494737864461888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 0
-  m_EditorClassIdentifier: 
-  level: 0
-  value: 3
-  cost: 0
-  description: Increases number of spell slots to 3.
---- !u!114 &114853907301324916
+  - {fileID: 114811537565287008}
+  - {fileID: 114839210492697482}
+  - {fileID: 114741956562093520}
+  defaultMockLevel: 2
+  targetObj: 0
+  prefabTargetObj: {fileID: 11400000, guid: 6d75495f5ff43db4a9f4ef4b8a647714, type: 2}
+  targetString: healing
+--- !u!114 &114741956562093520
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -70,6 +40,36 @@ MonoBehaviour:
   m_Name: Level 2
   m_EditorClassIdentifier: 
   level: 2
-  value: 5
-  cost: 1000
-  description: Increases number of spell slots to 5.
+  value: 3
+  cost: 750
+  description: Increases to 3 hearts per pie.
+--- !u!114 &114811537565287008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 0
+  m_EditorClassIdentifier: 
+  level: 0
+  value: 1
+  cost: 0
+  description: Increases to 1 hearts per pie.
+--- !u!114 &114839210492697482
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  level: 1
+  value: 2
+  cost: 250
+  description: Increases to 2 hearts per pie.

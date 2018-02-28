@@ -53,8 +53,8 @@ public class SceneLoader : MonoBehaviour {
 
         while (!ao.isDone)
         {
-            if (loadingBar) loadingBar.value = ao.progress; //  float progress = Mathf.Clamp01(ao.progress / 0.9f);
-
+            if (loadingBar) loadingBar.value = Mathf.Clamp01(ao.progress / 0.9f);
+                        
             if (ao.progress >= 0.9f && !ao.allowSceneActivation)
             {
                 ao.allowSceneActivation = true;

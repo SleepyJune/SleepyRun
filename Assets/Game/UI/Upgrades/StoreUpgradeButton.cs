@@ -41,7 +41,7 @@ public class StoreUpgradeButton : MonoBehaviour
 
         if (descText)
         {
-            descText.text = upgrade.description;
+            descText.text = upgradeInfo.description;
         }
 
         SetButtonInteractive(upgradeInfo.cost);

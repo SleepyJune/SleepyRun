@@ -606,15 +606,15 @@ MonoBehaviour:
   prefabID: 0
   speed: 7.5
   anim: {fileID: 0}
-  maxHealth: 10
-  defense: 0
+  maxHealth: 2
+  defense: 50
   isImmovable: 0
   isInvincible: 0
   damage: 10
   monsterType: 4
-  buffOnHit: {fileID: 11400000, guid: f3cc37fee42df12499dbb2063ca706fc, type: 2}
+  buffOnHit: {fileID: 11400000, guid: 22916b696808d684ea08fe6774a71611, type: 2}
   image: {fileID: 21300000, guid: f0d98cda249f5a64e9035853be1baf7a, type: 3}
-  description: Getting hit by these will disable all skills.
+  description: Getting hit by these will make your head dizzy.
 --- !u!114 &114422642570671890
 MonoBehaviour:
   m_ObjectHideFlags: 1

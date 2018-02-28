@@ -13,6 +13,9 @@ public class SettingsWindow : CanvasGroupWindow
     public Slider volumeSlider;
     public Slider musicSlider;
 
+    public Toggle[] qualityGroup;
+    public SetResolution resolutionController;
+
     string volumeString = "volume";
 
     string musicString = "musicVolume";
@@ -47,6 +50,23 @@ public class SettingsWindow : CanvasGroupWindow
                 musicSource.volume = musicVolume;            
                 musicSlider.value = musicVolume;
             }
+        }
+
+        if (PlayerPrefs.HasKey("ScreenQuality"))
+        {
+            var toggle = qualityGroup[PlayerPrefs.GetInt("ScreenQuality")];
+
+            if (toggle)
+            {
+                toggle.isOn = true;
+            }
+        }
+
+        for(int i = 0; i < qualityGroup.Length; i++)
+        {
+            int qualityValue = i;
+
+            qualityGroup[i].onValueChanged.AddListener((value) => resolutionController.SetPreferedQuality(value, qualityValue));
         }
 
         AdjustSoundEffectsVolume(volume);

@@ -12,31 +12,31 @@ MonoBehaviour:
   m_Name: PlayerSpeed
   m_EditorClassIdentifier: 
   upgradeName: MovementSpeed
-  description: Increases side to side movement speed.
+  description: Increases movement speed to (value).
   iconImage: {fileID: 21300000, guid: 228e598457f52fc45bb6827bcdbc5c01, type: 3}
   baseStatValue: 6
   valueIncreament: 2
   baseCost: 100
-  costIncreament: 50
-  costIncreamentExponential: 1.5
+  costIncreament: 75
+  costIncreamentExponential: 1
   maxLevel: 11
   stats:
-  - {fileID: 114141155456585098}
-  - {fileID: 114364433489554570}
-  - {fileID: 114278201760314816}
-  - {fileID: 114092447683083338}
-  - {fileID: 114563863931213282}
-  - {fileID: 114144661235959974}
-  - {fileID: 114928588561120360}
-  - {fileID: 114312244787919108}
-  - {fileID: 114018864502079816}
-  - {fileID: 114456544984283532}
-  - {fileID: 114832379750326464}
+  - {fileID: 114295628449143194}
+  - {fileID: 114977391251326650}
+  - {fileID: 114476424706871478}
+  - {fileID: 114411252669642696}
+  - {fileID: 114081119833412982}
+  - {fileID: 114709892118123550}
+  - {fileID: 114935088575261624}
+  - {fileID: 114970734617211298}
+  - {fileID: 114023242137358858}
+  - {fileID: 114918556097862492}
+  - {fileID: 114330882871843152}
   defaultMockLevel: 5
   targetObj: 2
   prefabTargetObj: {fileID: 0}
   targetString: speed
---- !u!114 &114018864502079816
+--- !u!114 &114023242137358858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -49,8 +49,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 8
   value: 22
-  cost: 950
---- !u!114 &114092447683083338
+  cost: 620
+  description: Increases movement speed to 22.
+--- !u!114 &114081119833412982
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -59,12 +60,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 3
+  m_Name: Level 4
   m_EditorClassIdentifier: 
-  level: 3
-  value: 12
-  cost: 210
---- !u!114 &114141155456585098
+  level: 4
+  value: 14
+  cost: 320
+  description: Increases movement speed to 14.
+--- !u!114 &114295628449143194
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -78,7 +80,8 @@ MonoBehaviour:
   level: 0
   value: 6
   cost: 0
---- !u!114 &114144661235959974
+  description: Increases movement speed to 6.
+--- !u!114 &114330882871843152
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -87,12 +90,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 5
+  m_Name: Level 10
   m_EditorClassIdentifier: 
-  level: 5
-  value: 16
-  cost: 350
---- !u!114 &114278201760314816
+  level: 10
+  value: 26
+  cost: 770
+  description: Increases movement speed to 26.
+--- !u!114 &114411252669642696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 3
+  m_EditorClassIdentifier: 
+  level: 3
+  value: 12
+  cost: 250
+  description: Increases movement speed to 12.
+--- !u!114 &114476424706871478
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -106,7 +125,53 @@ MonoBehaviour:
   level: 2
   value: 10
   cost: 170
---- !u!114 &114312244787919108
+  description: Increases movement speed to 10.
+--- !u!114 &114709892118123550
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 5
+  m_EditorClassIdentifier: 
+  level: 5
+  value: 16
+  cost: 400
+  description: Increases movement speed to 16.
+--- !u!114 &114918556097862492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 9
+  m_EditorClassIdentifier: 
+  level: 9
+  value: 24
+  cost: 700
+  description: Increases movement speed to 24.
+--- !u!114 &114935088575261624
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  level: 6
+  value: 18
+  cost: 470
+  description: Increases movement speed to 18.
+--- !u!114 &114970734617211298
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -119,8 +184,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 7
   value: 20
-  cost: 670
---- !u!114 &114364433489554570
+  cost: 550
+  description: Increases movement speed to 20.
+--- !u!114 &114977391251326650
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -134,59 +200,4 @@ MonoBehaviour:
   level: 1
   value: 8
   cost: 100
---- !u!114 &114456544984283532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 9
-  m_EditorClassIdentifier: 
-  level: 9
-  value: 24
-  cost: 1300
---- !u!114 &114563863931213282
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: 
-  level: 4
-  value: 14
-  cost: 260
---- !u!114 &114832379750326464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 10
-  m_EditorClassIdentifier: 
-  level: 10
-  value: 26
-  cost: 2000
---- !u!114 &114928588561120360
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 6
-  m_EditorClassIdentifier: 
-  level: 6
-  value: 18
-  cost: 480
+  description: Increases movement speed to 8.
