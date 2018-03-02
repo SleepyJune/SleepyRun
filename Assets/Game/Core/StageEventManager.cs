@@ -47,7 +47,7 @@ public class StageEventManager : MonoBehaviour
 
         if (currentStageInfo == null)
         {
-            string lastLevelString = "LastLevelPlayed";
+            /*string lastLevelString = "LastLevelPlayed";
             if (PlayerPrefs.HasKey(lastLevelString))
             {
                 currentStageInfo = stageInfoDatabase.databaseArray[PlayerPrefs.GetInt(lastLevelString) - 1];
@@ -55,7 +55,9 @@ public class StageEventManager : MonoBehaviour
             else
             {
                 currentStageInfo = stageInfoDatabase.databaseArray[0];
-            }
+            }*/
+
+            currentStageInfo = stageInfoDatabase.databaseArray[0];
         }
 
         if (currentStageInfo != null)

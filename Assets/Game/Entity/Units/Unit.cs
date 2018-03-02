@@ -221,7 +221,13 @@ public abstract class Unit : Entity
                 buffs[buff.buffName].endTime = Time.time + buff.duration; //refreshing the duration                
             }
             else
-            {                
+            {
+                if (currentBuff != null) //current buff has ended
+                {
+                    currentBuff.EndBuff();
+                    buffs.Remove(buff.buffName);
+                }
+
                 buff.ActivateBuff(this);
 
                 if(buff.duration < .1)
@@ -229,13 +235,7 @@ public abstract class Unit : Entity
                     buff.EndBuff();
                 }
                 else
-                {
-                    if(currentBuff != null)
-                    {
-                        currentBuff.EndBuff();
-                        buffs.Remove(buff.buffName);
-                    }
-
+                {                    
                     buffs.Add(buff.buffName, buff);
                 }
             }

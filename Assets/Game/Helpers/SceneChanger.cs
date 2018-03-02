@@ -10,7 +10,7 @@ public static class SceneChanger
 {
     public static StageInfo currentStageInfo;
     public static string sceneToLoad = "GameScene";
-
+    
     public static LevelStats levelStats = null;
 
     //public static bool isSurvivalMode = false;

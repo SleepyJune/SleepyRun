@@ -11,6 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508221b918f180244aa32c1627562d77, type: 3}
   m_Name: intro2
   m_EditorClassIdentifier: 
-  text: "I don\u2019t want to see any rotten brown apples and exploding melons in
-    my factory. If I find them in my factory, you will be fired! Every 60 seconds
-    you get a short break before you go to the next stage. Be grateful."
+  text: "If you SLACKOFF, you get WHIPPED\r!\nIf you DIE, you are FIRED!\nYou understand
+    me? Get on with it!"

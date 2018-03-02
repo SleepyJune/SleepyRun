@@ -319,7 +319,7 @@ MonoBehaviour:
   monsterType: 4
   buffOnHit: {fileID: 11400000, guid: f3cc37fee42df12499dbb2063ca706fc, type: 2}
   image: {fileID: 21300000, guid: b4d8d4ddee10bc7468ef799383169843, type: 3}
-  description: Getting hit by these will disable all skills.
+  description: My name is Black Melon, and I am the fastest melon alive.
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

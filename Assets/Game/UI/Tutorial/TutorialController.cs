@@ -18,6 +18,7 @@ public class TutorialController : MonoBehaviour
     public TutorialParentController tutorialParent;
 
     public Image monsterImage;
+    public Sprite slashImage;
 
     Animator anim;
     
@@ -29,6 +30,11 @@ public class TutorialController : MonoBehaviour
         }
 
         anim = tutorialObject.GetComponent<Animator>();
+    }
+
+    public void SetSlashImage()
+    {
+        monsterImage.sprite = slashImage;
     }
 
     public void ShowMonsterInfo(Monster monster)

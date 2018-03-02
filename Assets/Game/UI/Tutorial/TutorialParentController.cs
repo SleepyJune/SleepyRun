@@ -21,6 +21,11 @@ public class TutorialParentController : MonoBehaviour
         tutorialController = tutorialObject.GetComponent<TutorialController>();
     }
 
+    public void SetSlashImage()
+    {
+        tutorialController.SetSlashImage();
+    }
+
     public void StartTutorial()
     {        
         tutorialLock = true;
@@ -39,9 +44,10 @@ public class TutorialParentController : MonoBehaviour
             GameManager.instance.PauseGame();
 
             tutorialObject.SetActive(true);
-            anim.SetTrigger("MonsterInfo");
 
+            anim.SetTrigger("MonsterInfo");
             tutorialController.ShowMonsterInfo(monster);
+
 
             return true;
         }

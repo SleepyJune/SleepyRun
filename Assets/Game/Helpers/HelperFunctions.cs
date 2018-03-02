@@ -26,4 +26,19 @@ public class HelperFunctions : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
+    public void PlayAudio()
+    {
+        AudioSource audio = GetComponent<AudioSource>();
+
+        if (audio)
+        {
+            audio.Play();
+        }
+    }
+
+    public void OpenUrl(string url)
+    {
+        Application.OpenURL(url);
+    }
 }

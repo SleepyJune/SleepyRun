@@ -12,8 +12,10 @@ MonoBehaviour:
   m_Name: TutorialDialogues
   m_EditorClassIdentifier: 
   allTexts:
+  - {fileID: 11400000, guid: d3bb1dcb2a89c1144b2d4e16a9132ba4, type: 2}
   - {fileID: 11400000, guid: 417cfd8d0e3d1a54eb2addada431b25e, type: 2}
   - {fileID: 11400000, guid: b81a58cc9c4bb1641a278b946560d79e, type: 2}
+  - {fileID: 11400000, guid: d364f83eb18e01b42a6a1b60dd2f721e, type: 2}
   - {fileID: 11400000, guid: 9926fb88bb9994a49bf8b71872eb836c, type: 2}
   - {fileID: 11400000, guid: 7fe7023e2dd6fb745accb52fa44ec12b, type: 2}
   - {fileID: 11400000, guid: 169acb13efc44b54aa598ee5154207e1, type: 2}

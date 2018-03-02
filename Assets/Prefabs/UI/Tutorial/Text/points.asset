@@ -11,6 +11,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508221b918f180244aa32c1627562d77, type: 3}
   m_Name: points
   m_EditorClassIdentifier: 
-  text: This number displays the amount of coins you have earned. Each apple yields
-    you one coin, multiplied by the number of combos you have. Additionally, you gain
-    more coins as you advance through the stages.
+  text: Be a man, do the right thing. You collect 1 apple here and 1 apple there,
+    you get $1 dolla!

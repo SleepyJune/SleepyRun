@@ -11,5 +11,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 508221b918f180244aa32c1627562d77, type: 3}
   m_Name: sideMovement
   m_EditorClassIdentifier: 
-  text: To move the poor tomato girl, swipe the portrait left or right. Apples will
-    only be collected when the character touch the apples.
+  text: You just need to move side to side to collect the apples. Anyone can do that!

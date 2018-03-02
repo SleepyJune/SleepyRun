@@ -12,6 +12,8 @@ public class SetResolution : MonoBehaviour
     public static int nativeWidth = 1080;
     public static int nativeHeight = 1920;
 
+    public static bool initResolution = false;
+
     public enum ScreenQuality
     {
         High,
@@ -33,10 +35,17 @@ public class SetResolution : MonoBehaviour
 
     public void InitResolution()
     {
-        nativeHeight = Screen.height;
-        nativeWidth = Screen.width;
+        if (!initResolution)
+        {
+            Debug.Log("Init Resolution");
 
-        AdjustResolution();
+            nativeHeight = Screen.height;
+            nativeWidth = Screen.width;
+
+            initResolution = true;
+
+            AdjustResolution();
+        }
     }
 
     public static void AdjustResolution()

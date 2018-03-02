@@ -32,10 +32,12 @@ public class EffectOverlayManager : MonoBehaviour
             GameObject currentOverlay;
             if (effectOverlay.TryGetValue(key, out currentOverlay))
             {                
-                if (currentOverlay == null)
+                if (currentOverlay != null)
                 {
-                    effectOverlay[key] = newOverlay;
+                    Destroy(currentOverlay);
                 }
+
+                effectOverlay[key] = newOverlay;
             }
             else
             {

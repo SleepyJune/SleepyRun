@@ -10,6 +10,14 @@ public class DebugFunctions : MonoBehaviour
     public UpgradeDatabase upgradeDatabase;
     public StoreUpgradeButtonManager upgradeManager;
     
+    void Start()
+    {
+        if (PlayerPrefs.GetInt("DebuggingMode", 0) == 0)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public void ResetAllUpgrades()
     {
         if (upgradeDatabase)

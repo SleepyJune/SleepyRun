@@ -84,6 +84,8 @@ public class GameSceneSettings : MonoBehaviour
     {
         SetResolution.AdjustResolution();
         GameManager.instance.ResumeGame();
+
+        SceneChanger.currentStageInfo = null;
         SceneChanger.ChangeScene("GameScene");
     }
 

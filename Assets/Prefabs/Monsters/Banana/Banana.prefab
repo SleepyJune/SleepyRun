@@ -492,7 +492,7 @@ MonoBehaviour:
   monsterType: 4
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: 7790b772eb76e1a4aa0c386425369bbd, type: 3}
-  description: These banana shoot out blinding darts!
+  description: Ba-ba-ba-ba-ba-nana... Shoot! Who turned off the lights?
 --- !u!114 &114878152614800402
 MonoBehaviour:
   m_ObjectHideFlags: 1
