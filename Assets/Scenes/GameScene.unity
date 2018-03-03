@@ -6408,6 +6408,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114854154426828036, guid: 485d8211c87e38e48b7dbf223f79bfa6,
+        type: 2}
+      propertyPath: clickSounds.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 2fe1d9e973744bb43bb5121009e2e3ac, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 485d8211c87e38e48b7dbf223f79bfa6, type: 2}
   m_IsPrefabParent: 0

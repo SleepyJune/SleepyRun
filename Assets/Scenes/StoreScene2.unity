@@ -786,7 +786,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &600634005
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1781,6 +1781,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 96713ec78f9e06249844096736cccb4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isWindowOpen: 0
   coinSound: {fileID: 8300000, guid: 2fe1d9e973744bb43bb5121009e2e3ac, type: 3}
   uiAudioSource: {fileID: 918755375}
   upgradeManager: {fileID: 176609990}
