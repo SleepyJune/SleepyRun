@@ -91,7 +91,7 @@ public class StageEventManager : MonoBehaviour
 
             Debug.Log("Top passed: " + topPassedLevel);
 
-            if (topPassedLevel >= 20 && MoneyManager.instance.GetGold() >= GameManager.instance.skipLevelGold)
+            if (topPassedLevel >= 10 && MoneyManager.instance.GetGold() >= GameManager.instance.skipLevelGold)
             {
                 GameManager.instance.textOverlayManager.CreateSkipLevelOverlay();
             }

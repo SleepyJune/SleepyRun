@@ -29,6 +29,16 @@ public class IntroSceneController : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("DebuggingMode", 1);
+        }        
+    }
+
+    public void AddGold()
+    {
+        var currentMode = PlayerPrefs.GetInt("DebuggingMode", 0) == 1;
+
+        if (currentMode)
+        {
+            //MoneyManager.instance.IncreaseGold(500);
         }
     }
 
