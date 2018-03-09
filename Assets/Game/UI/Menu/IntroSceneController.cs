@@ -38,7 +38,7 @@ public class IntroSceneController : MonoBehaviour
 
         if (currentMode)
         {
-            //MoneyManager.instance.IncreaseGold(500);
+            MoneyManager.instance.IncreaseGold(500);
         }
     }
 

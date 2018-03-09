@@ -12,10 +12,10 @@ public class DebugFunctions : MonoBehaviour
     
     void Start()
     {
-        if (PlayerPrefs.GetInt("DebuggingMode", 0) == 0)
+        /*if (PlayerPrefs.GetInt("DebuggingMode", 0) == 0)
         {
             Destroy(gameObject);
-        }
+        }*/
     }
 
     public void ResetAllUpgrades()
@@ -34,7 +34,7 @@ public class DebugFunctions : MonoBehaviour
 
             if(MoneyManager.instance.GetGold() == 0)
             {
-                //PlayerPrefs.SetInt("Gold", 999999);
+                PlayerPrefs.SetInt("Gold", 999999);
             }
             else
             {
