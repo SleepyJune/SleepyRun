@@ -19,8 +19,16 @@ public class RandomIntervalSpawnMonsterEvent : StageEvent
 
     public float spawnFrequency = 1;
 
+    public GameMode gameModeSpecific = GameMode.All;
+
     public override void ExecuteEvent()
     {
+        if(gameModeSpecific != GameMode.All && gameModeSpecific != GameManager.instance.gameMode)
+        {
+            isExecuted = true;
+            return;
+        }
+
         var playerZPos = GameManager.instance.player.transform.position.z;
         if (playerZPos >= zPositionStart && playerZPos <= zPositionEnd)
         {

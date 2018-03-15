@@ -30,6 +30,8 @@ public class Monster : Unit
 
     public string description;
 
+    public GameObject tutorialObject;
+
     Player player;
 
     void Awake()

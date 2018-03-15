@@ -629,6 +629,8 @@ MonoBehaviour:
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: 0a4313577daf718418044faa9d671cfa, type: 3}
   description: These eggs are hiding apples in them.
+  tutorialObject: {fileID: 1446524254375932, guid: afd438a872a3f754184a4d080ddd9a80,
+    type: 2}
 --- !u!114 &114422642570671890
 MonoBehaviour:
   m_ObjectHideFlags: 1

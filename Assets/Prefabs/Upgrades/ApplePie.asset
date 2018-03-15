@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   upgradeName: ApplePie
   description: Increases to (value) hearts per pie.
-  iconImage: {fileID: 21300020, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
+  iconImage: {fileID: 21300106, guid: eba5b648b1e291b45b14dcc88533bba1, type: 3}
   baseStatValue: 1
   valueIncreament: 1
   baseCost: 250

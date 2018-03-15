@@ -350,6 +350,8 @@ MonoBehaviour:
   buffOnHit: {fileID: 11400000, guid: 7ae4fc81786dd2b4c9045d40e76504bb, type: 2}
   image: {fileID: 21300000, guid: 8196eeca684e12743b107e21b7a73090, type: 3}
   description: Golden Apple!? MINE! MINE! MINE!
+  tutorialObject: {fileID: 1209413985767166, guid: deb347a97cfe46345a3daff55384d843,
+    type: 2}
 --- !u!114 &114501068332162278
 MonoBehaviour:
   m_ObjectHideFlags: 1

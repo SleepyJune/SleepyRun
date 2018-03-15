@@ -11,10 +11,20 @@ public enum Lane
     right
 }
 
+public enum GameMode
+{
+    All,
+    Tutorial,
+    Easy,
+    Hard,
+}
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
-        
+
+    public GameMode gameMode = GameMode.Hard;
+       
     [NonSerialized]
     public FloorManager floorManager;
     [NonSerialized]
@@ -66,10 +76,7 @@ public class GameManager : MonoBehaviour
     public bool isMovingToNextWave = false;
 
     public float screenDPI;
-
-    [NonSerialized]
-    public bool isSurvivalMode = false;
-
+    
     public float pauseCountdownEndTime = 0;
 
     public int reviveCount = 2;

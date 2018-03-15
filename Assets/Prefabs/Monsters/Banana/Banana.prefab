@@ -493,6 +493,8 @@ MonoBehaviour:
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: 7790b772eb76e1a4aa0c386425369bbd, type: 3}
   description: Ba-ba-ba-ba-ba-nana... Shoot! Who turned off the lights?
+  tutorialObject: {fileID: 1977900441156650, guid: f818f8d778eb4384ab1d75ad17030981,
+    type: 2}
 --- !u!114 &114878152614800402
 MonoBehaviour:
   m_ObjectHideFlags: 1

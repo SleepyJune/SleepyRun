@@ -350,6 +350,8 @@ MonoBehaviour:
   buffOnHit: {fileID: 11400000, guid: 22916b696808d684ea08fe6774a71611, type: 2}
   image: {fileID: 21300000, guid: 05c2fd15357f01941bac1c3ed068c669, type: 3}
   description: Getting hit by these will make your head dizzy.
+  tutorialObject: {fileID: 1758480784043440, guid: e29c809206026ce44835460029e1fbb1,
+    type: 2}
 --- !u!114 &114501068332162278
 MonoBehaviour:
   m_ObjectHideFlags: 1

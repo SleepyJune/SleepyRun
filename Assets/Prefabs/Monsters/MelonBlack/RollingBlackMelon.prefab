@@ -320,6 +320,8 @@ MonoBehaviour:
   buffOnHit: {fileID: 11400000, guid: f3cc37fee42df12499dbb2063ca706fc, type: 2}
   image: {fileID: 21300000, guid: b4d8d4ddee10bc7468ef799383169843, type: 3}
   description: My name is Black Melon, and I am the fastest melon alive.
+  tutorialObject: {fileID: 1201935320337288, guid: 3d11694c043fe42489dd1b26ae0b0364,
+    type: 2}
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

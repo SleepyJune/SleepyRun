@@ -9,6 +9,7 @@ public class TutorialParentController : MonoBehaviour
 {
     public GameObject tutorialObject;
 
+    public Transform monsterTutorialParent;
     TutorialController tutorialController;
 
     Animator anim;
@@ -40,16 +41,25 @@ public class TutorialParentController : MonoBehaviour
     {
         if (!tutorialLock)
         {
-            tutorialLock = true;
-            GameManager.instance.PauseGame();
+            if (monster.tutorialObject != null)
+            {
+                tutorialLock = true;
+                GameManager.instance.PauseGame();
 
-            tutorialObject.SetActive(true);
+                //tutorialObject.SetActive(true);
 
-            anim.SetTrigger("MonsterInfo");
-            tutorialController.ShowMonsterInfo(monster);
+                //anim.SetTrigger("MonsterInfo");
+                //tutorialController.ShowMonsterInfo(monster);
 
+                var newTutorial = Instantiate(monster.tutorialObject, monsterTutorialParent);
+                //newTutorial.transform.SetParent(monsterTutorialParent, false);
 
-            return true;
+                return true;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         return false;

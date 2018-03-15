@@ -335,6 +335,8 @@ MonoBehaviour:
   image: {fileID: 21300000, guid: e46b262055b91814a87519990306a18a, type: 3}
   description: "The previous employee had some trouble with these, but I\u2019m sure
     you\u2019ll do fine."
+  tutorialObject: {fileID: 1695075151586904, guid: 27da9d93415b4e24888a010625d4b800,
+    type: 2}
 --- !u!135 &135840349860980368
 SphereCollider:
   m_ObjectHideFlags: 1

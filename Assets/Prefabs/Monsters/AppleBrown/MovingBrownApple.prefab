@@ -351,6 +351,8 @@ MonoBehaviour:
   buffOnHit: {fileID: 0}
   image: {fileID: 21300000, guid: d72fb36044513a24aa93dfc0aa923f92, type: 3}
   description: Rotten trash! Throw them out!
+  tutorialObject: {fileID: 1387423638652140, guid: 2b6ac2897040d044ab4f1f2c410f936e,
+    type: 2}
 --- !u!114 &114249481325317622
 MonoBehaviour:
   m_ObjectHideFlags: 1

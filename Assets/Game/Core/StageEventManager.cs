@@ -15,9 +15,7 @@ public class StageEventManager : MonoBehaviour
             
     public int currentStageCount = 0;
     public int currentWaveCount = 0;
-
-    public bool isSurvivalMode = false;
-    
+        
     public Transform killCountUI;
 
     public TutorialParentController tutorialController;
@@ -36,9 +34,7 @@ public class StageEventManager : MonoBehaviour
     GameOverOnKillCountEvent victoryCondition;
 
     void Start()
-    {
-        GameManager.instance.isSurvivalMode = isSurvivalMode;
-        
+    {                
         currentStageInfo = SceneChanger.currentStageInfo;
 
         killCountCanvasGroup = killCountUI.GetComponent<CanvasGroup>();
@@ -209,7 +205,7 @@ public class StageEventManager : MonoBehaviour
     {
         var monsterTutorialString = "Tutorial_MonsterInfo_" + monster.name;
 
-        if (!PlayerPrefs.HasKey(monsterTutorialString))
+        if (true)//!PlayerPrefs.HasKey(monsterTutorialString))
         {
             if (!tutorialController.ShowMonsterInfo(monster))
             {

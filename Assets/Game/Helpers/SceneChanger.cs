@@ -12,9 +12,7 @@ public static class SceneChanger
     public static string sceneToLoad = "GameScene";
     
     public static LevelStats levelStats = null;
-
-    //public static bool isSurvivalMode = false;
-
+    
     public static void ChangeScene(string str)
     {
         Time.timeScale = 1f;
