@@ -130,7 +130,8 @@ public class MonsterManager : MonoBehaviour
     public void AddMonsterCollectedCount(Monster monster)
     {
         IncreaseDatabaseCount(monsterCollectedCount, monster);
-        IncreaseDatabaseCount(stageMonsterCollectedCount, monster);
+        var count = IncreaseDatabaseCount(stageMonsterCollectedCount, monster);
+        GameManager.instance.stageEventManager.UpdateVictoryCondition(monster, count, true);
     }
 
     public void AddMonsterCount(Monster monster)
@@ -179,7 +180,7 @@ public class MonsterManager : MonoBehaviour
         {
             monsterKillCount.Add(monster.name, 1);
         }
-
+                
         GameManager.instance.stageEventManager.UpdateVictoryCondition(monster, killCount + 1);
 
         IncreaseDatabaseCount(totalMonsterKillCount, monster);
@@ -194,16 +195,18 @@ public class MonsterManager : MonoBehaviour
         stageGoodMonsterSpawn = 0;
     }
 
-    public void IncreaseDatabaseCount(Dictionary<string, int> database, Monster monster)
+    public int IncreaseDatabaseCount(Dictionary<string, int> database, Monster monster)
     {
         int count;
         if (database.TryGetValue(monster.name, out count))
         {
             database[monster.name] = count + 1;
+            return count + 1;
         }
         else
         {
             database.Add(monster.name, 1);
+            return 1;
         }
     }
 

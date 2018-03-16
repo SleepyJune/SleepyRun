@@ -114,11 +114,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4141649525306244}
   - component: {fileID: 135124130039191500}
-  - component: {fileID: 114154353901187418}
+  - component: {fileID: 114387288338565438}
   - component: {fileID: 114420069893495174}
-  - component: {fileID: 114249481325317622}
   m_Layer: 8
-  m_Name: MovingApple
+  m_Name: TutorialApple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,7 +326,7 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114154353901187418
+--- !u!114 &114387288338565438
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -335,7 +334,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1898119437938522}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
+  m_Script: {fileID: 11500000, guid: 3ad818a82bc432b4ea02b5b7e7221c5f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   displayName: Apple
@@ -353,19 +352,6 @@ MonoBehaviour:
   description: "An apple a day, keeps the debt collectors away. Hahaha, just kidding,
     you\u2019re working here for life!"
   tutorialObject: {fileID: 1470715002674968, guid: 25199bb32112cf746a0870326328be9a,
-    type: 2}
---- !u!114 &114249481325317622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1898119437938522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionInfo: {fileID: 114247615370516076, guid: 17c8ec4b258c0de4db2b9332f472466d,
     type: 2}
 --- !u!114 &114420069893495174
 MonoBehaviour:

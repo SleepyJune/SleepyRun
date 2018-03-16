@@ -114,11 +114,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4141649525306244}
   - component: {fileID: 135124130039191500}
-  - component: {fileID: 114154353901187418}
+  - component: {fileID: 114962188243582678}
   - component: {fileID: 114420069893495174}
-  - component: {fileID: 114249481325317622}
   m_Layer: 8
-  m_Name: MovingApple
+  m_Name: TutorialBrownApple
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -327,46 +326,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &114154353901187418
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1898119437938522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cd910a74af6a4ed45b0802760eef9c31, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  displayName: Apple
-  prefabID: 0
-  speed: 5
-  anim: {fileID: 95819187710336606}
-  maxHealth: 10
-  defense: 0
-  isImmovable: 0
-  isInvincible: 0
-  damage: 1
-  monsterType: 1
-  buffOnHit: {fileID: 11400000, guid: 75c9fb48692e0d948b7841393811dd8e, type: 2}
-  image: {fileID: 21300000, guid: 21df45a0f799ab04791b17bd794b74b6, type: 3}
-  description: "An apple a day, keeps the debt collectors away. Hahaha, just kidding,
-    you\u2019re working here for life!"
-  tutorialObject: {fileID: 1470715002674968, guid: 25199bb32112cf746a0870326328be9a,
-    type: 2}
---- !u!114 &114249481325317622
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1898119437938522}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 897bf43f511df9547adb3925c124979d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  actionInfo: {fileID: 114247615370516076, guid: 17c8ec4b258c0de4db2b9332f472466d,
-    type: 2}
 --- !u!114 &114420069893495174
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -378,11 +337,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4724fbbf929880841b195c2a5a8a56c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shatterPrefab: {fileID: 1552307577609124, guid: 8c80a94f68722f94b92cb3099b5b4310,
+  shatterPrefab: {fileID: 1552307577609124, guid: 2386c32f4533c014483bd1daa6f8bff5,
     type: 2}
   explodeOnShatter: 0
   explosionForce: 1
   explosionPosition: {x: 0, y: 0, z: 0}
+--- !u!114 &114962188243582678
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1898119437938522}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ad818a82bc432b4ea02b5b7e7221c5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  displayName: Brown Apple
+  prefabID: 0
+  speed: 5
+  anim: {fileID: 95819187710336606}
+  maxHealth: 10
+  defense: 0
+  isImmovable: 0
+  isInvincible: 0
+  damage: 10
+  monsterType: 4
+  buffOnHit: {fileID: 0}
+  image: {fileID: 21300000, guid: d72fb36044513a24aa93dfc0aa923f92, type: 3}
+  description: Rotten trash! Throw them out!
+  tutorialObject: {fileID: 1387423638652140, guid: 2b6ac2897040d044ab4f1f2c410f936e,
+    type: 2}
 --- !u!135 &135124130039191500
 SphereCollider:
   m_ObjectHideFlags: 1
@@ -410,7 +395,7 @@ SkinnedMeshRenderer:
   m_ReflectionProbeUsage: 1
   m_Materials:
   - {fileID: 2100000, guid: 2683470fe2184e54e8df440f883e3bb4, type: 2}
-  - {fileID: 2100000, guid: e6c6ad2a9803a424da5a4bb6ca01f371, type: 2}
+  - {fileID: 2100000, guid: bf4ded00404c30e4bbdee173a2eb7e29, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

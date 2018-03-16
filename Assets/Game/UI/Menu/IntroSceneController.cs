@@ -9,7 +9,9 @@ using UnityEngine.UI;
 public class IntroSceneController : MonoBehaviour
 {
     public Text versionText;
-        
+
+    public StageInfoDatabase stageDatabase;
+
     void Start()
     {
         if (versionText)
@@ -44,7 +46,41 @@ public class IntroSceneController : MonoBehaviour
 
     public void StartGame()
     {
-        SceneChanger.currentStageInfo = null;
-        SceneChanger.ChangeScene("LoadingScene");
+        //SceneChanger.currentStageInfo = null;
+        //SceneChanger.ChangeScene("LoadingScene");
+
+        string topLevelString = "TopLevelPassed";
+        var topPassedLevel = 0;// PlayerPrefs.GetInt(topLevelString, 0);
+        
+        if (topPassedLevel >= 10)
+        {
+            LoadLevel(9);
+        }
+        else if(topPassedLevel >= 3)
+        {
+            LoadLevel(4);
+        }
+        else
+        {
+            LoadLevel(0);
+        }
+
+    }
+
+    public void LoadLevel(int stageID)
+    {
+        if (stageID >= stageDatabase.databaseArray.Length)
+        {
+            return;
+        }
+
+        StageInfo stageInfo = stageDatabase.databaseArray[stageID];
+
+        if (stageInfo != null)
+        {
+            SceneChanger.currentStageInfo = stageInfo;
+            SceneChanger.sceneToLoad = "GameScene";
+            SceneChanger.ChangeScene("LoadingScene");
+        }
     }
 }

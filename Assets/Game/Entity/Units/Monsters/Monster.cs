@@ -32,7 +32,7 @@ public class Monster : Unit
 
     public GameObject tutorialObject;
 
-    Player player;
+    protected Player player;
 
     void Awake()
     {        
@@ -237,7 +237,7 @@ public class Monster : Unit
         AddMissedApple();
     }
 
-    public void CollideWithPlayer()
+    public virtual void CollideWithPlayer()
     {
         if (!isDead)
         {
@@ -246,7 +246,7 @@ public class Monster : Unit
         }
     }
 
-    public void RemoveOffStage()
+    public virtual void RemoveOffStage()
     {
         if (player.transform.position.z - transform.position.z > 0)
         {

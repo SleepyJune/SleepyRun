@@ -1770,6 +1770,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 114857574025624986, guid: 70ab060e61d60054e88507b0f9b85909,
+        type: 2}
+      propertyPath: spawnFrequency
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 70ab060e61d60054e88507b0f9b85909, type: 2}
   m_IsPrefabParent: 0
@@ -9680,6 +9685,23 @@ Prefab:
     - target: {fileID: 114288133097671340, guid: d59bce207b85d0d4c961567bc9954c20,
         type: 2}
       propertyPath: monsterTutorialParent
+      value: 
+      objectReference: {fileID: 467723191}
+    - target: {fileID: 114288133097671340, guid: d59bce207b85d0d4c961567bc9954c20,
+        type: 2}
+      propertyPath: slideTutorial
+      value: 
+      objectReference: {fileID: 1062233911150514, guid: 45d35839a7606ca4480f7c9f9ca936d8,
+        type: 2}
+    - target: {fileID: 114288133097671340, guid: d59bce207b85d0d4c961567bc9954c20,
+        type: 2}
+      propertyPath: slashTutorial
+      value: 
+      objectReference: {fileID: 1731952512039442, guid: c8be619eff0a3cd469c0116ce20b85c8,
+        type: 2}
+    - target: {fileID: 114288133097671340, guid: d59bce207b85d0d4c961567bc9954c20,
+        type: 2}
+      propertyPath: overlayParent
       value: 
       objectReference: {fileID: 467723191}
     m_RemovedComponents: []

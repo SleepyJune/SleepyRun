@@ -124,10 +124,12 @@ public class StageEventManager : MonoBehaviour
 
                 killCountCanvasGroup.alpha = 1;
                 killCountImage.sprite = victoryCondition.monster.image;
-                killCountText.text = victoryCondition.killCount.ToString();
-            }
+                //killCountText.text = "x" + victoryCondition.count.ToString();
 
-            if(stageEvent is GameOverOnCountdown)
+                UpdateVictoryCondition(victoryCondition.monster, 0, victoryCondition.collectMonster);
+            }
+                        
+            if (stageEvent is GameOverOnCountdown)
             {
                 GameOverOnCountdown countdownEvent = (GameOverOnCountdown)stageEvent;
 
@@ -154,14 +156,17 @@ public class StageEventManager : MonoBehaviour
         GetVictoryCondition();
     }
 
-    public void UpdateVictoryCondition(Monster monster, int killCount)
+    public void UpdateVictoryCondition(Monster monster, int count, bool collect = false)
     {
         if (victoryCondition)
         {
-            if(monster.name == victoryCondition.monster.name)
+            if (victoryCondition.collectMonster == collect)
             {
-                int amountLeft = victoryCondition.killCount - killCount;
-                killCountText.text = amountLeft.ToString();
+                if (monster.name == victoryCondition.monster.name)
+                {                
+                    int amountLeft = victoryCondition.count - count;
+                    killCountText.text = "x" + amountLeft.ToString();
+                }
             }
         }
     }
@@ -205,7 +210,7 @@ public class StageEventManager : MonoBehaviour
     {
         var monsterTutorialString = "Tutorial_MonsterInfo_" + monster.name;
 
-        if (true)//!PlayerPrefs.HasKey(monsterTutorialString))
+        if (false)//!PlayerPrefs.HasKey(monsterTutorialString))
         {
             if (!tutorialController.ShowMonsterInfo(monster))
             {

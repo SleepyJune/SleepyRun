@@ -10,6 +10,12 @@ public class TutorialParentController : MonoBehaviour
     public GameObject tutorialObject;
 
     public Transform monsterTutorialParent;
+
+    public GameObject slideTutorial;
+    public GameObject slashTutorial;
+
+    public Transform overlayParent;
+
     TutorialController tutorialController;
 
     Animator anim;
@@ -74,5 +80,26 @@ public class TutorialParentController : MonoBehaviour
     {
         tutorialObject.SetActive(true);
         anim.SetTrigger("Fired");
+    }
+
+    public void ShowSlideTutorial(bool isSlidingRight)
+    {
+        var tutorial = Instantiate(slideTutorial, overlayParent);
+
+        tutorial.transform.Find("redbox").GetComponent<SlideTutorialController>().isSlidingRight = isSlidingRight;
+    }
+
+    public void ShowSlashTutorial(Monster monster)
+    {
+        var tutorial = Instantiate(slashTutorial, overlayParent);
+
+        Vector3 screenPos = Camera.main.WorldToScreenPoint(monster.transform.position);
+        
+        tutorial.transform.position = screenPos;
+
+        var modifiedPos = tutorial.transform.localPosition;
+        modifiedPos.y = 20f;
+
+        tutorial.transform.localPosition = modifiedPos;
     }
 }

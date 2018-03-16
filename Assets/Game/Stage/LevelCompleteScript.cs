@@ -12,8 +12,6 @@ public class LevelCompleteScript : MonoBehaviour
 
     public Text collectedText;
     public Text pointsText;
-    public Text killCountText;
-    public Text timeText;
     public Text earningText;
 
     public Animator appleEndingAC;
@@ -53,11 +51,9 @@ public class LevelCompleteScript : MonoBehaviour
 
         int hourlyRate = (int)Math.Round(stats.moneyEarned / Math.Ceiling(stats.time / 60));
 
-        killCountText.text = "$" + hourlyRate.ToString() + "/hr";
-
+        //killCountText.text = "$" + hourlyRate.ToString() + "/hr";
         //string minSec = string.Format("{0}:{1:00}", (int)stats.time / 60, (int)stats.time % 60);
-
-        timeText.text = stats.currentLevel.ToString();// minSec;
+        //timeText.text = stats.currentLevel.ToString();// minSec;
 
         earningText.text = "$" + stats.moneyEarned.ToString();
 

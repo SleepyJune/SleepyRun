@@ -16,14 +16,14 @@ public enum GameMode
     All,
     Tutorial,
     Easy,
-    Hard,
+    Normal,
 }
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance = null;
 
-    public GameMode gameMode = GameMode.Hard;
+    public GameMode gameMode = GameMode.Normal;
        
     [NonSerialized]
     public FloorManager floorManager;

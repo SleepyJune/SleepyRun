@@ -2478,6 +2478,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   versionText: {fileID: 1282963068}
+  stageDatabase: {fileID: 11400000, guid: 7ae76b093c1652141b02277e2295a583, type: 2}
 --- !u!1 &1817255414
 GameObject:
   m_ObjectHideFlags: 0
