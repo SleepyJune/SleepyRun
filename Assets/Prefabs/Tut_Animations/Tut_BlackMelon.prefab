@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 224218757774875766}
   - component: {fileID: 95809258217163690}
   - component: {fileID: 225131585796360882}
+  - component: {fileID: 114148764263052120}
   m_Layer: 0
   m_Name: Tut_BlackMelon
   m_TagString: Untagged
@@ -262,6 +263,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114148764263052120
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201935320337288}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f655c57ac653544abb9e2e8edec3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114216091983769398
 MonoBehaviour:
   m_ObjectHideFlags: 1

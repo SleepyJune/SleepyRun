@@ -72,6 +72,7 @@ GameObject:
   - component: {fileID: 224450396917097210}
   - component: {fileID: 95619798730679000}
   - component: {fileID: 225114762283150400}
+  - component: {fileID: 114566450889512592}
   m_Layer: 0
   m_Name: Tut_GoldenApple
   m_TagString: Untagged
@@ -298,14 +299,25 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300018, guid: 372afdabbe5962a44a048c336af38629, type: 3}
+  m_Sprite: {fileID: 21300008, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114566450889512592
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1209413985767166}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f655c57ac653544abb9e2e8edec3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114655935750470556
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -406,9 +418,9 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300046, guid: 372afdabbe5962a44a048c336af38629, type: 3}
+  m_Sprite: {fileID: 21300018, guid: 8ba4baeb6aa782e48aa3b77b2c1568ca, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -511,7 +523,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -51.83441, y: -109.16229}
-  m_SizeDelta: {x: 70, y: 70}
+  m_SizeDelta: {x: 65, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224157627463347640
 RectTransform:
@@ -646,7 +658,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 56.1, y: -113}
-  m_SizeDelta: {x: 80, y: 65}
+  m_SizeDelta: {x: 70, y: 65}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224605561946561980
 RectTransform:

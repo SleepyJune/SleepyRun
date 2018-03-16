@@ -141,8 +141,8 @@ GameObject:
   m_Component:
   - component: {fileID: 224044127423424712}
   - component: {fileID: 95100796078240070}
-  - component: {fileID: 114034811298680098}
   - component: {fileID: 225466120555060802}
+  - component: {fileID: 114703601032431840}
   m_Layer: 0
   m_Name: Tut_GreenApple
   m_TagString: Untagged
@@ -212,18 +212,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &114034811298680098
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1758480784043440}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5a92ec89de1aec4281ea738f0693ff1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  delay: 5
 --- !u!114 &114129453001098124
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -332,6 +320,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114703601032431840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1758480784043440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f655c57ac653544abb9e2e8edec3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114948092869724032
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -22,7 +22,7 @@ public class IntroSceneController : MonoBehaviour
 
     public void ToggleDebugMode()
     {
-        var currentMode = PlayerPrefs.GetInt("DebuggingMode", 0) == 1;
+        /*var currentMode = PlayerPrefs.GetInt("DebuggingMode", 0) == 1;
 
         if (currentMode)
         {
@@ -31,7 +31,7 @@ public class IntroSceneController : MonoBehaviour
         else
         {
             PlayerPrefs.SetInt("DebuggingMode", 1);
-        }        
+        } */       
     }
 
     public void AddGold()
@@ -40,7 +40,7 @@ public class IntroSceneController : MonoBehaviour
 
         if (currentMode)
         {
-            MoneyManager.instance.IncreaseGold(500);
+            //MoneyManager.instance.IncreaseGold(500);
         }
     }
 
@@ -50,13 +50,13 @@ public class IntroSceneController : MonoBehaviour
         //SceneChanger.ChangeScene("LoadingScene");
 
         string topLevelString = "TopLevelPassed";
-        var topPassedLevel = 0;// PlayerPrefs.GetInt(topLevelString, 0);
+        var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
         
         if (topPassedLevel >= 10)
         {
             LoadLevel(9);
         }
-        else if(topPassedLevel >= 3)
+        else if(topPassedLevel >= 2)
         {
             LoadLevel(4);
         }

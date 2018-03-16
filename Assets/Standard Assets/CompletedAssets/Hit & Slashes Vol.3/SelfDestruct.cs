@@ -7,6 +7,8 @@ public class SelfDestruct : MonoBehaviour {
     [FormerlySerializedAs("selfdestruct_in")]
     public float delay = 4; // Setting this to 0 means no selfdestruct.
 
+    bool resumeGame = false;
+
 	void Start () {
 		if ( delay != 0){ 
 			Destroy (gameObject, delay);

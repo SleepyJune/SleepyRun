@@ -157,6 +157,7 @@ GameObject:
   - component: {fileID: 224215784221809358}
   - component: {fileID: 95127744400059220}
   - component: {fileID: 225261946933048660}
+  - component: {fileID: 114290730982377372}
   m_Layer: 0
   m_Name: Tut_Durian
   m_TagString: Untagged
@@ -262,6 +263,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &114290730982377372
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1914080087195396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7f655c57ac653544abb9e2e8edec3132, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114403370055964940
 MonoBehaviour:
   m_ObjectHideFlags: 1

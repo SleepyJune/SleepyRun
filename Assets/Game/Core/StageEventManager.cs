@@ -210,7 +210,7 @@ public class StageEventManager : MonoBehaviour
     {
         var monsterTutorialString = "Tutorial_MonsterInfo_" + monster.name;
 
-        if (false)//!PlayerPrefs.HasKey(monsterTutorialString))
+        if (!PlayerPrefs.HasKey(monsterTutorialString))
         {
             if (!tutorialController.ShowMonsterInfo(monster))
             {
