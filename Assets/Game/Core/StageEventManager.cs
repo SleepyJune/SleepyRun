@@ -81,7 +81,7 @@ public class StageEventManager : MonoBehaviour
 
     void SkipLevelOverlay()
     {
-        if(currentStageCount == 1) 
+        /*if(currentStageCount == 1) 
         {            
             var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
 
@@ -91,7 +91,7 @@ public class StageEventManager : MonoBehaviour
             {
                 GameManager.instance.textOverlayManager.CreateSkipLevelOverlay();
             }
-        }
+        }*/
     }
     
     public void StartTutorial()

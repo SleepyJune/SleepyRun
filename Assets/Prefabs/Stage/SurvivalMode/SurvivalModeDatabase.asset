@@ -1007,6 +1007,21 @@ MonoBehaviour:
   maxOnScreen: 999
   spawnFrequency: 10
   gameModeSpecific: 0
+--- !u!114 &114082703772069780
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
+  m_Name: GameOverOnKillCountEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114387288338565438, guid: a05c253766eeb6648a98a9dfc5b93dd9, type: 2}
+  count: 5
+  collectMonster: 1
+  victory: 1
 --- !u!114 &114083245741169804
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4393,6 +4408,7 @@ MonoBehaviour:
   - {fileID: 114945109611013564}
   - {fileID: 114106986391768218}
   - {fileID: 114162947449216316}
+  - {fileID: 114805567073216736}
 --- !u!114 &114398656493177080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6253,6 +6269,7 @@ MonoBehaviour:
   - {fileID: 114545356330367606}
   - {fileID: 114739499100043336}
   - {fileID: 114546247592125348}
+  - {fileID: 114082703772069780}
 --- !u!114 &114577619799664818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8605,6 +8622,21 @@ MonoBehaviour:
   maxOnScreen: 999
   spawnFrequency: 10
   gameModeSpecific: 0
+--- !u!114 &114805567073216736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7735e36f738b38941b028d581385a2fc, type: 3}
+  m_Name: GameOverOnKillCountEvent
+  m_EditorClassIdentifier: 
+  monster: {fileID: 114962188243582678, guid: d7ed0b8cd053e9f41934658781f22ebe, type: 2}
+  count: 5
+  collectMonster: 0
+  victory: 1
 --- !u!114 &114808142983628514
 MonoBehaviour:
   m_ObjectHideFlags: 0
