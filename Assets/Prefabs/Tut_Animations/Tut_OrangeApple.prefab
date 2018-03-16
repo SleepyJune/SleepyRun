@@ -486,11 +486,11 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 224699434472666504}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.2, y: -105}
+  m_AnchoredPosition: {x: 61.60001, y: -112.38902}
   m_SizeDelta: {x: 107.6, y: 122.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224688231377976288
@@ -504,11 +504,11 @@ RectTransform:
   m_LocalScale: {x: 0.75, y: 0.75, z: 1}
   m_Children: []
   m_Father: {fileID: 224699434472666504}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.8, y: -110.4}
+  m_AnchoredPosition: {x: 62.20001, y: -117.789024}
   m_SizeDelta: {x: 55, y: 55}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224699434472666504
@@ -522,8 +522,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 224818923518852302}
-  - {fileID: 224357186742947958}
   - {fileID: 224688231377976288}
+  - {fileID: 224357186742947958}
   - {fileID: 224940684337903712}
   - {fileID: 224727560687312000}
   - {fileID: 224077182789891700}
@@ -606,7 +606,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 56.199997, y: -110.7}
+  m_AnchoredPosition: {x: 61.6, y: -118.08902}
   m_SizeDelta: {x: 90, y: 90}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!224 &224940684337903712
@@ -617,7 +617,7 @@ RectTransform:
   m_GameObject: {fileID: 1486984068985478}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.75, y: 0.75, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 224699434472666504}
   m_RootOrder: 3
@@ -625,7 +625,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.7, y: 38.5}
-  m_SizeDelta: {x: 367.3, y: 312.7}
+  m_SizeDelta: {x: 300, y: 254}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &225889197061987798
 CanvasGroup:
