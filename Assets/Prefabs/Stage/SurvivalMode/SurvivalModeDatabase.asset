@@ -1314,7 +1314,7 @@ MonoBehaviour:
   m_Name: Level 2 Victory
   m_EditorClassIdentifier: 
   monster: {fileID: 0}
-  countdown: 60
+  countdown: 999
   victoryOnCountdown: 1
   victory: 1
 --- !u!114 &114107600196462476
@@ -1647,6 +1647,21 @@ MonoBehaviour:
   maxOnScreen: 999
   spawnFrequency: 10
   gameModeSpecific: 0
+--- !u!114 &114134527993749296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ec58d7510b2a1745b54d5ade31d7b06, type: 3}
+  m_Name: GameOverOnCountdown
+  m_EditorClassIdentifier: 
+  monster: {fileID: 0}
+  countdown: 999
+  victoryOnCountdown: 1
+  victory: 1
 --- !u!114 &114137543574291850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6267,9 +6282,9 @@ MonoBehaviour:
   stageEvents:
   - {fileID: 114956696481808536}
   - {fileID: 114545356330367606}
-  - {fileID: 114739499100043336}
   - {fileID: 114546247592125348}
   - {fileID: 114082703772069780}
+  - {fileID: 114134527993749296}
 --- !u!114 &114577619799664818
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7925,21 +7940,6 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6ec58d7510b2a1745b54d5ade31d7b06, type: 3}
   m_Name: Level 58 Victory
-  m_EditorClassIdentifier: 
-  monster: {fileID: 0}
-  countdown: 60
-  victoryOnCountdown: 1
-  victory: 1
---- !u!114 &114739499100043336
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ec58d7510b2a1745b54d5ade31d7b06, type: 3}
-  m_Name: Level 1 Victory
   m_EditorClassIdentifier: 
   monster: {fileID: 0}
   countdown: 60

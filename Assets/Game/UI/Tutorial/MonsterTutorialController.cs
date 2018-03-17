@@ -6,9 +6,12 @@ using System.Text;
 using UnityEngine;
 
 public class MonsterTutorialController : MonoBehaviour
-{   
+{
+    public TutorialParentController tutorialParent;
+
     public void DestroyAndResumeGame()
     {
+        tutorialParent.tutorialLock = false;
         GameManager.instance.ResumeGame();
         Destroy(gameObject);
     }

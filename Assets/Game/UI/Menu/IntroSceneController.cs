@@ -52,7 +52,7 @@ public class IntroSceneController : MonoBehaviour
         string topLevelString = "TopLevelPassed";
         var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
         
-        if (topPassedLevel >= 10)
+        if (topPassedLevel >= 9)
         {
             LoadLevel(9);
         }

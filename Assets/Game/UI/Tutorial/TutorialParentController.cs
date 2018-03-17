@@ -58,6 +58,9 @@ public class TutorialParentController : MonoBehaviour
                 //tutorialController.ShowMonsterInfo(monster);
 
                 var newTutorial = Instantiate(monster.tutorialObject, monsterTutorialParent);
+
+                MonsterTutorialController monsterTutorial = newTutorial.GetComponent<MonsterTutorialController>();
+                monsterTutorial.tutorialParent = this;
                 //newTutorial.transform.SetParent(monsterTutorialParent, false);
 
                 return true;
