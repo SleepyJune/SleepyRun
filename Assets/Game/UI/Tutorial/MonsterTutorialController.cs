@@ -11,8 +11,12 @@ public class MonsterTutorialController : MonoBehaviour
 
     public void DestroyAndResumeGame()
     {
-        tutorialParent.tutorialLock = false;
-        GameManager.instance.ResumeGame();
+        if (tutorialParent)
+        {
+            tutorialParent.tutorialLock = false;
+            GameManager.instance.ResumeGame();
+        }
+
         Destroy(gameObject);
     }
 }

@@ -160,7 +160,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.dongistudio.appleconn
   buildNumber: {}
-  AndroidBundleVersionCode: 1
+  AndroidBundleVersionCode: 2
   AndroidMinSdkVersion: 21
   AndroidTargetSdkVersion: 21
   AndroidPreferredInstallLocation: 1
@@ -261,7 +261,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 9d3fd74071c195f4790cafc7a15dcab6, type: 3}
+      m_Icon: {fileID: 2800000, guid: cdf727b9578f7a74a8d1e4e0a7038bee, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
