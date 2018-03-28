@@ -51,14 +51,14 @@ public class IntroSceneController : MonoBehaviour
 
         string topLevelString = "TopLevelPassed";
         var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
-        
-        if (topPassedLevel >= 9)
+
+        if (topPassedLevel < 14)
         {
-            LoadLevel(9);
+            LoadLevel(topPassedLevel);
         }
-        else if(topPassedLevel >= 2)
+        else if (topPassedLevel >= 14)
         {
-            LoadLevel(4);
+            LoadLevel(14);
         }
         else
         {

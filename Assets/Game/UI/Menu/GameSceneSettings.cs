@@ -85,8 +85,43 @@ public class GameSceneSettings : MonoBehaviour
         SetResolution.AdjustResolution();
         GameManager.instance.ResumeGame();
 
-        SceneChanger.currentStageInfo = null;
-        SceneChanger.ChangeScene("GameScene");
+        string topLevelString = "TopLevelPassed";
+        var topPassedLevel = PlayerPrefs.GetInt(topLevelString, 0);
+
+        if (topPassedLevel < 14)
+        {
+            LoadLevel(topPassedLevel);
+        }
+        else if (topPassedLevel >= 14)
+        {
+            LoadLevel(14);
+        }
+        else
+        {
+            LoadLevel(0);
+        }
+
+        //SceneChanger.currentStageInfo = null;
+        //SceneChanger.ChangeScene("GameScene");
+    }
+
+    public void LoadLevel(int stageID)
+    {
+        var stageDatabase = GameManager.instance.stageEventManager.stageInfoDatabase;
+
+        if (stageDatabase == null || stageID >= stageDatabase.databaseArray.Length)
+        {
+            return;
+        }
+
+        StageInfo stageInfo = stageDatabase.databaseArray[stageID];
+
+        if (stageInfo != null)
+        {
+            SceneChanger.currentStageInfo = stageInfo;
+            SceneChanger.sceneToLoad = "GameScene";
+            SceneChanger.ChangeScene("LoadingScene");
+        }
     }
 
     public void ExitToLevelLoader()

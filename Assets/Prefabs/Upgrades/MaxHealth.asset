@@ -21,17 +21,17 @@ MonoBehaviour:
   costIncreamentExponential: 1.5
   maxLevel: 6
   stats:
-  - {fileID: 114055543164848484}
-  - {fileID: 114033998228758220}
-  - {fileID: 114715175564701238}
-  - {fileID: 114373660287841056}
-  - {fileID: 114078716069555806}
-  - {fileID: 114135237636906888}
+  - {fileID: 114663849694022070}
+  - {fileID: 114985541518357848}
+  - {fileID: 114820395849324780}
+  - {fileID: 114700535949312792}
+  - {fileID: 114839446115448492}
+  - {fileID: 114280984747104208}
   defaultMockLevel: 0
   targetObj: 2
   prefabTargetObj: {fileID: 0}
   targetString: maxHealth
---- !u!114 &114033998228758220
+--- !u!114 &114280984747104208
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -40,13 +40,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 1
+  m_Name: Level 5
   m_EditorClassIdentifier: 
-  level: 1
-  value: 3
-  cost: 200
-  description: Increases max health to 3.
---- !u!114 &114055543164848484
+  level: 5
+  value: 7
+  cost: 900
+  description: Increases max health to 7.
+--- !u!114 &114663849694022070
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -61,37 +61,7 @@ MonoBehaviour:
   value: 2
   cost: 0
   description: Increases max health to 2.
---- !u!114 &114078716069555806
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: 
-  level: 4
-  value: 6
-  cost: 1200
-  description: Increases max health to 6.
---- !u!114 &114135237636906888
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 5
-  m_EditorClassIdentifier: 
-  level: 5
-  value: 7
-  cost: 1800
-  description: Increases max health to 7.
---- !u!114 &114373660287841056
+--- !u!114 &114700535949312792
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -104,9 +74,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 3
   value: 5
-  cost: 760
+  cost: 380
   description: Increases max health to 5.
---- !u!114 &114715175564701238
+--- !u!114 &114820395849324780
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -119,5 +89,35 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 2
   value: 4
-  cost: 400
+  cost: 200
   description: Increases max health to 4.
+--- !u!114 &114839446115448492
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  level: 4
+  value: 6
+  cost: 620
+  description: Increases max health to 6.
+--- !u!114 &114985541518357848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  level: 1
+  value: 3
+  cost: 100
+  description: Increases max health to 3.

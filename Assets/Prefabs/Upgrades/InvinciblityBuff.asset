@@ -21,18 +21,18 @@ MonoBehaviour:
   costIncreamentExponential: 1.5
   maxLevel: 7
   stats:
-  - {fileID: 114297796706180502}
-  - {fileID: 114983912016708176}
-  - {fileID: 114586810021025710}
-  - {fileID: 114010105128019824}
-  - {fileID: 114850456162673214}
-  - {fileID: 114416772069574930}
-  - {fileID: 114735637696392690}
+  - {fileID: 114865202163337840}
+  - {fileID: 114700923028292822}
+  - {fileID: 114784036725589708}
+  - {fileID: 114016026132731544}
+  - {fileID: 114091997355698166}
+  - {fileID: 114254382816244228}
+  - {fileID: 114669135246205910}
   defaultMockLevel: 6
   targetObj: 0
   prefabTargetObj: {fileID: 11400000, guid: 5b3ca64af793ebe40922442bdaa3718e, type: 2}
   targetString: duration
---- !u!114 &114010105128019824
+--- !u!114 &114016026132731544
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -45,9 +45,84 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 3
   value: 5
-  cost: 190
+  cost: 90
   description: Increases invincibility buff duration to 5 seconds.
---- !u!114 &114297796706180502
+--- !u!114 &114091997355698166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 4
+  m_EditorClassIdentifier: 
+  level: 4
+  value: 6
+  cost: 150
+  description: Increases invincibility buff duration to 6 seconds.
+--- !u!114 &114254382816244228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 5
+  m_EditorClassIdentifier: 
+  level: 5
+  value: 7
+  cost: 220
+  description: Increases invincibility buff duration to 7 seconds.
+--- !u!114 &114669135246205910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 6
+  m_EditorClassIdentifier: 
+  level: 6
+  value: 8
+  cost: 300
+  description: Increases invincibility buff duration to 8 seconds.
+--- !u!114 &114700923028292822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 1
+  m_EditorClassIdentifier: 
+  level: 1
+  value: 3
+  cost: 25
+  description: Increases invincibility buff duration to 3 seconds.
+--- !u!114 &114784036725589708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  level: 2
+  value: 4
+  cost: 50
+  description: Increases invincibility buff duration to 4 seconds.
+--- !u!114 &114865202163337840
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -62,78 +137,3 @@ MonoBehaviour:
   value: 2
   cost: 0
   description: Increases invincibility buff duration to 2 seconds.
---- !u!114 &114416772069574930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 5
-  m_EditorClassIdentifier: 
-  level: 5
-  value: 7
-  cost: 450
-  description: Increases invincibility buff duration to 7 seconds.
---- !u!114 &114586810021025710
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 2
-  m_EditorClassIdentifier: 
-  level: 2
-  value: 4
-  cost: 100
-  description: Increases invincibility buff duration to 4 seconds.
---- !u!114 &114735637696392690
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 6
-  m_EditorClassIdentifier: 
-  level: 6
-  value: 8
-  cost: 600
-  description: Increases invincibility buff duration to 8 seconds.
---- !u!114 &114850456162673214
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 4
-  m_EditorClassIdentifier: 
-  level: 4
-  value: 6
-  cost: 310
-  description: Increases invincibility buff duration to 6 seconds.
---- !u!114 &114983912016708176
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 1
-  m_EditorClassIdentifier: 
-  level: 1
-  value: 3
-  cost: 50
-  description: Increases invincibility buff duration to 3 seconds.

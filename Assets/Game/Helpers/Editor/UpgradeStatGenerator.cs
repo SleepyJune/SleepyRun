@@ -15,6 +15,8 @@ public class UpgradeStatGenerator : Editor
     SerializedProperty databaseProperty;
     Upgrade database;
 
+    float itemCostReduction = .5f;
+
     private void OnEnable()
     {
         databaseProperty = serializedObject.FindProperty("stats");
@@ -76,13 +78,13 @@ public class UpgradeStatGenerator : Editor
         }
         else if(level == 1)
         {
-            info.cost = database.baseCost;
+            info.cost = Mathf.RoundToInt(database.baseCost * itemCostReduction);
         }
         else
         {
             info.cost = RoundDigits(Mathf.RoundToInt(
-                database.baseCost
-                    + Mathf.Pow(level - 1, database.costIncreamentExponential) * database.costIncreament));
+                database.baseCost * itemCostReduction
+                    + Mathf.Pow(level - 1, database.costIncreamentExponential) * database.costIncreament * itemCostReduction));
         }
 
 

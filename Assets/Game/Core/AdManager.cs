@@ -13,21 +13,23 @@ public class AdManager : MonoBehaviour
 
     private int promisedReward = 500;
 
-    public int rewardAdWatched = 0;  
-    
+    public int rewardAdWatched = 0;
+
+    public string adVideoId = "adVideo";
+
     public bool isAdReady()
     {
-        return Advertisement.IsReady("rewardedVideo");
+        return Advertisement.IsReady(adVideoId);
     }
 
     public bool ShowAdForReward(int reward)
     {
-        if (Advertisement.IsReady("rewardedVideo"))
+        if (Advertisement.IsReady(adVideoId))
         {
             promisedReward = reward;
 
             var options = new ShowOptions { resultCallback = RewardHandleShowResult };
-            Advertisement.Show("rewardedVideo", options);
+            Advertisement.Show(adVideoId, options);
 
             return true;
         }
@@ -47,10 +49,10 @@ public class AdManager : MonoBehaviour
 
     public bool ShowAdForRevive()
     {
-        if (Advertisement.IsReady("rewardedVideo"))
+        if (Advertisement.IsReady(adVideoId))
         {
             var options = new ShowOptions { resultCallback = ReviveHandleShowResult };
-            Advertisement.Show("rewardedVideo", options);
+            Advertisement.Show(adVideoId, options);
 
             return true;
         }
@@ -79,7 +81,7 @@ public class AdManager : MonoBehaviour
                 Debug.Log("The ad was skipped before reaching the end.");
 
                 SendAdEvent(0, 1, 0);
-                break;
+                return true;
             case ShowResult.Failed:
                 Debug.LogError("The ad failed to be shown.");
 

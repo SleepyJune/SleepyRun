@@ -21,14 +21,29 @@ MonoBehaviour:
   costIncreamentExponential: 3
   maxLevel: 3
   stats:
-  - {fileID: 114494737864461888}
-  - {fileID: 114447520980669172}
-  - {fileID: 114853907301324916}
+  - {fileID: 114449596467999664}
+  - {fileID: 114073264498095744}
+  - {fileID: 114013640758242760}
   defaultMockLevel: 1
   targetObj: 2
   prefabTargetObj: {fileID: 0}
   targetString: numSpellSlots
---- !u!114 &114447520980669172
+--- !u!114 &114013640758242760
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  level: 2
+  value: 5
+  cost: 500
+  description: Increases number of spell slots to 5.
+--- !u!114 &114073264498095744
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -41,9 +56,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   value: 4
-  cost: 500
+  cost: 250
   description: Increases number of spell slots to 4.
---- !u!114 &114494737864461888
+--- !u!114 &114449596467999664
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -58,18 +73,3 @@ MonoBehaviour:
   value: 3
   cost: 0
   description: Increases number of spell slots to 3.
---- !u!114 &114853907301324916
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 2
-  m_EditorClassIdentifier: 
-  level: 2
-  value: 5
-  cost: 1000
-  description: Increases number of spell slots to 5.

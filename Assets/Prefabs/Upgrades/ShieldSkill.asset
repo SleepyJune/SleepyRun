@@ -21,14 +21,14 @@ MonoBehaviour:
   costIncreamentExponential: 1
   maxLevel: 3
   stats:
-  - {fileID: 114209121739951120}
-  - {fileID: 114202947838644972}
-  - {fileID: 114203821257395480}
+  - {fileID: 114465971039228666}
+  - {fileID: 114070308779216110}
+  - {fileID: 114937913161880616}
   defaultMockLevel: 2
   targetObj: 0
   prefabTargetObj: {fileID: 11400000, guid: 2700ec5151338894a9cc82b87cb98f8f, type: 2}
   targetString: shieldAmount
---- !u!114 &114202947838644972
+--- !u!114 &114070308779216110
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -41,24 +41,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   value: 2
-  cost: 400
+  cost: 200
   description: Increases shield amount to 2.
---- !u!114 &114203821257395480
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
-  m_Name: Level 2
-  m_EditorClassIdentifier: 
-  level: 2
-  value: 3
-  cost: 800
-  description: Increases shield amount to 3.
---- !u!114 &114209121739951120
+--- !u!114 &114465971039228666
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -73,3 +58,18 @@ MonoBehaviour:
   value: 1
   cost: 0
   description: Increases shield amount to 1.
+--- !u!114 &114937913161880616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b0812a4c2f8bc648bd394d18b615321, type: 3}
+  m_Name: Level 2
+  m_EditorClassIdentifier: 
+  level: 2
+  value: 3
+  cost: 400
+  description: Increases shield amount to 3.
